@@ -1,9 +1,12 @@
 // Your DigitalOcean droplet IP
 const localURL = 'http://localhost:3000';
 const SERVER_URL = 'http://138.68.69.38:3000';
-const testMethod = 'both'; // scrape_brand_brief or scrape_html or extract_best_sellers or klaviyo_login or both
+const testMethod = 'klaviyo_cookies'; // scrape_brand_brief or scrape_html or extract_best_sellers or klaviyo_login or klaviyo_cookies or both
 const test = localURL;
 const includeBrandData = true; // Set to true to include brand data analysis, false to exclude it
+
+// API key for Klaviyo cookies endpoint
+const KLAVIYO_COOKIES_API_KEY = 'klaviyo-a7f9e2b8c4d6f1a3e9b7c5d2f8a4e6b9c1d7f3a5e8b2c6d9f4a1e7b3c8d5f2a9';
 
 // Test script for the scraper server
 const testUrl = 'https://siliconwives.com'; // Replace with any website you want to test
@@ -122,6 +125,57 @@ async function testScraper() {
           });
         } else {
           console.log('Error:', klaviyoData.error);
+        }
+    }
+
+    if (testMethod === 'klaviyo_cookies') {
+        // Test Klaviyo cookies retrieval
+        console.log('\nTesting Klaviyo cookies retrieval...');
+        const startTime = Date.now();
+        
+        const cookiesResponse = await fetch(`${test}/klaviyo-cookies`, {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${KLAVIYO_COOKIES_API_KEY}`
+          }
+        });
+
+        const cookiesData = await cookiesResponse.json();
+        const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+        
+        console.log(`Klaviyo cookies retrieval result: ${cookiesData.ok ? 'Success' : 'Failed'} (${elapsed}s)`);
+        
+        if (cookiesData.ok) {
+          console.log(`\n📊 Cookie File Info:`);
+          console.log(`   Last Updated: ${new Date(cookiesData.lastUpdated).toLocaleString()}`);
+          console.log(`   File Size: ${cookiesData.fileSize} bytes`);
+          
+          console.log(`\n🍪 Cookie Content:`);
+          console.log(JSON.stringify(cookiesData.cookies, null, 2));
+          
+          // Parse and display cookie summary
+          const domains = Object.keys(cookiesData.cookies);
+          console.log(`\n📋 Cookie Summary:`);
+          console.log(`   Total Domains: ${domains.length}`);
+          
+          domains.forEach(domain => {
+            const paths = Object.keys(cookiesData.cookies[domain]);
+            console.log(`   • ${domain}:`);
+            paths.forEach(path => {
+              const cookies = Object.keys(cookiesData.cookies[domain][path]);
+              console.log(`     Path "${path}": ${cookies.length} cookies`);
+              cookies.forEach(cookieName => {
+                const cookie = cookiesData.cookies[domain][path][cookieName];
+                const expires = cookie.expires ? new Date(cookie.expires).toLocaleString() : 'Session';
+                console.log(`       - ${cookieName}: expires ${expires}`);
+              });
+            });
+          });
+        } else {
+          console.log('❌ Error:', cookiesData.error);
+          if (cookiesResponse.status === 401) {
+            console.log('💡 Tip: Check if the API key is correct and properly set in the .env file');
+          }
         }
     }
 

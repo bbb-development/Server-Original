@@ -231,6 +231,30 @@ async function navigateWithRetry(page, url, maxRetries = 3) {
         });
         return;
       } else if (req.method === 'GET' && req.url === '/klaviyo-cookies') {
+        // Check API key authentication
+        const authHeader = req.headers.authorization;
+        const expectedKey = process.env.KLAVIYO_COOKIES_ACCESS_API_KEY;
+        console.log("Fetching Klaviyo cookies...");
+        
+        if (!expectedKey) {
+          res.writeHead(500, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ 
+            ok: false, 
+            error: 'API key not configured on server' 
+          }));
+          return;
+        }
+        
+        if (!authHeader || authHeader !== `Bearer ${expectedKey}`) {
+          res.writeHead(401, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ 
+            ok: false, 
+            error: 'Unauthorized - Invalid or missing API key' 
+          }));
+          console.log("Unauthorized - Invalid or missing API key");
+          return;
+        }
+        
         try {
           const cookiesFilePath = './Klaviyo Automated Login/kaloyan@bbb-marketing.com_cookies.json';
           
@@ -246,6 +270,7 @@ async function navigateWithRetry(page, url, maxRetries = 3) {
               lastUpdated: stats.mtime,
               fileSize: stats.size
             }));
+            console.log("Klaviyo cookies fetched successfully");
           } else {
             res.writeHead(404, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ 

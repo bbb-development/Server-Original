@@ -1,0 +1,185 @@
+// Your DigitalOcean droplet IP
+const localURL = 'http://localhost:3000';
+const SERVER_URL = 'http://138.68.69.38:3000';
+const testMethod = 'both'; // scrape_brand_brief or scrape_html or extract_best_sellers or klaviyo_login or both
+const test = localURL;
+const includeBrandData = true; // Set to true to include brand data analysis, false to exclude it
+
+// Test script for the scraper server
+const testUrl = 'https://siliconwives.com'; // Replace with any website you want to test
+
+async function testScraper() {
+  try {
+
+    if (testMethod === 'scrape_brand_brief') {
+        // Test brand brief scraping
+        console.log('\nTesting brand brief scraping...');
+        const briefResponse = await fetch(`${test}/scrape`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            method: 'scrape_brand_brief',
+            url: testUrl,
+            includeBrandData: includeBrandData
+        })
+        });
+
+        if (!briefResponse.ok) {
+            throw new Error(`HTTP error! status: ${briefResponse.status}\n Full error: ${briefResponse.statusText}`);
+        }
+        
+        const briefData = await briefResponse.json();
+        console.log('Brand brief scraping result:', briefData.ok ? 'Success' : 'Failed');
+        if (briefData.ok) {
+        console.log('Brand brief data:', JSON.stringify(briefData.data, null, 2));
+        } else {
+        console.log('Error:', briefData.error);
+        }
+    }
+
+    if (testMethod === 'scrape_html') {
+        // Test simple HTML scraping
+        console.log('\nTesting simple HTML scraping...');
+        const htmlResponse = await fetch(`${test}/scrape`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            method: 'scrape_html',
+            url: testUrl
+        })
+        });
+
+        const htmlData = await htmlResponse.json();
+        console.log('HTML scraping result:', htmlData.ok ? 'Success' : 'Failed');
+        if (htmlData.ok) {
+        // Log a snippet or length to confirm HTML was received
+        console.log('Received HTML length:', htmlData.html?.length);
+        } else {
+        console.log('Error:', htmlData.error);
+        }
+    }
+
+    if (testMethod === 'extract_best_sellers') {
+        // Test extractBestSellers method via /scrape endpoint
+        console.log('\nTesting extractBestSellers method via /scrape endpoint...');
+        const bestSellersResponse = await fetch(`${test}/scrape`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            method: 'extractBestSellers',
+            url: testUrl
+          })
+        });
+
+        const bestSellersData = await bestSellersResponse.json();
+        console.log('extractBestSellers result:', bestSellersData.ok ? 'Success' : 'Failed');
+        if (bestSellersData.ok) {
+          console.log('Best sellers data:', JSON.stringify(bestSellersData.data, null, 2));
+        } else {
+          console.log('Error:', bestSellersData.error);
+        }
+    }
+
+    if (testMethod === 'klaviyo_login') {
+        // Test Klaviyo login and cookie retrieval
+        console.log('\nTesting Klaviyo login and cookie retrieval...');
+        const startTime = Date.now();
+        
+        const klaviyoResponse = await fetch(`${test}/scrape`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            method: 'klaviyo_login',
+            url: 'https://www.klaviyo.com' // URL not really used for login but required by endpoint
+          })
+        });
+
+        const klaviyoData = await klaviyoResponse.json();
+        const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+        
+        console.log(`Klaviyo login result: ${klaviyoData.ok ? 'Success' : 'Failed'} (${elapsed}s)`);
+        if (klaviyoData.ok) {
+          console.log('Login message:', klaviyoData.data.message);
+          console.log('Number of cookies received:', klaviyoData.data.cookies.length);
+          console.log('\nKlaviyo cookies:');
+          klaviyoData.data.cookies.forEach((cookie, index) => {
+            console.log(`  ${index + 1}. ${cookie.name}: ${cookie.value.substring(0, 50)}${cookie.value.length > 50 ? '...' : ''}`);
+            console.log(`     Domain: ${cookie.domain}, Path: ${cookie.path}`);
+            console.log(`     Secure: ${cookie.secure}, HttpOnly: ${cookie.httpOnly}`);
+            if (cookie.expires) {
+              console.log(`     Expires: ${new Date(cookie.expires).toISOString()}`);
+            }
+            console.log('');
+          });
+        } else {
+          console.log('Error:', klaviyoData.error);
+        }
+    }
+
+    if (testMethod === 'both') {
+        // Start both fetches simultaneously
+        console.log('\nTesting scrape_brand_brief and extractBestSellers simultaneously...');
+        const briefPromise = fetch(`${test}/scrape`, {
+            method: 'POST',
+            mode: 'cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                method: 'scrape_brand_brief',
+                url: testUrl,
+                includeBrandData: includeBrandData
+            })
+        });
+        const bestSellersPromise = fetch(`${test}/scrape`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                method: 'extractBestSellers',
+                url: testUrl
+            })
+        });
+
+        // Print each result as soon as it's ready
+        let briefDone = false;
+        let bestSellersDone = false;
+
+        briefPromise.then(async (briefResponse) => {
+            const briefData = await briefResponse.json();
+            console.log('Brand brief scraping result:', briefData.ok ? 'Success' : 'Failed');
+            if (briefData.ok) {
+                console.log('Brand brief data:', JSON.stringify(briefData.data, null, 2));
+            } else {
+                console.log('Error:', briefData.error);
+            }
+            briefDone = true;
+            if (bestSellersDone) console.log('Both requests complete.');
+        });
+
+        bestSellersPromise.then(async (bestSellersResponse) => {
+            const bestSellersData = await bestSellersResponse.json();
+            console.log('extractBestSellers result:', bestSellersData.ok ? 'Success' : 'Failed');
+            if (bestSellersData.ok) {
+                console.log('Best sellers data:', JSON.stringify(bestSellersData.data, null, 2));
+            } else {
+                console.log('Error:', bestSellersData.error);
+            }
+            bestSellersDone = true;
+            if (briefDone) console.log('Both requests complete.');
+        });
+    }
+
+  } catch (error) {
+    console.error('Test failed:', error);
+  }
+}
+
+// Run the test
+testScraper(); 

@@ -1,0 +1,113 @@
+{
+  "timeout": 0,
+  "headers": {
+    "common": {
+      "Accept": "application/json, text/plain, */*"
+    },
+    "delete": {},
+    "get": {},
+    "head": {},
+    "post": {},
+    "put": {},
+    "patch": {},
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  },
+  "withCredentials": true,
+  "transformRequest": "function transformRequest(data, headers) {\n    const contentType = headers.getContentType() || '';\n    const hasJSONContentType = contentType.indexOf('application/json') > -1;\n    const isObjectPayload = utils.isObject(data);\n\n    if (isObjectPayload && utils.isHTMLForm(data)) {\n      data = new FormData(data);\n    }\n\n    const isFormData = utils.isFormData(data);\n\n    if (isFormData) {\n      return hasJSONContentType ? JSON.stringify(formDataToJSON(data)) : data;\n    }\n\n    if (utils.isArrayBuffer(data) ||\n      utils.isBuffer(data) ||\n      utils.isStream(data) ||\n      utils.isFile(data) ||\n      utils.isBlob(data) ||\n      utils.isReadableStream(data)\n    ) {\n      return data;\n    }\n    if (utils.isArrayBufferView(data)) {\n      return data.buffer;\n    }\n    if (utils.isURLSearchParams(data)) {\n      headers.setContentType('application/x-www-form-urlencoded;charset=utf-8', false);\n      return data.toString();\n    }\n\n    let isFileList;\n\n    if (isObjectPayload) {\n      if (contentType.indexOf('application/x-www-form-urlencoded') > -1) {\n        return toURLEncodedForm(data, this.formSerializer).toString();\n      }\n\n      if ((isFileList = utils.isFileList(data)) || contentType.indexOf('multipart/form-data') > -1) {\n        const _FormData = this.env && this.env.FormData;\n\n        return toFormData(\n          isFileList ? {'files[]': data} : data,\n          _FormData && new _FormData(),\n          this.formSerializer\n        );\n      }\n    }\n\n    if (isObjectPayload || hasJSONContentType ) {\n      headers.setContentType('application/json', false);\n      return stringifySafely(data);\n    }\n\n    return data;\n  }",
+  "transformResponse": "function transformResponse(data) {\n    const transitional = this.transitional || defaults.transitional;\n    const forcedJSONParsing = transitional && transitional.forcedJSONParsing;\n    const JSONRequested = this.responseType === 'json';\n\n    if (utils.isResponse(data) || utils.isReadableStream(data)) {\n      return data;\n    }\n\n    if (data && utils.isString(data) && ((forcedJSONParsing && !this.responseType) || JSONRequested)) {\n      const silentJSONParsing = transitional && transitional.silentJSONParsing;\n      const strictJSONParsing = !silentJSONParsing && JSONRequested;\n\n      try {\n        return JSON.parse(data);\n      } catch (e) {\n        if (strictJSONParsing) {\n          if (e.name === 'SyntaxError') {\n            throw AxiosError.from(e, AxiosError.ERR_BAD_RESPONSE, this, null, this.response);\n          }\n          throw e;\n        }\n      }\n    }\n\n    return data;\n  }",
+  "validateStatus": "function validateStatus(status) {\n    return status >= 200 && status < 300;\n  }",
+  "cookies": [
+    {
+      "key": "kl_csrftoken",
+      "value": "mZGPUVJl4ixbT2teTi5gE08N30F0VQZI",
+      "domain": "klaviyo.com",
+      "path": "/",
+      "expires": "2026-05-27T08:46:34.000Z",
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "none",
+      "hostOnly": false,
+      "creation": "2025-05-26T19:16:27.161Z",
+      "lastAccessed": "2025-05-28T08:46:35.507Z"
+    },
+    {
+      "key": "kl_test_cookie",
+      "value": "test",
+      "domain": "klaviyo.com",
+      "path": "/",
+      "expires": "2025-06-02T19:16:27.000Z",
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "none",
+      "hostOnly": false,
+      "creation": "2025-05-26T19:16:27.167Z",
+      "lastAccessed": "2025-05-28T08:46:35.507Z"
+    },
+    {
+      "key": "kl_sessionid",
+      "value": "u2z8njwrrclo6uwhg4y2t5nfrr02n0no",
+      "domain": "klaviyo.com",
+      "path": "/",
+      "expires": "2025-06-04T08:46:33.000Z",
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "none",
+      "hostOnly": false,
+      "creation": "2025-05-26T19:17:44.323Z",
+      "lastAccessed": "2025-05-28T08:46:35.507Z"
+    },
+    {
+      "key": "klaviyo_user_device_trusted_cookie",
+      "value": "\"PReH1wh+jpEAfdqR31tkSajBvWOGFWS0JzeBtALJmSj2MNppjqDtBLMzDWlYwpl8+fJiIRGcR5hgwaFUaTvH7hsGTX8MOqh06jLf6pX2C9IjXc5Ke1cNm9zwK4uYTc5m71bZIo8vfeiyNJ4/4fIdhrZMe2KriuTZLAZRkVr0ckGYE3Ekyv0FW1p9\"",
+      "domain": "www.klaviyo.com",
+      "path": "/",
+      "expires": "2125-05-02T15:17:44.000Z",
+      "httpOnly": true,
+      "secure": true,
+      "hostOnly": true,
+      "creation": "2025-05-26T19:17:44.944Z",
+      "lastAccessed": "2025-05-28T08:46:35.507Z"
+    },
+    {
+      "key": "kl_csrftoken",
+      "value": "mZGPUVJl4ixbT2teTi5gE08N30F0VQZI",
+      "domain": "klaviyo.com",
+      "path": "/",
+      "expires": "2026-05-27T08:46:34.000Z",
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "none",
+      "hostOnly": false,
+      "creation": "2025-05-26T19:16:27.161Z",
+      "lastAccessed": "2025-05-28T08:46:35.507Z"
+    },
+    {
+      "key": "kl_test_cookie",
+      "value": "test",
+      "domain": "klaviyo.com",
+      "path": "/",
+      "expires": "2025-06-02T19:16:27.000Z",
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "none",
+      "hostOnly": false,
+      "creation": "2025-05-26T19:16:27.167Z",
+      "lastAccessed": "2025-05-28T08:46:35.507Z"
+    },
+    {
+      "key": "kl_sessionid",
+      "value": "u2z8njwrrclo6uwhg4y2t5nfrr02n0no",
+      "domain": "klaviyo.com",
+      "path": "/",
+      "expires": "2025-06-04T08:46:33.000Z",
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "none",
+      "hostOnly": false,
+      "creation": "2025-05-26T19:17:44.323Z",
+      "lastAccessed": "2025-05-28T08:46:35.507Z"
+    }
+  ],
+  "savedAt": "2025-05-28T08:46:35.506Z",
+  "version": "1.0.0"
+}

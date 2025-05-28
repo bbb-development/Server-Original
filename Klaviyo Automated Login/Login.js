@@ -7,6 +7,7 @@ import FormData from 'form-data';
 import { authenticator } from 'otplib';
 import TwoCaptcha from '@2captcha/captcha-solver';
 import crypto from 'crypto';
+import { saveAxiosInstance } from './axiosInstanceSaver.js';
 
 //------------------------------------
 // Environment Variables & Constants
@@ -303,10 +304,13 @@ async function executeKlaviyoLogin(retryCount = 0) {
     const endTime = Date.now();
     const duration = (endTime - startTime) / 1000;
     console.log(`\x1b[32mTask Completed in ${duration.toFixed(2)} seconds 🥳\x1b[0m`);
-    console.log(`${getFormattedTimestamp()} Klaviyo login completed successfully!`);
+    console.log(`${getFormattedTimestamp()} Klaviyo Instance Was Refreshed!`);
     await delay(500);
-    return true;
 
+    // Save the complete Axios instance
+    await saveAxiosInstance(axiosInstance, cookieJar);
+
+    return true;
   } catch (error) {
     console.error(`${getFormattedTimestamp()} Klaviyo login failed:`, error.message);
     const endTime = Date.now();
@@ -343,12 +347,12 @@ function startRecurringExecution() {
   
   // Schedule recurring execution
   setInterval(() => {
-    console.log(`\n--- Scheduled execution (every ${INTERVAL_HOURS} hours) ---`);
+    console.log(`\n--- Scheduled refresh (every ${INTERVAL_HOURS} hours) ---`);
     executeKlaviyoLogin();
   }, INTERVAL_MS);
   
   const nextExecution = new Date(Date.now() + INTERVAL_MS);
-  console.log(`\x1b[33mNext execution scheduled for ${nextExecution.toLocaleString()}\x1b[0m`);
+  console.log(`\x1b[33mNext refresh scheduled for ${nextExecution.toLocaleString()}\x1b[0m`);
 }
 
 // Start the recurring execution

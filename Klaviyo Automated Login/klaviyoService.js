@@ -1,345 +1,170 @@
-import { testSavedInstance } from './axiosInstanceSaver.js';
+import express from 'express';
 import fs from 'fs';
+import axios from 'axios';
+import { wrapper } from 'axios-cookiejar-support';
+import { CookieJar } from 'tough-cookie';
+import FileCookieStore from 'tough-cookie-file-store';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { loadAxiosInstance } from './axiosInstanceSaver.js';
 
 // ES Module equivalent of __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-//------------------------------------
-// Configuration
-//------------------------------------
-const HEALTH_CHECK_INTERVAL = 10 * 60 * 1000; // 10 minutes
-const SAVED_INSTANCE_FILE = 'saved_axios_instance.json';
-const SAVED_INSTANCE_PATH = path.join(__dirname, SAVED_INSTANCE_FILE);
+// Config
+const SAVED_INSTANCE_PATH = path.join(__dirname, 'saved_axios_instance.json');
+const PORT = 3002;
+const WATCH_INTERVAL = 60 * 1000; // 1 min
 
-//------------------------------------
-// Klaviyo Service with Saved Instance
-//------------------------------------
-class KlaviyoService {
-  constructor() {
-    this.axiosInstance = null;
-    this.cookieJar = null;
-    this.isRunning = false;
-    this.healthCheckInterval = null;
-    this.lastHealthCheck = null;
-    this.status = 'STOPPED';
-    this.startTime = null;
-    this.fileWatcher = null;
-    this.lastFileModified = null;
-  }
+let axiosInstance = null;
+let cookieJar = null;
+let lastLoaded = null;
+let lastFileModified = null;
 
-  log(message, type = 'INFO') {
-    const timestamp = new Date().toLocaleString('en-US');
-    const colors = {
-      INFO: '\x1b[36m',
-      SUCCESS: '\x1b[32m',
-      ERROR: '\x1b[31m',
-      WARN: '\x1b[33m',
-      RESET: '\x1b[0m'
+// Utility to log
+function log(message, type = 'INFO') {
+  const timestamp = new Date().toLocaleString('en-US');
+  const colors = {
+    INFO: '\x1b[36m',
+    SUCCESS: '\x1b[32m',
+    ERROR: '\x1b[31m',
+    WARN: '\x1b[33m',
+    RESET: '\x1b[0m'
+  };
+  console.log(`${colors[type]}[${timestamp}] ${message}${colors.RESET}`);
+}
+
+// Load axios instance from file
+async function loadAxiosInstance() {
+  try {
+    log('📂 Loading axios instance...');
+    const instanceState = JSON.parse(fs.readFileSync(SAVED_INSTANCE_PATH, 'utf8'));
+
+    const tempCookieFile = `./temp_cookies_${Date.now()}.json`;
+    const store = new FileCookieStore(tempCookieFile);
+    const jar = new CookieJar(store);
+
+    const cookiePromises = instanceState.cookies.map(cookieData =>
+      jar.setCookie(
+        `${cookieData.key}=${cookieData.value}; Domain=${cookieData.domain}; Path=${cookieData.path}; ${cookieData.secure ? 'Secure;' : ''} ${cookieData.httpOnly ? 'HttpOnly;' : ''}`,
+        `https://${cookieData.domain.replace(/^\./, '')}`
+      ).catch(err => log(`⚠️ Failed to set cookie ${cookieData.key}: ${err.message}`, 'WARN'))
+    );
+    await Promise.all(cookiePromises);
+
+    const headers = {
+      'User-Agent': instanceState.headers?.common?.['User-Agent'] || 'Mozilla/5.0',
+      ...instanceState.headers?.common
     };
-    console.log(`${colors[type]}[${timestamp}] ${message}${colors.RESET}`);
-  }
 
-  async reloadInstance() {
-    try {
-      this.log('🔄 Reloading axios instance from updated file...', 'INFO');
-      
-      const loaded = await loadAxiosInstance(SAVED_INSTANCE_PATH);
-      
-      if (loaded) {
-        this.axiosInstance = loaded.axiosInstance;
-        this.cookieJar = loaded.cookieJar;
-        
-        // Test the reloaded instance
-        try {
-          const response = await this.axiosInstance.get('https://www.klaviyo.com/ajax/authorization');
-          
-          if (response.status === 200 && response.data && typeof response.data === 'object' && response.data.success === true) {
-            this.log(`✅ Instance reloaded successfully - Authenticated as: ${response.data.data.email}`, 'SUCCESS');
-            return true;
-          } else {
-            this.log('❌ Reloaded instance is invalid - authentication failed', 'ERROR');
-            return false;
-          }
-        } catch (authError) {
-          this.log(`❌ Reloaded instance authentication test failed: ${authError.message}`, 'ERROR');
-          return false;
-        }
-      } else {
-        this.log('❌ Failed to reload instance - file may be invalid', 'ERROR');
-        return false;
-      }
-    } catch (error) {
-      this.log(`❌ Error reloading instance: ${error.message}`, 'ERROR');
-      return false;
-    }
-  }
+    const instance = wrapper(axios.create({
+      jar,
+      timeout: instanceState.timeout || 0,
+      headers,
+      withCredentials: true,
+      maxRedirects: 5
+    }));
 
-  async initialize() {
-    try {
-      this.log('🚀 Initializing Klaviyo Service with saved instance...');
-      
-      // Load the saved instance directly
-      const loaded = await loadAxiosInstance(SAVED_INSTANCE_PATH);
-      
-      if (loaded) {
-        this.axiosInstance = loaded.axiosInstance;
-        this.cookieJar = loaded.cookieJar;
-        this.log(`✅ Loaded saved instance from ${loaded.savedAt}`);
-        
-        // Test the loaded instance by trying to authenticate
-        try {
-          const response = await this.axiosInstance.get('https://www.klaviyo.com/ajax/authorization');
-          
-          if (response.status === 200 && response.data && typeof response.data === 'object' && response.data.success === true) {
-            this.log(`✅ Instance is valid - Authenticated as: ${response.data.data.email}`, 'SUCCESS');
-            
-            // Set up file watching for automatic reloads
-            this.setupFileWatcher();
-            
-            return true;
-          } else {
-            this.log('❌ Saved instance is invalid - authentication failed', 'ERROR');
-            this.log('📊 Auth response:', JSON.stringify(response.data, null, 2));
-            return false;
-          }
-        } catch (authError) {
-          this.log(`❌ Authentication test failed: ${authError.message}`, 'ERROR');
-          return false;
-        }
-        
-      } else {
-        this.log('❌ Failed to load saved instance. Please run Login.js first.');
-        return false;
-      }
-      
-    } catch (error) {
-      this.log(`❌ Initialization failed: ${error.message}`, 'ERROR');
-      return false;
-    }
-  }
+    // Replace old instance and jar atomically
+    axiosInstance = instance;
+    cookieJar = jar;
+    lastLoaded = new Date().toISOString();
+    log('✅ Axios instance loaded successfully!', 'SUCCESS');
 
-  setupFileWatcher() {
-    try {
-      // Get initial file stats
-      if (fs.existsSync(SAVED_INSTANCE_PATH)) {
-        const stats = fs.statSync(SAVED_INSTANCE_PATH);
-        this.lastFileModified = stats.mtime.getTime();
-      }
-      
-      // Watch for file changes
-      this.fileWatcher = fs.watchFile(SAVED_INSTANCE_PATH, { interval: 50000 }, async (curr, prev) => {
-        if (curr.mtime.getTime() !== this.lastFileModified) {
-          this.log('📄 Detected saved instance file change - reloading...', 'INFO');
-          this.lastFileModified = curr.mtime.getTime();
-          
-          // Small delay to ensure file write is complete
-          setTimeout(async () => {
-            await this.reloadInstance();
-          }, 2000);
-        }
-      });
-      
-      this.log('👁️ File watcher started - will auto-reload on changes', 'INFO');
-    } catch (error) {
-      this.log(`⚠️ Failed to setup file watcher: ${error.message}`, 'WARN');
-    }
-  }
-
-  async performHealthCheck() {
-    try {
-      this.log('🔍 Performing health check...');
-      
-      if (!this.axiosInstance) {
-        throw new Error('No axios instance available');
-      }
-
-      const response = await this.axiosInstance.get('https://www.klaviyo.com/ajax/authorization');
-      
-      if (response.status === 200 && response.data && typeof response.data === 'object' && response.data.success === true) {
-        this.lastHealthCheck = new Date();
-        this.status = 'HEALTHY';
-        this.log(`✅ Health check passed - Authenticated as: ${response.data.data.email}`, 'SUCCESS');
-        return true;
-      } else {
-        throw new Error('Got invalid response from auth endpoint');
-      }
-      
-    } catch (error) {
-      this.status = 'UNHEALTHY';
-      this.log(`❌ Health check failed: ${error.message}`, 'ERROR');
-      this.log('💡 You may need to run Login.js to get a fresh instance', 'WARN');
-      return false;
-    }
-  }
-
-  async start() {
-    if (this.isRunning) {
-      this.log('⚠️ Service is already running', 'WARN');
-      return false;
-    }
-
-    // Initialize first
-    const initSuccess = await this.initialize();
-    if (!initSuccess) {
-      return false;
-    }
-
-    this.isRunning = true;
-    this.status = 'RUNNING';
-    this.startTime = new Date();
-
-    // Start health check interval
-    this.healthCheckInterval = setInterval(async () => {
-      if (this.isRunning) {
-        await this.performHealthCheck();
-      }
-    }, HEALTH_CHECK_INTERVAL);
-
-    // Perform initial health check
-    await this.performHealthCheck();
-
-    this.log(`✅ Klaviyo Service started! Health checks every ${HEALTH_CHECK_INTERVAL / 60000} minutes`, 'SUCCESS');
-    return true;
-  }
-
-  stop() {
-    if (!this.isRunning) {
-      this.log('⚠️ Service is not running', 'WARN');
-      return false;
-    }
-
-    this.isRunning = false;
-    this.status = 'STOPPED';
-    
-    if (this.healthCheckInterval) {
-      clearInterval(this.healthCheckInterval);
-      this.healthCheckInterval = null;
-    }
-    
-    // Clean up file watcher
-    if (this.fileWatcher) {
-      fs.unwatchFile(SAVED_INSTANCE_PATH);
-      this.fileWatcher = null;
-      this.log('👁️ File watcher stopped', 'INFO');
-    }
-
-    this.log('✅ Klaviyo Service stopped', 'SUCCESS');
-    return true;
-  }
-
-  getStatus() {
-    const uptime = this.startTime ? Date.now() - this.startTime.getTime() : 0;
-    const uptimeFormatted = this.formatUptime(uptime);
-    
-    return {
-      status: this.status,
-      isRunning: this.isRunning,
-      uptime: uptimeFormatted,
-      lastHealthCheck: this.lastHealthCheck,
-      startTime: this.startTime
-    };
-  }
-
-  formatUptime(ms) {
-    const seconds = Math.floor(ms / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-
-    if (days > 0) return `${days}d ${hours % 24}h ${minutes % 60}m`;
-    if (hours > 0) return `${hours}h ${minutes % 60}m`;
-    if (minutes > 0) return `${minutes}m ${seconds % 60}s`;
-    return `${seconds}s`;
-  }
-
-  // Get the authenticated client for making requests
-  getClient() {
-    if (!this.isRunning || this.status !== 'HEALTHY') {
-      throw new Error(`Service not ready. Status: ${this.status}`);
-    }
-    return this.axiosInstance;
-  }
-
-  // Convenience methods for making requests
-  async get(url, config = {}) {
-    const client = this.getClient();
-    return client.get(url, config);
-  }
-
-  async post(url, data, config = {}) {
-    const client = this.getClient();
-    return client.post(url, data, config);
-  }
-
-  async put(url, data, config = {}) {
-    const client = this.getClient();
-    return client.put(url, data, config);
-  }
-
-  async delete(url, config = {}) {
-    const client = this.getClient();
-    return client.delete(url, config);
+    // Cleanup temp cookie file
+    setTimeout(() => fs.unlink(tempCookieFile, () => {}), 1000);
+  } catch (error) {
+    log(`❌ Error loading axios instance: ${error.message}`, 'ERROR');
   }
 }
 
-//------------------------------------
-// Create service and start it
-//------------------------------------
-const service = new KlaviyoService();
+// Setup file watcher to auto-reload instance
+function watchInstanceFile() {
+  try {
+    if (fs.existsSync(SAVED_INSTANCE_PATH)) {
+      const stats = fs.statSync(SAVED_INSTANCE_PATH);
+      lastFileModified = stats.mtime.getTime();
+    }
 
-// Promise to track initialization
-let initPromise = null;
+    fs.watchFile(SAVED_INSTANCE_PATH, { interval: WATCH_INTERVAL }, async (curr, prev) => {
+      if (curr.mtime.getTime() !== lastFileModified) {
+        log('📄 Detected file change - reloading instance...', 'INFO');
+        lastFileModified = curr.mtime.getTime();
+        await loadAxiosInstance();
+      }
+    });
 
-// Lazy initialization - start service when first accessed
-async function ensureStarted() {
-  if (!initPromise) {
-    initPromise = service.start();
+    log('👁️ File watcher started', 'INFO');
+  } catch (error) {
+    log(`⚠️ Failed to set up file watcher: ${error.message}`, 'WARN');
   }
-  return await initPromise;
 }
 
-// Graceful shutdown
-process.on('SIGINT', () => {
-  console.log('\n🛑 Shutting down...');
-  service.stop();
-  process.exit(0);
+// Express app setup
+const app = express();
+app.use(express.json());
+
+// Status endpoint
+app.get('/status', (req, res) => {
+  res.json({
+    status: axiosInstance ? 'READY' : 'NOT_LOADED',
+    lastLoaded,
+    lastFileModified: new Date(lastFileModified).toISOString()
+  });
 });
 
-// Wrap service methods to ensure initialization
-const serviceProxy = new Proxy(service, {
-  get(target, prop) {
-    // For async methods that need the service to be started
-    if (['get', 'post', 'put', 'delete', 'getClient', 'performHealthCheck'].includes(prop)) {
-      return async function(...args) {
-        await ensureStarted();
-        return target[prop](...args);
-      };
+// Health check (test current session)
+app.get('/health', async (req, res) => {
+  if (!axiosInstance) return res.status(500).json({ error: 'Axios instance not loaded' });
+  try {
+    const response = await axiosInstance.get('https://www.klaviyo.com/ajax/authorization');
+    if (response.data?.success) {
+      res.json({ success: true, email: response.data.data.email });
+    } else {
+      res.status(401).json({ success: false, message: 'Session invalid' });
     }
-    
-    // For getStatus, return info even if not started
-    if (prop === 'getStatus') {
-      return function() {
-        if (!target.isRunning && !initPromise) {
-          return {
-            status: 'NOT_STARTED',
-            isRunning: false,
-            uptime: '0s',
-            lastHealthCheck: null,
-            startTime: null
-          };
-        }
-        return target[prop]();
-      };
-    }
-    
-    // For other properties/methods, return as-is
-    return target[prop];
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
   }
 });
 
-// Export the proxied service
-export default serviceProxy; 
+// Proxy GET request
+app.get('/get', async (req, res) => {
+  if (!axiosInstance) return res.status(500).json({ error: 'Axios instance not loaded' });
+  const { url, ...query } = req.query;
+  if (!url) return res.status(400).json({ error: 'Missing url parameter' });
+  try {
+    const response = await axiosInstance.get(url, { params: query });
+    res.json(response.data);
+  } catch (err) {
+    res.status(err.response?.status || 500).json({ error: err.message, data: err.response?.data });
+  }
+});
+
+// Proxy POST request
+app.post('/post', async (req, res) => {
+  if (!axiosInstance) return res.status(500).json({ error: 'Axios instance not loaded' });
+  const { url, data } = req.body;
+  if (!url) return res.status(400).json({ error: 'Missing url in body' });
+  try {
+    const response = await axiosInstance.post(url, data);
+    res.json(response.data);
+  } catch (err) {
+    res.status(err.response?.status || 500).json({ error: err.message, data: err.response?.data });
+  }
+});
+
+// Force reload instance
+app.post('/reload', async (req, res) => {
+  await loadAxiosInstance();
+  res.json({ message: 'Instance reloaded', lastLoaded });
+});
+
+// Start the service
+(async () => {
+  await loadAxiosInstance();
+  watchInstanceFile();
+  app.listen(PORT, () => {
+    log(`🚀 Klaviyo Service running at http://localhost:${PORT}`, 'SUCCESS');
+  });
+})();

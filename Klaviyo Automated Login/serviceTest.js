@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3002'; // Change if needed
+const BASE_URL = 'http://localhost:3001'; // Change if needed
 
 async function checkStatus() {
   try {
@@ -49,7 +49,7 @@ async function manualReload() {
 
 // Example Usage
 (async () => {
-  //await checkStatus();
+  await checkStatus();
   //await checkHealth();
   //
   //// Example GET request

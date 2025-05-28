@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 
 // Config
 const SAVED_INSTANCE_PATH = path.join(__dirname, 'saved_axios_instance.json');
-const PORT = 3002;
+const PORT = 3001;
 const WATCH_INTERVAL = 60 * 1000; // 1 min
 
 let axiosInstance = null;
@@ -88,6 +88,7 @@ function watchInstanceFile() {
 
     fs.watchFile(SAVED_INSTANCE_PATH, { interval: WATCH_INTERVAL }, async (curr, prev) => {
       if (curr.mtime.getTime() !== lastFileModified) {
+        await new Promise(resolve => setTimeout(resolve, 50000)); // Wait 50 seconds
         log('📄 Detected file change - reloading instance...', 'INFO');
         lastFileModified = curr.mtime.getTime();
         await loadAxiosInstance();

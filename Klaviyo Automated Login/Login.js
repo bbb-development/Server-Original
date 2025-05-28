@@ -7,7 +7,13 @@ import FormData from 'form-data';
 import { authenticator } from 'otplib';
 import TwoCaptcha from '@2captcha/captcha-solver';
 import crypto from 'crypto';
-import { saveAxiosInstance } from './axiosInstanceSaver.js';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+
+// ES module equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //------------------------------------
 // Environment Variables & Constants
@@ -267,6 +273,76 @@ async function verifyLogin() {
   } catch (error) {
     console.error('Error verifying login:', error);
     throw error;
+  }
+}
+
+async function saveAxiosInstance(axiosInstance, cookieJar, filePath = null) {
+  try {
+    // Default to saved_axios_instance.json in the same directory as this file
+    if (!filePath) {
+      filePath = path.join(__dirname, 'saved_axios_instance.json');
+    }
+    
+    //console.log('💾 Saving complete axios instance state...');
+    
+    // Extract all axios configuration
+    const instanceState = {
+      // Basic axios config
+      baseURL: axiosInstance.defaults.baseURL,
+      timeout: axiosInstance.defaults.timeout,
+      headers: axiosInstance.defaults.headers,
+      withCredentials: axiosInstance.defaults.withCredentials,
+      
+      // Request/response transformers
+      transformRequest: axiosInstance.defaults.transformRequest?.toString(),
+      transformResponse: axiosInstance.defaults.transformResponse?.toString(),
+      
+      // Other axios defaults
+      maxRedirects: axiosInstance.defaults.maxRedirects,
+      validateStatus: axiosInstance.defaults.validateStatus?.toString(),
+      
+      // Cookies from the jar
+      cookies: [],
+      
+      // Save timestamp
+      savedAt: new Date().toISOString(),
+      
+      // Version info
+      version: '1.0.0'
+    };
+    
+    // Extract cookies from all domains
+    const domains = ['https://www.klaviyo.com', 'https://klaviyo.com'];
+    for (const domain of domains) {
+      const cookies = await cookieJar.getCookies(domain);
+      for (const cookie of cookies) {
+        instanceState.cookies.push({
+          key: cookie.key,
+          value: cookie.value,
+          domain: cookie.domain,
+          path: cookie.path,
+          expires: cookie.expires,
+          httpOnly: cookie.httpOnly,
+          secure: cookie.secure,
+          sameSite: cookie.sameSite,
+          hostOnly: cookie.hostOnly,
+          creation: cookie.creation,
+          lastAccessed: cookie.lastAccessed
+        });
+      }
+    }
+    
+    // Save to file
+    fs.writeFileSync(filePath, JSON.stringify(instanceState, null, 2));
+    
+    console.log(`✅ Axios instance saved to: ${filePath}`);
+    //console.log(`📊 Saved ${instanceState.cookies.length} cookies`);
+    //console.log(`📊 Saved headers:`, Object.keys(instanceState.headers).length);
+    
+    return true;
+  } catch (error) {
+    console.error('❌ Error saving axios instance:', error.message);
+    return false;
   }
 }
 

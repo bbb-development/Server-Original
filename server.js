@@ -3,6 +3,8 @@ import { chromium } from 'playwright';
 import 'dotenv/config';
 import { readFile } from 'fs/promises';
 import fs from 'fs';
+import service from './Klaviyo Automated Login/klaviyoService.js';
+
 const templates = JSON.parse(
   await readFile(new URL('./Templates/Functions/Templates.json', import.meta.url))
 );
@@ -19,6 +21,9 @@ import {
 } from './Brand Brief Functions/scraper_index.js';
 
 console.log('🚀 Initializing server scraper...');
+
+// Klaviyo service will auto-start when first used (lazy initialization)
+console.log('📋 Klaviyo service configured for lazy initialization');
 
 // Proxy setup
 const proxyConfig = {
@@ -286,6 +291,113 @@ async function navigateWithRetry(page, url, maxRetries = 3) {
             error: 'Failed to read cookies file: ' + error.message 
           }));
         }
+      } else if (req.method === 'GET' && req.url === '/klaviyo-service/status') {
+        // Get Klaviyo service status
+        try {
+          const status = service.getStatus();
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ 
+            ok: true, 
+            service: status 
+          }));
+          console.log("Klaviyo service status fetched");
+        } catch (error) {
+          res.writeHead(500, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ 
+            ok: false, 
+            error: 'Failed to get service status: ' + error.message 
+          }));
+        }
+      } else if (req.method === 'GET' && req.url === '/klaviyo-service/instance-info') {
+        // Get basic instance info (without sensitive data)
+        try {
+          const client = service.getClient();
+          const instanceInfo = {
+            baseURL: client.defaults.baseURL,
+            timeout: client.defaults.timeout,
+            withCredentials: client.defaults.withCredentials,
+            maxRedirects: client.defaults.maxRedirects,
+            // Only include safe headers (no cookies or auth tokens)
+            headers: {
+              'User-Agent': client.defaults.headers['User-Agent'],
+              'accept': client.defaults.headers['accept'],
+              'accept-language': client.defaults.headers['accept-language']
+            }
+          };
+          
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ 
+            ok: true, 
+            instanceInfo: instanceInfo,
+            status: 'authenticated'
+          }));
+          console.log("Klaviyo instance info fetched");
+        } catch (error) {
+          res.writeHead(500, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ 
+            ok: false, 
+            error: 'Failed to get instance info: ' + error.message 
+          }));
+        }
+      } else if (req.method === 'POST' && req.url === '/klaviyo-service/request') {
+        // Proxy requests through the Klaviyo service
+        let body = '';
+        req.on('data', chunk => body += chunk);
+        req.on('end', async () => {
+          try {
+            const { method, url, data, headers = {} } = JSON.parse(body);
+            
+            if (!method || !url) {
+              res.writeHead(400, { 'Content-Type': 'application/json' });
+              res.end(JSON.stringify({ 
+                ok: false, 
+                error: 'Missing method or url in request body' 
+              }));
+              return;
+            }
+            
+            console.log(`🌐 Proxying Klaviyo request: ${method.toUpperCase()} ${url}`);
+            
+            let response;
+            const requestConfig = { headers };
+            
+            switch (method.toLowerCase()) {
+              case 'get':
+                response = await service.get(url, requestConfig);
+                break;
+              case 'post':
+                response = await service.post(url, data, requestConfig);
+                break;
+              case 'put':
+                response = await service.put(url, data, requestConfig);
+                break;
+              case 'delete':
+                response = await service.delete(url, requestConfig);
+                break;
+              default:
+                throw new Error(`Unsupported HTTP method: ${method}`);
+            }
+            
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({
+              ok: true,
+              status: response.status,
+              statusText: response.statusText,
+              headers: response.headers,
+              data: response.data
+            }));
+            
+            console.log(`✅ Klaviyo request completed: ${response.status}`);
+            
+          } catch (error) {
+            console.error('❌ Klaviyo request failed:', error.message);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ 
+              ok: false, 
+              error: 'Request failed: ' + error.message 
+            }));
+          }
+        });
       } else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('Not Found');
@@ -295,7 +407,26 @@ async function navigateWithRetry(page, url, maxRetries = 3) {
     const PORT = process.env.PORT || 3000;
     server.listen(PORT, '0.0.0.0', () => {
       console.log(`🚀 Bare Node.js server running on http://0.0.0.0:${PORT}`);
+      console.log('📋 Available services:');
+      console.log('  - Web scraping endpoints');
+      console.log('  - Template generation');
+      console.log('  - Klaviyo service (if authenticated)');
+      console.log('');
+      console.log('💡 Press Ctrl+C to stop all services');
     });
+
+    // Graceful shutdown
+    process.on('SIGINT', () => {
+      console.log('\n🛑 Shutting down services...');
+      try {
+        service.stop();
+        console.log('✅ Klaviyo service stopped');
+      } catch (error) {
+        console.log('⚠️ Error stopping Klaviyo service:', error.message);
+      }
+      process.exit(0);
+    });
+
   } catch (error) {
     console.error('❌ Fatal server error:', error);
     process.exit(1);

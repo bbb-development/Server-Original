@@ -1,11 +1,19 @@
 import { testSavedInstance } from './axiosInstanceSaver.js';
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { loadAxiosInstance } from './axiosInstanceSaver.js';
+
+// ES Module equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //------------------------------------
 // Configuration
 //------------------------------------
 const HEALTH_CHECK_INTERVAL = 10 * 60 * 1000; // 10 minutes
 const SAVED_INSTANCE_FILE = 'saved_axios_instance.json';
+const SAVED_INSTANCE_PATH = path.join(__dirname, SAVED_INSTANCE_FILE);
 
 //------------------------------------
 // Klaviyo Service with Saved Instance
@@ -39,13 +47,27 @@ class KlaviyoService {
     try {
       this.log('🔄 Reloading axios instance from updated file...', 'INFO');
       
-      const testResult = await testSavedInstance();
+      const loaded = await loadAxiosInstance(SAVED_INSTANCE_PATH);
       
-      if (testResult && testResult.valid) {
-        this.axiosInstance = testResult.axiosInstance;
-        this.cookieJar = testResult.cookieJar;
-        this.log(`✅ Instance reloaded successfully - Authenticated as: ${testResult.email}`, 'SUCCESS');
-        return true;
+      if (loaded) {
+        this.axiosInstance = loaded.axiosInstance;
+        this.cookieJar = loaded.cookieJar;
+        
+        // Test the reloaded instance
+        try {
+          const response = await this.axiosInstance.get('https://www.klaviyo.com/ajax/authorization');
+          
+          if (response.status === 200 && response.data && typeof response.data === 'object' && response.data.success === true) {
+            this.log(`✅ Instance reloaded successfully - Authenticated as: ${response.data.data.email}`, 'SUCCESS');
+            return true;
+          } else {
+            this.log('❌ Reloaded instance is invalid - authentication failed', 'ERROR');
+            return false;
+          }
+        } catch (authError) {
+          this.log(`❌ Reloaded instance authentication test failed: ${authError.message}`, 'ERROR');
+          return false;
+        }
       } else {
         this.log('❌ Failed to reload instance - file may be invalid', 'ERROR');
         return false;
@@ -60,20 +82,37 @@ class KlaviyoService {
     try {
       this.log('🚀 Initializing Klaviyo Service with saved instance...');
       
-      // Test if saved instance exists and is valid
-      const testResult = await testSavedInstance();
+      // Load the saved instance directly
+      const loaded = await loadAxiosInstance(SAVED_INSTANCE_PATH);
       
-      if (testResult && testResult.valid) {
-        this.axiosInstance = testResult.axiosInstance;
-        this.cookieJar = testResult.cookieJar;
-        //this.log(`✅ Loaded valid saved instance - Authenticated as: ${testResult.email}`);
+      if (loaded) {
+        this.axiosInstance = loaded.axiosInstance;
+        this.cookieJar = loaded.cookieJar;
+        this.log(`✅ Loaded saved instance from ${loaded.savedAt}`);
         
-        // Set up file watching for automatic reloads
-        this.setupFileWatcher();
+        // Test the loaded instance by trying to authenticate
+        try {
+          const response = await this.axiosInstance.get('https://www.klaviyo.com/ajax/authorization');
+          
+          if (response.status === 200 && response.data && typeof response.data === 'object' && response.data.success === true) {
+            this.log(`✅ Instance is valid - Authenticated as: ${response.data.data.email}`, 'SUCCESS');
+            
+            // Set up file watching for automatic reloads
+            this.setupFileWatcher();
+            
+            return true;
+          } else {
+            this.log('❌ Saved instance is invalid - authentication failed', 'ERROR');
+            this.log('📊 Auth response:', JSON.stringify(response.data, null, 2));
+            return false;
+          }
+        } catch (authError) {
+          this.log(`❌ Authentication test failed: ${authError.message}`, 'ERROR');
+          return false;
+        }
         
-        return true;
       } else {
-        this.log('❌ No valid saved instance found. Please run Login.js first.');
+        this.log('❌ Failed to load saved instance. Please run Login.js first.');
         return false;
       }
       
@@ -85,16 +124,14 @@ class KlaviyoService {
 
   setupFileWatcher() {
     try {
-      const absolutePath = `${process.cwd()}/${SAVED_INSTANCE_FILE}`;
-      
       // Get initial file stats
-      if (fs.existsSync(absolutePath)) {
-        const stats = fs.statSync(absolutePath);
+      if (fs.existsSync(SAVED_INSTANCE_PATH)) {
+        const stats = fs.statSync(SAVED_INSTANCE_PATH);
         this.lastFileModified = stats.mtime.getTime();
       }
       
       // Watch for file changes
-      this.fileWatcher = fs.watchFile(absolutePath, { interval: 50000 }, async (curr, prev) => {
+      this.fileWatcher = fs.watchFile(SAVED_INSTANCE_PATH, { interval: 50000 }, async (curr, prev) => {
         if (curr.mtime.getTime() !== this.lastFileModified) {
           this.log('📄 Detected saved instance file change - reloading...', 'INFO');
           this.lastFileModified = curr.mtime.getTime();
@@ -185,7 +222,7 @@ class KlaviyoService {
     
     // Clean up file watcher
     if (this.fileWatcher) {
-      fs.unwatchFile(`${process.cwd()}/${SAVED_INSTANCE_FILE}`);
+      fs.unwatchFile(SAVED_INSTANCE_PATH);
       this.fileWatcher = null;
       this.log('👁️ File watcher stopped', 'INFO');
     }
@@ -254,20 +291,15 @@ class KlaviyoService {
 //------------------------------------
 const service = new KlaviyoService();
 
-async function startService() {
-  console.log('🚀 Starting Klaviyo Service with Saved Instance...\n');
-  
-  const success = await service.start();
-  
-  if (success) {
-    console.log('\n📋 Service is running:');
-    console.log('  - Health checks every 10 minutes');
-    console.log('  - Press Ctrl+C to stop');
-    console.log('  - Import this module to use the client\n');
-  } else {
-    console.error('❌ Failed to start service');
-    process.exit(1);
+// Promise to track initialization
+let initPromise = null;
+
+// Lazy initialization - start service when first accessed
+async function ensureStarted() {
+  if (!initPromise) {
+    initPromise = service.start();
   }
+  return await initPromise;
 }
 
 // Graceful shutdown
@@ -277,8 +309,37 @@ process.on('SIGINT', () => {
   process.exit(0);
 });
 
-// Start the service
-startService();
+// Wrap service methods to ensure initialization
+const serviceProxy = new Proxy(service, {
+  get(target, prop) {
+    // For async methods that need the service to be started
+    if (['get', 'post', 'put', 'delete', 'getClient', 'performHealthCheck'].includes(prop)) {
+      return async function(...args) {
+        await ensureStarted();
+        return target[prop](...args);
+      };
+    }
+    
+    // For getStatus, return info even if not started
+    if (prop === 'getStatus') {
+      return function() {
+        if (!target.isRunning && !initPromise) {
+          return {
+            status: 'NOT_STARTED',
+            isRunning: false,
+            uptime: '0s',
+            lastHealthCheck: null,
+            startTime: null
+          };
+        }
+        return target[prop]();
+      };
+    }
+    
+    // For other properties/methods, return as-is
+    return target[prop];
+  }
+});
 
-// Export for use in other scripts
-export default service; 
+// Export the proxied service
+export default serviceProxy; 

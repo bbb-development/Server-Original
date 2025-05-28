@@ -3,6 +3,12 @@ import axios from 'axios';
 import { CookieJar } from 'tough-cookie';
 import { wrapper } from 'axios-cookiejar-support';
 import FileCookieStore from 'tough-cookie-file-store';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// ES Module equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //------------------------------------
 // Axios Instance Saver/Loader
@@ -11,8 +17,13 @@ import FileCookieStore from 'tough-cookie-file-store';
 /**
  * Save complete axios instance state to file
  */
-export async function saveAxiosInstance(axiosInstance, cookieJar, filePath = 'saved_axios_instance.json') {
+export async function saveAxiosInstance(axiosInstance, cookieJar, filePath = null) {
   try {
+    // Default to saved_axios_instance.json in the same directory as this file
+    if (!filePath) {
+      filePath = path.join(__dirname, 'saved_axios_instance.json');
+    }
+    
     //console.log('💾 Saving complete axios instance state...');
     
     // Extract all axios configuration
@@ -79,11 +90,14 @@ export async function saveAxiosInstance(axiosInstance, cookieJar, filePath = 'sa
 /**
  * Load complete axios instance from saved state
  */
-export async function loadAxiosInstance(filePath = 'saved_axios_instance.json') {
+export async function loadAxiosInstance(filePath = null) {
   try {
     console.log('📂 Loading axios instance from saved state...');
-    const absolutePath = `${process.cwd()}/${filePath}`;
-    filePath = absolutePath;
+    
+    // Default to saved_axios_instance.json in the same directory as this file
+    if (!filePath) {
+      filePath = path.join(__dirname, 'saved_axios_instance.json');
+    }
     
     console.log('✅ Found file at:', filePath);
     
@@ -168,21 +182,28 @@ export async function loadAxiosInstance(filePath = 'saved_axios_instance.json') 
 /**
  * Test if saved axios instance is still valid
  */
-export async function testSavedInstance(filePath = 'saved_axios_instance.json') {
+export async function testSavedInstance(filePath = null) {
   try {
+    // Default to saved_axios_instance.json in the same directory as this file
+    if (!filePath) {
+      filePath = path.join(__dirname, 'saved_axios_instance.json');
+    }
+    
     const loaded = await loadAxiosInstance(filePath);
     if (!loaded) {
       return false;
     }
     
-    console.log('🔍 Testing saved axios instance...');
+    console.log('🔍 Testing saved axios instance at filePath: ', filePath);
     
     // Test with Klaviyo auth endpoint
     const response = await loaded.axiosInstance.get('https://www.klaviyo.com/ajax/authorization');
     
+    console.log('📊 Auth response status:', response.status);
+    console.log('📊 Auth response data:', JSON.stringify(response.data, null, 2));
+    
     if (response.status === 200 && response.data && typeof response.data === 'object' && response.data.success === true) {
-      //console.log('✅ Saved instance is valid! Authenticated as:', response.data.data.email);
-      console.log(JSON.stringify(response.data, null, 2));
+      console.log('✅ Saved instance is valid! Authenticated as:', response.data.data.email);
       return {
         valid: true,
         email: response.data.data.email,
@@ -191,11 +212,14 @@ export async function testSavedInstance(filePath = 'saved_axios_instance.json') 
       };
     } else {
       console.log('❌ Saved instance is invalid');
+      console.log('❌ Expected: response.data.success === true');
+      console.log('❌ Actually got success:', response.data?.success);
       return { valid: false };
     }
     
   } catch (error) {
     console.log('❌ Error testing saved instance:', error.message);
+    console.log('❌ Error details:', error.response?.status, error.response?.data);
     return { valid: false };
   }
 } 

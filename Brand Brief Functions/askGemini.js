@@ -206,11 +206,19 @@ export const productListSchema = {
 // Schema for best sellers URL
 export const bestSellersSchema = {
   type: Type.OBJECT,
-  required: ["bestSellersUrl"],
+  required: ["bestSellersUrl", "contactUrl", "faqUrl"],
   properties: {
     bestSellersUrl: {
       type: Type.STRING,
       description: "The URL to the best sellers collection"
+    },
+    contactUrl: {
+      type: Type.STRING,
+      description: "The URL to the contact us page"
+    },
+    faqUrl: {
+      type: Type.STRING,
+      description: "The URL to the FAQ or help/support page"
     }
   }
 };

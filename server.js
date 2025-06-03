@@ -170,6 +170,12 @@ async function navigateWithRetry(page, url, maxRetries = 3) {
                         url: bestSellersResult.bestSellersUrl || null,
                         products: bestSellersResult.bestSellers?.products || []
                       },
+                      contact: {
+                        url: bestSellersResult.contactUrl || null
+                      },
+                      faq: {
+                        url: bestSellersResult.faqUrl || null
+                      },
                       internal: bestSellersResult.internalLinks || null
                     }
                   }
@@ -230,11 +236,11 @@ async function navigateWithRetry(page, url, maxRetries = 3) {
           }
         });
         return;
-      } else if (req.method === 'GET' && req.url === '/klaviyo-cookies') {
+      } else if (req.method === 'GET' && (req.url === '/klaviyo-cookies' || req.url === '/klaviyo-instance')) {
         // Check API key authentication
         const authHeader = req.headers.authorization;
         const expectedKey = process.env.KLAVIYO_COOKIES_ACCESS_API_KEY;
-        console.log("Fetching Klaviyo cookies...");
+        console.log(`Fetching Klaviyo ${req.url === '/klaviyo-cookies' ? 'cookies' : 'axios instance'}...`);
         
         if (!expectedKey) {
           res.writeHead(500, { 'Content-Type': 'application/json' });
@@ -257,33 +263,53 @@ async function navigateWithRetry(page, url, maxRetries = 3) {
         
         try {
           const cookiesFilePath = './Klaviyo Automated Login/kaloyan@bbb-marketing.com_cookies.json';
+          const instanceFilePath = './Klaviyo Automated Login/saved_axios_instance.json';
           
-          if (fs.existsSync(cookiesFilePath)) {
-            const cookieData = fs.readFileSync(cookiesFilePath, 'utf-8');
-            const cookies = JSON.parse(cookieData);
-            const stats = fs.statSync(cookiesFilePath);
+          let filePath, fileType;
+          if (req.url === '/klaviyo-cookies') {
+            filePath = cookiesFilePath;
+            fileType = 'cookies';
+          } else if (req.url === '/klaviyo-instance') {
+            filePath = instanceFilePath;
+            fileType = 'axios instance';
+          }
+          
+          if (fs.existsSync(filePath)) {
+            const fileData = fs.readFileSync(filePath, 'utf-8');
+            const parsedData = JSON.parse(fileData);
+            const stats = fs.statSync(filePath);
             
             res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ 
-              ok: true, 
-              cookies: cookies,
-              lastUpdated: stats.mtime,
-              fileSize: stats.size
-            }));
-            console.log("Klaviyo cookies fetched successfully");
+            
+            if (req.url === '/klaviyo-cookies') {
+              res.end(JSON.stringify({ 
+                ok: true, 
+                cookies: parsedData,
+                lastUpdated: stats.mtime,
+                fileSize: stats.size
+              }));
+            } else {
+              res.end(JSON.stringify({ 
+                ok: true, 
+                instance: parsedData,
+                lastUpdated: stats.mtime,
+                fileSize: stats.size
+              }));
+            }
+            console.log(`Klaviyo ${fileType} fetched successfully`);
           } else {
             res.writeHead(404, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ 
               ok: false, 
-              error: 'Klaviyo cookies file not found',
-              expectedPath: cookiesFilePath
+              error: `Klaviyo ${fileType} file not found`,
+              expectedPath: filePath
             }));
           }
         } catch (error) {
           res.writeHead(500, { 'Content-Type': 'application/json' });
           res.end(JSON.stringify({ 
             ok: false, 
-            error: 'Failed to read cookies file: ' + error.message 
+            error: `Failed to read ${req.url === '/klaviyo-cookies' ? 'cookies' : 'axios instance'} file: ` + error.message 
           }));
         }
       } else {

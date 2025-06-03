@@ -10,7 +10,6 @@ async function scrapePageContent(page, url) {
 
     // Block fonts AND CSS on the same page
     await page.route('**/*.{woff,woff2,css}', route => route.abort());
-
     // Navigate the SAME page to the best sellers URL
     await page.goto(url.bestSellersUrl, {
       waitUntil: 'domcontentloaded',
@@ -117,12 +116,16 @@ export async function extractBestSellers(page) {
 
         // Create a prompt for GPT to analyze the links and find best sellers collection
         const linkAnalysisPrompt = `
-        Analyze these internal links from the website and identify the URL that most likely contains the best sellers or most popular products collection.
-        Return ONLY the URL, nothing else. If you can't find a clear best sellers link, return the most likely URL based on common naming patterns.
+        Analyze these internal links from the website and identify the URLs that most likely contain:
+        1. The best sellers or most popular products collection
+        2. The contact us page
+        3. The FAQ or help/support page (or closest equivalent)
 
-        Return the FULL URL in a JSON format:
+        Return the FULL URLs in a JSON format:
         {
-            "bestSellersUrl": "FULL URL"
+            "bestSellersUrl": "FULL URL",
+            "contactUrl": "FULL URL",
+            "faqUrl": "FULL URL"
         }
 
         Links:
@@ -142,6 +145,8 @@ export async function extractBestSellers(page) {
             console.log('⚠️ No best sellers URL found, returning default structure');
             return {
               bestSellersUrl: null,
+              contactUrl: parsedUrlData.contactUrl || null,
+              faqUrl: parsedUrlData.faqUrl || null,
               bestSellers: { products: [] },
               internalLinks: internalLinks
             };
@@ -152,6 +157,8 @@ export async function extractBestSellers(page) {
           console.error('Error parsing best sellers URL:', error);
           return {
               bestSellersUrl: null,
+              contactUrl: null,
+              faqUrl: null,
               bestSellers: { products: [] },
               internalLinks: internalLinks
             };
@@ -161,7 +168,6 @@ export async function extractBestSellers(page) {
         const bestSellerPageHtml = await scrapePageContent(page, parsedUrlData);
 
         // Create a prompt for GPT to analyze the best sellers page content
-        // *** Reverted Prompt: No longer mentions blocked images ***
         const scrapingPrompt = `
         Analyze the following content from the best sellers page and create a list of the top 9 best-selling products.
         For each product, include:
@@ -218,6 +224,8 @@ export async function extractBestSellers(page) {
 
           return {
             bestSellersUrl: parsedUrlData.bestSellersUrl,
+            contactUrl: parsedUrlData.contactUrl || null,
+            faqUrl: parsedUrlData.faqUrl || null,
             bestSellers: { products: validatedProducts },
             internalLinks: internalLinks
           };
@@ -225,6 +233,8 @@ export async function extractBestSellers(page) {
           console.error('Error parsing best sellers list:', error);
           return {
             bestSellersUrl: parsedUrlData.bestSellersUrl,
+            contactUrl: parsedUrlData.contactUrl || null,
+            faqUrl: parsedUrlData.faqUrl || null,
             bestSellers: { products: [] },
             internalLinks: internalLinks
           };
@@ -234,6 +244,8 @@ export async function extractBestSellers(page) {
         console.error('Error extracting best sellers:', error);
         return {
             bestSellersUrl: null,
+            contactUrl: null,
+            faqUrl: null,
             bestSellers: { products: [] },
             internalLinks: []
           };

@@ -1,6 +1,7 @@
 import * as cheerio from 'cheerio';
 import { askGemini, brandBriefSchema, brandBenefitsWithIconsSchema, deliverabilitySnippetSchema } from './askGemini.js';
 import { getAlbumImagesData } from '../Templates/Functions/imgBB Integration.js';
+import { getEmailImages } from './emailImages.js';
 
 async function htmlToMarkdown(html) {
   const $ = cheerio.load(html);
@@ -301,7 +302,7 @@ export async function getBrandData(page, shouldAnalyze = true, iconsAlbumId = "g
     
     // Make both API calls concurrently
     console.log('Making concurrent requests to Gemini...');
-    const [brandAnalysisPromise, brandBenefitsPromise, deliverabilitySnippetPromise] = await Promise.allSettled([
+    const [brandAnalysisPromise, brandBenefitsPromise, deliverabilitySnippetPromise, emailImagesPromise] = await Promise.allSettled([
       // First promise: Get general brand analysis
       (async () => {
         const prompt = await createBrandAnalysisPrompt(markdownContent);
@@ -315,7 +316,10 @@ export async function getBrandData(page, shouldAnalyze = true, iconsAlbumId = "g
       (async () => {
         const prompt = await createDeliverabilitySnippetPrompt(markdownContent);
         return await askGemini(prompt, null, deliverabilitySnippetSchema);
-      })()
+      })(),
+      
+      // Fourth promise: Email images
+      getEmailImages()
     ]);
     
     // Process brand analysis response
@@ -332,7 +336,12 @@ export async function getBrandData(page, shouldAnalyze = true, iconsAlbumId = "g
         paragraph3: "Not available due to error"
       },
       brandBenefits: [],
-      deliverabilitySnippet: "Not available due to error"
+      deliverabilitySnippet: "Not available due to error",
+      emailImages: {},
+      assistant: {
+        assistant_img: "",
+        assistant_name: "Not available due to error"
+      }
     };
     
     // Process main brand analysis
@@ -375,6 +384,22 @@ export async function getBrandData(page, shouldAnalyze = true, iconsAlbumId = "g
       console.error('Deliverability snippet generation failed:', deliverabilitySnippetPromise.reason);
     }
     
+    // Process email images response
+    if (emailImagesPromise.status === 'fulfilled') {
+      parsedBrandData.emailImages = emailImagesPromise.value.emailImages;
+      parsedBrandData.assistant = emailImagesPromise.value.assistant;
+      const imageCount = Object.keys(emailImagesPromise.value.emailImages).length;
+      console.log(`Successfully fetched images for ${imageCount} email templates`);
+      console.log(`Successfully set assistant: ${emailImagesPromise.value.assistant.assistant_name}`);
+    } else {
+      console.error('Email images fetch failed:', emailImagesPromise.reason);
+      parsedBrandData.emailImages = {};
+      parsedBrandData.assistant = {
+        assistant_img: "",
+        assistant_name: "Error occurred"
+      };
+    }
+    
     // Return the combined results
     return {
       ...parsedBrandData,
@@ -396,7 +421,7 @@ export async function getBrandData(page, shouldAnalyze = true, iconsAlbumId = "g
         const markdownContent = await htmlToMarkdown(html);
         
         // Make both API calls concurrently for the retry as well
-        const [brandAnalysisPromise, brandBenefitsPromise, deliverabilitySnippetPromise] = await Promise.allSettled([
+        const [brandAnalysisPromise, brandBenefitsPromise, deliverabilitySnippetPromise, emailImagesPromise] = await Promise.allSettled([
           // First promise: Get general brand analysis
           (async () => {
             const prompt = await createBrandAnalysisPrompt(markdownContent);
@@ -410,7 +435,10 @@ export async function getBrandData(page, shouldAnalyze = true, iconsAlbumId = "g
           (async () => {
             const prompt = await createDeliverabilitySnippetPrompt(markdownContent);
             return await askGemini(prompt, null, deliverabilitySnippetSchema);
-          })()
+          })(),
+          
+          // Fourth promise: Email images
+          getEmailImages()
         ]);
         
         // Process brand analysis response
@@ -427,7 +455,12 @@ export async function getBrandData(page, shouldAnalyze = true, iconsAlbumId = "g
             paragraph3: "Not available due to access restrictions"
           },
           brandBenefits: [],
-          deliverabilitySnippet: "Not available due to access restrictions"
+          deliverabilitySnippet: "Not available due to access restrictions",
+          emailImages: {},
+          assistant: {
+            assistant_img: "",
+            assistant_name: "Not available due to access restrictions"
+          }
         };
         
         // Process main brand analysis
@@ -470,6 +503,22 @@ export async function getBrandData(page, shouldAnalyze = true, iconsAlbumId = "g
           console.error('Deliverability snippet generation failed:', deliverabilitySnippetPromise.reason);
         }
         
+        // Process email images response
+        if (emailImagesPromise.status === 'fulfilled') {
+          parsedBrandData.emailImages = emailImagesPromise.value.emailImages;
+          parsedBrandData.assistant = emailImagesPromise.value.assistant;
+          const imageCount = Object.keys(emailImagesPromise.value.emailImages).length;
+          console.log(`Successfully fetched images for ${imageCount} email templates`);
+          console.log(`Successfully set assistant: ${emailImagesPromise.value.assistant.assistant_name}`);
+        } else {
+          console.error('Email images fetch failed:', emailImagesPromise.reason);
+          parsedBrandData.emailImages = {};
+          parsedBrandData.assistant = {
+            assistant_img: "",
+            assistant_name: "Error occurred"
+          };
+        }
+        
         return {
           ...parsedBrandData,
           topFonts
@@ -490,7 +539,12 @@ export async function getBrandData(page, shouldAnalyze = true, iconsAlbumId = "g
             paragraph2: "Not available due to access restrictions",
             paragraph3: "Not available due to access restrictions"
           },
-          deliverabilitySnippet: "Not available due to access restrictions"
+          deliverabilitySnippet: "Not available due to access restrictions",
+          emailImages: {},
+          assistant: {
+            assistant_img: "",
+            assistant_name: "Not available due to access restrictions"
+          }
         };
       }
     }
@@ -507,7 +561,12 @@ export async function getBrandData(page, shouldAnalyze = true, iconsAlbumId = "g
         paragraph2: "Not available due to error",
         paragraph3: "Not available due to error"
       },
-      deliverabilitySnippet: "Not available due to error"
+      deliverabilitySnippet: "Not available due to error",
+      emailImages: {},
+      assistant: {
+        assistant_img: "",
+        assistant_name: "Not available due to error"
+      }
     };
   }
 }

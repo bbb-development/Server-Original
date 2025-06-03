@@ -52,7 +52,9 @@ async function createContextAndPage(browser, cookies) {
 async function navigateWithRetry(page, url, maxRetries = 3) {
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
-      console.log(`🌐 Navigating to ${url}... (Attempt ${attempt}/${maxRetries})`);
+      if (attempt > 1) {
+        console.log(`🌐 Navigating to ${url}... (Attempt ${attempt}/${maxRetries})`);
+      }
       await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
       console.log('✅ Page loaded successfully');
       return; // Success, exit the retry loop

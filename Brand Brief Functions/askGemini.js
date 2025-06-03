@@ -223,6 +223,18 @@ export const bestSellersSchema = {
   }
 };
 
+// Schema for deliverability snippet
+export const deliverabilitySnippetSchema = {
+  type: Type.OBJECT,
+  required: ["deliverability_snippet"],
+  properties: {
+    deliverability_snippet: {
+      type: Type.STRING,
+      description: "The generated deliverability snippet HTML block"
+    }
+  }
+};
+
 async function exampleUsage() {
   const example = 'productList';
 

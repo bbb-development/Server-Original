@@ -37,6 +37,32 @@ function log(msg, type='INFO') {
 }
 
 // ────────────────────────────────────────────────────
+// Clean up old temporary cookie files
+// ────────────────────────────────────────────────────
+function cleanupTempFiles() {
+  try {
+    const files = fs.readdirSync(__dirname);
+    const tempFiles = files.filter(f => f.startsWith('tmp_cookie_') && f.endsWith('.json'));
+    
+    tempFiles.forEach(file => {
+      const filePath = path.join(__dirname, file);
+      try {
+        fs.unlinkSync(filePath);
+        log(`🧹 Cleaned up old temp file: ${file}`, 'INFO');
+      } catch (err) {
+        log(`⚠️ Failed to delete old temp file ${file}: ${err.message}`, 'WARN');
+      }
+    });
+    
+    if (tempFiles.length === 0) {
+      log('✨ No temp files to clean up', 'INFO');
+    }
+  } catch (err) {
+    log(`⚠️ Error during temp file cleanup: ${err.message}`, 'WARN');
+  }
+}
+
+// ────────────────────────────────────────────────────
 // Load (or reload) axios instance from disk
 // ────────────────────────────────────────────────────
 async function loadAxiosInstance() {
@@ -81,7 +107,16 @@ async function loadAxiosInstance() {
     lastLoaded = new Date().toISOString();
     log(`✅ Axios instance (re)loaded with CSRF: ${csrfToken ? csrfToken.substring(0,8)+'...' : 'none'}`,'SUCCESS');
 
-    setTimeout(()=>fs.unlink(tmpFile,()=>{}),500);
+    // Clean up temporary file with proper error handling and longer delay
+    setTimeout(() => {
+      fs.unlink(tmpFile, (err) => {
+        if (err) {
+          log(`⚠️ Failed to delete temp file ${tmpFile}: ${err.message}`, 'WARN');
+        } else {
+          log(`🧹 Cleaned up temp file: ${tmpFile}`, 'INFO');
+        }
+      });
+    }, 2000); // Increased to 2 seconds
   } catch (e) {
     log(`❌ loadAxiosInstance: ${e.message}`,'ERROR');
   }
@@ -230,6 +265,7 @@ app.post('/save', async (_, res) => {
 // Init
 // ────────────────────────────────────────────────────
 (async()=>{
+  cleanupTempFiles(); // Clean up any leftover temp files from previous runs
   await loadAxiosInstance();
   watchFile();
   app.listen(PORT,()=>log(`🚀 Klaviyo-proxy on http://localhost:${PORT}`,'SUCCESS'));

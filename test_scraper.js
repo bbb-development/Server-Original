@@ -1,7 +1,7 @@
 // Your DigitalOcean droplet IP
 const localURL = 'http://localhost:3000';
 const SERVER_URL = 'http://138.68.69.38:3000';
-const testMethod = 'klaviyo_cookies'; // scrape_brand_brief or scrape_html or extract_best_sellers or klaviyo_login or klaviyo_cookies or both
+const testMethod = 'accept_klaviyo_invitation'; // scrape_brand_brief or scrape_html or extract_best_sellers or klaviyo_login or klaviyo_cookies or accept_klaviyo_invitation or both
 const test = SERVER_URL;
 const includeBrandData = true; // Set to true to include brand data analysis, false to exclude it
 
@@ -176,6 +176,38 @@ async function testScraper() {
           if (cookiesResponse.status === 401) {
             console.log('💡 Tip: Check if the API key is correct and properly set in the .env file');
           }
+        }
+    }
+
+    if (testMethod === 'accept_klaviyo_invitation') {
+        // Test Klaviyo invitation acceptance
+        console.log('\nTesting Klaviyo invitation acceptance...');
+        const startTime = Date.now();
+        
+        const invitationUrl = 'https://www.klaviyo.com/ajax/account/confirm/S6vKFe/SRsJn8/cr4fws-791b1416fc5794b82fa6/accept';
+        
+        const invitationResponse = await fetch(`${test}/acceptKlaviyoInvitation`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            url: invitationUrl
+          })
+        });
+
+        const invitationData = await invitationResponse.json();
+        const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+        
+        console.log(`Klaviyo invitation acceptance result: ${invitationData.ok ? 'Success' : 'Failed'} (${elapsed}s)`);
+        
+        if (invitationData.ok) {
+          console.log(`\n✅ Invitation Response:`);
+          console.log(`   Message: ${invitationData.message}`);
+          console.log(`   Final URL: ${invitationData.finalUrl}`);
+          console.log(`   Page Title: ${invitationData.pageTitle}`);
+        } else {
+          console.log('❌ Error:', invitationData.error);
         }
     }
 

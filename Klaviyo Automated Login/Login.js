@@ -25,13 +25,13 @@ const KLAVIYO_LOGIN_URL = 'https://www.klaviyo.com/login';
 const KLAVIYO_LOGIN_AJAX_URL = 'https://www.klaviyo.com/ajax/login';
 const KLAVIYO_LOGIN_MFA_URL = 'https://www.klaviyo.com/ajax/login-mfa';
 const KLAVIYO_AUTH_URL = 'https://www.klaviyo.com/ajax/authorization';
-const CAPTCHA_API_KEY = process.env.CAPTCHA_API_KEY;
-const KLAVIYO_RECAPTCHA_SITE_KEY = process.env.KLAVIYO_RECAPTCHA_SITE_KEY;
-const KLAVIYO_EMAIL = process.env.KLAVIYO_EMAIL;
-const KLAVIYO_PASSWORD = process.env.KLAVIYO_PASSWORD;
-const KLAVIYO_MFA_SECRET = process.env.KLAVIYO_MFA_SECRET;
+const CAPTCHA_API_KEY = '482b0869575de6db4ffff468c2d5c7fc';
+const KLAVIYO_RECAPTCHA_SITE_KEY = '6Lcr3W4qAAAAAIuLNHTx1SA8DNCksiR504QiqTP8';
+const KLAVIYO_EMAIL = 'builder@flow-fast.ai';
+const KLAVIYO_PASSWORD = 'Nasko123$%^';
+const KLAVIYO_MFA_SECRET = 'JFC7FMIAQVM423A6';
 const COOKIE_FILE_PATH = `./${KLAVIYO_EMAIL}_cookies.json`;
-const DEBUG = false;
+const DEBUG = true;
 
 // Helper function to format timestamp
 function getFormattedTimestamp() {

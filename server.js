@@ -251,6 +251,109 @@ async function navigateWithRetry(page, url, maxRetries = 3) {
           }
         });
         return;
+      } else if (req.method === 'POST' && req.url === '/acceptKlaviyoInvitation') {
+        let body = '';
+        req.on('data', chunk => body += chunk);
+        req.on('end', async () => {
+          try {
+            const { url } = JSON.parse(body);
+            
+            if (!url) {
+              res.writeHead(400, { 'Content-Type': 'application/json' });
+              res.end(JSON.stringify({ ok: false, error: 'Missing url parameter' }));
+              return;
+            }
+            
+            console.log(`📥 Accepting Klaviyo invitation for URL: ${url}`);
+            
+            // Helper function to convert nested cookie structure to Playwright format
+            function convertCookiesFormat(cookiesData) {
+              const playwrightCookies = [];
+              
+              for (const [domain, paths] of Object.entries(cookiesData)) {
+                for (const [path, cookies] of Object.entries(paths)) {
+                  for (const [cookieName, cookieData] of Object.entries(cookies)) {
+                    // Normalize sameSite value to match Playwright expectations
+                    let sameSite = 'Lax'; // default
+                    if (cookieData.sameSite) {
+                      const normalizedSameSite = cookieData.sameSite.toLowerCase();
+                      if (normalizedSameSite === 'none') sameSite = 'None';
+                      else if (normalizedSameSite === 'strict') sameSite = 'Strict';
+                      else if (normalizedSameSite === 'lax') sameSite = 'Lax';
+                    }
+                    
+                    playwrightCookies.push({
+                      name: cookieData.key || cookieName,
+                      value: cookieData.value,
+                      domain: cookieData.domain || domain,
+                      path: cookieData.path || path,
+                      expires: cookieData.expires ? Math.floor(new Date(cookieData.expires).getTime() / 1000) : undefined,
+                      secure: cookieData.secure || false,
+                      httpOnly: cookieData.httpOnly || false,
+                      sameSite: sameSite
+                    });
+                  }
+                }
+              }
+              
+              return playwrightCookies;
+            }
+            
+            // Read Klaviyo cookies
+            const cookiesFilePath = './Klaviyo Automated Login/builder@flow-fast.ai_cookies.json';
+            
+            if (!fs.existsSync(cookiesFilePath)) {
+              res.writeHead(404, { 'Content-Type': 'application/json' });
+              res.end(JSON.stringify({ 
+                ok: false, 
+                error: 'Klaviyo cookies file not found',
+                expectedPath: cookiesFilePath
+              }));
+              return;
+            }
+            
+            const cookiesFileData = fs.readFileSync(cookiesFilePath, 'utf-8');
+            const cookiesData = JSON.parse(cookiesFileData);
+            const playwrightCookies = convertCookiesFormat(cookiesData);
+            
+            console.log(`🍪 Loaded ${playwrightCookies.length} cookies from Klaviyo file`);
+            
+            // Create browser context and page with cookies
+            const { context, page } = await createContextAndPage(browser, playwrightCookies);
+            
+            // Navigate to the invitation URL
+            console.log(`🌐 Navigating to invitation URL: ${url}`);
+            await navigateWithRetry(page, url);
+            
+            // Get the final URL after any redirects
+            const finalUrl = page.url();
+            console.log(`✅ Successfully navigated to: ${finalUrl}`);
+            
+            // Keep the page open for a moment to allow any automatic processes to complete
+            await page.waitForTimeout(3000);
+            
+            // Get page title for confirmation
+            const pageTitle = await page.title();
+            
+            // Close resources
+            await page.close();
+            await context.close();
+            console.log('✅ Resources cleaned up');
+            
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ 
+              ok: true, 
+              message: 'Klaviyo invitation accepted successfully',
+              finalUrl: finalUrl,
+              pageTitle: pageTitle
+            }));
+            
+          } catch (err) {
+            console.error('❌ Klaviyo invitation acceptance error:', err);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ ok: false, error: err.message }));
+          }
+        });
       } else if (req.method === 'GET' && (req.url === '/klaviyo-cookies' || req.url === '/klaviyo-instance')) {
         // Check API key authentication
         const authHeader = req.headers.authorization;

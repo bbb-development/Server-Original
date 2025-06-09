@@ -2,7 +2,7 @@
 const localURL = 'http://localhost:3000';
 const SERVER_URL = 'http://138.68.69.38:3000';
 const testMethod = 'klaviyo_cookies'; // scrape_brand_brief or scrape_html or extract_best_sellers or klaviyo_login or klaviyo_cookies or both
-const test = localURL;
+const test = SERVER_URL;
 const includeBrandData = true; // Set to true to include brand data analysis, false to exclude it
 
 // API key for Klaviyo cookies endpoint

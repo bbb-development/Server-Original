@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import { config } from 'dotenv';
 import axios from 'axios';
 import { CookieJar } from 'tough-cookie';
 import { wrapper } from 'axios-cookiejar-support';
@@ -15,6 +15,9 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Configure dotenv to look for .env file in parent directory
+config({ path: path.join(__dirname, '../.env') });
+
 //------------------------------------
 // Environment Variables & Constants
 //------------------------------------
@@ -22,11 +25,11 @@ const KLAVIYO_LOGIN_URL = 'https://www.klaviyo.com/login';
 const KLAVIYO_LOGIN_AJAX_URL = 'https://www.klaviyo.com/ajax/login';
 const KLAVIYO_LOGIN_MFA_URL = 'https://www.klaviyo.com/ajax/login-mfa';
 const KLAVIYO_AUTH_URL = 'https://www.klaviyo.com/ajax/authorization';
-const CAPTCHA_API_KEY = '06a497b12e136fc2b76b3b551a0d0a2a';
-const KLAVIYO_RECAPTCHA_SITE_KEY = '6Lcr3W4qAAAAAIuLNHTx1SA8DNCksiR504QiqTP8';
-const KLAVIYO_EMAIL = 'kaloyan@bbb-marketing.com';
-const KLAVIYO_PASSWORD = 'Nasko123$%^';
-const KLAVIYO_MFA_SECRET = 'CC5MV2ZBQ2B4FZBJ';
+const CAPTCHA_API_KEY = process.env.CAPTCHA_API_KEY;
+const KLAVIYO_RECAPTCHA_SITE_KEY = process.env.KLAVIYO_RECAPTCHA_SITE_KEY;
+const KLAVIYO_EMAIL = process.env.KLAVIYO_EMAIL;
+const KLAVIYO_PASSWORD = process.env.KLAVIYO_PASSWORD;
+const KLAVIYO_MFA_SECRET = process.env.KLAVIYO_MFA_SECRET;
 const COOKIE_FILE_PATH = `./${KLAVIYO_EMAIL}_cookies.json`;
 const DEBUG = false;
 

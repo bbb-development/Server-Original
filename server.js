@@ -55,16 +55,29 @@ async function navigateWithRetry(page, url, maxRetries = 3) {
       if (attempt > 1) {
         console.log(`🌐 Navigating to ${url}... (Attempt ${attempt}/${maxRetries})`);
       }
-      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+      await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
+      
+      // Additional wait to ensure page is fully stable
+      await page.waitForTimeout(2000);
+      
+      // Try to wait for body to be present as an additional check
+      try {
+        await page.waitForSelector('body', { timeout: 5000 });
+      } catch (e) {
+        console.log('⚠️ Body selector not found, but continuing...');
+      }
+      
       console.log('✅ Page loaded successfully');
       return; // Success, exit the retry loop
     } catch (error) {
-      if (error.name === 'TimeoutError' && attempt < maxRetries) {
-        console.log(`⚠️ Navigation timeout on attempt ${attempt}, retrying...`);
+      if (attempt < maxRetries) {
+        console.log(`⚠️ Navigation failed on attempt ${attempt} (${error.name || 'Unknown Error'}): ${error.message}`);
+        console.log(`🔄 Retrying in 2 seconds...`);
         // Wait a bit before retrying
         await new Promise(resolve => setTimeout(resolve, 2000));
       } else {
-        // Either not a timeout error or we've exhausted retries
+        // We've exhausted retries
+        console.log(`❌ All ${maxRetries} navigation attempts failed for ${url}`);
         throw error;
       }
     }

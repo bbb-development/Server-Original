@@ -8,6 +8,11 @@ const includeBrandData = true; // Set to true to include brand data analysis, fa
 // API key for Klaviyo cookies endpoint
 const KLAVIYO_COOKIES_API_KEY = 'klaviyo-a7f9e2b8c4d6f1a3e9b7c5d2f8a4e6b9c1d7f3a5e8b2c6d9f4a1e7b3c8d5f2a9';
 
+let invitationUrl = '';
+if (testMethod === 'accept_klaviyo_invitation') {
+    invitationUrl = 'https://www.klaviyo.com/ajax/account/confirm/S6vKFe/SRsJn8/cr4i9z-26f83234dfb7c51b2781/accept';
+}
+
 // Test script for the scraper server
 const testUrl = 'https://siliconwives.com'; // Replace with any website you want to test
 
@@ -183,8 +188,6 @@ async function testScraper() {
         // Test Klaviyo invitation acceptance
         console.log('\nTesting Klaviyo invitation acceptance...');
         const startTime = Date.now();
-        
-        const invitationUrl = 'https://www.klaviyo.com/ajax/account/confirm/S6vKFe/SRsJn8/cr4fws-791b1416fc5794b82fa6/accept';
         
         const invitationResponse = await fetch(`${test}/acceptKlaviyoInvitation`, {
           method: 'POST',

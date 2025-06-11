@@ -55,7 +55,7 @@ async function navigateWithRetry(page, url, maxRetries = 3) {
       if (attempt > 1) {
         console.log(`🌐 Navigating to ${url}... (Attempt ${attempt}/${maxRetries})`);
       }
-      await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
       
       // Additional wait to ensure page is fully stable
       await page.waitForTimeout(2000);
@@ -192,6 +192,225 @@ async function navigateWithRetry(page, url, maxRetries = 3) {
                         url: bestSellersResult.faqUrl || null
                       },
                       internal: bestSellersResult.internalLinks || null
+                    }
+                  }
+                };
+                break;
+              }
+              case 'scrape_combined': {
+                // Demonstrate concurrent scraping with navigateWithRetry
+                const startTime = Date.now();
+                console.log(`🚀 Running combined scraping for ${url}...`);
+                
+                // Create two separate contexts and pages
+                const brandBriefTask = (async () => {
+                  const { context: context1, page: page1 } = await createContextAndPage(browser, cookies);
+                  try {
+                    console.log(`🌐 [Brand Brief] Navigating to ${url}...`);
+                    await navigateWithRetry(page1, url);
+                    console.log('✅ [Brand Brief] Page loaded successfully');
+                    
+                    const scrapingTasks = [
+                      scrapeButtonColors(page1),
+                      scrapeLogo(page1),
+                      getBrandData(page1),
+                      extractImages(url) 
+                    ];
+
+                    const results = await Promise.allSettled(scrapingTasks);
+                    const buttonData = results[0].status === 'fulfilled' ? results[0].value : { mostCommonBackground: null, mostCommonTextColor: null };
+                    const logoResult = results[1].status === 'fulfilled' ? results[1].value : null;
+                    const brandData = results[2].status === 'fulfilled' ? results[2].value : null;
+                    const extractedImages = results[3].status === 'fulfilled' ? results[3].value : []; 
+
+                    return {
+                      brand: {
+                        url,
+                        logo: logoResult
+                          ? {
+                              url: logoResult.url || null,
+                              width: logoResult.width || null,
+                              height: logoResult.height || null
+                            }
+                          : null,
+                        colors: {
+                          background: buttonData?.mostCommonBackground || null,
+                          text: buttonData?.mostCommonTextColor || null
+                        },
+                        data: brandData,
+                        images: extractedImages.map(img => ({
+                          id: img.id,
+                          url: img.url
+                        }))
+                      }
+                    };
+                  } finally {
+                    await page1.close();
+                    await context1.close();
+                  }
+                })();
+
+                const bestSellersTask = (async () => {
+                  const { context: context2, page: page2 } = await createContextAndPage(browser, cookies);
+                  try {
+                    console.log(`🌐 [Best Sellers] Navigating to ${url}...`);
+                    await navigateWithRetry(page2, url);
+                    console.log('✅ [Best Sellers] Page loaded successfully');
+                    
+                    const bestSellersResult = await extractBestSellers(page2);
+                    return {
+                      links: {
+                        best_sellers: {
+                          url: bestSellersResult.bestSellersUrl || null,
+                          products: bestSellersResult.bestSellers?.products || []
+                        },
+                        contact: {
+                          url: bestSellersResult.contactUrl || null
+                        },
+                        faq: {
+                          url: bestSellersResult.faqUrl || null
+                        },
+                        internal: bestSellersResult.internalLinks || null
+                      }
+                    };
+                  } finally {
+                    await page2.close();
+                    await context2.close();
+                  }
+                })();
+
+                // Run both tasks concurrently
+                const [brandBriefData, bestSellersData] = await Promise.all([brandBriefTask, bestSellersTask]);
+                
+                const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+                console.log(`✅ Combined scraping completed in ${elapsed} seconds`);
+                
+                result = {
+                  ok: true,
+                  data: {
+                    ...brandBriefData,
+                    ...bestSellersData,
+                    meta: {
+                      scrapedAt: new Date().toISOString(),
+                      source: "server_scraper",
+                      combinedScraping: true,
+                      duration: elapsed + 's'
+                    }
+                  }
+                };
+                break;
+              }
+              case 'scrape_progressive': {
+                // Demonstrate progressive results - returns whichever is ready first
+                const startTime = Date.now();
+                console.log(`🚀 Running progressive scraping for ${url}...`);
+                
+                // Create two separate contexts and pages
+                const brandBriefTask = (async () => {
+                  const { context: context1, page: page1 } = await createContextAndPage(browser, cookies);
+                  try {
+                    console.log(`🌐 [Brand Brief] Navigating to ${url}...`);
+                    await navigateWithRetry(page1, url);
+                    console.log('✅ [Brand Brief] Page loaded successfully');
+                    
+                    const scrapingTasks = [
+                      scrapeButtonColors(page1),
+                      scrapeLogo(page1),
+                      getBrandData(page1),
+                      extractImages(url) 
+                    ];
+
+                    const results = await Promise.allSettled(scrapingTasks);
+                    const buttonData = results[0].status === 'fulfilled' ? results[0].value : { mostCommonBackground: null, mostCommonTextColor: null };
+                    const logoResult = results[1].status === 'fulfilled' ? results[1].value : null;
+                    const brandData = results[2].status === 'fulfilled' ? results[2].value : null;
+                    const extractedImages = results[3].status === 'fulfilled' ? results[3].value : []; 
+
+                    return {
+                      type: 'brand_brief',
+                      brand: {
+                        url,
+                        logo: logoResult
+                          ? {
+                              url: logoResult.url || null,
+                              width: logoResult.width || null,
+                              height: logoResult.height || null
+                            }
+                          : null,
+                        colors: {
+                          background: buttonData?.mostCommonBackground || null,
+                          text: buttonData?.mostCommonTextColor || null
+                        },
+                        data: brandData,
+                        images: extractedImages.map(img => ({
+                          id: img.id,
+                          url: img.url
+                        }))
+                      }
+                    };
+                  } finally {
+                    await page1.close();
+                    await context1.close();
+                  }
+                })();
+
+                const bestSellersTask = (async () => {
+                  const { context: context2, page: page2 } = await createContextAndPage(browser, cookies);
+                  try {
+                    console.log(`🌐 [Best Sellers] Navigating to ${url}...`);
+                    await navigateWithRetry(page2, url);
+                    console.log('✅ [Best Sellers] Page loaded successfully');
+                    
+                    const bestSellersResult = await extractBestSellers(page2);
+                    return {
+                      type: 'best_sellers',
+                      links: {
+                        best_sellers: {
+                          url: bestSellersResult.bestSellersUrl || null,
+                          products: bestSellersResult.bestSellers?.products || []
+                        },
+                        contact: {
+                          url: bestSellersResult.contactUrl || null
+                        },
+                        faq: {
+                          url: bestSellersResult.faqUrl || null
+                        },
+                        internal: bestSellersResult.internalLinks || null
+                      }
+                    };
+                  } finally {
+                    await page2.close();
+                    await context2.close();
+                  }
+                })();
+
+                // Use Promise.allSettled to handle results as they come
+                const results = await Promise.allSettled([brandBriefTask, bestSellersTask]);
+                
+                const completedResults = results
+                  .filter(r => r.status === 'fulfilled')
+                  .map(r => r.value);
+                
+                const failedResults = results
+                  .filter(r => r.status === 'rejected')
+                  .map(r => ({ error: r.reason.message }));
+                
+                const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+                console.log(`✅ Progressive scraping completed in ${elapsed} seconds`);
+                console.log(`✅ Completed: ${completedResults.length}, Failed: ${failedResults.length}`);
+                
+                result = {
+                  ok: true,
+                  data: {
+                    completed: completedResults,
+                    failed: failedResults,
+                    meta: {
+                      scrapedAt: new Date().toISOString(),
+                      source: "server_scraper",
+                      progressiveScraping: true,
+                      duration: elapsed + 's',
+                      completedCount: completedResults.length,
+                      failedCount: failedResults.length
                     }
                   }
                 };

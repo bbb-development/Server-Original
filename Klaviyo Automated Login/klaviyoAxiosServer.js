@@ -1,7 +1,6 @@
 import express from 'express';
 import fs from 'fs';
 import axios from 'axios';
-import rateLimit from 'express-rate-limit';
 import cors from 'cors';
 import { wrapper } from 'axios-cookiejar-support';
 import { CookieJar } from 'tough-cookie';
@@ -9,6 +8,7 @@ import FileCookieStore from 'tough-cookie-file-store';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import FormData from 'form-data';
+import { setupBaseStructure } from '../Klaviyo Portal/Systems/Setup Base Structure.js';
 
 // ────────────────────────────────────────────────────
 // Setup paths / env vars
@@ -139,6 +139,47 @@ async function persistCookies() {
 }
 
 // ────────────────────────────────────────────────────
+// Refresh CSRF token from current session
+// ────────────────────────────────────────────────────
+async function refreshCSRFToken() {
+  if (!axiosInstance || !cookieJar) {
+    log('❌ Cannot refresh CSRF: axios instance or cookie jar not available', 'ERROR');
+    return false;
+  }
+
+  try {
+    log('🔄 Refreshing CSRF token...', 'INFO');
+    
+    // Make a request to get fresh cookies (authorization endpoint is good for this)
+    const response = await axiosInstance.get('https://www.klaviyo.com/ajax/authorization');
+    
+    // Extract fresh cookies from the jar
+    const serialized = await cookieJar.serialize();
+    const csrfCookie = serialized.cookies.find(c => c.key === 'kl_csrftoken');
+    
+    if (csrfCookie && csrfCookie.value) {
+      const newCSRF = csrfCookie.value;
+      
+      // Update the axios instance headers
+      axiosInstance.defaults.headers.common['x-csrftoken'] = newCSRF;
+      
+      log(`✅ CSRF token refreshed: ${newCSRF.substring(0,8)}...`, 'SUCCESS');
+      
+      // Persist the updated cookies
+      await persistCookies();
+      
+      return newCSRF;
+    } else {
+      log('⚠️ No CSRF token found in refreshed cookies', 'WARN');
+      return false;
+    }
+  } catch (error) {
+    log(`❌ Failed to refresh CSRF token: ${error.message}`, 'ERROR');
+    return false;
+  }
+}
+
+// ────────────────────────────────────────────────────
 // Watch for external file updates
 // ────────────────────────────────────────────────────
 function watchFile() {
@@ -163,7 +204,6 @@ const app = express();
 app.use(express.json({limit:'10mb'}));
 
 if (ENABLE_CORS) app.use(cors());
-app.use(rateLimit({windowMs:10_000,max:300000})); // simple burst limiter
 
 // ── Status
 app.get('/status',(_,res)=>res.json({
@@ -458,6 +498,56 @@ app.post('/save', async (_, res) => {
   await persistCookies();                // writes file
   lastFileMod = fs.statSync(SAVED_INSTANCE).mtime.getTime(); // refresh baseline
   res.json({saved: true});
+});
+
+// ── Refresh CSRF token
+app.post('/refresh-csrf', async (_, res) => {
+  const newToken = await refreshCSRFToken();
+  if (newToken) {
+    res.json({ 
+      success: true, 
+      message: 'CSRF token refreshed successfully',
+      token: newToken.substring(0,8) + '...' // Only show first 8 chars for security
+    });
+  } else {
+    res.status(500).json({ 
+      success: false, 
+      error: 'Failed to refresh CSRF token' 
+    });
+  }
+});
+
+// ── Setup base flows for a client
+app.post('/setBaseFlows', async (req, res) => {
+  const { clientID, brand } = req.body || {};
+  
+  if (!clientID) {
+    return res.status(400).json({ error: 'clientID is required' });
+  }
+  
+  if (!brand) {
+    return res.status(400).json({ error: 'brand is required' });
+  }
+  
+  if (LOG_REQUESTS) {
+    const rawIp = req.ip || req.connection.remoteAddress;
+    const ip = rawIp?.replace(/^::ffff:/, '') || 'unknown';
+    log(`🏗️ SET BASE FLOWS for client: ${clientID}, brand: ${JSON.stringify(brand)} (IP: ${ip})`, 'INFO');
+  }
+  
+  try {
+    const result = await setupBaseStructure(clientID, brand);
+    log(`✅ Base flows setup completed for client: ${clientID} in ${result.executionTime || 'unknown time'}`, 'SUCCESS');
+    res.json(result);
+  } catch (error) {
+    log(`❌ Failed to setup base flows for client ${clientID}: ${error.message}`, 'ERROR');
+    res.status(500).json({ 
+      success: false,
+      error: error.message,
+      clientID,
+      brand
+    });
+  }
 });
 
 

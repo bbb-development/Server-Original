@@ -1,8 +1,8 @@
 import * as templateFunctions from '../../Functions/templateFunctions.js';
 
 async function generateAC2(brand, emailID) {
-    const brandData = brand.brandBrief.data.brand.data;
-    const linksData = brand.bestSellers.data.links;
+    const brandData = brand.brand.data;
+    const linksData = brand.links;
     const templateData = await templateFunctions.getTemplateData(emailID);
     
     // Dynamically extract src values by searching for specific placeholder text
@@ -38,7 +38,7 @@ async function generateAC2(brand, emailID) {
 
     const replace_data = [
         { oldText: data.top_email_text, newText: brandData.topEmailText }, 
-        { oldText: data.logo_img, newText: brand.brandBrief.data.brand.logo.url }, 
+        { oldText: data.logo_img, newText: brand.brand.logo.url }, 
         { oldText: data.header_img, newText: brandData.emailImages['AC Email 2'].directLink }, 
         { oldText: data.logo_img_url, newText: '' },
         { oldText: data.header_image_url, newText: '' },
@@ -54,8 +54,8 @@ async function generateAC2(brand, emailID) {
         { oldText: data.brand_benefit_1_alt, newText: '' },
         { oldText: data.brand_benefit_2_alt, newText: '' },
         { oldText: data.brand_benefit_3_alt, newText: '' },
-        { oldText: data.brand_background_color, newText: brand.brandBrief.data.brand.colors.background },
-        { oldText: data.brand_text_color, newText: brand.brandBrief.data.brand.colors.text }
+        { oldText: data.brand_background_color, newText: brand.brand.colors.background },
+        { oldText: data.brand_text_color, newText: brand.brand.colors.text }
     ];
 
     await templateFunctions.batchUpdateTextInTemplate(emailID, replace_data, templateData);

@@ -37,7 +37,14 @@ export async function getFlowMessages(flowId) {
     });
     
     //console.log(`✅ Flow messages for ${flowId}:`, JSON.stringify(response.data, null, 2));
-    return response.data;
+    if (response.data !== undefined) {
+      return response.data;
+    } else {
+      console.error(`❌ No data in response for flow ${flowId}`);
+      console.error('Response status:', response.status);
+      console.error('Response:', JSON.stringify(response, null, 2));
+      throw new Error(`Failed to fetch flow messages for ${flowId}: No data in response`);
+    }
     
   } catch (error) {
     console.error(`❌ Error fetching flow messages for ${flowId}:`, error.message);
@@ -428,7 +435,7 @@ export async function getFlowEmailsIDs(emailNames, flowIdsResult) {
     const flowMessagesPromises = validFlowIds.map(flowId => 
       getFlowMessages(flowId).catch(error => {
         console.error(`❌ Error fetching messages for flow ${flowId}:`, error.message);
-        return null; // Return null for failed requests
+        return { data: null, error: error.message }; // Return structured object for failed requests
       })
     );
     
@@ -447,8 +454,20 @@ export async function getFlowEmailsIDs(emailNames, flowIdsResult) {
       const flowData = flowMessagesResults[i];
       const flowId = validFlowIds[i];
       
-      if (!flowData || !flowData.data || !flowData.data.flow) {
-        console.log(`⚠️ No valid data for flow ${flowId}`);
+      // Handle cases where flowData is undefined, null, or has error
+      if (!flowData) {
+        console.log(`⚠️ No response for flow ${flowId}`);
+        continue;
+      }
+      
+      if (flowData.error) {
+        console.log(`⚠️ Error response for flow ${flowId}: ${flowData.error}`);
+        continue;
+      }
+      
+      if (!flowData.data || !flowData.data.flow) {
+        console.log(`⚠️ No valid flow data for flow ${flowId}`);
+        console.log(`   flowData structure:`, JSON.stringify(flowData, null, 2));
         continue;
       }
       

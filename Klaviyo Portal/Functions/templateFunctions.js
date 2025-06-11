@@ -54,9 +54,16 @@ export const cloneTemplate = async (templateId, newTemplateName, contextObjId = 
       }
     });
 
-    console.log(`✅ Template cloned successfully with name "${newTemplateName}"`);
-    //console.log('Response:', JSON.stringify(response.data.cloned_template_id, null, 2));
-    return response.data.cloned_template_id;
+    if (response.data && response.data.cloned_template_id) {
+      console.log(`✅ Template cloned successfully with name "${newTemplateName}"`);
+      //console.log('Response:', JSON.stringify(response.data.cloned_template_id, null, 2));
+      return response.data.cloned_template_id;
+    } else {
+      console.error('❌ Failed to clone template - No cloned_template_id in response');
+      console.error('Response status:', response.status);
+      console.error('Response data:', JSON.stringify(response.data, null, 2));
+      throw new Error(`Template cloning failed: No cloned_template_id in response for template ${templateId}`);
+    }
 
   } catch (error) {
     console.error(`❌ Error cloning template ${templateId}:`, error.message);
@@ -125,8 +132,15 @@ export const getTemplateData = async (templateId) => {
       url: `${KLAVIYO_URL}/template/full/${templateId}`
     });
 
-    //console.log(`✅ Template data fetched for ${templateId}`);
-    return response.data;
+    if (response.data) {
+      //console.log(`✅ Template data fetched for ${templateId}`);
+      return response.data;
+    } else {
+      console.error(`❌ No data in response for template ${templateId}`);
+      console.error('Response status:', response.status);
+      console.error('Response:', JSON.stringify(response, null, 2));
+      throw new Error(`Failed to fetch template data for ${templateId}: No data in response`);
+    }
 
   } catch (error) {
     console.error(`❌ Error getting template data for ${templateId}:`, error.message);
@@ -149,8 +163,15 @@ export const updateTemplate = async (templateId, payload) => {
       data: payload
     });
 
-    //console.log(`✅ Template ${templateId} updated successfully`);
-    return response.data;
+    if (response.data !== undefined) {
+      //console.log(`✅ Template ${templateId} updated successfully`);
+      return response.data;
+    } else {
+      console.error(`❌ No data in response for template update ${templateId}`);
+      console.error('Response status:', response.status);
+      console.error('Response:', JSON.stringify(response, null, 2));
+      throw new Error(`Failed to update template ${templateId}: No data in response`);
+    }
 
   } catch (error) {
     console.error(`❌ Error updating template ${templateId}:`, error.message);

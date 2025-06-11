@@ -222,7 +222,7 @@ class EmailMonitor {
          await saveClientInfo(profile.company_name, profile.company_id);
          
          // Match with Supabase users and update their Klaviyo connection status
-         await matchAndUpdateSupabaseUsers(profile.company_name);
+         await matchAndUpdateSupabaseUsers(profile.company_name, profile.company_id);
        } else {
          console.log("❌ INVITATION ACCEPTANCE FAILED - BRAND NAME MISMATCH");
        }
@@ -278,7 +278,7 @@ class EmailMonitor {
   }
 }
 
-async function matchAndUpdateSupabaseUsers(clientName) {
+async function matchAndUpdateSupabaseUsers(clientName, clientId) {
   try {
     console.log(`🔍 Checking for Supabase user matches with client: ${clientName}`);
     
@@ -323,17 +323,23 @@ async function matchAndUpdateSupabaseUsers(clientName) {
       console.log(`🎯 MATCH FOUND (${similarity}% similarity):`);
       console.log(`   📧 Sequence: ${bestMatch.name}`);
       console.log(`   🏢 Client: ${clientName}`);
+      console.log(`   🆔 Client ID: ${clientId}`);
       
-      // Update the matched email sequence's is_klaviyo_connected to true
+      // Update the matched email sequence's is_klaviyo_connected to true and set klaviyo_id
       const { error: updateError } = await supabase
         .from('email_sequences')
-        .update({ is_klaviyo_connected: true })
+        .update({ 
+          is_klaviyo_connected: true,
+          klaviyo_id: clientId 
+        })
         .eq('id', bestMatch.sequenceId);
       
       if (updateError) {
         console.error(`❌ Error updating email sequence ${bestMatch.sequenceId}:`, updateError.message);
       } else {
-        console.log(`✅ Updated email sequence ${bestMatch.sequenceId} - is_klaviyo_connected set to true`);
+        console.log(`✅ Updated email sequence ${bestMatch.sequenceId}:`);
+        console.log(`   - is_klaviyo_connected set to true`);
+        console.log(`   - klaviyo_id set to ${clientId}`);
       }
     } else {
       console.log(`❌ No matching email sequence found for client: ${clientName}`);

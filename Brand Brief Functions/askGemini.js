@@ -23,6 +23,24 @@ async function loadMultipleImagesAsBase64(imagePaths) {
   }
 }
 
+// Helper function to retry any async operation
+async function withRetries(fn, maxRetries = 5, delayMs = 2000) {
+  let lastError;
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      if (attempt > 1) {
+        console.log(`🔄 [askGemini] Retrying Gemini API call (Attempt ${attempt}/${maxRetries})...`);
+        await new Promise(res => setTimeout(res, delayMs));
+      }
+      return await fn();
+    } catch (err) {
+      lastError = err;
+      console.error(`❌ [askGemini] Error on attempt ${attempt}:`, err.message);
+    }
+  }
+  throw lastError;
+}
+
 export async function askGemini(text, imagePaths = null, schema = null) {
   const ai = new GoogleGenAI({
     apiKey: GEMINI_API_KEY
@@ -68,10 +86,13 @@ export async function askGemini(text, imagePaths = null, schema = null) {
     },
   ];
 
-  const response = await ai.models.generateContent({
-    model,
-    config,
-    contents,
+  // Retry only the Gemini API call
+  const response = await withRetries(async () => {
+    return await ai.models.generateContent({
+      model,
+      config,
+      contents,
+    });
   });
 
   return response.text;

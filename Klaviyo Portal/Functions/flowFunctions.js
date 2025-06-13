@@ -13,7 +13,7 @@ export async function getFlows() {
       url: `${KLAVIYO_URL}/ajax/flows/list/?timeframe_key=last_30_days`
     });
     
-    //console.log('✅ Flows data:', JSON.stringify(response.data, null, 2));
+    console.log('✅ Flows data:', JSON.stringify(response.data, null, 2));
     return response.data;
     
   } catch (error) {

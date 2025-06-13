@@ -20,7 +20,7 @@ export async function getProfile() {
     
     // Extract the requested fields
     const profileInfo = {
-      company_id: data.company_id,
+      company_id: data.company,
       company_name: data.company_name,
       company_plan_key: data.company_plan_key,
       plan_label: data.plan_label,
@@ -40,6 +40,31 @@ export async function getProfile() {
     
   } catch (error) {
     console.error('❌ Error fetching profile:', error.message);
+    if (error.response) {
+      console.error(`   Status: ${error.response.status}`);
+      console.error(`   Data:`, error.response.data);
+    }
+    throw error;
+  }
+}
+
+// REFRESH SESSION FOR CLIENT (visit /login?switch_to=...)
+export async function switchToClientSession(clientId) {
+  try {
+    console.log(`🔄 Refreshing session for client: ${clientId}...`);
+    // Visit the login switch endpoint
+    await axios.post(`${SERVER_URL}/request`, {
+      method: 'GET',
+      url: `${KLAVIYO_URL}/login?switch_to=${clientId}`
+    });
+    // Optionally, call authorization to refresh CSRF
+    await axios.post(`${SERVER_URL}/request`, {
+      method: 'GET',
+      url: `${KLAVIYO_URL}/ajax/authorization`
+    });
+    console.log(`✅ Session refreshed for client: ${clientId}`);
+  } catch (error) {
+    console.error(`❌ Error refreshing session for client ${clientId}:`, error.message);
     if (error.response) {
       console.error(`   Status: ${error.response.status}`);
       console.error(`   Data:`, error.response.data);

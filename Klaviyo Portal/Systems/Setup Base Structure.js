@@ -13,6 +13,8 @@ export async function setupBaseStructure(clientID, brand) {
     // Step 1: Switch into the new client account
     await smallFunctions.changeClient(clientID);
 
+    await smallFunctions.switchToClientSession(clientID);
+
     // Execute steps 2 and 3 concurrently
     await Promise.all([
 
@@ -88,7 +90,6 @@ export async function setupBaseStructure(clientID, brand) {
 
     // Step 9: For each email, change the dynamic content concurrently
     try {
-        console.log(`TEST BRAND DATA `, JSON.stringify(brand, null, 2));
         await Promise.all([
             emailTemplates.generateBA1(brand, emailIDs['FFA | BA Email #1']),
             emailTemplates.generateAC1(brand, emailIDs['FFA | AC Email #1']),
@@ -117,6 +118,9 @@ export async function setupBaseStructure(clientID, brand) {
         console.error('📋 emailIDs object:', JSON.stringify(emailIDs, null, 2));
         throw new Error(`Template cloning failed: ${error.message}`);
     }
+    
+    // Step 11: return to base Account
+    await smallFunctions.changeClient('Flow Fast AI');
 
     if (track_time) {
       const end_time = new Date();

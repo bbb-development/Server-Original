@@ -9,6 +9,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import FormData from 'form-data';
 import { setupBaseStructure } from '../Klaviyo Portal/Systems/Setup Base Structure.js';
+import bodyParser from 'body-parser';
 
 // ────────────────────────────────────────────────────
 // Setup paths / env vars
@@ -198,9 +199,30 @@ function watchFile() {
 }
 
 // ────────────────────────────────────────────────────
+// Retry helper for rate limiting
+// ────────────────────────────────────────────────────
+async function withRetry(fn, maxRetries = 500, delay = 1000) {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      return await fn();
+    } catch (err) {
+      if (err.response && err.response.status === 429) {
+        log(`Rate limited (429). Retrying in ${delay}ms...`, 'WARN');
+        await new Promise(res => setTimeout(res, delay));
+        delay *= 2; // Exponential backoff
+      } else {
+        throw err;
+      }
+    }
+  }
+  throw new Error('Max retries reached');
+}
+
+// ────────────────────────────────────────────────────
 // Express app
 // ────────────────────────────────────────────────────
 const app = express();
+app.use('/raw-proxy', bodyParser.raw({ type: '*/*', limit: '10mb' }));
 app.use(express.json({limit:'10mb'}));
 
 if (ENABLE_CORS) app.use(cors());
@@ -286,132 +308,133 @@ app.post('/fetch-request', async (req, res) => {
   }
 
   try {
-    // Build URL with params
-    const urlObj = new URL(url);
-    Object.keys(params).forEach(key => {
-      urlObj.searchParams.append(key, params[key]);
-    });
+    await withRetry(async () => {
+      // Build URL with params
+      const urlObj = new URL(url);
+      Object.keys(params).forEach(key => {
+        urlObj.searchParams.append(key, params[key]);
+      });
 
-    // Get cookies for this domain
-    const domain = urlObj.hostname;
-    const cookieString = await getCookiesForDomain(domain);
+      // Get cookies for this domain
+      const domain = urlObj.hostname;
+      const cookieString = await getCookiesForDomain(domain);
 
-    // Extract CSRF token from cookies
-    const state = JSON.parse(fs.readFileSync(SAVED_INSTANCE, 'utf8'));
-    const csrfCookie = state.cookies.find(c => c.key === 'kl_csrftoken');
-    const csrfToken = csrfCookie?.value || '';
+      // Extract CSRF token from cookies
+      const state = JSON.parse(fs.readFileSync(SAVED_INSTANCE, 'utf8'));
+      const csrfCookie = state.cookies.find(c => c.key === 'kl_csrftoken');
+      const csrfToken = csrfCookie?.value || '';
 
-    // Prepare headers
-    const fetchHeaders = {
-      'User-Agent': state.headers?.common?.['User-Agent'] || 'Mozilla/5.0',
-      'accept': 'application/json, text/plain, */*',
-      'accept-language': 'en-US',
-      'x-csrftoken': csrfToken,
-      'referer': 'https://www.klaviyo.com',
-      'sec-fetch-dest': 'empty',
-      'sec-fetch-mode': 'cors',
-      'sec-fetch-site': 'same-origin',
-      ...headers
-    };
+      // Prepare headers
+      const fetchHeaders = {
+        'User-Agent': state.headers?.common?.['User-Agent'] || 'Mozilla/5.0',
+        'accept': 'application/json, text/plain, */*',
+        'accept-language': 'en-US',
+        'x-csrftoken': csrfToken,
+        'referer': 'https://www.klaviyo.com',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        ...headers
+      };
 
-    if (cookieString) {
-      fetchHeaders['Cookie'] = cookieString;
-    }
+      if (cookieString) {
+        fetchHeaders['Cookie'] = cookieString;
+      }
 
-    // Prepare request options
-    const fetchOptions = {
-      method: method.toUpperCase(),
-      headers: fetchHeaders,
-      credentials: 'include'
-    };
+      // Prepare request options
+      const fetchOptions = {
+        method: method.toUpperCase(),
+        headers: fetchHeaders,
+        credentials: 'include'
+      };
 
-    // Handle request body
-    if (data && method.toUpperCase() !== 'GET') {
-      if (isFormData && fileData) {
-        const formData = new FormData();
-        
-        // Add the file
-        if (fileData.filename && fileData.buffer) {
-          const buffer = Buffer.from(fileData.buffer, 'base64');
-          formData.append('upload_file', buffer, fileData.filename);
-        }
-        
-        // Add other form fields
-        Object.keys(data).forEach(key => {
-          if (key !== 'upload_file') {
-            formData.append(key, data[key]);
+      // Handle request body
+      if (data && method.toUpperCase() !== 'GET') {
+        if (isFormData && fileData) {
+          const formData = new FormData();
+          
+          // Add the file
+          if (fileData.filename && fileData.buffer) {
+            const buffer = Buffer.from(fileData.buffer, 'base64');
+            formData.append('upload_file', buffer, fileData.filename);
           }
-        });
-        
-        fetchOptions.body = formData;
-        // Remove content-type header to let FormData set it
-        delete fetchOptions.headers['content-type'];
-      } else {
-        fetchOptions.body = typeof data === 'string' ? data : JSON.stringify(data);
-        if (!fetchOptions.headers['content-type']) {
-          fetchOptions.headers['content-type'] = 'application/json';
+          
+          // Add other form fields
+          Object.keys(data).forEach(key => {
+            if (key !== 'upload_file') {
+              formData.append(key, data[key]);
+            }
+          });
+          
+          fetchOptions.body = formData;
+          // Remove content-type header to let FormData set it
+          delete fetchOptions.headers['content-type'];
+        } else {
+          fetchOptions.body = typeof data === 'string' ? data : JSON.stringify(data);
+          if (!fetchOptions.headers['content-type']) {
+            fetchOptions.headers['content-type'] = 'application/json';
+          }
         }
       }
-    }
 
-    // Create AbortController for timeout
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), timeout);
-    fetchOptions.signal = controller.signal;
-
-    try {
-      const response = await fetch(urlObj.toString(), fetchOptions);
-      clearTimeout(timeoutId);
-
-      // Update cookies from response
-      await updateCookiesFromResponse(response);
-
-      // Get response data and forward the original content-type
-      const contentType = response.headers.get('content-type') || '';
-      let responseData;
+      // Create AbortController for timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), timeout);
+      fetchOptions.signal = controller.signal;
 
       try {
-        if (contentType.includes('application/json')) {
-          responseData = await response.json();
-        } else if (contentType.includes('text/') || contentType.includes('html')) {
-          responseData = await response.text();
-        } else {
-          // For binary data, get as buffer
-          const arrayBuffer = await response.arrayBuffer();
-          responseData = Buffer.from(arrayBuffer);
-        }
-      } catch (parseError) {
-        // If parsing fails, always fall back to text
-        log(`⚠️ Failed to parse response as ${contentType}, falling back to text: ${parseError.message}`, 'WARN');
+        const response = await fetch(urlObj.toString(), fetchOptions);
+        clearTimeout(timeoutId);
+
+        // Update cookies from response
+        await updateCookiesFromResponse(response);
+
+        // Get response data and forward the original content-type
+        const contentType = response.headers.get('content-type') || '';
+        let responseData;
+
         try {
-          responseData = await response.text();
-        } catch (textError) {
-          responseData = `Parse error: ${parseError.message}`;
+          if (contentType.includes('application/json')) {
+            responseData = await response.json();
+          } else if (contentType.includes('text/') || contentType.includes('html')) {
+            responseData = await response.text();
+          } else {
+            // For binary data, get as buffer
+            const arrayBuffer = await response.arrayBuffer();
+            responseData = Buffer.from(arrayBuffer);
+          }
+        } catch (parseError) {
+          // If parsing fails, always fall back to text
+          log(`⚠️ Failed to parse response as ${contentType}, falling back to text: ${parseError.message}`, 'WARN');
+          try {
+            responseData = await response.text();
+          } catch (textError) {
+            responseData = `Parse error: ${parseError.message}`;
+          }
         }
-      }
 
-      // Forward the original content-type header so client knows what to expect
-      if (contentType) {
-        res.set('Content-Type', contentType);
-      }
-
-      // Log response details for debugging
-      if (!response.ok) {
-        log(`❌ Fetch response error: ${response.status} ${response.statusText}`, 'ERROR');
-        log(`📄 Response content-type: ${contentType}`, 'INFO');
-        if (typeof responseData === 'string' && responseData.length < 500) {
-          log(`📄 Response preview: ${responseData.substring(0, 200)}...`, 'INFO');
+        // Forward the original content-type header so client knows what to expect
+        if (contentType) {
+          res.set('Content-Type', contentType);
         }
-      } else {
-        log(`✅ Fetch response: ${response.status} ${response.statusText} (${contentType})`, 'SUCCESS');
+
+        // Log response details for debugging
+        if (!response.ok) {
+          log(`❌ Fetch response error: ${response.status} ${response.statusText}`, 'ERROR');
+          log(`📄 Response content-type: ${contentType}`, 'INFO');
+          if (typeof responseData === 'string' && responseData.length < 500) {
+            log(`📄 Response preview: ${responseData.substring(0, 200)}...`, 'INFO');
+          }
+        } else {
+          log(`✅ Fetch response: ${response.status} ${response.statusText} (${contentType})`, 'SUCCESS');
+        }
+
+        res.status(response.status).send(responseData);
+      } catch (fetchError) {
+        clearTimeout(timeoutId);
+        throw fetchError;
       }
-
-      res.status(response.status).send(responseData);
-    } catch (fetchError) {
-      clearTimeout(timeoutId);
-      throw fetchError;
-    }
-
+    });
   } catch (e) {
     if (e.name === 'AbortError') {
       res.status(408).json({error: 'Request timeout'});
@@ -421,6 +444,47 @@ app.post('/fetch-request', async (req, res) => {
         type: 'fetch_error'
       });
     }
+  }
+});
+
+// ── Raw proxy
+app.post('/raw-proxy', async (req, res) => {
+  if (!axiosInstance) return res.status(500).json({ error: 'not_loaded' });
+
+  const targetUrl = req.headers['x-target-url'];
+  if (!targetUrl) return res.status(400).json({ error: 'x-target-url header required' });
+
+  try {
+    await withRetry(async () => {
+      const response = await axiosInstance.request({
+        method: req.method,
+        url: targetUrl,
+        headers: {
+          ...req.headers,
+          // Remove headers that should not be forwarded
+          host: undefined,
+          'x-target-url': undefined,
+          'content-length': req.headers['content-length'],
+        },
+        data: req.body, // This is the raw Buffer
+        maxRedirects: 5,
+        responseType: 'arraybuffer', // To handle all content types
+        validateStatus: () => true, // Forward all responses
+      });
+
+      // Forward status, headers, and body
+      res.status(response.status);
+      Object.entries(response.headers).forEach(([key, value]) => {
+        if (key.toLowerCase() === 'transfer-encoding') return; // skip
+        res.setHeader(key, value);
+      });
+      res.send(response.data);
+    });
+  } catch (e) {
+    res.status(e.response?.status || 500).json({
+      error: e.message,
+      data: e.response?.data,
+    });
   }
 });
 
@@ -437,48 +501,50 @@ app.post('/request', async (req,res)=>{
   }
 
   try {
-    let requestData = data;
-    let requestHeaders = {...axiosInstance.defaults.headers.common, ...headers};
+    await withRetry(async () => {
+      let requestData = data;
+      let requestHeaders = {...axiosInstance.defaults.headers.common, ...headers};
 
-    // Handle FormData for file uploads
-    if (isFormData && fileData) {
-      const formData = new FormData();
-      
-      // Add the file
-      if (fileData.filename && fileData.buffer) {
-        const buffer = Buffer.from(fileData.buffer, 'base64');
-        formData.append('upload_file', buffer, fileData.filename);
+      // Handle FormData for file uploads
+      if (isFormData && fileData) {
+        const formData = new FormData();
+        
+        // Add the file
+        if (fileData.filename && fileData.buffer) {
+          const buffer = Buffer.from(fileData.buffer, 'base64');
+          formData.append('upload_file', buffer, fileData.filename);
+        }
+        
+        // Add other form fields
+        if (data) {
+          Object.keys(data).forEach(key => {
+            if (key !== 'upload_file') {
+              formData.append(key, data[key]);
+            }
+          });
+        }
+        
+        requestData = formData;
+        requestHeaders = {
+          ...requestHeaders,
+          ...formData.getHeaders()
+        };
+        
+        // Remove content-type if it was set, let FormData set it
+        delete requestHeaders['content-type'];
       }
-      
-      // Add other form fields
-      if (data) {
-        Object.keys(data).forEach(key => {
-          if (key !== 'upload_file') {
-            formData.append(key, data[key]);
-          }
-        });
-      }
-      
-      requestData = formData;
-      requestHeaders = {
-        ...requestHeaders,
-        ...formData.getHeaders()
-      };
-      
-      // Remove content-type if it was set, let FormData set it
-      delete requestHeaders['content-type'];
-    }
 
-    const response = await axiosInstance.request({
-      method: method.toUpperCase(),
-      url, 
-      params, 
-      data: requestData, 
-      timeout,
-      headers: requestHeaders
+      const response = await axiosInstance.request({
+        method: method.toUpperCase(),
+        url, 
+        params, 
+        data: requestData, 
+        timeout,
+        headers: requestHeaders
+      });
+
+      res.status(response.status).send(response.data);
     });
-
-    res.status(response.status).send(response.data);
   } catch(e) {
     res.status(e.response?.status||500).json({
       error:e.message,

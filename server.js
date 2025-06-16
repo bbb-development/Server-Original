@@ -9,7 +9,7 @@ const templates = JSON.parse(
 
 // Add a constant to control proxy usage
 const useProxy = true; // Set to false to disable proxy
-const proxyToUse = 'dataimpulse' // 'dataimpulse' or 'webshare'
+const proxyToUse = 'webshare' // 'dataimpulse' or 'webshare'
 
 import {
   extractImages,
@@ -28,7 +28,7 @@ const proxyConfig = {
   password: proxyToUse === 'webshare' ? process.env.WEBSHARE_PASSWORD : process.env.DATAIMPULSE_PASSWORD
 };
 
-console.log('✅ Proxy configuration loaded');
+console.log('✅ Proxy configuration loaded --> Using ' + proxyToUse + ' rotating proxy');
 
 // Helper to create a new context and page with proxy and cookies
 async function createContextAndPage(browser, cookies) {
@@ -36,12 +36,6 @@ async function createContextAndPage(browser, cookies) {
     ? await browser.newContext({ proxy: proxyConfig })
     : await browser.newContext();
 
-    if (useProxy) {
-      console.log('🌐 Using ' + proxyToUse + ' rotating proxy');
-    } else {
-      console.log('🌐 Not using proxy');
-    }
-    
   if (cookies?.length) {
     await context.addCookies(cookies);
   }
@@ -103,6 +97,31 @@ async function withRetries(fn, maxRetries = 5, delayMs = 2000) {
   throw lastError;
 }
 
+// Helper function to retry page.content or scraping if page is navigating
+async function withPageContentRetries(fn, maxRetries = 5, delayMs = 1000) {
+  let lastError;
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      if (attempt > 1) {
+        console.log(`🔄 Retrying page content operation (Attempt ${attempt}/${maxRetries})...`);
+        await new Promise(res => setTimeout(res, delayMs));
+      }
+      return await fn();
+    } catch (err) {
+      lastError = err;
+      if (
+        err.message &&
+        err.message.includes('page is navigating and changing the content')
+      ) {
+        console.warn(`⚠️ Page is navigating, retrying in ${delayMs}ms...`);
+        continue;
+      }
+      throw err;
+    }
+  }
+  throw lastError;
+}
+
 (async () => {
   try {
     console.log('🚀 Launching browser...');
@@ -145,10 +164,10 @@ async function withRetries(fn, maxRetries = 5, delayMs = 2000) {
                     console.log('✅ Page loaded successfully');
                     const startTime = Date.now(); // Start timing
                     const scrapingTasks = [
-                      scrapeButtonColors(page),
-                      scrapeLogo(page),
-                      getBrandData(page),
-                      extractImages(url) 
+                      withPageContentRetries(() => scrapeButtonColors(page)),
+                      withPageContentRetries(() => scrapeLogo(page)),
+                      withPageContentRetries(() => getBrandData(page)),
+                      withPageContentRetries(() => extractImages(url)) 
                     ];
 
                     const results = await Promise.allSettled(scrapingTasks);
@@ -241,10 +260,10 @@ async function withRetries(fn, maxRetries = 5, delayMs = 2000) {
                       await navigateWithRetry(page1, url);
                       console.log('✅ [Brand Brief] Page loaded successfully');
                       const scrapingTasks = [
-                        scrapeButtonColors(page1),
-                        scrapeLogo(page1),
-                        getBrandData(page1),
-                        extractImages(url) 
+                        withPageContentRetries(() => scrapeButtonColors(page1)),
+                        withPageContentRetries(() => scrapeLogo(page1)),
+                        withPageContentRetries(() => getBrandData(page1)),
+                        withPageContentRetries(() => extractImages(url)) 
                       ];
 
                       const results = await Promise.allSettled(scrapingTasks);
@@ -343,10 +362,10 @@ async function withRetries(fn, maxRetries = 5, delayMs = 2000) {
                       await navigateWithRetry(page1, url);
                       console.log('✅ [Brand Brief] Page loaded successfully');
                       const scrapingTasks = [
-                        scrapeButtonColors(page1),
-                        scrapeLogo(page1),
-                        getBrandData(page1),
-                        extractImages(url) 
+                        withPageContentRetries(() => scrapeButtonColors(page1)),
+                        withPageContentRetries(() => scrapeLogo(page1)),
+                        withPageContentRetries(() => getBrandData(page1)),
+                        withPageContentRetries(() => extractImages(url)) 
                       ];
 
                       const results = await Promise.allSettled(scrapingTasks);

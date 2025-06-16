@@ -55,7 +55,7 @@ export const cloneTemplate = async (templateId, newTemplateName, contextObjId = 
     });
 
     if (response.data && response.data.cloned_template_id) {
-      console.log(`✅ Template cloned successfully with name "${newTemplateName}"`);
+      console.log(`✅ Template cloned successfully with name "${newTemplateName} and ID ${response.data.cloned_template_id}"`);
       //console.log('Response:', JSON.stringify(response.data.cloned_template_id, null, 2));
       return response.data.cloned_template_id;
     } else {
@@ -125,7 +125,7 @@ export const getUniversalElements = async () => {
 // GET TEMPLATE DATA
 export const getTemplateData = async (templateId) => {
   try {
-    //console.log(`🔍 Fetching template data for ID: ${templateId}...`);
+    console.log(`🔍 Fetching template data for ID: ${templateId}...`);
 
     const response = await axios.post(`${SERVER_URL}/request`, {
       method: 'GET',

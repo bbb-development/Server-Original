@@ -1,29 +1,30 @@
 import axios from 'axios';
+import FormData from 'form-data';
 
 const SERVER_URL = 'http://138.68.69.38:3001';
 const KLAVIYO_URL = 'https://www.klaviyo.com';
 
 // GET ALL FLOWS
-export async function getFlows() {
-  try {
-    console.log('🔍 Fetching all flows from Klaviyo...');
-    
+export async function getAllFlows() {
+  let allFlows = [];
+  let page = 1;
+  let keepGoing = true;
+
+  while (keepGoing) {
+    const url = `${KLAVIYO_URL}/ajax/flows/list/?archived=false&inline_recommendations=false&order_asc=false&order_by=updated&page=${page}&timeframe_key=last_7_days`;
     const response = await axios.post(`${SERVER_URL}/request`, {
       method: 'GET',
-      url: `${KLAVIYO_URL}/ajax/flows/list/?timeframe_key=last_30_days`
+      url
     });
-    
-    console.log('✅ Flows data:', JSON.stringify(response.data, null, 2));
-    return response.data;
-    
-  } catch (error) {
-    console.error('❌ Error fetching flows:', error.message);
-    if (error.response) {
-      console.error(`   Status: ${error.response.status}`);
-      console.error(`   Data:`, error.response.data);
+    const flows = response.data.flows || [];
+    allFlows = allFlows.concat(flows);
+    if (flows.length === 0) {
+      keepGoing = false;
+    } else {
+      page++;
     }
-    throw error;
   }
+  return { flows: allFlows };
 }
 
 // GET ALL MESSAGES FROM A FLOW
@@ -37,14 +38,7 @@ export async function getFlowMessages(flowId) {
     });
     
     //console.log(`✅ Flow messages for ${flowId}:`, JSON.stringify(response.data, null, 2));
-    if (response.data !== undefined) {
-      return response.data;
-    } else {
-      console.error(`❌ No data in response for flow ${flowId}`);
-      console.error('Response status:', response.status);
-      console.error('Response:', JSON.stringify(response, null, 2));
-      throw new Error(`Failed to fetch flow messages for ${flowId}: No data in response`);
-    }
+    return response.data;
     
   } catch (error) {
     console.error(`❌ Error fetching flow messages for ${flowId}:`, error.message);
@@ -82,22 +76,40 @@ export async function getUniqueElements(flowId) {
 // GET FLOW CLONE MAPPING CANDIDATE ELEMENTS
 export async function getFlowCloneMappingCandidates(flowId, companyId) {
   try {
-    //console.log(`🔍 Fetching clone mapping candidates for flow ID: ${flowId}...`);
+    console.log(`🔍 Fetching clone mapping candidates for flow ID: ${flowId}, company: ${companyId}`);
+    
+    const requestUrl = `${KLAVIYO_URL}/ajax/flows/${flowId}/clone-mapping-candidate-elements?company_ids=${companyId}`;
+    console.log(`📡 Request URL: ${requestUrl}`);
     
     const response = await axios.post(`${SERVER_URL}/request`, {
       method: 'GET',
-      url: `${KLAVIYO_URL}/ajax/flows/${flowId}/clone-mapping-candidate-elements?company_ids=${companyId}`
+      url: requestUrl
     });
     
-    //console.log(`✅ Clone mapping candidates fetched for flow ${flowId}`);
+    console.log(`✅ Clone mapping candidates fetched for flow ${flowId}`);
     return response.data;
     
   } catch (error) {
     console.error(`❌ Error fetching clone mapping candidates for flow ${flowId}:`, error.message);
+    console.error(`🎯 Flow ID: ${flowId}`);
+    console.error(`🏢 Company ID: ${companyId}`);
+    console.error(`📡 Full URL: ${KLAVIYO_URL}/ajax/flows/${flowId}/clone-mapping-candidate-elements?company_ids=${companyId}`);
+    
     if (error.response) {
       console.error(`   Status: ${error.response.status}`);
-      console.error(`   Data:`, error.response.data);
+      console.error(`   Status Text: ${error.response.statusText || 'No status text'}`);
+      console.error(`   Headers:`, JSON.stringify(error.response.headers, null, 2));
+      console.error(`   Data:`, JSON.stringify(error.response.data, null, 2));
     }
+    
+    if (error.request) {
+      console.error(`   Request Details:`, {
+        method: error.request.method,
+        url: error.request.url,
+        headers: error.request.headers
+      });
+    }
+    
     throw error;
   }
 }
@@ -435,7 +447,7 @@ export async function getFlowEmailsIDs(emailNames, flowIdsResult) {
     const flowMessagesPromises = validFlowIds.map(flowId => 
       getFlowMessages(flowId).catch(error => {
         console.error(`❌ Error fetching messages for flow ${flowId}:`, error.message);
-        return { data: null, error: error.message }; // Return structured object for failed requests
+        return null; // Return null for failed requests
       })
     );
     
@@ -454,20 +466,8 @@ export async function getFlowEmailsIDs(emailNames, flowIdsResult) {
       const flowData = flowMessagesResults[i];
       const flowId = validFlowIds[i];
       
-      // Handle cases where flowData is undefined, null, or has error
-      if (!flowData) {
-        console.log(`⚠️ No response for flow ${flowId}`);
-        continue;
-      }
-      
-      if (flowData.error) {
-        console.log(`⚠️ Error response for flow ${flowId}: ${flowData.error}`);
-        continue;
-      }
-      
-      if (!flowData.data || !flowData.data.flow) {
-        console.log(`⚠️ No valid flow data for flow ${flowId}`);
-        console.log(`   flowData structure:`, JSON.stringify(flowData, null, 2));
+      if (!flowData || !flowData.data || !flowData.data.flow) {
+        console.log(`⚠️ No valid data for flow ${flowId}`);
         continue;
       }
       
@@ -529,3 +529,831 @@ export async function getFlowEmailsIDs(emailNames, flowIdsResult) {
     throw error;
   }
 }
+
+// DELETE FLOW(S)
+export async function deleteFlow(flowIds) {
+  try {
+    // Ensure flowIds is an array
+    const flowIdsArray = Array.isArray(flowIds) ? flowIds : [flowIds];
+    const isInputArray = Array.isArray(flowIds);
+    
+    console.log(`🗑️ Deleting ${flowIdsArray.length} flow(s): ${flowIdsArray.join(', ')}`);
+    
+    // Delete all flows concurrently
+    const deletePromises = flowIdsArray.map(async (flowId) => {
+      try {
+        console.log(`🗑️ Deleting flow ID: ${flowId}...`);
+        
+        const response = await axios.post(`${SERVER_URL}/request`, {
+          method: 'POST',
+          url: `${KLAVIYO_URL}/flow/${flowId}/delete`
+        });
+        
+        console.log(`✅ Flow ${flowId} deleted successfully`);
+        return {
+          flowId,
+          success: true,
+          data: response.data
+        };
+        
+      } catch (error) {
+        console.error(`❌ Error deleting flow ${flowId}:`, error.message);
+        if (error.response) {
+          console.error(`   Status: ${error.response.status}`);
+          console.error(`   Status Text: ${error.response.statusText || 'No status text'}`);
+          console.error(`   Data:`, JSON.stringify(error.response.data, null, 2));
+        }
+        return {
+          flowId,
+          success: false,
+          error: error.message,
+          details: error.response?.data
+        };
+      }
+    });
+    
+    const results = await Promise.all(deletePromises);
+    
+    // Log summary
+    const successCount = results.filter(r => r.success).length;
+    const failedCount = results.filter(r => !r.success).length;
+    
+    if (successCount > 0) {
+      console.log(`✅ Successfully deleted ${successCount} flow(s)`);
+    }
+    if (failedCount > 0) {
+      console.error(`❌ Failed to delete ${failedCount} flow(s)`);
+      const failedIds = results.filter(r => !r.success).map(r => r.flowId);
+      console.error(`   Failed flows: ${failedIds.join(', ')}`);
+    }
+    
+    // Return single result if input was single string, otherwise return array
+    if (!isInputArray && flowIdsArray.length === 1) {
+      const result = results[0];
+      if (result.success) {
+        return result.data;
+      } else {
+        throw new Error(`Failed to delete flow ${result.flowId}: ${result.error}`);
+      }
+    }
+    
+    return results;
+    
+  } catch (error) {
+    console.error(`❌ Error in deleteFlow function:`, error.message);
+    throw error;
+  }
+}
+
+export async function deleteAllExceptSomeFlows(excludeIds) {
+
+  // Get all flows
+  const flowsData = await flowFunctions.getAllFlows();
+  const flows = flowsData.flows || [];
+
+  // Filter out the flows to keep
+  const toDelete = flows
+    .map(flow => flow.id)
+    .filter(id => !excludeIds.includes(id));
+
+  if (toDelete.length === 0) {
+    console.log('No flows to delete.');
+    return [];
+  }
+
+  // Delete the flows
+  const results = await deleteFlow(toDelete);
+  return results;
+}
+
+// CLONE FLOW
+export async function cloneFlow({ flowId, destinationAccount, name, trigger }) {
+  try {
+    console.log(`🌀 Cloning flow ID: ${flowId} to account: ${destinationAccount} with name: ${name} and trigger: ${trigger}`);
+    const formData = new URLSearchParams({
+      destination_account: destinationAccount,
+      name,
+      trigger
+    });
+    const response = await axios.post(`${SERVER_URL}/request`, {
+      method: 'POST',
+      url: `${KLAVIYO_URL}/flow/${flowId}/clone`,
+      data: formData.toString()
+    });
+    console.log(`✅ Flow ${flowId} cloned successfully`);
+    console.log(JSON.stringify(response.data, null, 2));
+    return response.data;
+  } catch (error) {
+    console.error(`❌ Error cloning flow ${flowId}:`, error.message);
+    if (error.response) {
+      console.error(`   Status: ${error.response.status}`);
+      console.error(`   Status Text: ${error.response.statusText || 'No status text'}`);
+      console.error(`   Data:`, JSON.stringify(error.response.data, null, 2));
+    }
+    throw error;
+  }
+}
+
+// CREATE FLOW
+export async function createFlow(name) {
+  try {
+    console.log(`🆕 Creating flow with name: ${name}`);
+    const formData = new URLSearchParams({
+      name,
+      trigger_type: 2
+    });
+
+    const response = await axios.post(`${SERVER_URL}/request`, {
+      method: 'POST',
+      url: `${KLAVIYO_URL}/ajax/flows/create`,
+      data: formData.toString(),
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+    });
+
+    if (response.data?.data?.flow_id) {
+      const flowId = response.data.data.flow_id;
+      console.log(`Flow Created: ${name} (ID: ${flowId})`);
+      console.log('Flow Link: https://www.klaviyo.com/flow/' + flowId + '/edit');
+
+      // Get the flow data to find the path ID
+      const flowData = await getFlowMessages(flowId);
+      const pathId = flowData?.data?.flow?.paths ? Object.keys(flowData.data.flow.paths)[0] : null;
+
+      return {
+        flowId,
+        pathId
+      };
+    } else {
+      console.error('Failed to create flow - No flow_id in response');
+      console.error('Response:', JSON.stringify(response, null, 2));
+      return null;
+    }
+  } catch (error) {
+    console.error('Failed to create flow:', error);
+    return null;
+  }
+}
+
+// GET FILTER BUILDER DATA
+export async function getFilterData() {
+  try {
+    const url = `${KLAVIYO_URL}/ajax/data/filter-builder/bootstrap`;
+    const response = await axios.post(`${SERVER_URL}/request`, {
+      method: 'GET',
+      url
+    });
+    if (response.data) {
+      //console.log('Filter Builder Data:', JSON.stringify(response.data, null, 2));
+      return response.data;
+    } else {
+      console.error('Failed to get filter builder data');
+      console.error('Response:', JSON.stringify(response, null, 2));
+      return null;
+    }
+  } catch (error) {
+    console.error('Failed to get filter builder data:', error);
+    return null;
+  }
+}
+
+// GET TRIGGER ID FROM NAME
+export async function getTriggerIdByName(filterData, triggerName) {
+  if (!filterData?.data) {
+    console.error('Invalid filter data structure');
+    return null;
+  }
+
+  // Check statistics first
+  if (filterData.data.statistics) {
+    const statTrigger = filterData.data.statistics.find(stat =>
+      stat.name.toLowerCase() === triggerName.toLowerCase()
+    );
+    if (statTrigger) {
+      //console.log(`Found trigger "${triggerName}" in statistics with ID: ${statTrigger.id}`);
+      return {
+        id: statTrigger.id,
+        type: 'statistic',
+        triggerType: '0',
+        data: statTrigger
+      };
+    }
+  }
+
+  // Check groups if not found in statistics
+  if (filterData.data.groups) {
+    const groupTrigger = filterData.data.groups.find(group =>
+      group.name.toLowerCase() === triggerName.toLowerCase()
+    );
+    if (groupTrigger) {
+      //console.log(`Found trigger "${triggerName}" in groups with ID: ${groupTrigger.id}`);
+      return {
+        id: groupTrigger.id,
+        type: 'group',
+        triggerType: '1',
+        data: groupTrigger
+      };
+    }
+  }
+
+  // Check segments if not found in groups
+  if (filterData.data.segments) {
+    const segmentTrigger = filterData.data.segments.find(segment =>
+      segment.name.toLowerCase() === triggerName.toLowerCase()
+    );
+    if (segmentTrigger) {
+      //console.log(`Found trigger "${triggerName}" in segments with ID: ${segmentTrigger.id}`);
+      return {
+        id: segmentTrigger.id,
+        type: 'segment',
+        triggerType: '1',
+        data: segmentTrigger
+      };
+    }
+  }
+
+  console.error(`Trigger "${triggerName}" not found in statistics, groups, or segments`);
+  return null;
+}
+
+// CONFIGURE FLOW
+export async function configureFlow(flowId, bodyVars) {
+  try {
+    const url = `${KLAVIYO_URL}/ajax/flow/${flowId}/configure`;
+
+    // Encode the bodyVars object as application/x-www-form-urlencoded
+    const data = new URLSearchParams(bodyVars).toString();
+
+    const response = await axios.post(`${SERVER_URL}/request`, {
+      method: 'POST',
+      url,
+      data
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error(`❌ Error configuring flow ${flowId}:`, error.message);
+    if (error.response) {
+      console.error(`   Status: ${error.response.status}`);
+      console.error(`   Data:`, error.response.data);
+    }
+    throw error;
+  }
+}
+
+// SET CUSTOMER FILTERS FOR FLOW
+export async function setFlowCustomerFilters(flowId, filtersObj) {
+  try {
+    const url = `${KLAVIYO_URL}/ajax/flow/${flowId}/customer-filters`;
+    // Encode the filters object as a JSON string, then as form-urlencoded
+    const data = new URLSearchParams({
+      filters: JSON.stringify(filtersObj)
+    }).toString();
+
+    const response = await axios.post(`${SERVER_URL}/request`, {
+      method: 'POST',
+      url,
+      data,
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'accept': 'application/json, text/plain, */*'
+        // Add more headers if needed
+      }
+    });
+    if (response.data.success === true) {
+      console.log('Customer filters set successfully');
+    } else {
+      console.error('Failed to set customer filters');
+      console.error('Response:', JSON.stringify(response, null, 2));
+    } 
+    return response.data;
+  } catch (error) {
+    console.error(`❌ Error setting customer filters for flow ${flowId}:`, error.message);
+    if (error.response) {
+      console.error(`   Status: ${error.response.status}`);
+      console.error(`   Data:`, error.response.data);
+    }
+    throw error;
+  }
+}
+
+// ADD ACTION TO FLOW PATH
+export async function addAction({ pathId, actionType, previous_action_id }) {
+  try {
+    //console.log(`➕ Adding action to path ID: ${pathId} (type: ${actionType})...`);
+    const url = `${KLAVIYO_URL}/ajax/flow/path/${pathId}/action/add`;
+    const dataObj = {
+      action_type: actionType,
+      pathId: pathId
+    };
+    if (previous_action_id) dataObj.previous_action_id = previous_action_id;
+    const data = new URLSearchParams(dataObj).toString();
+
+    const response = await axios.post(`${SERVER_URL}/request`, {
+      method: 'POST',
+      url,
+      data,
+      withCredentials: true
+    });
+
+    if (response.data?.success === false) {
+      throw new Error(`Failed to add action: ${JSON.stringify(response.data)}`);
+    }
+    const actionId = response.data?.data?.action_id;
+    let messageId = null;
+
+    // If this is a send_message action, try to extract the messageId from the response
+    if (actionType === 'send_message' && response.data?.data?.paths) {
+      const paths = response.data.data.paths;
+      for (const pathData of Object.values(paths)) {
+        if (pathData.actions && pathData.actions[actionId] && pathData.actions[actionId].message) {
+          messageId = pathData.actions[actionId].message.id;
+          break;
+        }
+      }
+    }
+
+    //console.log('✅ Action added:', JSON.stringify(response.data, null, 2));
+    console.log(`✅ Action ${actionType} added to flow path ${pathId}`);
+    return { actionId, messageId, ...response.data };
+  } catch (error) {
+    console.error(`❌ Error adding action to path ${pathId}:`, error.message);
+    if (error.response) {
+      console.error(`   Status: ${error.response.status}`);
+      console.error(`   Data:`, error.response.data);
+    }
+    throw error;
+  }
+}
+
+/**
+ * configureTimeDelay({ actionId, formData })
+ *
+ * Supports advanced options for day-based delays:
+ * - If delay_units is days (0 or 'days'), you can provide:
+ *   - sendTime: string (e.g., '14:00') to set a specific time of day
+ *   - specificDays: array of numbers (0=Sunday, 6=Saturday) to restrict to certain days
+ *   - timezone: string (defaults to 'customer')
+ *
+ * Example formData for days:
+ * {
+ *   delay_unit_value: 2,
+ *   delay_units: 'days',
+ *   sendTime: '14:00',
+ *   specificDays: [1,3,5],
+ *   timezone: 'Europe/London'
+ * }
+ */
+export async function configureTimeDelay({ actionId, formData }) {
+  try {
+    console.log(`⏳ Configuring time delay for action ID: ${actionId}...`);
+    const klaviyoUrl = `${KLAVIYO_URL}/ajax/flow/action/${actionId}/timing`;
+    const proxyUrl = `${SERVER_URL}/raw-proxy`;
+
+    // Map string delay_units to numeric values
+    const delayUnitMap = {
+      'days': 0,
+      'hours': 1,
+      'minutes': 3
+    };
+    if (formData && typeof formData.delay_units === 'string') {
+      const mapped = delayUnitMap[formData.delay_units.toLowerCase()];
+      if (mapped !== undefined) {
+        formData.delay_units = mapped;
+      } else {
+        throw new Error(`Invalid delay_units string: ${formData.delay_units}`);
+      }
+    }
+
+    // Build FormData for multipart/form-data
+    const form = new FormData();
+
+    // Advanced day-based delay logic
+    if (formData.delay_units === 0) {
+      // Always set timezone (default to 'customer')
+      form.append('timezone', formData.timezone || 'customer');
+      // Allowed days
+      if (formData.specificDays && Array.isArray(formData.specificDays)) {
+        form.append('use_day_restrictions', 'on');
+        formData.specificDays.forEach(day => form.append('allowed_days[]', day));
+      } else if (formData['allowed_days[]']) {
+        // If allowed_days[] is provided directly
+        (Array.isArray(formData['allowed_days[]']) ? formData['allowed_days[]'] : [formData['allowed_days[]']]).forEach(day => form.append('allowed_days[]', day));
+      } else {
+        // Default: all days
+        [0,1,2,3,4,5,6].forEach(day => form.append('allowed_days[]', day));
+      }
+      // Send time
+      if (formData.sendTime) {
+        form.append('use_send_time', 'on');
+        form.append('send_time', formData.sendTime);
+      }
+      // Standard fields
+      form.append('delay_units', 0);
+      form.append('delay_unit_value', formData.delay_unit_value);
+    } else {
+      // For hours/minutes, use provided fields as before
+      for (const key in formData) {
+        const value = formData[key];
+        if (Array.isArray(value)) {
+          value.forEach(v => form.append(key, v));
+        } else {
+          form.append(key, value);
+        }
+      }
+    }
+
+    // Prepare headers for the proxy
+    const headers = {
+      ...form.getHeaders(),
+      'accept': 'application/json, text/plain, */*',
+      'x-target-url': klaviyoUrl
+    };
+
+    // Send the request to the raw proxy
+    const response = await axios.post(proxyUrl, form, {
+      headers,
+      withCredentials: true
+    });
+
+    if (response.data?.success === false) {
+      throw new Error(`Failed to configure time delay: ${JSON.stringify(response.data)}`);
+    }
+    //console.log('✅ Time delay configured:', JSON.stringify(response.data, null, 2));
+    console.log(`✅ Time delay configured for action ${actionId}`);
+    return response.data;
+  } catch (error) {
+    console.error(`❌ Error configuring time delay for action ${actionId}:`, error.message);
+    if (error.response) {
+      console.error(`   Status: ${error.response.status}`);
+      console.error(`   Data:`, error.response.data);
+    }
+    throw error;
+  }
+}
+
+// CONFIGURE EMAIL NAME FOR MESSAGE
+export async function configureEmailName(messageId, name) {
+  const url = `${KLAVIYO_URL}/ajax/flow/message/${messageId}/name`;
+  const formData = new URLSearchParams();
+  formData.append('name', name);
+
+  const headers = {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'accept': 'application/json, text/plain, */*'
+  };
+
+  try {
+    const response = await axios.post(`${SERVER_URL}/request`, {
+      method: 'POST',
+      url,
+      data: formData.toString(),
+      headers
+    });
+    if (response.data?.success) {
+      //console.log(`Email name configured successfully: "${name}"`);
+      return true;
+    } else {
+      console.error('Failed to configure email name');
+      console.error('Response:', JSON.stringify(response.data, null, 2));
+      return false;
+    }
+  } catch (error) {
+    console.error('Failed to configure email name:', error);
+    return false;
+  }
+}
+
+// CONFIGURE EMAIL SETTINGS (ignore_throttling, enableUtmTracking)
+export async function configureEmailSettings(messageId, settings = {}) {
+  const url = `${KLAVIYO_URL}/ajax/flow/message/${messageId}/setting`;
+  const headers = {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'accept': 'application/json, text/plain, */*'
+  };
+
+  try {
+    // Configure ignore throttling (Skip recently Emailed profiles)
+    if (settings.hasOwnProperty('ignore_throttling')) {
+      const formData = new URLSearchParams();
+      formData.append('setting', 'ignore_throttling');
+      formData.append('value', settings.ignore_throttling ? 'true' : 'false');
+
+      const response = await axios.post(`${SERVER_URL}/request`, {
+        method: 'POST',
+        url,
+        data: formData.toString(),
+        headers
+      });
+
+      if (!response.data?.success) {
+        console.error('Failed to configure email throttling setting');
+        console.error('Response:', JSON.stringify(response.data, null, 2));
+        return false;
+      }
+      //console.log(`Email throttling setting configured: ${settings.ignore_throttling ? 'enabled' : 'disabled'}`);
+    }
+
+    // Configure UTM tracking
+    if (settings.hasOwnProperty('enableUtmTracking')) {
+      const formData = new URLSearchParams();
+      formData.append('setting', 'utm');
+      formData.append('value', settings.enableUtmTracking ? 'true' : 'false');
+
+      const response = await axios.post(`${SERVER_URL}/request`, {
+        method: 'POST',
+        url,
+        data: formData.toString(),
+        headers
+      });
+
+      if (!response.data?.success) {
+        console.error('Failed to configure UTM tracking setting');
+        console.error('Response:', JSON.stringify(response.data, null, 2));
+        return false;
+      }
+      //console.log(`UTM tracking configured: ${settings.enableUtmTracking ? 'enabled' : 'disabled'}`);
+    }
+
+    return true;
+  } catch (error) {
+    console.error('Failed to configure email message:', error);
+    return false;
+  }
+}
+
+// CONFIGURE EMAIL CONTENT (fromEmail, fromName, subject, previewText, replyToEmail)
+export async function configureEmailContent(messageId, content = {}) {
+  const url = `${KLAVIYO_URL}/ajax/flow/message/${messageId}/content`;
+  const headers = {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'accept': 'application/json, text/plain, */*'
+  };
+
+  try {
+    const formData = new URLSearchParams();
+    // Add required fields if provided
+    if (content.fromEmail) {
+      formData.append('from_email', content.fromEmail);
+    }
+    if (content.fromName) {
+      formData.append('from_label', content.fromName);
+    }
+    if (content.subject) {
+      formData.append('subject', content.subject);
+    }
+    // Add optional fields
+    if (content.previewText) {
+      formData.append('preview_text', content.previewText);
+    }
+    if (content.replyToEmail) {
+      formData.append('reply_to_email', content.replyToEmail);
+    }
+
+    const response = await axios.post(`${SERVER_URL}/request`, {
+      method: 'POST',
+      url,
+      data: formData.toString(),
+      headers
+    });
+
+    if (response.data?.success) {
+      //console.log('Email content configured successfully');
+      return true;
+    } else {
+      console.error('Failed to configure email content');
+      console.error('Response:', JSON.stringify(response.data, null, 2));
+      return false;
+    }
+  } catch (error) {
+    console.error('Failed to configure email content:', error);
+    return false;
+  }
+}
+
+// APPLY TEMPLATE TO EMAIL
+export async function applyTemplateToEmail(messageId, templateId) {
+  const url = `${KLAVIYO_URL}/email-templates/template-library/clone`;
+  const formData = new URLSearchParams();
+  formData.append('context_obj_id', messageId);
+  formData.append('context_obj_type', 'flow');
+  formData.append('template_id', templateId);
+
+  const headers = {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'accept': 'application/json, text/plain, */*'
+  };
+
+  try {
+    const response = await axios.post(`${SERVER_URL}/request`, {
+      method: 'POST',
+      url,
+      data: formData.toString(),
+      headers
+    });
+    // Check for cloned_template_id in the response
+    if (response.data?.cloned_template_id) {
+      console.log(`Template ${templateId} applied successfully to message ${messageId} (Cloned as: ${response.data.cloned_template_id})`);
+      return true;
+    } else {
+      console.error('Failed to apply template - No cloned template ID received');
+      console.error('Response:', JSON.stringify(response.data, null, 2));
+      return false;
+    }
+  } catch (error) {
+    console.error('Failed to apply template:', error);
+    return false;
+  }
+}
+
+// CREATE AND CONFIGURE EMAIL ACTION
+export async function createAndConfigureEmailAction(pathId, previousActionId = null, emailConfig = {}) {
+  // Step 1: Add the email action
+  const sendMessageAction = await addAction({
+    pathId,
+    actionType: 'send_message',
+    previous_action_id: previousActionId
+  });
+
+  if (!sendMessageAction || !sendMessageAction.messageId) {
+    console.error('Failed to add email action or extract messageId');
+    return null;
+  }
+
+  const messageId = sendMessageAction.messageId;
+  let fromEmail = null;
+  let fromName = null;
+
+  // Try to get default sender info from the response
+  if (sendMessageAction?.data?.paths) {
+    for (const pathData of Object.values(sendMessageAction.data.paths)) {
+      if (pathData.actions && pathData.actions[sendMessageAction.actionId] && pathData.actions[sendMessageAction.actionId].message) {
+        fromEmail = pathData.actions[sendMessageAction.actionId].message.from_email;
+        fromName = pathData.actions[sendMessageAction.actionId].message.from_label;
+        break;
+      }
+    }
+  }
+
+  // If not found, fetch from flow data as fallback
+  if (!fromEmail || !fromName) {
+    try {
+      const flowData = await getFlowData(sendMessageAction.data.flow.id);
+      const message = flowData?.data?.flow?.paths?.[pathId]?.actions?.[sendMessageAction.actionId]?.message;
+      if (message) {
+        fromEmail = message.from_email;
+        fromName = message.from_label;
+      }
+    } catch (e) {
+      // fallback failed, leave as null
+    }
+  }
+
+  // Step 2: Configure email name
+  if (emailConfig.content?.name) {
+    const nameSuccess = await configureEmailName(messageId, emailConfig.content.name);
+    if (!nameSuccess) {
+      throw new Error('Failed to configure email name');
+    }
+  }
+
+  // Step 3: Apply template if provided
+  if (emailConfig.content?.templateId) {
+    const templateSuccess = await applyTemplateToEmail(messageId, emailConfig.content.templateId);
+    if (!templateSuccess) {
+      throw new Error('Failed to apply template');
+    }
+  }
+
+  // Step 4: Configure email settings if provided
+  if (emailConfig.settings) {
+    const settingsSuccess = await configureEmailSettings(messageId, emailConfig.settings);
+    if (!settingsSuccess) {
+      throw new Error('Failed to configure email settings');
+    }
+  }
+
+  // Step 5: Configure email content (merge defaults if not provided)
+  if (emailConfig.content) {
+    const content = {
+      ...emailConfig.content,
+      fromEmail: emailConfig.content.fromEmail || fromEmail,
+      fromName: emailConfig.content.fromName || fromName
+    };
+    const contentSuccess = await configureEmailContent(messageId, content);
+    if (!contentSuccess) {
+      throw new Error('Failed to configure email content');
+    }
+  }
+
+  // Done
+  return {
+    actionId: sendMessageAction.actionId,
+    messageId,
+    fromEmail,
+    fromName
+  };
+}
+
+// CREATE AND CONFIGURE TIME DELAY ACTION
+export async function createAndConfigureTimeDelayAction(pathId, formData, previousActionId = null) {
+  // Step 1: Add the time delay action
+  const timeDelayAction = await addAction({
+    pathId,
+    actionType: 'time_delay',
+    previous_action_id: previousActionId
+  });
+
+  if (!timeDelayAction || !timeDelayAction.actionId) {
+    console.error('Failed to add time delay action');
+    return null;
+  }
+
+  // Step 2: Configure the time delay
+  const configResponse = await configureTimeDelay({
+    actionId: timeDelayAction.actionId,
+    formData
+  });
+
+  return {
+    actionId: timeDelayAction.actionId,
+    configResponse
+  };
+}
+
+// CREATE AND CONFIGURE FLOW (trigger and filters)
+export async function createAndConfigureFlow({ name, triggerConfig = {}, customerFilters = null }) {
+  // Step 1: Create the flow
+  const flow = await createFlow(name);
+  if (!flow || !flow.flowId) {
+    console.error('Failed to create flow');
+    return null;
+  }
+
+  // Step 2: Configure the trigger if config provided
+  let triggerConfigResponse = null;
+  if (triggerConfig && Object.keys(triggerConfig).length > 0) {
+    triggerConfigResponse = await configureFlow(flow.flowId, triggerConfig);
+  }
+
+  // Step 3: Set customer filters if provided
+  let customerFiltersResponse = null;
+  if (customerFilters) {
+    customerFiltersResponse = await setFlowCustomerFilters(flow.flowId, customerFilters);
+  }
+
+  return {
+    ...flow,
+    triggerConfigResponse,
+    customerFiltersResponse
+  };
+}
+
+/**
+ * Adds and configures a profile property update action in a flow path.
+ * @param {string} pathId - The path ID to add the action to.
+ * @param {Array} propertyOps - Array of property operation objects for the value field (see Klaviyo API docs).
+ * @param {string} [previousActionId] - Optional previous action ID to chain after.
+ * @returns {Promise<{actionId: string, configResponse: any}>}
+ */
+export async function createAndConfigureProfilePropertyUpdateAction(pathId, propertyOps = null, previousActionId = null) {
+  // Step 1: Add the update_customer action
+  const updateAction = await addAction({
+    pathId,
+    actionType: 'update_customer',
+    previous_action_id: previousActionId
+  });
+
+  if (!updateAction || !updateAction.actionId) {
+    console.error('Failed to add profile property update action');
+    return null;
+  }
+
+  // Step 2: Configure the profile property update
+  const url = `${KLAVIYO_URL}/ajax/flow/action/${updateAction.actionId}/update`;
+  const formData = new URLSearchParams();
+  formData.append('pathId', pathId);
+  formData.append('setting', 'profile_operations');
+  formData.append('value', JSON.stringify(propertyOps));
+
+  const headers = {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'accept': 'application/json, text/plain, */*'
+  };
+
+  const response = await axios.post(`${SERVER_URL}/request`, {
+    method: 'POST',
+    url,
+    data: formData.toString(),
+    headers
+  });
+
+  return {
+    actionId: updateAction.actionId,
+    configResponse: response.data
+  };
+}
+
+
+

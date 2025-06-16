@@ -87,7 +87,7 @@ async function createImgbbRequestOptions(
       const baseUrl = "https://flowmailai.imgbb.com";
       const albumsEndpoint = "/albums";
       console.log(`Fetching albums from ${baseUrl}${albumsEndpoint}...`);
-      const htmlContent = await fetchFromImgbb(baseUrl, albumsEndpoint, 'GET', null, 'same-origin', 'https://flowmailai.imgbb.com/');
+      const htmlContent = await withRetry(() => fetchFromImgbb(baseUrl, albumsEndpoint, 'GET', null, 'same-origin', 'https://flowmailai.imgbb.com/'));
   
       if (saveHTML) {
         const { fileURLToPath } = await import('url');
@@ -191,6 +191,24 @@ async function createImgbbRequestOptions(
     return images;
   }
   
+  // Retry helper for rate limiting
+  async function withRetry(fn, maxRetries = 500, delay = 1000) {
+    for (let i = 0; i < maxRetries; i++) {
+      try {
+        return await fn();
+      } catch (err) {
+        if (err.message && err.message.includes('HTTP error 429')) {
+          console.warn(`Rate limited (429). Retrying in ${delay}ms...`);
+          await new Promise(res => setTimeout(res, delay));
+          delay *= 2; // Exponential backoff
+        } else {
+          throw err;
+        }
+      }
+    }
+    throw new Error('Max retries reached');
+  }
+  
   // Function to get and parse images from a single album (with pagination)
   export async function getAlbumImages(albumId, albumName) {
     if (!albumId) {
@@ -210,14 +228,14 @@ async function createImgbbRequestOptions(
         console.log(`Fetching images for album '${albumName}' (ID: ${albumId}), page ${pageNum} from ${baseUrl}${currentEndpoint}...`);
         visitedEndpoints.add(currentEndpoint);
   
-        const htmlContent = await fetchFromImgbb(
+        const htmlContent = await withRetry(() => fetchFromImgbb(
           baseUrl,
           currentEndpoint,
           'GET',
           null,
           'cross-site',
           'https://flowmailai.imgbb.com/' // Referrer for the initial page, might adjust for subsequent if needed
-        );
+        ));
   
         if (saveHTML) {
           const { fileURLToPath } = await import('url');
@@ -282,7 +300,7 @@ async function createImgbbRequestOptions(
   
   export async function getRandomImageFromAlbum(albumId, albumName, count = 1) {
     try {
-      const images = await getAlbumImages(albumId, albumName);
+      const images = await withRetry(() => getAlbumImages(albumId, albumName));
       if (!images || images.length === 0) {
         console.log(`No images found in album ${albumName} to select from.`);
         return null; // Return null or an empty array as appropriate
@@ -347,7 +365,7 @@ async function createImgbbRequestOptions(
   export async function getAlbumImagesData(albumId, albumName) {
     try {
       // Use the existing function to get all images
-      const images = await getAlbumImages(albumId, albumName);
+      const images = await withRetry(() => getAlbumImages(albumId, albumName));
       
       if (!images || images.length === 0) {
         console.log(`No images found in album ${albumName} to process.`);

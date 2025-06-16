@@ -8,7 +8,7 @@ import FileCookieStore from 'tough-cookie-file-store';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import FormData from 'form-data';
-import { setupBaseStructure } from '../Klaviyo Portal/Systems/Setup Base Structure.js';
+import { setupBaseStructure } from '../Klaviyo Portal/Systems/Setup Base Structure (Create Flows Method).js';
 import bodyParser from 'body-parser';
 
 // ────────────────────────────────────────────────────

@@ -197,7 +197,7 @@ class EmailMonitor {
     try {
       console.log("🚀 ATTEMPTING TO ACCEPT INVITATION...");
       
-      const response = await fetch(`${SERVER_BASE}/fetch-request`, {
+      const response = await fetch(`${SERVER_BASE}/request`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

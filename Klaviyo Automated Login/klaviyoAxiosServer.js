@@ -10,6 +10,7 @@ import { fileURLToPath } from 'url';
 import FormData from 'form-data';
 import { setupBaseStructure } from '../Klaviyo Portal/Systems/Setup Base Structure (Create Flows Method).js';
 import bodyParser from 'body-parser';
+import { executeKlaviyoLogin } from './Login.js';
 
 // ────────────────────────────────────────────────────
 // Setup paths / env vars
@@ -66,7 +67,7 @@ function cleanupTempFiles() {
 // ────────────────────────────────────────────────────
 // Load (or reload) axios instance from disk
 // ────────────────────────────────────────────────────
-async function loadAxiosInstance() {
+export async function loadAxiosInstance() {
   try {
     const state = JSON.parse(fs.readFileSync(SAVED_INSTANCE,'utf8'));
 
@@ -189,7 +190,7 @@ function watchFile() {
 
   fs.watchFile(SAVED_INSTANCE,{interval:WATCH_INTERVAL_MS}, async (cur,prev)=>{
     if (cur.mtime.getTime() !== lastFileMod) {
-      await new Promise(r=>setTimeout(r,50_000)); // 50 s safety
+      await new Promise(r=>setTimeout(r,5_000)); // 5 s safety
       lastFileMod = cur.mtime.getTime();
       log('📄 Detected state-file change → hot reload','INFO');
       await loadAxiosInstance();
@@ -623,6 +624,6 @@ app.post('/setBaseFlows', async (req, res) => {
 (async()=>{
   cleanupTempFiles(); // Clean up any leftover temp files from previous runs
   await loadAxiosInstance();
-  watchFile();
+  //watchFile();
   app.listen(PORT,()=>log(`🚀 Klaviyo-proxy on http://localhost:${PORT}`,'SUCCESS'));
 })();

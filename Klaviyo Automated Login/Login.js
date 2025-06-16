@@ -6,10 +6,12 @@ import FileCookieStore from 'tough-cookie-file-store';
 import FormData from 'form-data';
 import { authenticator } from 'otplib';
 import TwoCaptcha from '@2captcha/captcha-solver';
+import { RecaptchaV2Task } from 'node-capmonster';
 import crypto from 'crypto';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
+import { loadAxiosInstance } from './klaviyoAxiosServer.js';
 
 // ES module equivalent of __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -25,13 +27,15 @@ const KLAVIYO_LOGIN_URL = 'https://www.klaviyo.com/login';
 const KLAVIYO_LOGIN_AJAX_URL = 'https://www.klaviyo.com/ajax/login';
 const KLAVIYO_LOGIN_MFA_URL = 'https://www.klaviyo.com/ajax/login-mfa';
 const KLAVIYO_AUTH_URL = 'https://www.klaviyo.com/ajax/authorization';
-const CAPTCHA_API_KEY = '482b0869575de6db4ffff468c2d5c7fc';
+const CAPTCHA_API_KEY_2CAPTCHA = '06a497b12e136fc2b76b3b551a0d0a2a';
+const CAPTCHA_API_KEY_CAPMONSTER = 'd2efd32a9a0ca726fe68a33b35ce3831';
 const KLAVIYO_RECAPTCHA_SITE_KEY = '6Lcr3W4qAAAAAIuLNHTx1SA8DNCksiR504QiqTP8';
 const KLAVIYO_EMAIL = 'builder@flow-fast.ai';
 const KLAVIYO_PASSWORD = 'Nasko123$%^';
 const KLAVIYO_MFA_SECRET = 'JFC7FMIAQVM423A6';
 const COOKIE_FILE_PATH = `./${KLAVIYO_EMAIL}_cookies.json`;
 const DEBUG = true;
+const captchaSolver = 'CapMonster'; // 'CapMonster' or '2Captcha'
 
 // Helper function to format timestamp
 function getFormattedTimestamp() {
@@ -59,9 +63,10 @@ const axiosInstance = wrapper(
 );
 
 //------------------------------------
-// 2Captcha solver
+// 2Captcha and CapMonster solver setup
 //------------------------------------
-const solver = new TwoCaptcha.Solver(CAPTCHA_API_KEY);
+const solver = new TwoCaptcha.Solver(CAPTCHA_API_KEY_2CAPTCHA);
+const capmonster = new RecaptchaV2Task(CAPTCHA_API_KEY_CAPMONSTER);
 
 //------------------------------------
 // Utility: Delay
@@ -106,20 +111,33 @@ async function getLoginPage() {
 }
 
 //------------------------------------
-// 2) Solve reCAPTCHA via 2Captcha
+// 2) Solve reCAPTCHA via selected solver
 //------------------------------------
 async function solveRecaptcha() {
   try {
-    console.log('Solving captcha...');
-    const result = await solver.recaptcha({
-      pageurl: KLAVIYO_LOGIN_URL,
-      googlekey: KLAVIYO_RECAPTCHA_SITE_KEY,
-    });
-
-    // result.data is the token
-    if (DEBUG) console.log('reCAPTCHA token obtained:', result.data);
-    console.log('Captcha solved!');
-    return result.data;
+    if (captchaSolver === '2Captcha') {
+      console.log('Solving captcha with 2Captcha...');
+      const result = await solver.recaptcha({
+        pageurl: KLAVIYO_LOGIN_URL,
+        googlekey: KLAVIYO_RECAPTCHA_SITE_KEY,
+      });
+      if (DEBUG) console.log('reCAPTCHA token obtained:', result.data);
+      console.log('Captcha solved!');
+      return result.data;
+    } else if (captchaSolver === 'CapMonster') {
+      console.log('Solving captcha with CapMonster...');
+      const task = capmonster.task({
+        websiteKey: KLAVIYO_RECAPTCHA_SITE_KEY,
+        websiteURL: KLAVIYO_LOGIN_URL,
+      });
+      const taskId = await capmonster.createWithTask(task);
+      const result = await capmonster.joinTaskResult(taskId);
+      if (DEBUG) console.log('reCAPTCHA token obtained:', result.gRecaptchaResponse);
+      console.log('Captcha solved!');
+      return result.gRecaptchaResponse;
+    } else {
+      throw new Error('Unknown captchaSolver selected. Use "2Captcha" or "CapMonster".');
+    }
   } catch (err) {
     console.log('Failed to solve reCAPTCHA:', err);
     throw err;
@@ -266,7 +284,7 @@ async function verifyLogin() {
       console.log('Authorization endpoint response:', JSON.stringify(response.data, null, 2));
     }
 
-    if (response.status === 200 && response.data) {
+    if (response.status === 200 && response.data.data.authentication_status === 'fully-authenticated') {
       console.log('\x1b[32m✔ Login successful!\x1b[0m');
       return true;
     } else {
@@ -286,62 +304,48 @@ async function saveAxiosInstance(axiosInstance, cookieJar, filePath = null) {
       filePath = path.join(__dirname, 'saved_axios_instance.json');
     }
     
-    //console.log('💾 Saving complete axios instance state...');
-    
     // Extract all axios configuration
     const instanceState = {
-      // Basic axios config
       baseURL: axiosInstance.defaults.baseURL,
       timeout: axiosInstance.defaults.timeout,
       headers: axiosInstance.defaults.headers,
       withCredentials: axiosInstance.defaults.withCredentials,
-      
-      // Request/response transformers
       transformRequest: axiosInstance.defaults.transformRequest?.toString(),
       transformResponse: axiosInstance.defaults.transformResponse?.toString(),
-      
-      // Other axios defaults
       maxRedirects: axiosInstance.defaults.maxRedirects,
       validateStatus: axiosInstance.defaults.validateStatus?.toString(),
-      
-      // Cookies from the jar
       cookies: [],
-      
-      // Save timestamp
       savedAt: new Date().toISOString(),
-      
-      // Version info
       version: '1.0.0'
     };
-    
-    // Extract cookies from all domains
+    // Extract cookies from all domains, but ensure uniqueness by key+domain+path
     const domains = ['https://www.klaviyo.com', 'https://klaviyo.com'];
+    const seen = new Set();
     for (const domain of domains) {
       const cookies = await cookieJar.getCookies(domain);
       for (const cookie of cookies) {
-        instanceState.cookies.push({
-          key: cookie.key,
-          value: cookie.value,
-          domain: cookie.domain,
-          path: cookie.path,
-          expires: cookie.expires,
-          httpOnly: cookie.httpOnly,
-          secure: cookie.secure,
-          sameSite: cookie.sameSite,
-          hostOnly: cookie.hostOnly,
-          creation: cookie.creation,
-          lastAccessed: cookie.lastAccessed
-        });
+        const uniqueKey = `${cookie.key}|${cookie.domain}|${cookie.path}`;
+        if (!seen.has(uniqueKey)) {
+          seen.add(uniqueKey);
+          instanceState.cookies.push({
+            key: cookie.key,
+            value: cookie.value,
+            domain: cookie.domain,
+            path: cookie.path,
+            expires: cookie.expires,
+            httpOnly: cookie.httpOnly,
+            secure: cookie.secure,
+            sameSite: cookie.sameSite,
+            hostOnly: cookie.hostOnly,
+            creation: cookie.creation,
+            lastAccessed: cookie.lastAccessed
+          });
+        }
       }
     }
-    
-    // Save to file
+    // Save to file (overwrite, do not append)
     fs.writeFileSync(filePath, JSON.stringify(instanceState, null, 2));
-    
     console.log(`✅ Axios instance saved to: ${filePath}`);
-    //console.log(`📊 Saved ${instanceState.cookies.length} cookies`);
-    //console.log(`📊 Saved headers:`, Object.keys(instanceState.headers).length);
-    
     return true;
   } catch (error) {
     console.error('❌ Error saving axios instance:', error.message);
@@ -352,7 +356,7 @@ async function saveAxiosInstance(axiosInstance, cookieJar, filePath = null) {
 //------------------------------------
 // Main Flow
 //------------------------------------
-async function executeKlaviyoLogin(retryCount = 0) {
+export async function executeKlaviyoLogin(retryCount = 0) {
   const timestamp = getFormattedTimestamp();
   console.log(`${timestamp} Starting Klaviyo automated login...`);
   
@@ -388,6 +392,8 @@ async function executeKlaviyoLogin(retryCount = 0) {
 
     // Save the complete Axios instance
     await saveAxiosInstance(axiosInstance, cookieJar);
+    await delay(1000);
+    await loadAxiosInstance();
 
     return true;
   } catch (error) {
@@ -412,27 +418,3 @@ async function executeKlaviyoLogin(retryCount = 0) {
     }
   }
 }
-
-// Function to start the recurring execution
-function startRecurringExecution() {
-  const INTERVAL_HOURS = 23;
-  const INTERVAL_MS = INTERVAL_HOURS * 60 * 60 * 1000; // 23 hours in milliseconds
-  
-  console.log(`Starting Klaviyo automated login script...`);
-  console.log(`Will run every ${INTERVAL_HOURS} hours`);
-  
-  // Run immediately on start
-  executeKlaviyoLogin();
-  
-  // Schedule recurring execution
-  setInterval(() => {
-    console.log(`\n--- Scheduled refresh (every ${INTERVAL_HOURS} hours) ---`);
-    executeKlaviyoLogin();
-  }, INTERVAL_MS);
-  
-  const nextExecution = new Date(Date.now() + INTERVAL_MS);
-  console.log(`\x1b[33mNext refresh scheduled for ${nextExecution.toLocaleString()}\x1b[0m`);
-}
-
-// Start the recurring execution
-startRecurringExecution();

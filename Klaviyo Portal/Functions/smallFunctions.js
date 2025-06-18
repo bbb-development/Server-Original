@@ -48,6 +48,44 @@ export async function getProfile() {
   }
 }
 
+export async function authorize(needRelog = false) {
+  if (needRelog) {
+    console.log('\x1b[32m🟢 Relogin Now...\x1b[0m');
+    const relogResponse = await axios.post(`${SERVER_URL}/relog`, { method: 'GET' });
+    if (relogResponse.data && relogResponse.data.success) {
+      console.log('\x1b[32mReloged Successfully\x1b[0m');
+    } else {
+      console.log('\x1b[31mRelogin failed:\x1b[0m', relogResponse.data);
+    }
+    return;
+  }
+  try {
+    console.log('🔍 Checking Klaviyo authorization...');
+    const response = await axios.post(`${SERVER_URL}/request`, {
+      method: 'GET',
+      url: `${KLAVIYO_URL}/ajax/authorization`
+    });
+    if (!response.data?.success) {
+      console.warn('❌ Not authorized. Attempting relogin...');
+      const relogResponse = await axios.post(`${SERVER_URL}/relog`, { method: 'GET' });
+      if (relogResponse.data && relogResponse.data.success) {
+        console.log('\x1b[32mReloged Successfully\x1b[0m');
+      } else {
+        console.log('\x1b[31mRelogin failed:\x1b[0m', relogResponse.data);
+      }
+    } else {
+      console.log('✅ Already authorized.');
+    }
+  } catch (error) {
+    console.error('❌ Error checking authorization:', error.message);
+    if (error.response) {
+      console.error(`   Status: ${error.response.status}`);
+      console.error(`   Data:`, error.response.data);
+    }
+    throw error;
+  }
+}
+
 // REFRESH SESSION FOR CLIENT (visit /login?switch_to=...)
 export async function switchToClientSession(clientId) {
   try {

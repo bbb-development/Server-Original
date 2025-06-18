@@ -11,6 +11,7 @@ import FormData from 'form-data';
 import { setupBaseStructure } from '../Klaviyo Portal/Systems/Setup Base Structure (Create Flows Method).js';
 import bodyParser from 'body-parser';
 import { executeKlaviyoLogin } from './Login.js';
+import * as smallFunctions from '../Klaviyo Portal/Functions/smallFunctions.js';
 
 // ────────────────────────────────────────────────────
 // Setup paths / env vars
@@ -217,6 +218,35 @@ async function withRetry(fn, maxRetries = 500, delay = 1000) {
     }
   }
   throw new Error('Max retries reached');
+}
+
+// ────────────────────────────────────────────────────
+// Relogin helper
+// ────────────────────────────────────────────────────
+let reloginInProgress = false;
+async function relogin() {
+  if (reloginInProgress) {
+    // Prevent concurrent relogins
+    await new Promise(resolve => {
+      const check = setInterval(() => {
+        if (!reloginInProgress) {
+          clearInterval(check);
+          resolve();
+        }
+      }, 500);
+    });
+    return;
+  }
+  reloginInProgress = true;
+  try {
+    console.log('🔑 Relogin started');
+    await executeKlaviyoLogin();
+    console.log('🔑 Relogin successful and axios instance reloaded');
+  } catch (e) {
+    console.log(`❌ Relogin failed: ${e.message}`);
+  } finally {
+    reloginInProgress = false;
+  }
 }
 
 // ────────────────────────────────────────────────────
@@ -439,6 +469,12 @@ app.post('/fetch-request', async (req, res) => {
   } catch (e) {
     if (e.name === 'AbortError') {
       res.status(408).json({error: 'Request timeout'});
+    } else if ((e?.response?.status !== 429 && e.name !== 'AbortError') && !req._reloginTried) {
+      req._reloginTried = true;
+      log('🔄 Attempting relogin after an error in /fetch-request', 'WARN');
+      await relogin();
+      // Retry the request once after relogin
+      return app._router.handle(req, res, () => {});
     } else {
       res.status(500).json({
         error: e.message,
@@ -547,10 +583,18 @@ app.post('/request', async (req,res)=>{
       res.status(response.status).send(response.data);
     });
   } catch(e) {
-    res.status(e.response?.status||500).json({
-      error:e.message,
-      data : e.response?.data
-    });
+    if ((e?.response?.status !== 429 && e.name !== 'AbortError') && !req._reloginTried) {
+      req._reloginTried = true;
+      log('🔄 Attempting relogin after an error in /request', 'WARN');
+      await relogin();
+      // Retry the request once after relogin
+      return app._router.handle(req, res, () => {});
+    } else {
+      res.status(e.response?.status||500).json({
+        error:e.message,
+        data : e.response?.data
+      });
+    }
   }
 }); 
 
@@ -558,6 +602,17 @@ app.post('/request', async (req,res)=>{
 app.post('/reload', async (_,res)=>{
   await loadAxiosInstance();
   res.json({message:'reloaded',lastLoaded});
+});
+
+// Expose relog endpoint
+app.post('/relog', async (_, res) => {
+  try {
+    log('🔄 Relogin via /relog', 'INFO');
+    await relogin();
+    res.json({ success: true, message: 'Reloged Successfully' });
+  } catch (e) {
+    res.status(500).json({ success: false, error: e.message });
+  }
 });
 
 // Manually write current jar to disk once
@@ -603,6 +658,7 @@ app.post('/setBaseFlows', async (req, res) => {
   }
   
   try {
+    await smallFunctions.authorize();
     const result = await setupBaseStructure(clientID, brand);
     log(`✅ Base flows setup completed for client: ${clientID} in ${result.executionTime || 'unknown time'}`, 'SUCCESS');
     res.json(result);

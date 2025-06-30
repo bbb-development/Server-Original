@@ -1,4 +1,5 @@
-import { createServer } from 'http';
+import express from 'express';
+import cors from 'cors';
 import { chromium } from 'playwright';
 import 'dotenv/config';
 import { readFile } from 'fs/promises';
@@ -128,476 +129,491 @@ async function withPageContentRetries(fn, maxRetries = 5, delayMs = 1000) {
     const browser = await chromium.launch({ headless: true });
     console.log('✅ Browser launched successfully');
 
-    const server = createServer(async (req, res) => {
-      if (req.method === 'POST' && req.url === '/scrape') {
-        let body = '';
-        req.on('data', chunk => body += chunk);
-        req.on('end', async () => {
-          try {
-            const { method, url, cookies } = JSON.parse(body);
-            console.log(`📥 Received request: ${method} for ${url}`);
+    const app = express();
 
-            let result;
-            let context, page;
-            switch (method) {
-              case 'scrape_html': {
-                result = await withRetries(async () => {
-                  ({ context, page } = await createContextAndPage(browser, cookies));
-                  try {
-                    console.log(`🌐 Navigating to ${url}...`);
-                    await navigateWithRetry(page, url);
-                    const html = await page.content();
-                    return { ok: true, html };
-                  } finally {
-                    if (page) await page.close();
-                    if (context) await context.close();
-                  }
-                });
-                break;
+    // Set up CORS with dynamic origin checking for security
+    const allowedOrigins = [
+      'https://flow-fast.ai',
+      'https://www.flow-fast.ai',
+      'http://localhost:3000', // Common local dev ports
+      'http://localhost:5173', // Vite's default port
+    ];
+
+    app.use(cors({
+      origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) === -1) {
+          const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+          return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+      },
+      credentials: true,
+    }));
+    
+    // --> ADDING THIS LOGGING MIDDLEWARE
+    app.use((req, res, next) => {
+      console.log('--- Incoming Request ---');
+      console.log(`Method: ${req.method}`);
+      console.log(`URL: ${req.originalUrl}`);
+      console.log('Headers:', JSON.stringify(req.headers, null, 2));
+      console.log('------------------------');
+      next();
+    });
+    
+    // Middleware to parse JSON bodies
+    app.use(express.json({ limit: '10mb' }));
+
+    // Scrape endpoint
+    app.post('/scrape', async (req, res) => {
+      try {
+        const { method, url, cookies } = req.body;
+        console.log(`📥 Received request: ${method} for ${url}`);
+
+        let result;
+        let context, page;
+        switch (method) {
+          case 'scrape_html': {
+            result = await withRetries(async () => {
+              ({ context, page } = await createContextAndPage(browser, cookies));
+              try {
+                console.log(`🌐 Navigating to ${url}...`);
+                await navigateWithRetry(page, url);
+                const html = await page.content();
+                return { ok: true, html };
+              } finally {
+                if (page) await page.close();
+                if (context) await context.close();
               }
-              case 'scrape_brand_brief': {
-                result = await withRetries(async () => {
-                  ({ context, page } = await createContextAndPage(browser, cookies));
-                  try {
-                    console.log(`🌐 Navigating to ${url}...`);
-                    await navigateWithRetry(page, url);
-                    console.log('✅ Page loaded successfully');
-                    const startTime = Date.now(); // Start timing
-                    const scrapingTasks = [
-                      withPageContentRetries(() => scrapeButtonColors(page)),
-                      withPageContentRetries(() => scrapeLogo(page)),
-                      withPageContentRetries(() => getBrandData(page)),
-                      withPageContentRetries(() => extractImages(url)) 
-                    ];
+            });
+            break;
+          }
+          case 'scrape_brand_brief': {
+            result = await withRetries(async () => {
+              ({ context, page } = await createContextAndPage(browser, cookies));
+              try {
+                console.log(`🌐 Navigating to ${url}...`);
+                await navigateWithRetry(page, url);
+                console.log('✅ Page loaded successfully');
+                const startTime = Date.now(); // Start timing
+                const scrapingTasks = [
+                  withPageContentRetries(() => scrapeButtonColors(page)),
+                  withPageContentRetries(() => scrapeLogo(page)),
+                  withPageContentRetries(() => getBrandData(page)),
+                  withPageContentRetries(() => extractImages(url)) 
+                ];
 
-                    const results = await Promise.allSettled(scrapingTasks);
+                const results = await Promise.allSettled(scrapingTasks);
 
-                    const buttonData = results[0].status === 'fulfilled' ? results[0].value : { mostCommonBackground: null, mostCommonTextColor: null };
-                    const logoResult = results[1].status === 'fulfilled' ? results[1].value : null;
-                    const brandData = results[2].status === 'fulfilled' ? results[2].value : null;
-                    const extractedImages = results[3].status === 'fulfilled' ? results[3].value : []; 
+                const buttonData = results[0].status === 'fulfilled' ? results[0].value : { mostCommonBackground: null, mostCommonTextColor: null };
+                const logoResult = results[1].status === 'fulfilled' ? results[1].value : null;
+                const brandData = results[2].status === 'fulfilled' ? results[2].value : null;
+                const extractedImages = results[3].status === 'fulfilled' ? results[3].value : []; 
 
-                    const resultData = {
-                      brand: {
-                        url,
-                        logo: logoResult
-                          ? {
-                              url: logoResult.url || null,
-                              width: logoResult.width || null,
-                              height: logoResult.height || null
-                            }
-                          : null,
-                        colors: {
-                          background: buttonData?.mostCommonBackground || null,
-                          text: buttonData?.mostCommonTextColor || null
-                        },
-                        data: brandData,
-                        images: extractedImages.map(img => ({
-                          id: img.id,
-                          url: img.url
-                        }))
+                const resultData = {
+                  brand: {
+                    url,
+                    logo: logoResult
+                      ? {
+                          url: logoResult.url || null,
+                          width: logoResult.width || null,
+                          height: logoResult.height || null
+                        }
+                      : null,
+                    colors: {
+                      background: buttonData?.mostCommonBackground || null,
+                      text: buttonData?.mostCommonTextColor || null
+                    },
+                    data: brandData,
+                    images: extractedImages.map(img => ({
+                      id: img.id,
+                      url: img.url
+                    }))
+                  },
+                  meta: {
+                    scrapedAt: new Date().toISOString(),
+                    source: "server_scraper",
+                  }
+                };
+
+                const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+                console.log(`✅ Brand brief scraping completed in ${elapsed} seconds`);
+                return { ok: true, data: resultData };
+              } finally {
+                if (page) await page.close();
+                if (context) await context.close();
+              }
+            });
+            break;
+          }
+          case 'extractBestSellers': {
+            result = await withRetries(async () => {
+              ({ context, page } = await createContextAndPage(browser, cookies));
+              try {
+                console.log(`🌐 Navigating to ${url}...`);
+                await navigateWithRetry(page, url);
+                console.log('✅ Page loaded successfully');
+                const bestSellersResult = await extractBestSellers(page);
+                return {
+                  ok: true,
+                  data: {
+                    links: {
+                      best_sellers: {
+                        url: bestSellersResult.bestSellersUrl || null,
+                        products: bestSellersResult.bestSellers?.products || []
                       },
-                      meta: {
-                        scrapedAt: new Date().toISOString(),
-                        source: "server_scraper",
-                      }
-                    };
-
-                    const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
-                    console.log(`✅ Brand brief scraping completed in ${elapsed} seconds`);
-                    return { ok: true, data: resultData };
-                  } finally {
-                    if (page) await page.close();
-                    if (context) await context.close();
-                  }
-                });
-                break;
-              }
-              case 'extractBestSellers': {
-                result = await withRetries(async () => {
-                  ({ context, page } = await createContextAndPage(browser, cookies));
-                  try {
-                    console.log(`🌐 Navigating to ${url}...`);
-                    await navigateWithRetry(page, url);
-                    console.log('✅ Page loaded successfully');
-                    const bestSellersResult = await extractBestSellers(page);
-                    return {
-                      ok: true,
-                      data: {
-                        links: {
-                          best_sellers: {
-                            url: bestSellersResult.bestSellersUrl || null,
-                            products: bestSellersResult.bestSellers?.products || []
-                          },
-                          contact: {
-                            url: bestSellersResult.contactUrl || null
-                          },
-                          faq: {
-                            url: bestSellersResult.faqUrl || null
-                          },
-                          internal: bestSellersResult.internalLinks || null
-                        }
-                      }
-                    };
-                  } finally {
-                    if (page) await page.close();
-                    if (context) await context.close();
-                  }
-                });
-                break;
-              }
-              case 'scrape_combined': {
-                // Demonstrate concurrent scraping with navigateWithRetry
-                const startTime = Date.now();
-                console.log(`🚀 Running combined scraping for ${url}...`);
-                result = await withRetries(async () => {
-                  // Create two separate contexts and pages
-                  const brandBriefTask = (async () => {
-                    let context1, page1;
-                    ({ context: context1, page: page1 } = await createContextAndPage(browser, cookies));
-                    try {
-                      console.log(`🌐 [Brand Brief] Navigating to ${url}...`);
-                      await navigateWithRetry(page1, url);
-                      console.log('✅ [Brand Brief] Page loaded successfully');
-                      const scrapingTasks = [
-                        withPageContentRetries(() => scrapeButtonColors(page1)),
-                        withPageContentRetries(() => scrapeLogo(page1)),
-                        withPageContentRetries(() => getBrandData(page1)),
-                        withPageContentRetries(() => extractImages(url)) 
-                      ];
-
-                      const results = await Promise.allSettled(scrapingTasks);
-                      const buttonData = results[0].status === 'fulfilled' ? results[0].value : { mostCommonBackground: null, mostCommonTextColor: null };
-                      const logoResult = results[1].status === 'fulfilled' ? results[1].value : null;
-                      const brandData = results[2].status === 'fulfilled' ? results[2].value : null;
-                      const extractedImages = results[3].status === 'fulfilled' ? results[3].value : []; 
-
-                      return {
-                        brand: {
-                          url,
-                          logo: logoResult
-                            ? {
-                                url: logoResult.url || null,
-                                width: logoResult.width || null,
-                                height: logoResult.height || null
-                              }
-                            : null,
-                          colors: {
-                            background: buttonData?.mostCommonBackground || null,
-                            text: buttonData?.mostCommonTextColor || null
-                          },
-                          data: brandData,
-                          images: extractedImages.map(img => ({
-                            id: img.id,
-                            url: img.url
-                          }))
-                        }
-                      };
-                    } finally {
-                      if (page1) await page1.close();
-                      if (context1) await context1.close();
+                      contact: {
+                        url: bestSellersResult.contactUrl || null
+                      },
+                      faq: {
+                        url: bestSellersResult.faqUrl || null
+                      },
+                      internal: bestSellersResult.internalLinks || null
                     }
-                  })();
+                  }
+                };
+              } finally {
+                if (page) await page.close();
+                if (context) await context.close();
+              }
+            });
+            break;
+          }
+          case 'scrape_combined': {
+            // Demonstrate concurrent scraping with navigateWithRetry
+            const startTime = Date.now();
+            console.log(`🚀 Running combined scraping for ${url}...`);
+            result = await withRetries(async () => {
+              // Create two separate contexts and pages
+              const brandBriefTask = (async () => {
+                let context1, page1;
+                ({ context: context1, page: page1 } = await createContextAndPage(browser, cookies));
+                try {
+                  console.log(`🌐 [Brand Brief] Navigating to ${url}...`);
+                  await navigateWithRetry(page1, url);
+                  console.log('✅ [Brand Brief] Page loaded successfully');
+                  const scrapingTasks = [
+                    withPageContentRetries(() => scrapeButtonColors(page1)),
+                    withPageContentRetries(() => scrapeLogo(page1)),
+                    withPageContentRetries(() => getBrandData(page1)),
+                    withPageContentRetries(() => extractImages(url)) 
+                  ];
 
-                  const bestSellersTask = (async () => {
-                    let context2, page2;
-                    ({ context: context2, page: page2 } = await createContextAndPage(browser, cookies));
-                    try {
-                      console.log(`🌐 [Best Sellers] Navigating to ${url}...`);
-                      await navigateWithRetry(page2, url);
-                      console.log('✅ [Best Sellers] Page loaded successfully');
-                      const bestSellersResult = await extractBestSellers(page2);
-                      return {
-                        links: {
-                          best_sellers: {
-                            url: bestSellersResult.bestSellersUrl || null,
-                            products: bestSellersResult.bestSellers?.products || []
-                          },
-                          contact: {
-                            url: bestSellersResult.contactUrl || null
-                          },
-                          faq: {
-                            url: bestSellersResult.faqUrl || null
-                          },
-                          internal: bestSellersResult.internalLinks || null
-                        }
-                      };
-                    } finally {
-                      if (page2) await page2.close();
-                      if (context2) await context2.close();
-                    }
-                  })();
+                  const results = await Promise.allSettled(scrapingTasks);
+                  const buttonData = results[0].status === 'fulfilled' ? results[0].value : { mostCommonBackground: null, mostCommonTextColor: null };
+                  const logoResult = results[1].status === 'fulfilled' ? results[1].value : null;
+                  const brandData = results[2].status === 'fulfilled' ? results[2].value : null;
+                  const extractedImages = results[3].status === 'fulfilled' ? results[3].value : []; 
 
-                  // Run both tasks concurrently
-                  const [brandBriefData, bestSellersData] = await Promise.all([brandBriefTask, bestSellersTask]);
-                  const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
-                  console.log(`✅ Combined scraping completed in ${elapsed} seconds`);
                   return {
-                    ok: true,
-                    data: {
-                      ...brandBriefData,
-                      ...bestSellersData,
-                      meta: {
-                        scrapedAt: new Date().toISOString(),
-                        source: "server_scraper",
-                        combinedScraping: true,
-                        duration: elapsed + 's'
-                      }
+                    brand: {
+                      url,
+                      logo: logoResult
+                        ? {
+                            url: logoResult.url || null,
+                            width: logoResult.width || null,
+                            height: logoResult.height || null
+                          }
+                        : null,
+                      colors: {
+                        background: buttonData?.mostCommonBackground || null,
+                        text: buttonData?.mostCommonTextColor || null
+                      },
+                      data: brandData,
+                      images: extractedImages.map(img => ({
+                        id: img.id,
+                        url: img.url
+                      }))
                     }
                   };
-                });
-                break;
-              }
-              case 'scrape_progressive': {
-                // Demonstrate progressive results - returns whichever is ready first
-                const startTime = Date.now();
-                console.log(`🚀 Running progressive scraping for ${url}...`);
-                result = await withRetries(async () => {
-                  // Create two separate contexts and pages
-                  const brandBriefTask = (async () => {
-                    let context1, page1;
-                    ({ context: context1, page: page1 } = await createContextAndPage(browser, cookies));
-                    try {
-                      console.log(`🌐 [Brand Brief] Navigating to ${url}...`);
-                      await navigateWithRetry(page1, url);
-                      console.log('✅ [Brand Brief] Page loaded successfully');
-                      const scrapingTasks = [
-                        withPageContentRetries(() => scrapeButtonColors(page1)),
-                        withPageContentRetries(() => scrapeLogo(page1)),
-                        withPageContentRetries(() => getBrandData(page1)),
-                        withPageContentRetries(() => extractImages(url)) 
-                      ];
+                } finally {
+                  if (page1) await page1.close();
+                  if (context1) await context1.close();
+                }
+              })();
 
-                      const results = await Promise.allSettled(scrapingTasks);
-                      const buttonData = results[0].status === 'fulfilled' ? results[0].value : { mostCommonBackground: null, mostCommonTextColor: null };
-                      const logoResult = results[1].status === 'fulfilled' ? results[1].value : null;
-                      const brandData = results[2].status === 'fulfilled' ? results[2].value : null;
-                      const extractedImages = results[3].status === 'fulfilled' ? results[3].value : []; 
-
-                      return {
-                        type: 'brand_brief',
-                        brand: {
-                          url,
-                          logo: logoResult
-                            ? {
-                                url: logoResult.url || null,
-                                width: logoResult.width || null,
-                                height: logoResult.height || null
-                              }
-                            : null,
-                          colors: {
-                            background: buttonData?.mostCommonBackground || null,
-                            text: buttonData?.mostCommonTextColor || null
-                          },
-                          data: brandData,
-                          images: extractedImages.map(img => ({
-                            id: img.id,
-                            url: img.url
-                          }))
-                        }
-                      };
-                    } finally {
-                      if (page1) await page1.close();
-                      if (context1) await context1.close();
-                    }
-                  })();
-
-                  const bestSellersTask = (async () => {
-                    let context2, page2;
-                    ({ context: context2, page: page2 } = await createContextAndPage(browser, cookies));
-                    try {
-                      console.log(`🌐 [Best Sellers] Navigating to ${url}...`);
-                      await navigateWithRetry(page2, url);
-                      console.log('✅ [Best Sellers] Page loaded successfully');
-                      const bestSellersResult = await extractBestSellers(page2);
-                      return {
-                        type: 'best_sellers',
-                        links: {
-                          best_sellers: {
-                            url: bestSellersResult.bestSellersUrl || null,
-                            products: bestSellersResult.bestSellers?.products || []
-                          },
-                          contact: {
-                            url: bestSellersResult.contactUrl || null
-                          },
-                          faq: {
-                            url: bestSellersResult.faqUrl || null
-                          },
-                          internal: bestSellersResult.internalLinks || null
-                        }
-                      };
-                    } finally {
-                      if (page2) await page2.close();
-                      if (context2) await context2.close();
-                    }
-                  })();
-
-                  // Use Promise.allSettled to handle results as they come
-                  const results = await Promise.allSettled([brandBriefTask, bestSellersTask]);
-                  const completedResults = results
-                    .filter(r => r.status === 'fulfilled')
-                    .map(r => r.value);
-                  const failedResults = results
-                    .filter(r => r.status === 'rejected')
-                    .map(r => ({ error: r.reason.message }));
-                  const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
-                  console.log(`✅ Progressive scraping completed in ${elapsed} seconds`);
-                  console.log(`✅ Completed: ${completedResults.length}, Failed: ${failedResults.length}`);
+              const bestSellersTask = (async () => {
+                let context2, page2;
+                ({ context: context2, page: page2 } = await createContextAndPage(browser, cookies));
+                try {
+                  console.log(`🌐 [Best Sellers] Navigating to ${url}...`);
+                  await navigateWithRetry(page2, url);
+                  console.log('✅ [Best Sellers] Page loaded successfully');
+                  const bestSellersResult = await extractBestSellers(page2);
                   return {
-                    ok: true,
-                    data: {
-                      completed: completedResults,
-                      failed: failedResults,
-                      meta: {
-                        scrapedAt: new Date().toISOString(),
-                        source: "server_scraper",
-                        progressiveScraping: true,
-                        duration: elapsed + 's',
-                        completedCount: completedResults.length,
-                        failedCount: failedResults.length
-                      }
+                    links: {
+                      best_sellers: {
+                        url: bestSellersResult.bestSellersUrl || null,
+                        products: bestSellersResult.bestSellers?.products || []
+                      },
+                      contact: {
+                        url: bestSellersResult.contactUrl || null
+                      },
+                      faq: {
+                        url: bestSellersResult.faqUrl || null
+                      },
+                      internal: bestSellersResult.internalLinks || null
                     }
                   };
-                });
-                break;
-              }
-              default:
-                throw new Error(`Unknown scraping method: ${method}`);
-            }
+                } finally {
+                  if (page2) await page2.close();
+                  if (context2) await context2.close();
+                }
+              })();
 
-            console.log('✅ Resources cleaned up');
+              // Run both tasks concurrently
+              const [brandBriefData, bestSellersData] = await Promise.all([brandBriefTask, bestSellersTask]);
+              const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+              console.log(`✅ Combined scraping completed in ${elapsed} seconds`);
+              return {
+                ok: true,
+                data: {
+                  ...brandBriefData,
+                  ...bestSellersData,
+                  meta: {
+                    scrapedAt: new Date().toISOString(),
+                    source: "server_scraper",
+                    combinedScraping: true,
+                    duration: elapsed + 's'
+                  }
+                }
+              };
+            });
+            break;
+          }
+          case 'scrape_progressive': {
+            // Demonstrate progressive results - returns whichever is ready first
+            const startTime = Date.now();
+            console.log(`🚀 Running progressive scraping for ${url}...`);
+            result = await withRetries(async () => {
+              // Create two separate contexts and pages
+              const brandBriefTask = (async () => {
+                let context1, page1;
+                ({ context: context1, page: page1 } = await createContextAndPage(browser, cookies));
+                try {
+                  console.log(`🌐 [Brand Brief] Navigating to ${url}...`);
+                  await navigateWithRetry(page1, url);
+                  console.log('✅ [Brand Brief] Page loaded successfully');
+                  const scrapingTasks = [
+                    withPageContentRetries(() => scrapeButtonColors(page1)),
+                    withPageContentRetries(() => scrapeLogo(page1)),
+                    withPageContentRetries(() => getBrandData(page1)),
+                    withPageContentRetries(() => extractImages(url)) 
+                  ];
 
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify(result));
-          } catch (err) {
-            console.error('❌ Scraping error:', err);
-            res.writeHead(500, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ ok: false, error: err.message }));
+                  const results = await Promise.allSettled(scrapingTasks);
+                  const buttonData = results[0].status === 'fulfilled' ? results[0].value : { mostCommonBackground: null, mostCommonTextColor: null };
+                  const logoResult = results[1].status === 'fulfilled' ? results[1].value : null;
+                  const brandData = results[2].status === 'fulfilled' ? results[2].value : null;
+                  const extractedImages = results[3].status === 'fulfilled' ? results[3].value : []; 
+
+                  return {
+                    type: 'brand_brief',
+                    brand: {
+                      url,
+                      logo: logoResult
+                        ? {
+                            url: logoResult.url || null,
+                            width: logoResult.width || null,
+                            height: logoResult.height || null
+                          }
+                        : null,
+                      colors: {
+                        background: buttonData?.mostCommonBackground || null,
+                        text: buttonData?.mostCommonTextColor || null
+                      },
+                      data: brandData,
+                      images: extractedImages.map(img => ({
+                        id: img.id,
+                        url: img.url
+                      }))
+                    }
+                  };
+                } finally {
+                  if (page1) await page1.close();
+                  if (context1) await context1.close();
+                }
+              })();
+
+              const bestSellersTask = (async () => {
+                let context2, page2;
+                ({ context: context2, page: page2 } = await createContextAndPage(browser, cookies));
+                try {
+                  console.log(`🌐 [Best Sellers] Navigating to ${url}...`);
+                  await navigateWithRetry(page2, url);
+                  console.log('✅ [Best Sellers] Page loaded successfully');
+                  const bestSellersResult = await extractBestSellers(page2);
+                  return {
+                    type: 'best_sellers',
+                    links: {
+                      best_sellers: {
+                        url: bestSellersResult.bestSellersUrl || null,
+                        products: bestSellersResult.bestSellers?.products || []
+                      },
+                      contact: {
+                        url: bestSellersResult.contactUrl || null
+                      },
+                      faq: {
+                        url: bestSellersResult.faqUrl || null
+                      },
+                      internal: bestSellersResult.internalLinks || null
+                    }
+                  };
+                } finally {
+                  if (page2) await page2.close();
+                  if (context2) await context2.close();
+                }
+              })();
+
+              // Use Promise.allSettled to handle results as they come
+              const results = await Promise.allSettled([brandBriefTask, bestSellersTask]);
+              const completedResults = results
+                .filter(r => r.status === 'fulfilled')
+                .map(r => r.value);
+              const failedResults = results
+                .filter(r => r.status === 'rejected')
+                .map(r => ({ error: r.reason.message }));
+              const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+              console.log(`✅ Progressive scraping completed in ${elapsed} seconds`);
+              console.log(`✅ Completed: ${completedResults.length}, Failed: ${failedResults.length}`);
+              return {
+                ok: true,
+                data: {
+                  completed: completedResults,
+                  failed: failedResults,
+                  meta: {
+                    scrapedAt: new Date().toISOString(),
+                    source: "server_scraper",
+                    progressiveScraping: true,
+                    duration: elapsed + 's',
+                    completedCount: completedResults.length,
+                    failedCount: failedResults.length
+                  }
+                }
+              };
+            });
+            break;
           }
-        });
-      } else if (req.method === 'POST' && req.url === '/make_template') {
-        let body = '';
-        req.on('data', chunk => body += chunk);
-        req.on('end', async () => {
-          try {
-            const { templateId, templateData } = JSON.parse(body);
-            if (!templateId || !templateData) {
-              res.writeHead(400, { 'Content-Type': 'application/json' });
-              res.end(JSON.stringify({ ok: false, error: 'Missing templateId or templateData' }));
-              return;
-            }
-            // Find the template object by ID in all folders
-            let selectedTemplate = null;
-            for (const group of Object.values(templates)) {
-              const found = group.find(t => t.id === templateId);
-              if (found) {
-                selectedTemplate = found;
-                break;
-              }
-            }
-            if (!selectedTemplate) {
-              res.writeHead(404, { 'Content-Type': 'application/json' });
-              res.end(JSON.stringify({ ok: false, error: 'Template not found for ID: ' + templateId }));
-              return;
-            }
-            // Dynamically import the template file
-            const { generateTemplate } = await import('./' + selectedTemplate.location);
-            // Generate the template - properly await the result which might be async
-            const result = await Promise.resolve(generateTemplate(templateData));
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ ok: true, result }));
-          } catch (err) {
-            console.error('❌ Template generation error:', err);
-            res.writeHead(500, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ ok: false, error: err.message }));
-          }
-        });
-        return;
-      } else if (req.method === 'GET' && (req.url === '/klaviyo-cookies' || req.url === '/klaviyo-instance')) {
-        // Check API key authentication
-        const authHeader = req.headers.authorization;
-        const expectedKey = process.env.KLAVIYO_COOKIES_ACCESS_API_KEY;
-        console.log(`Fetching Klaviyo ${req.url === '/klaviyo-cookies' ? 'cookies' : 'axios instance'}...`);
-        
-        if (!expectedKey) {
-          res.writeHead(500, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ 
-            ok: false, 
-            error: 'API key not configured on server' 
-          }));
-          return;
+          default:
+            throw new Error(`Unknown scraping method: ${method}`);
         }
-        
-        if (!authHeader || authHeader !== `Bearer ${expectedKey}`) {
-          res.writeHead(401, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ 
-            ok: false, 
-            error: 'Unauthorized - Invalid or missing API key' 
-          }));
-          console.log("Unauthorized - Invalid or missing API key");
-          return;
+
+        console.log('✅ Resources cleaned up');
+        res.status(200).json(result);
+      } catch (err) {
+        console.error('❌ Scraping error:', err);
+        res.status(500).json({ ok: false, error: err.message });
+      }
+    });
+    
+    // Template generation endpoint
+    app.post('/make_template', async (req, res) => {
+      try {
+        const { templateId, templateData } = req.body;
+        if (!templateId || !templateData) {
+          return res.status(400).json({ ok: false, error: 'Missing templateId or templateData' });
         }
-        
-        try {
-          const cookiesFilePath = './Klaviyo Automated Login/kaloyan@bbb-marketing.com_cookies.json';
-          const instanceFilePath = './Klaviyo Automated Login/saved_axios_instance.json';
-          
-          let filePath, fileType;
-          if (req.url === '/klaviyo-cookies') {
-            filePath = cookiesFilePath;
-            fileType = 'cookies';
-          } else if (req.url === '/klaviyo-instance') {
-            filePath = instanceFilePath;
-            fileType = 'axios instance';
+        // Find the template object by ID in all folders
+        let selectedTemplate = null;
+        for (const group of Object.values(templates)) {
+          const found = group.find(t => t.id === templateId);
+          if (found) {
+            selectedTemplate = found;
+            break;
           }
-          
-          if (fs.existsSync(filePath)) {
-            const fileData = fs.readFileSync(filePath, 'utf-8');
-            const parsedData = JSON.parse(fileData);
-            const stats = fs.statSync(filePath);
-            
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            
-            if (req.url === '/klaviyo-cookies') {
-              res.end(JSON.stringify({ 
-                ok: true, 
-                cookies: parsedData,
-                lastUpdated: stats.mtime,
-                fileSize: stats.size
-              }));
-            } else {
-              res.end(JSON.stringify({ 
-                ok: true, 
-                instance: parsedData,
-                lastUpdated: stats.mtime,
-                fileSize: stats.size
-              }));
-            }
-            console.log(`Klaviyo ${fileType} fetched successfully`);
-          } else {
-            res.writeHead(404, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ 
-              ok: false, 
-              error: `Klaviyo ${fileType} file not found`,
-              expectedPath: filePath
-            }));
-          }
-        } catch (error) {
-          res.writeHead(500, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ 
-            ok: false, 
-            error: `Failed to read ${req.url === '/klaviyo-cookies' ? 'cookies' : 'axios instance'} file: ` + error.message 
-          }));
         }
-      } else {
-        res.writeHead(404, { 'Content-Type': 'text/plain' });
-        res.end('Not Found');
+        if (!selectedTemplate) {
+          return res.status(404).json({ ok: false, error: 'Template not found for ID: ' + templateId });
+        }
+        // Dynamically import the template file
+        const { generateTemplate } = await import('./' + selectedTemplate.location);
+        // Generate the template - properly await the result which might be async
+        const result = await Promise.resolve(generateTemplate(templateData));
+        res.status(200).json({ ok: true, result });
+      } catch (err) {
+        console.error('❌ Template generation error:', err);
+        res.status(500).json({ ok: false, error: err.message });
       }
     });
 
+    // Klaviyo data endpoints - simplified to avoid regex issues
+    app.get('/klaviyo-cookies', (req, res) => handleKlaviyoRequest('cookies', req, res));
+    app.get('/klaviyo-instance', (req, res) => handleKlaviyoRequest('instance', req, res));
+
+    function handleKlaviyoRequest(type, req, res) {
+      // Check API key authentication
+      const authHeader = req.headers.authorization;
+      const expectedKey = process.env.KLAVIYO_COOKIES_ACCESS_API_KEY;
+      console.log(`Fetching Klaviyo ${type}...`);
+      
+      if (!expectedKey) {
+        return res.status(500).json({ 
+          ok: false, 
+          error: 'API key not configured on server' 
+        });
+      }
+      
+      if (!authHeader || authHeader !== `Bearer ${expectedKey}`) {
+        console.log("Unauthorized - Invalid or missing API key");
+        return res.status(401).json({ 
+          ok: false, 
+          error: 'Unauthorized - Invalid or missing API key' 
+        });
+      }
+      
+      try {
+        const cookiesFilePath = './Klaviyo Automated Login/kaloyan@bbb-marketing.com_cookies.json';
+        const instanceFilePath = './Klaviyo Automated Login/saved_axios_instance.json';
+        
+        let filePath, fileType;
+        if (type === 'cookies') {
+          filePath = cookiesFilePath;
+          fileType = 'cookies';
+        } else if (type === 'instance') {
+          filePath = instanceFilePath;
+          fileType = 'axios instance';
+        }
+        
+        if (fs.existsSync(filePath)) {
+          const fileData = fs.readFileSync(filePath, 'utf-8');
+          const parsedData = JSON.parse(fileData);
+          const stats = fs.statSync(filePath);
+          
+          if (type === 'cookies') {
+            res.status(200).json({ 
+              ok: true, 
+              cookies: parsedData,
+              lastUpdated: stats.mtime,
+              fileSize: stats.size
+            });
+          } else {
+            res.status(200).json({ 
+              ok: true, 
+              instance: parsedData,
+              lastUpdated: stats.mtime,
+              fileSize: stats.size
+            });
+          }
+          console.log(`Klaviyo ${fileType} fetched successfully`);
+        } else {
+          res.status(404).json({ 
+            ok: false, 
+            error: `Klaviyo ${fileType} file not found`,
+            expectedPath: filePath
+          });
+        }
+      } catch (error) {
+        res.status(500).json({ 
+          ok: false, 
+          error: `Failed to read ${type} file: ` + error.message 
+        });
+      }
+    }
+
     const PORT = process.env.PORT || 3000;
-    server.listen(PORT, '0.0.0.0', () => {
-      console.log(`🚀 Bare Node.js server running on http://0.0.0.0:${PORT}`);
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`🚀 Express server running on http://0.0.0.0:${PORT}`);
     });
   } catch (error) {
     console.error('❌ Fatal server error:', error);

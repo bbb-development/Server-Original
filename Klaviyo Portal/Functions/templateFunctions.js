@@ -34,7 +34,7 @@ export const createNewTemplate = async (templateId = 'W3LaqH') => {
 };
 
 // CLONE TEMPLATE (clone from template library with custom name)
-export const cloneTemplate = async (templateId, newTemplateName, contextObjId = 'ShNPvE') => {
+export const cloneTemplate = async (templateId, newTemplateName, contextObjId = 'SRsJn8') => {
   try {
     console.log(`📋 Cloning template ${templateId} with name "${newTemplateName}"...`);
 

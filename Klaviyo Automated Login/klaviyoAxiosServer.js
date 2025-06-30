@@ -69,6 +69,7 @@ function cleanupTempFiles() {
 // Load (or reload) axios instance from disk
 // ────────────────────────────────────────────────────
 export async function loadAxiosInstance() {
+  cleanupTempFiles(); // Clean up any leftover temp files from previous runs
   try {
     const state = JSON.parse(fs.readFileSync(SAVED_INSTANCE,'utf8'));
 
@@ -256,7 +257,9 @@ const app = express();
 app.use('/raw-proxy', bodyParser.raw({ type: '*/*', limit: '10mb' }));
 app.use(express.json({limit:'10mb'}));
 
-if (ENABLE_CORS) app.use(cors());
+if (ENABLE_CORS) app.use(cors({
+  credentials: true
+}));
 
 // ── Status
 app.get('/status',(_,res)=>res.json({
@@ -308,6 +311,25 @@ async function updateCookiesFromResponse(response) {
   } catch (e) {
     log(`⚠️ Error updating cookies from response: ${e.message}`, 'WARN');
   }
+}
+
+// Helper: Check if response indicates not authenticated
+function isNotAuthenticated(responseData) {
+  if (!responseData) return false;
+  
+  // Check for explicit "not authenticated" text
+  const dataStr = typeof responseData === 'string' ? responseData : JSON.stringify(responseData);
+  if (dataStr.toLowerCase().includes('not authenticated')) {
+    return true;
+  }
+  
+  // Check for Klaviyo's success: false response structure
+  if (typeof responseData === 'object' && responseData.success === false) {
+    log('🔍 Detected Klaviyo success: false response (likely not authenticated)', 'WARN');
+    return true;
+  }
+  
+  return false;
 }
 
 // ── Universal fetch proxy
@@ -442,6 +464,15 @@ app.post('/fetch-request', async (req, res) => {
           } catch (textError) {
             responseData = `Parse error: ${parseError.message}`;
           }
+        }
+
+        // Check if response indicates not authenticated
+        if (urlObj.hostname.includes('klaviyo.com') && isNotAuthenticated(responseData) && !req._reloginTried) {
+          req._reloginTried = true;
+          log('🔄 Detected "not authenticated" in Klaviyo response, attempting relogin', 'WARN');
+          await relogin();
+          // Retry the request once after relogin
+          return app._router.handle(req, res, () => {});
         }
 
         // Forward the original content-type header so client knows what to expect
@@ -580,6 +611,15 @@ app.post('/request', async (req,res)=>{
         headers: requestHeaders
       });
 
+      // Check if response indicates not authenticated (only for Klaviyo URLs)
+      if (url.includes('klaviyo.com') && isNotAuthenticated(response.data) && !req._reloginTried) {
+        req._reloginTried = true;
+        log('🔄 Detected "not authenticated" in Klaviyo response, attempting relogin', 'WARN');
+        await relogin();
+        // Retry the request once after relogin
+        return app._router.handle(req, res, () => {});
+      }
+
       res.status(response.status).send(response.data);
     });
   } catch(e) {
@@ -678,7 +718,6 @@ app.post('/setBaseFlows', async (req, res) => {
 // Init
 // ────────────────────────────────────────────────────
 (async()=>{
-  cleanupTempFiles(); // Clean up any leftover temp files from previous runs
   await loadAxiosInstance();
   //watchFile();
   app.listen(PORT,()=>log(`🚀 Klaviyo-proxy on http://localhost:${PORT}`,'SUCCESS'));

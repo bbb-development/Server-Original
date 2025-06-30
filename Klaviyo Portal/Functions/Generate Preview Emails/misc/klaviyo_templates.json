@@ -1,0 +1,64 @@
+{
+    "Welcome Flow": [
+      {
+        "id": "SpZKLh",
+        "name": "WF EMAIL 1 TEMPLATE (NEVER DELETE)",
+        "newName": "FFA | WF Email #1",
+        "flowMessageId": "YqisUm",
+        "profileId": ""
+      },
+      {
+        "id": "SjnvqT",
+        "name": "WF EMAIL 2 TEMPLATE (NEVER DELETE)",
+        "newName": "FFA | WF Email #2",
+        "flowMessageId": "YjFcyX",
+        "profileId": ""
+      },
+      {
+        "id": "Yf3Wdz",
+        "name": "WF EMAIL 3 TEMPLATE (NEVER DELETE)",
+        "newName": "FFA | WF Email #3",
+        "flowMessageId": "WsC4H6",
+        "profileId": ""
+      }
+    ],
+    "Cart Abandoned Flow": [
+      {
+        "id": "RLpd9P",
+        "name": "AC EMAIL 1 TEMPLATE (NEVER DELETE)",
+        "newName": "FFA | AC Email #1",
+        "flowMessageId": "SRR5jE",
+        "eventId": "6cevaJXfmf4"
+      },
+      {
+        "id": "X7qBvi",
+        "name": "AC EMAIL 2 TEMPLATE (NEVER DELETE)",
+        "newName": "FFA | AC Email #2",
+        "flowMessageId": "XfzDGp",
+        "eventId": "6cevaJXfmf4"
+      },
+      {
+        "id": "QTQpvV",
+        "name": "AC EMAIL 3 TEMPLATE (NEVER DELETE)",
+        "newName": "FFA | AC Email #3",
+        "flowMessageId": "XaWpkZ",
+        "eventId": "6cevaJXfmf4"
+      },
+      {
+        "id": "XvJpat",
+        "name": "AC EMAIL 4 TEMPLATE (NEVER DELETE)",
+        "newName": "FFA | AC Email #4",
+        "flowMessageId": "RCqe8L",
+        "eventId": "6cevaJXfmf4"
+      }
+    ],
+    "Browse Abandoned Flow": [
+      {
+        "id": "Rb3aEN",
+        "name": "BA EMAIL 1 TEMPLATE (NEVER DELETE)",
+        "newName": "FFA | BA Email #1",
+        "flowMessageId": "UtmrZK",
+        "eventId": "6cex5ERVqid"
+      }
+    ]
+  }

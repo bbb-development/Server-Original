@@ -1,0 +1,232 @@
+{
+  "url": "https://crystalenergy.shop",
+  "domain": "crystalenergy.shop",
+  "brandSummary": {
+    "name": "Crystal Energy",
+    "domain": "crystalenergy.shop",
+    "links": [
+      {
+        "name": "facebook",
+        "url": "https://facebook.com/crystaenergy"
+      },
+      {
+        "name": "instagram",
+        "url": "https://instagram.com/crystallenergy"
+      }
+    ],
+    "logos": [
+      {
+        "theme": "dark",
+        "formats": [
+          {
+            "src": "https://cdn.brandfetch.io/idD5Jy1bqF/w/1034/h/1034/theme/dark/icon.jpeg?c=1bxidDUkTxa1Dl3KsNTfn",
+            "background": null,
+            "format": "jpeg",
+            "height": 1034,
+            "width": 1034,
+            "size": 84163
+          }
+        ],
+        "tags": [],
+        "type": "icon"
+      },
+      {
+        "theme": "dark",
+        "formats": [
+          {
+            "src": "https://cdn.brandfetch.io/idD5Jy1bqF/w/500/h/70/theme/dark/logo.png?c=1bxidDUkTxa1Dl3KsNTfn",
+            "background": "transparent",
+            "format": "png",
+            "height": 70,
+            "width": 500,
+            "size": 17857
+          }
+        ],
+        "tags": [],
+        "type": "logo"
+      }
+    ],
+    "colors": [
+      {
+        "hex": "#d1793e",
+        "type": "dark",
+        "brightness": 135
+      },
+      {
+        "hex": "#f3f3f3",
+        "type": "light",
+        "brightness": 243
+      },
+      {
+        "hex": "#ff4081",
+        "type": "accent",
+        "brightness": 109
+      }
+    ],
+    "fonts": [
+      {
+        "name": "Poppins",
+        "type": "body",
+        "origin": "google",
+        "originId": "Poppins",
+        "weights": []
+      }
+    ]
+  },
+  "specialLinks": {
+    "bestSellersUrl": "https://crystalenergy.shop/collections/best-sellers",
+    "contactUrl": "https://crystalenergy.shop/pages/contact",
+    "faqUrl": "https://crystalenergy.shop/pages/faq"
+  },
+  "bestSellers": [
+    {
+      "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/grivna-ot-cheren-turmalin-za-zashchita-276554.jpg?v=1722197167&width=720",
+      "productName": "Гривна от Черен Турмалин за защита",
+      "productPrice": "49.95 лв",
+      "productURL": "https://crystalenergy.shop/collections/best-sellers/products/turmalin-grivna"
+    },
+    {
+      "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/palo-santo-3-br-za-prekadyavane-na-doma-i-kristalite-696057.jpg?v=1722197162&width=720",
+      "productName": "Пало Санто 3 бр. за прекадяване на дома и кристалите",
+      "productPrice": "17.90 лв",
+      "productURL": "https://crystalenergy.shop/collections/best-sellers/products/palo-santo"
+    },
+    {
+      "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/zelen-avantyurin-ksmet-i-novo-nachalo-916508.jpg?v=1722197167&width=720",
+      "productName": "Зелен авантюрин - Късмет и Ново начало",
+      "productPrice": "11.99 лв",
+      "productURL": "https://crystalenergy.shop/collections/best-sellers/products/avanturin"
+    },
+    {
+      "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/grivna-ot-tsitrin-za-privlichane-na-pari-987781.jpg?v=1722197159&width=720",
+      "productName": "Гривна от Цитрин за Привличане на Пари",
+      "productPrice": "45.00 лв",
+      "productURL": "https://crystalenergy.shop/collections/best-sellers/products/citrine"
+    },
+    {
+      "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/IMG-20241111_155951_2.jpg?v=1732215262&width=720",
+      "productName": "Мини Гривна от Черен Турмалин за Лична Защита",
+      "productPrice": "40.00 лв",
+      "productURL": "https://crystalenergy.shop/collections/best-sellers/products/mini-turmalin"
+    },
+    {
+      "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/mini-grivna-za-lyubov-ot-rozov-kvarts-770116.jpg?v=1722197156&width=720",
+      "productName": "Мини гривна за Любов от Розов кварц",
+      "productPrice": "27.00 лв",
+      "productURL": "https://crystalenergy.shop/collections/best-sellers/products/mini-rosequartz"
+    },
+    {
+      "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/kristali-za-pari-511629.jpg?v=1722197152&width=720",
+      "productName": "Кристали за ПАРИ",
+      "productPrice": "27.00 лв",
+      "productURL": "https://crystalenergy.shop/collections/best-sellers/products/crystal-money"
+    },
+    {
+      "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/selenit-za-chista-energiya-867305.jpg?v=1743279281&width=720",
+      "productName": "Малък Стик от Селенит за Чиста Енергия",
+      "productPrice": "15.00 лв",
+      "productURL": "https://crystalenergy.shop/collections/best-sellers/products/selenit"
+    },
+    {
+      "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/mzhka-grivna-prosperitet-i-zashchita-942394.jpg?v=1722197161&width=720",
+      "productName": "Мъжка гривна - просперитет и защита",
+      "productPrice": "45.90 лв",
+      "productURL": "https://crystalenergy.shop/collections/best-sellers/products/prosperity_and_protection"
+    }
+  ],
+  "geminiBrandBrief": {
+    "brandName": "Crystal Energy",
+    "brandDescription": "Crystal Energy is an online retailer offering a wide selection of authentic, high-quality crystals, gemstones, and related metaphysical products, aiming to promote holistic well-being and spiritual exploration.",
+    "brandAudience": "Individuals seeking natural wellness solutions, crystal enthusiasts, spiritual seekers, and those interested in personal growth and energy healing.",
+    "brandTone": "Empowering, authentic, nurturing, and knowledgeable.",
+    "brandMessage": "Unlock your potential and enhance your life through the natural healing power of authentic crystals.",
+    "topEmailText": "Discover Your Crystal Journey.",
+    "aboutUs": {
+      "paragraph1": "At Crystal Energy, we are dedicated to bringing you high-quality, authentic crystals that harness the earth's natural energies for your well-being.",
+      "paragraph2": "Our best-selling tumbled stones, chosen for their vibrant energy and smooth finish, perfectly embody our commitment to providing accessible and powerful crystal experiences.",
+      "paragraph3": "That all ties into our mission to empower individuals to connect with the healing properties of crystals, fostering personal growth and spiritual balance in their everyday lives."
+    }
+  },
+  "brandBenefits": [
+    {
+      "DirectLink": "https://i.ibb.co/CKDqVRG9/Shield-with-Checkmark.png",
+      "description": "Secure checkout to protect your personal and payment information.",
+      "title": "Secure Checkout"
+    },
+    {
+      "DirectLink": "https://i.ibb.co/4nzyfpXM/Delivery-Truck.png",
+      "description": "Fast and reliable shipping for your crystal orders.",
+      "title": "Fast Shipping"
+    },
+    {
+      "DirectLink": "https://i.ibb.co/GfLxVX81/Live-Chat-Customer-Service.png",
+      "description": "Dedicated customer support available to assist you with any inquiries.",
+      "title": "Customer Support"
+    }
+  ],
+  "emailImages": {
+    "WF Email 1": {
+      "name": "Sparkling-Badge-Hi-There-or-Welcome-9.jpg",
+      "directLink": "https://i.ibb.co/bZW3fB6/Sparkling-Badge-Hi-There-or-Welcome-9.jpg",
+      "width": "600",
+      "height": "180",
+      "description": null
+    },
+    "WF Email 2": {
+      "name": "Crown.jpg",
+      "directLink": "https://i.ibb.co/rRkpPNxY/Crown.jpg",
+      "width": "600",
+      "height": "180",
+      "description": null
+    },
+    "WF Email 3": {
+      "name": "Burning-Candle-time-melting.jpg",
+      "directLink": "https://i.ibb.co/XkGdMqR4/Burning-Candle-time-melting.jpg",
+      "width": "600",
+      "height": "180",
+      "description": null
+    },
+    "BA Email 1": {
+      "name": "Spotlight-Beam-4-1.jpg",
+      "directLink": "https://i.ibb.co/GQJvSsgk/Spotlight-Beam-4-1.jpg",
+      "width": "600",
+      "height": "180",
+      "description": null
+    },
+    "AC Email 1": {
+      "name": "Open-Bag-2.jpg",
+      "directLink": "https://i.ibb.co/391WjMHB/Open-Bag-2.jpg",
+      "width": "600",
+      "height": "180",
+      "description": null
+    },
+    "AC Email 2": {
+      "name": "Dollar-Symbols.jpg",
+      "directLink": "https://i.ibb.co/Xfp649xb/Dollar-Symbols.jpg",
+      "width": "600",
+      "height": "180",
+      "description": null
+    },
+    "AC Email 3": {
+      "name": "Alarm-Bell-2.jpg",
+      "directLink": "https://i.ibb.co/nsGvV49r/Alarm-Bell-2.jpg",
+      "width": "600",
+      "height": "180",
+      "description": "as"
+    }
+  },
+  "assistant": {
+    "assistant_img": "https://i.ibb.co/cXbC8n2V/portrait-of-romantic-female-2025-03-08-02-55-34-utc.png",
+    "assistant_name": "Madison T."
+  },
+  "deliverabilitySnippet": "<div><span style=\"color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;\">\n\nOrder Number – Thank you for choosing Crystal Energy. Your items are being prepared and will be dispatched shortly. Keep this message for reference.\n\nIncluded:\n\n1x Selenite Wand – 35.00  \n1x Amethyst Cluster – 45.00  \n1x Rose Quartz Heart – 30.00  \n\nApplied: Not Applicable – 0.00  \n\nSubtotal: 110.00  \nShipping: Standard Service  \nTaxes: 0.00  \nTotal: 110.00 USD\n\nShipping Information:\n\nAlex Green  \n789 Neutral Road  \nTechville, XX 12345  \nUnited States\n\nInformation:\n\nAlex Green  \n789 Neutral Road  \nTechville, XX 12345  \nUnited States\n\nShipping Method: Standard (5–7 business days)\n\nDelivery Information:\n\nPackage expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays.\n\nNot arrived within timeframe? Support team available. We're ready to help.\n\n1. **Processing**: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit.\n\n2. **Shipping & Arrival**: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region.\n\n3. **Payment & Security**: Transactions encrypted. Details protected. Payment methods shown at checkout.\n\n4. **Returns & Resolution**: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred.\n\n5. **Privacy Statement**: Info used to manage account and fulfill inquiry. We don't share data unless required.\n\n6. **Rights & Content**: Materials belong to Crystal Energy or licensed parties. Protected by intellectual property laws.\n\nThank you again from Crystal Energy. We appreciate your support.\n\nRegards,  \nThe Crystal Energy Team\n\n</span></div>",
+  "analysis": {
+    "totalPages": 247,
+    "hasLogo": true,
+    "hasColors": true,
+    "hasFonts": true,
+    "socialLinks": 2,
+    "benefitsCount": 3,
+    "bestSellersCount": 9
+  }
+}

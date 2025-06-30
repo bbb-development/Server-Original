@@ -2,7 +2,6 @@ import * as smallFunctions from './Functions/smallFunctions.js';
 import * as listFunctions from './Functions/listFunctions.js';
 import * as templateFunctions from './Functions/templateFunctions.js';
 import * as flowFunctions from './Functions/flowFunctions.js';
-import * as emailTemplates from './Functions/templatesExport.js';
 
 /////////////////////////
 //  SMALL FUNCTIONS   //
@@ -167,7 +166,10 @@ import * as emailTemplates from './Functions/templatesExport.js';
 //templateFunctions.cloneTemplate('TSfg7t', 'My Custom Template', 'ShNPvE');
 
 // Clone with custom name only (uses default company context - BBB Marketing)
-//templateFunctions.cloneTemplate('XUvKaN', 'Another Template');
+//templateFunctions.cloneTemplate('SpNxvq', 'Another Template2');
+
+const preview = await smallFunctions.previewTemplate('RLpd9P', 'SRR5jE', '6cevaJXfmf4', false);
+console.log(JSON.stringify(preview, null, 2));
 
 // Get and save template data for inspection
 //const templateData = await templateFunctions.getTemplateData('RQ78g2');

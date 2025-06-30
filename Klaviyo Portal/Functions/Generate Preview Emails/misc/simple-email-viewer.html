@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klaviyo Email Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .input-section {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            box-sizing: border-box;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+        
+        .clear-btn {
+            background: #6c757d;
+        }
+        
+        .clear-btn:hover {
+            background: #545b62;
+        }
+        
+        .get-templates-btn {
+            background: #28a745;
+        }
+        
+        .get-templates-btn:hover {
+            background: #1e7e34;
+        }
+        
+        .file-upload-section {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .file-upload-section.dragover {
+            border-color: #28a745;
+            background-color: #d4edda;
+        }
+        
+        .file-upload-section h3 {
+            margin-top: 0;
+            color: #28a745;
+        }
+        
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .file-input-label {
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
+        
+        .file-input-label:hover {
+            background: #1e7e34;
+        }
+        
+        .file-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .carousel-controls {
+            display: none;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .carousel-controls.visible {
+            display: flex;
+        }
+        
+        .nav-button {
+            background: #17a2b8;
+            padding: 8px 15px;
+            font-size: 18px;
+            min-width: 50px;
+        }
+        
+        .nav-button:hover {
+            background: #117a8b;
+        }
+        
+        .nav-button:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        .template-info {
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        
+        .template-counter {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .template-name {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .viewer {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .viewer-header {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .email-frame {
+            width: 100%;
+            min-height: 600px;
+            border: none;
+            background: #f7f7f7;
+        }
+        
+        .error {
+            color: #dc3545;
+            background: #f8d7da;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .success {
+            color: #155724;
+            background: #d4edda;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .instructions {
+            background: #e7f3ff;
+            border: 1px solid #b8daff;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .instructions h3 {
+            margin-top: 0;
+            color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Klaviyo Email Viewer</h1>
+        
+        <div class="instructions">
+            <h3>📋 How to use:</h3>
+            <ol>
+                <li><strong>Option 1:</strong> Upload your <code>template_html_results.json</code> file below to browse all templates</li>
+                <li><strong>Option 2:</strong> Copy a single JSON response from your Klaviyo API call, paste it below, and click "Render Email"</li>
+                <li><strong>Option 3:</strong> Paste raw HTML content directly and click "Render Email"</li>
+            </ol>
+            <p><strong>Note:</strong> This tool can handle both JSON responses from Klaviyo's API and raw HTML content.</p>
+        </div>
+        
+        <div class="file-upload-section" id="fileUploadSection">
+            <h3>📁 Upload Template Results File</h3>
+            <p>Drag and drop your <code>template_html_results.json</code> file here, or click to select:</p>
+            <div class="file-input-wrapper">
+                <input type="file" id="fileInput" class="file-input" accept=".json" onchange="handleFileSelect(event)">
+                <label for="fileInput" class="file-input-label">📂 Choose File</label>
+            </div>
+            <div id="fileInfo" class="file-info"></div>
+        </div>
+        
+        <div class="controls">
+            <div class="input-section">
+                <label for="apiResponse">Paste your Klaviyo API JSON response OR raw HTML here:</label>
+                <textarea id="apiResponse" placeholder='Paste either:
+1. JSON response: {"subject":"My Template","html":"<!DOCTYPE html...","django_error":false}
+2. Raw HTML: <!DOCTYPE html><html>...</html>'></textarea>
+            </div>
+            
+            <div class="buttons">
+                <button onclick="renderEmail()">🔍 Render Email</button>
+                <button onclick="clearAll()" class="clear-btn">🗑️ Clear</button>
+                <button onclick="downloadHtml()">💾 Download HTML</button>
+            </div>
+            
+            <div id="status"></div>
+        </div>
+        
+        <div id="carouselControls" class="carousel-controls">
+            <button onclick="previousTemplate()" class="nav-button" id="prevBtn">◀</button>
+            <div class="template-info">
+                <div class="template-counter" id="templateCounter">1 of 8</div>
+                <div class="template-name" id="templateName">Template Name</div>
+                <div style="font-size: 12px; color: #888; margin-top: 5px;">Use ← → arrow keys to navigate</div>
+            </div>
+            <button onclick="nextTemplate()" class="nav-button" id="nextBtn">▶</button>
+        </div>
+        
+        <div class="viewer">
+            <div class="viewer-header">
+                <span id="emailSubject">📧 Email Preview</span>
+                <span>600px width</span>
+            </div>
+            <iframe id="emailFrame" class="email-frame" srcdoc="<div style='padding: 40px; text-align: center; color: #666; font-family: Arial;'><h3>Ready to preview email</h3><p>Upload your template_html_results.json file or paste an API response above</p></div>"></iframe>
+        </div>
+    </div>
+
+    <script>
+        let currentEmailHtml = '';
+        let allTemplates = [];
+        let currentTemplateIndex = 0;
+        let isCarouselMode = false;
+        
+        function showStatus(message, type = 'info') {
+            const status = document.getElementById('status');
+            status.className = type;
+            status.textContent = message;
+            
+            if (type === 'success' || type === 'error') {
+                setTimeout(() => {
+                    status.textContent = '';
+                    status.className = '';
+                }, 5000);
+            }
+        }
+        
+        function renderEmail() {
+            const apiResponseText = document.getElementById('apiResponse').value.trim();
+            
+            if (!apiResponseText) {
+                showStatus('Please paste the API response first!', 'error');
+                return;
+            }
+            
+            let emailHtml = '';
+            let subject = 'Email Preview';
+            
+            // Try to parse as JSON first
+            try {
+                const apiResponse = JSON.parse(apiResponseText);
+                
+                // If it's valid JSON, extract HTML and subject
+                if (apiResponse.html) {
+                    emailHtml = apiResponse.html;
+                    subject = apiResponse.subject || 'Email Preview';
+                    showStatus('Email rendered successfully from JSON!', 'success');
+                } else {
+                    // JSON but no html property - treat entire content as HTML
+                    emailHtml = apiResponseText;
+                    subject = 'Email Preview (Raw HTML)';
+                    showStatus('Email rendered successfully from raw HTML!', 'success');
+                }
+                
+            } catch (error) {
+                // Not valid JSON - treat entire input as HTML
+                emailHtml = apiResponseText;
+                subject = 'Email Preview (Raw HTML)';
+                showStatus('Email rendered successfully from raw HTML!', 'success');
+            }
+            
+            if (!emailHtml) {
+                showStatus('No HTML content found!', 'error');
+                return;
+            }
+            
+            // Store the HTML for download
+            currentEmailHtml = emailHtml;
+            
+            // Update the subject
+            document.getElementById('emailSubject').textContent = `📧 ${subject}`;
+            
+            // Clean the HTML for iframe rendering
+            const cleanHtml = cleanEmailHtml(emailHtml);
+            
+            // Render in iframe
+            const iframe = document.getElementById('emailFrame');
+            iframe.srcdoc = cleanHtml;
+        }
+        
+        function cleanEmailHtml(html) {
+            // Create a wrapper for the email HTML that will render properly
+            return `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Fix image rendering */
+        img {
+            max-width: 100% !important;
+            height: auto !important;
+        }
+        
+        /* Ensure tables render properly */
+        table {
+            border-collapse: collapse !important;
+        }
+        
+        /* Override any conflicting styles */
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    ${html}
+</body>
+</html>`;
+        }
+        
+        function clearAll() {
+            document.getElementById('apiResponse').value = '';
+            document.getElementById('fileInput').value = '';
+            document.getElementById('fileInfo').innerHTML = '';
+            document.getElementById('emailSubject').textContent = '📧 Email Preview';
+            document.getElementById('emailFrame').srcdoc = "<div style='padding: 40px; text-align: center; color: #666; font-family: Arial;'><h3>Ready to preview email</h3><p>Upload your template_html_results.json file or paste an API response above</p></div>";
+            currentEmailHtml = '';
+            allTemplates = [];
+            currentTemplateIndex = 0;
+            isCarouselMode = false;
+            hideCarouselControls();
+            showStatus('Cleared!', 'success');
+        }
+        
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                processTemplateFile(file);
+            }
+        }
+        
+        function processTemplateFile(file) {
+            if (!file.name.endsWith('.json')) {
+                showStatus('Please select a JSON file', 'error');
+                return;
+            }
+            
+            showStatus('🔄 Loading templates from file...', 'info');
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const templateData = JSON.parse(e.target.result);
+                    
+                    // Validate file structure
+                    if (!templateData.templates || typeof templateData.templates !== 'object') {
+                        showStatus('Invalid file format. Expected template_html_results.json format.', 'error');
+                        return;
+                    }
+                    
+                    // Convert template map to array with metadata
+                    allTemplates = Object.entries(templateData.templates)
+                        .filter(([id, html]) => html !== null)
+                        .map(([id, html]) => ({
+                            id: id,
+                            html: html,
+                            name: getTemplateNameById(id) || `Template ${id}`
+                        }));
+                    
+                    if (allTemplates.length === 0) {
+                        showStatus('No valid templates found in file!', 'error');
+                        return;
+                    }
+                    
+                    currentTemplateIndex = 0;
+                    isCarouselMode = true;
+                    
+                    displayCurrentTemplate();
+                    showCarouselControls();
+                    updateCarouselUI();
+                    
+                    const fileInfo = document.getElementById('fileInfo');
+                    fileInfo.innerHTML = `✅ Loaded: <strong>${file.name}</strong> (${allTemplates.length} templates)`;
+                    
+                    showStatus(`✅ Successfully loaded ${allTemplates.length} templates`, 'success');
+                    
+                } catch (error) {
+                    console.error('Error parsing file:', error);
+                    showStatus('Error parsing JSON file: ' + error.message, 'error');
+                }
+            };
+            
+            reader.onerror = function() {
+                showStatus('Error reading file', 'error');
+            };
+            
+            reader.readAsText(file);
+        }
+        
+        function getTemplateNameById(templateId) {
+            // Map template IDs to their names based on klaviyo_templates.json
+            const templateNames = {
+                'SpZKLh': 'WF EMAIL 1 TEMPLATE',
+                'SjnvqT': 'WF EMAIL 2 TEMPLATE', 
+                'Yf3Wdz': 'WF EMAIL 3 TEMPLATE',
+                'RLpd9P': 'AC EMAIL 1 TEMPLATE',
+                'X7qBvi': 'AC EMAIL 2 TEMPLATE',
+                'QTQpvV': 'AC EMAIL 3 TEMPLATE',
+                'XvJpat': 'AC EMAIL 4 TEMPLATE',
+                'Rb3aEN': 'BA EMAIL 1 TEMPLATE'
+            };
+            
+            return templateNames[templateId];
+        }
+        
+        function displayCurrentTemplate() {
+            if (allTemplates.length === 0 || currentTemplateIndex < 0 || currentTemplateIndex >= allTemplates.length) {
+                return;
+            }
+            
+            const template = allTemplates[currentTemplateIndex];
+            currentEmailHtml = template.html;
+            
+            // Update the subject
+            document.getElementById('emailSubject').textContent = `📧 ${template.name}`;
+            
+            // Clean the HTML for iframe rendering
+            const cleanHtml = cleanEmailHtml(template.html);
+            
+            // Render in iframe
+            const iframe = document.getElementById('emailFrame');
+            iframe.srcdoc = cleanHtml;
+        }
+        
+        function previousTemplate() {
+            if (currentTemplateIndex > 0) {
+                currentTemplateIndex--;
+                displayCurrentTemplate();
+                updateCarouselUI();
+            }
+        }
+        
+        function nextTemplate() {
+            if (currentTemplateIndex < allTemplates.length - 1) {
+                currentTemplateIndex++;
+                displayCurrentTemplate();
+                updateCarouselUI();
+            }
+        }
+        
+        function updateCarouselUI() {
+            const counterEl = document.getElementById('templateCounter');
+            const nameEl = document.getElementById('templateName');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            if (allTemplates.length > 0) {
+                const template = allTemplates[currentTemplateIndex];
+                counterEl.textContent = `${currentTemplateIndex + 1} of ${allTemplates.length}`;
+                nameEl.textContent = template.name;
+                
+                // Enable/disable navigation buttons
+                prevBtn.disabled = currentTemplateIndex === 0;
+                nextBtn.disabled = currentTemplateIndex === allTemplates.length - 1;
+            }
+        }
+        
+        function showCarouselControls() {
+            document.getElementById('carouselControls').classList.add('visible');
+        }
+        
+        function hideCarouselControls() {
+            document.getElementById('carouselControls').classList.remove('visible');
+        }
+        
+        function downloadHtml() {
+            if (!currentEmailHtml) {
+                showStatus('No email HTML to download. Render an email first!', 'error');
+                return;
+            }
+            
+            const cleanHtml = cleanEmailHtml(currentEmailHtml);
+            const blob = new Blob([cleanHtml], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `klaviyo_email_${Date.now()}.html`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showStatus('HTML file downloaded!', 'success');
+        }
+        
+        // Auto-resize iframe based on content
+        window.addEventListener('load', function() {
+            const iframe = document.getElementById('emailFrame');
+            iframe.addEventListener('load', function() {
+                try {
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    const height = iframeDoc.body.scrollHeight;
+                    if (height > 0) {
+                        iframe.style.height = Math.max(600, height + 50) + 'px';
+                    }
+                } catch (e) {
+                    // Cross-origin restrictions, ignore
+                }
+            });
+            
+            // Set up drag and drop for file upload
+            const fileUploadSection = document.getElementById('fileUploadSection');
+            
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                fileUploadSection.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            ['dragenter', 'dragover'].forEach(eventName => {
+                fileUploadSection.addEventListener(eventName, highlight, false);
+            });
+            
+            ['dragleave', 'drop'].forEach(eventName => {
+                fileUploadSection.addEventListener(eventName, unhighlight, false);
+            });
+            
+            function highlight() {
+                fileUploadSection.classList.add('dragover');
+            }
+            
+            function unhighlight() {
+                fileUploadSection.classList.remove('dragover');
+            }
+            
+            fileUploadSection.addEventListener('drop', handleDrop, false);
+            
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                
+                if (files.length > 0) {
+                    const file = files[0];
+                    document.getElementById('fileInput').files = files;
+                    processTemplateFile(file);
+                }
+            }
+        });
+        
+        // Keyboard navigation for carousel
+        document.addEventListener('keydown', function(event) {
+            if (!isCarouselMode || allTemplates.length === 0) return;
+            
+            if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                previousTemplate();
+            } else if (event.key === 'ArrowRight') {
+                event.preventDefault();
+                nextTemplate();
+            }
+        });
+    </script>
+</body>
+</html> 

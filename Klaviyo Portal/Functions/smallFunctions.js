@@ -524,6 +524,45 @@ export async function changeClient(targetClient, threshold = 0.8) {
   }
 }
 
+// PREVIEW TEMPLATE
+export async function previewTemplate(templateId, flowMessageId, idValue, renderDraftUniversalBlocks = false, idType = 'event') {
+  try {
+    console.log(`🔍 Previewing template ${templateId} with flow message ${flowMessageId}...`);
+    
+    const payload = {
+      flow_message_id: flowMessageId,
+      render_draft_universal_blocks: renderDraftUniversalBlocks
+    };
+
+    // Add either event_id or profile_id based on the idType parameter
+    if (idType === 'event' && idValue) {
+      payload.event_id = idValue;
+    } else if (idType === 'profile' && idValue) {
+      payload.profile_id = idValue;
+    } else if (idValue) {
+      // For backward compatibility, default to event_id if idType is not specified
+      payload.event_id = idValue;
+    }
+    
+    const response = await axios.post(`${SERVER_URL}/request`, {
+      method: 'POST',
+      url: `${KLAVIYO_URL}/template/${templateId}/preview`,
+      data: payload
+    });
+    
+    console.log(`✅ Template preview fetched successfully for ${templateId}`);
+    return response.data;
+    
+  } catch (error) {
+    console.error(`❌ Error previewing template ${templateId}:`, error.message);
+    if (error.response) {
+      console.error(`   Status: ${error.response.status}`);
+      console.error(`   Data:`, error.response.data);
+    }
+    throw error;
+  }
+}
+
 // FETCH KLAVIYO METRICS
 export async function fetchKlaviyoMetrics() {
   try {

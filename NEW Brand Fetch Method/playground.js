@@ -5,6 +5,7 @@ import { generateDeliverabilitySnippet } from './brand-analyzer.js';
 
 
 
+
 ////// BRANDFETCH TEST ////////
 
 // Check Brandfetch usage and credits
@@ -36,8 +37,8 @@ import { generateDeliverabilitySnippet } from './brand-analyzer.js';
 
 ////// GEMINI TEST //////
 
-//const deliverabilitySnippet = await generateDeliverabilitySnippet('https://crystalenergy.shop');
-//console.log('Deliverability Snippet:', deliverabilitySnippet);
+const deliverabilitySnippet = await generateDeliverabilitySnippet('https://crystalenergy.shop');
+console.log('Deliverability Snippet:', deliverabilitySnippet);
 
 
 

@@ -6,6 +6,7 @@ brandDescription: A concise description of what the brand does and its unique va
 brandAudience: The primary target audience for the brand
 brandTone: The tone of voice used in the content (e.g., professional, friendly, authoritative)
 brandMessage: The core message or theme that comes across in the content
+brandIndustry: The kind of products the brand sells mostly. e.g Cosmetics, Clothing, Jewelry, etc.
 topEmailText: A short text line that would fit as a text line in the header of emails under/above the logo. This should be something that makes sense regardless of the current season/month. Example: "90-Day Satisfaction & Money Back Guarantee". Use American English.
 aboutUs: An object containing three flowing paragraphs that tell the brand's story:
 {
@@ -102,9 +103,18 @@ function productListPrompt(bestSellerPageHtml) {
         4. Product Image URL - IMPORTANT: Copy the EXACT image URL including all parameters (like ?v=, &width=, etc.)
 
         Sort the products from best-selling to least-selling based on any available indicators (position, sales numbers, etc.).
-        Return the results in a clear, structured format.
 
-        NOTE: I always want the top 9 products, don't make up any products if there are less than 9.
+        Return ONLY a JSON object with the following structure:
+        {
+            "productsFound": true/false,
+            "products": [array of products] // only include this if productsFound is true
+        }
+
+        If you find products, set productsFound to true and include up to 9 products in the products array.
+        If no clear products are found, set productsFound to false and omit the products array.
+        
+        NOTE: Don't make up any products. In order for the productsFound to be true, you must find 9 products with different names and urls.
+        if they have the same name or url, they are most likely not real products.
 
         Content to analyze:
         ${bestSellerPageHtml}

@@ -12,6 +12,8 @@ class FirecrawlAPI {
   constructor(options = {}) {
     this.apiKey = options.apiKey || config.firecrawl?.apiKey || process.env.FIRECRAWL_API_KEY;
     this.baseUrl = 'https://api.firecrawl.dev/v1';
+
+    //console.log('Firecrawl API Key:', this.apiKey);
     
     if (!this.apiKey) {
       throw new Error('Firecrawl API key is required. Get one from https://firecrawl.dev/');
@@ -351,3 +353,5 @@ export const screenshot = (url, fullPage, actions) => firecrawl.screenshot(url, 
 export const getLinks = (url) => firecrawl.getLinks(url);
 export const toMarkdown = (url, options) => firecrawl.toMarkdown(url, options);
 export const getFirecrawlUsage = () => firecrawl.getFirecrawlUsage();
+
+getFirecrawlUsage();

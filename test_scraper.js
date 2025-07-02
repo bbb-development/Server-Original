@@ -3,6 +3,15 @@ const localURL = 'http://localhost:3000';
 const SERVER_URL = 'http://138.68.69.38:3000';
 const testMethod = 'brandFetch'; // brandFetch or klaviyo_cookies or health
 const test = SERVER_URL;
+import { writeFileSync } from 'fs';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+
+const saveResults = true;
+
+// Get current directory
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // API key for Klaviyo cookies endpoint
 const KLAVIYO_COOKIES_API_KEY = 'klaviyo-a7f9e2b8c4d6f1a3e9b7c5d2f8a4e6b9c1d7f3a5e8b2c6d9f4a1e7b3c8d5f2a9';
@@ -26,7 +35,7 @@ async function testScraper() {
             },
             body: JSON.stringify({
                 url: testUrl,
-                shouldGetBestSellers: false,
+                shouldGetBestSellers: true,
                 options: {
                     mapOptions: {
                         limit: 500
@@ -53,9 +62,19 @@ async function testScraper() {
             console.log(`   Has Colors: ${brandData.data.analysis.hasColors}`);
             console.log(`   Benefits Count: ${brandData.data.analysis.benefitsCount}`);
             console.log(`   Best Sellers Count: ${brandData.data.analysis.bestSellersCount}`);
+            console.log(`   Preview Emails: ${brandData.previewEmails.length}`);
             
             console.log('\n📋 Full Brand Data:');
             console.log(JSON.stringify(brandData.data, null, 2));
+            
+            console.log('\n📋 Preview Emails:');
+            console.log(JSON.stringify(brandData.previewEmails, null, 2));
+            
+            if (saveResults) {
+                const outputPath = join(__dirname, './test_brand_data.json');
+                writeFileSync(outputPath, JSON.stringify(brandData, null, 2));
+                console.log(`💾 Results saved to ${outputPath}`);
+            }
         } else {
             console.log('❌ Error:', brandData.error);
         }

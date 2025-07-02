@@ -56,6 +56,8 @@ export async function askGemini(inputText, options = {}, schema = null) {
       fullResponse += chunk.text;
     }
 
+    //console.log(JSON.stringify(fullResponse, null, 2));
+
     return fullResponse;
   } catch (error) {
     throw new Error(`Gemini API error: ${error.message}`);

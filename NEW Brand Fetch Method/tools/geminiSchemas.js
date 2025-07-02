@@ -22,28 +22,38 @@ export const fetchURLsSchema = {
 
 // Schema for product list
 export const productListSchema = {
-    type: Type.ARRAY,
-    minItems: 9,
-    maxItems: 9,
-    items: {
-      type: Type.OBJECT,
-      required: ["productName", "productURL", "productPrice", "productImgUrl"],
-      properties: {
-        productName: {
-          type: Type.STRING,
-          description: "The name of the product"
-        },
-        productURL: {
-          type: Type.STRING,
-          description: "The URL where the product can be found"
-        },
-        productPrice: {
-          type: Type.STRING,
-          description: "The price of the product"
-        },
-        productImgUrl: {
-          type: Type.STRING,
-          description: "The URL of the product image"
+    type: Type.OBJECT,
+    required: ["productsFound"],
+    properties: {
+      productsFound: {
+        type: Type.BOOLEAN,
+        description: "Whether products were found on the page"
+      },
+      products: {
+        type: Type.ARRAY,
+        minItems: 9,
+        maxItems: 9,
+        items: {
+          type: Type.OBJECT,
+          required: ["productName", "productURL", "productPrice", "productImgUrl"],
+          properties: {
+            productName: {
+              type: Type.STRING,
+              description: "The name of the product"
+            },
+            productURL: {
+              type: Type.STRING,
+              description: "The direct URL to the product page."
+            },
+            productPrice: {
+              type: Type.STRING,
+              description: "The price of the product, typically as a string (e.g., '$19.99', '£50.00')."
+            },
+            productImgUrl: {
+              type: Type.STRING,
+              description: "The URL of the product image"
+            }
+          }
         }
       }
     }
@@ -103,6 +113,10 @@ export const brandBriefSchema = {
     brandMessage: {
       type: Type.STRING,
       description: "Core brand message"
+    },
+    brandIndustry: {
+      type: Type.STRING,
+      description: "The industry the brand operates in"
     },
     topEmailText: {
       type: Type.STRING,

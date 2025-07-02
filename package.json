@@ -30,6 +30,7 @@
     "sharp": "^0.34.1",
     "tough-cookie": "^5.1.2",
     "tough-cookie-file-store": "^3.0.1",
+    "turndown": "^7.2.0",
     "url": "^0.11.4"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 import * as smallFunctions from '../../smallFunctions.js';
 import klaviyoTemplates from '../misc/klaviyo_templates.json' with { type: 'json' };
 import { writeFileSync } from 'fs';
-const saveResults = true;
+const saveResults = false;
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -49,22 +49,42 @@ export async function getAllTemplateHTML() {
           idType
         );
         
-        // Extract HTML from the response
+        // Extract HTML and subject from the response
+        let html = null;
+        let subject = null;
+        
         if (previewData?.data?.html) {
-          console.log(`   ✅ HTML extracted successfully (${previewData.data.html.length} characters)`);
-          return { id: template.id, html: previewData.data.html, error: null };
+          html = previewData.data.html;
+          subject = previewData.data.subject || 'No subject available';
+          console.log(`   ✅ HTML extracted successfully (${html.length} characters)`);
+          console.log(`   📧 Subject: "${subject}"`);
         } else if (previewData?.html) {
-          console.log(`   ✅ HTML extracted successfully (${previewData.html.length} characters)`);
-          return { id: template.id, html: previewData.html, error: null };
+          html = previewData.html;
+          subject = previewData.subject || 'No subject available';
+          console.log(`   ✅ HTML extracted successfully (${html.length} characters)`);
+          console.log(`   📧 Subject: "${subject}"`);
         } else {
           console.warn(`   ⚠️ No HTML found in preview response for template ${template.id}`);
           console.warn(`   📋 Response structure:`, Object.keys(previewData || {}));
-          return { id: template.id, html: null, error: 'No HTML in response' };
         }
+        
+        return { 
+          id: template.id, 
+          name: template.newName || template.name,
+          subject: subject,
+          html: html, 
+          error: html ? null : 'No HTML in response' 
+        };
         
       } catch (error) {
         console.error(`   ❌ Error processing template ${template.id}:`, error.message);
-        return { id: template.id, html: null, error: error.message };
+        return { 
+          id: template.id, 
+          name: template.newName || template.name,
+          subject: null,
+          html: null, 
+          error: error.message 
+        };
       }
     };
     
@@ -76,16 +96,28 @@ export async function getAllTemplateHTML() {
     // Collect results
     results.forEach((result, index) => {
       if (result.status === 'fulfilled') {
-        templateHtmlMap[result.value.id] = result.value.html;
+        templateHtmlMap[result.value.id] = {
+          id: result.value.id,
+          name: result.value.name,
+          subject: result.value.subject,
+          html: result.value.html,
+          error: result.value.error
+        };
       } else {
         console.error(`❌ Template ${allTemplates[index].id} failed:`, result.reason);
-        templateHtmlMap[allTemplates[index].id] = null;
+        templateHtmlMap[allTemplates[index].id] = {
+          id: allTemplates[index].id,
+          name: allTemplates[index].newName || allTemplates[index].name,
+          subject: null,
+          html: null,
+          error: result.reason?.message || 'Unknown error'
+        };
       }
     });
     
     // Summary
-    const successCount = Object.values(templateHtmlMap).filter(html => html !== null).length;
-    const failedCount = Object.values(templateHtmlMap).filter(html => html === null).length;
+    const successCount = Object.values(templateHtmlMap).filter(template => template.html !== null).length;
+    const failedCount = Object.values(templateHtmlMap).filter(template => template.html === null).length;
     
     console.log(`\n📊 Processing complete:`);
     console.log(`   ✅ Successfully processed: ${successCount} templates`);
@@ -121,4 +153,4 @@ export async function getAllTemplateHTML() {
 }
 
 // EXAMPLE USAGE:
-//const templateHtmlMap = await getAllTemplateHTML();
+//await getAllTemplateHTML();

@@ -10,6 +10,7 @@ import * as geminiSchemas from './tools/geminiSchemas.js';
 import * as geminiPrompts from './tools/geminiPrompts.js';
 import { getAlbumImagesData } from './tools/imgBB Integration.js';
 import { getEmailImages } from './tools/getEmailHeaderImages.js';
+import browserless from './tools/browserless.js';
 
 /**
  * Main function to analyze a brand website
@@ -82,12 +83,15 @@ async function getBrandLinks(domain, shouldGetBestSellers, mapOptions = {}) {
   console.log(`🔍 Getting Brand Links Using Firecrawl and Gemini`);
   // Get the site map with all links
   const siteMap = await getSiteMap(domain, mapOptions);
+  console.log('siteMap', siteMap);
   
   // Extract special URLs using Gemini AI
   const geminiURLs = await extractSpecialURLs(siteMap.links);
+  console.log('geminiURLs', JSON.stringify(geminiURLs, null, 2));
   
   // Get best sellers products if URL is available
   const bestSellers = shouldGetBestSellers ? await getBestSellers(geminiURLs.bestSellersUrl) : [];
+  console.log('bestSellers', JSON.stringify(bestSellers, null, 2));
   
   return {
     links: siteMap.links || [],
@@ -201,22 +205,24 @@ async function generateBrandBrief(url) {
       brandAudience: geminiBrandBrief.brandAudience,
       brandTone: geminiBrandBrief.brandTone,
       brandMessage: geminiBrandBrief.brandMessage,
+      brandIndustry: geminiBrandBrief.brandIndustry,
       topEmailText: geminiBrandBrief.topEmailText,
       aboutUs: geminiBrandBrief.aboutUs
     };
   } catch (error) {
     console.warn('⚠️ Failed to generate brand brief, using fallback');
     return {
-      brandName: 'Unknown Brand',
-      brandDescription: 'Brand description unavailable',
-      brandAudience: 'General audience',
-      brandTone: 'Professional',
-      brandMessage: 'Brand message unavailable',
-      topEmailText: 'Welcome to our store',
+      brandName: 'We have an error',
+      brandDescription: 'We have an error',
+      brandAudience: 'We have an error',
+      brandTone: 'We have an error',
+      brandMessage: 'We have an error',
+      brandIndustry: 'We have an error',
+      topEmailText: 'We have an error',
       aboutUs: {
-        paragraph1: 'Brand information currently unavailable.',
-        paragraph2: 'Please try again later.',
-        paragraph3: 'We are working to provide you with accurate brand details.'
+        paragraph1: 'We have an error.',
+        paragraph2: 'We have an error.',
+        paragraph3: 'We have an error.'
       }
     };
   }
@@ -290,14 +296,14 @@ async function getBestSellers(bestSellersUrl) {
   }
 
   try {
-    console.log(`🛍️ FIRECRAWL: Scraping best sellers page: ${bestSellersUrl}`);
+    console.log(`🛍️ BROWSERLESS: Scraping best sellers page: ${bestSellersUrl}`);
     
-    // Get markdown content from the best sellers page with retry logic
-    const markdownContent = await retryWithBackoff(
-      () => firecrawl.toMarkdown(bestSellersUrl),
+    // First attempt: Get markdown content without proxy
+    let markdownContent = await retryWithBackoff(
+      () => browserless.toMarkdown(bestSellersUrl, { proxy: { useProxy: false } }),
       6, // 6 retries
       1000, // 1 second base delay
-      `Best sellers scraping (${bestSellersUrl})`
+      `Best sellers scraping without proxy (${bestSellersUrl})`
     );
     
     if (!markdownContent || markdownContent.length === 0) {
@@ -306,9 +312,10 @@ async function getBestSellers(bestSellersUrl) {
     }
 
     //console.log(`📄 Retrieved ${markdownContent.length} characters of markdown content`);
+    //console.log('BEST SELLERS MARKDOWN CONTENT', JSON.stringify(markdownContent, null, 2));
 
     // Use Gemini to extract product data from the markdown
-    const productsRaw = await retryWithBackoff(
+    let productsRaw = await retryWithBackoff(
       () => askGemini(
         geminiPrompts.productListPrompt(markdownContent), 
         { includeUrlContext: false }, 
@@ -316,22 +323,64 @@ async function getBestSellers(bestSellersUrl) {
       ),
       6, // 6 retries for Gemini
       1000, // 1 second base delay
-      'Product extraction with Gemini'
+      'Product extraction with Gemini (first attempt)'
     );
     
     // Parse the JSON response
-    let products;
+    let productsResponse;
     try {
       // Clean the response by removing any trailing 'undefined' or other unwanted text
       const cleanedResponse = String(productsRaw).replace(/undefined$/, '').trim();
-      products = JSON.parse(cleanedResponse);
+      productsResponse = JSON.parse(cleanedResponse);
     } catch (error) {
       console.warn('⚠️ Failed to parse Gemini products response as JSON, using fallback');
       console.warn('Raw response that failed to parse:', productsRaw);
-      products = [];
+      productsResponse = { productsFound: false, products: [] };
     }
     
-    console.log(`✅ GEMINI: Extracted ${products.length} products from best sellers page`);
+    // Check if products were found
+    if (!productsResponse.productsFound) {
+      console.log('🔄 No products found in first attempt, retrying with proxy...');
+      
+      // Second attempt: Get markdown content with proxy
+      markdownContent = await retryWithBackoff(
+        () => browserless.toMarkdown(bestSellersUrl, { proxy: { useProxy: true } }),
+        6, // 6 retries
+        1000, // 1 second base delay
+        `Best sellers scraping with proxy (${bestSellersUrl})`
+      );
+      
+      if (!markdownContent || markdownContent.length === 0) {
+        console.warn('⚠️ No markdown content retrieved from best sellers page on second attempt');
+        return [];
+      }
+
+      // Use Gemini again to extract product data from the new markdown
+      productsRaw = await retryWithBackoff(
+        () => askGemini(
+          geminiPrompts.productListPrompt(markdownContent), 
+          { includeUrlContext: false }, 
+          geminiSchemas.productListSchema
+        ),
+        6, // 6 retries for Gemini
+        1000, // 1 second base delay
+        'Product extraction with Gemini (second attempt with proxy)'
+      );
+      
+      // Parse the JSON response from second attempt
+      try {
+        // Clean the response by removing any trailing 'undefined' or other unwanted text
+        const cleanedResponse = String(productsRaw).replace(/undefined$/, '').trim();
+        productsResponse = JSON.parse(cleanedResponse);
+      } catch (error) {
+        console.warn('⚠️ Failed to parse Gemini products response as JSON on second attempt, using fallback');
+        console.warn('Raw response that failed to parse:', productsRaw);
+        productsResponse = { productsFound: false, products: [] };
+      }
+    }
+    
+    const products = productsResponse.products || [];
+    console.log(`✅ GEMINI: Extracted ${products.length} products from best sellers page (productsFound: ${productsResponse.productsFound})`);
     return products;
     
   } catch (error) {
@@ -452,3 +501,6 @@ export default analyzeBrand;
 
 //const result = await analyzeBrand('https://crystalenergy.shop', false);
 //console.log(JSON.stringify(result, null, 2));
+
+//const geminiLinks = await getBrandLinks(['https://www.neonicons.com', true, options = {}]);
+//console.log(JSON.stringify(geminiLinks, null, 2));

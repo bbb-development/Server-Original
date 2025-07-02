@@ -243,7 +243,7 @@
         <div class="instructions">
             <h3>📋 How to use:</h3>
             <ol>
-                <li><strong>Option 1:</strong> Upload your <code>template_html_results.json</code> file below to browse all templates</li>
+                <li><strong>Option 1:</strong> Upload your <code>emails.json</code> file below to browse all templates</li>
                 <li><strong>Option 2:</strong> Copy a single JSON response from your Klaviyo API call, paste it below, and click "Render Email"</li>
                 <li><strong>Option 3:</strong> Paste raw HTML content directly and click "Render Email"</li>
             </ol>
@@ -252,7 +252,7 @@
         
         <div class="file-upload-section" id="fileUploadSection">
             <h3>📁 Upload Template Results File</h3>
-            <p>Drag and drop your <code>template_html_results.json</code> file here, or click to select:</p>
+            <p>Drag and drop your <code>emails.json</code> file here, or click to select:</p>
             <div class="file-input-wrapper">
                 <input type="file" id="fileInput" class="file-input" accept=".json" onchange="handleFileSelect(event)">
                 <label for="fileInput" class="file-input-label">📂 Choose File</label>
@@ -292,7 +292,7 @@
                 <span id="emailSubject">📧 Email Preview</span>
                 <span>600px width</span>
             </div>
-            <iframe id="emailFrame" class="email-frame" srcdoc="<div style='padding: 40px; text-align: center; color: #666; font-family: Arial;'><h3>Ready to preview email</h3><p>Upload your template_html_results.json file or paste an API response above</p></div>"></iframe>
+            <iframe id="emailFrame" class="email-frame" srcdoc="<div style='padding: 40px; text-align: center; color: #666; font-family: Arial;'><h3>Ready to preview email</h3><p>Upload your emails.json file or paste an API response above</p></div>"></iframe>
         </div>
     </div>
 
@@ -411,7 +411,7 @@
             document.getElementById('fileInput').value = '';
             document.getElementById('fileInfo').innerHTML = '';
             document.getElementById('emailSubject').textContent = '📧 Email Preview';
-            document.getElementById('emailFrame').srcdoc = "<div style='padding: 40px; text-align: center; color: #666; font-family: Arial;'><h3>Ready to preview email</h3><p>Upload your template_html_results.json file or paste an API response above</p></div>";
+            document.getElementById('emailFrame').srcdoc = "<div style='padding: 40px; text-align: center; color: #666; font-family: Arial;'><h3>Ready to preview email</h3><p>Upload your emails.json file or paste an API response above</p></div>";
             currentEmailHtml = '';
             allTemplates = [];
             currentTemplateIndex = 0;
@@ -442,17 +442,18 @@
                     
                     // Validate file structure
                     if (!templateData.templates || typeof templateData.templates !== 'object') {
-                        showStatus('Invalid file format. Expected template_html_results.json format.', 'error');
+                        showStatus('Invalid file format. Expected emails.json format with templates object.', 'error');
                         return;
                     }
                     
                     // Convert template map to array with metadata
                     allTemplates = Object.entries(templateData.templates)
-                        .filter(([id, html]) => html !== null)
-                        .map(([id, html]) => ({
+                        .filter(([id, templateObj]) => templateObj && templateObj.html !== null)
+                        .map(([id, templateObj]) => ({
                             id: id,
-                            html: html,
-                            name: getTemplateNameById(id) || `Template ${id}`
+                            html: templateObj.html,
+                            name: templateObj.name || `Template ${id}`,
+                            subject: templateObj.subject || 'No subject'
                         }));
                     
                     if (allTemplates.length === 0) {
@@ -485,21 +486,7 @@
             reader.readAsText(file);
         }
         
-        function getTemplateNameById(templateId) {
-            // Map template IDs to their names based on klaviyo_templates.json
-            const templateNames = {
-                'SpZKLh': 'WF EMAIL 1 TEMPLATE',
-                'SjnvqT': 'WF EMAIL 2 TEMPLATE', 
-                'Yf3Wdz': 'WF EMAIL 3 TEMPLATE',
-                'RLpd9P': 'AC EMAIL 1 TEMPLATE',
-                'X7qBvi': 'AC EMAIL 2 TEMPLATE',
-                'QTQpvV': 'AC EMAIL 3 TEMPLATE',
-                'XvJpat': 'AC EMAIL 4 TEMPLATE',
-                'Rb3aEN': 'BA EMAIL 1 TEMPLATE'
-            };
-            
-            return templateNames[templateId];
-        }
+
         
         function displayCurrentTemplate() {
             if (allTemplates.length === 0 || currentTemplateIndex < 0 || currentTemplateIndex >= allTemplates.length) {
@@ -510,7 +497,7 @@
             currentEmailHtml = template.html;
             
             // Update the subject
-            document.getElementById('emailSubject').textContent = `📧 ${template.name}`;
+            document.getElementById('emailSubject').textContent = `📧 ${template.subject || template.name}`;
             
             // Clean the HTML for iframe rendering
             const cleanHtml = cleanEmailHtml(template.html);

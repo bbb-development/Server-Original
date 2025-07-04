@@ -212,20 +212,24 @@ class EmailMonitor {
       const fetchResult = await response.text();
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      const profile = await getProfile();
+      // Run both profile and company info requests concurrently
+      const [profile, companyInfo] = await Promise.all([
+        getProfile(),
+        getCompanyInfo()
+      ]);
 
-             if (profile.company_name === brandName) {
-         console.log("✅ INVITATION ACCEPTED SUCCESSFULLY!");
-         console.log(`   🏢 Brand: ${brandName || 'Unknown'}`);
-         
-         // Save client information to clients.json
-         await saveClientInfo(profile.company_name, profile.company_id);
-         
-         // Match with Supabase users and update their Klaviyo connection status
-         await matchAndUpdateSupabaseUsers(profile.company_name, profile.company_id);
-       } else {
-         console.log("❌ INVITATION ACCEPTANCE FAILED - BRAND NAME MISMATCH");
-       }
+      if (profile.company_name === brandName) {
+        console.log("✅ INVITATION ACCEPTED SUCCESSFULLY!");
+        console.log(`   🏢 Brand: ${brandName || 'Unknown'}`);
+        
+        // Save client information to clients.json
+        await saveClientInfo(profile.company_name, profile.company_id, companyInfo);
+        
+        // Match with Supabase users and update their Klaviyo connection status
+        await matchAndUpdateSupabaseUsers(profile.company_name, profile.company_id);
+      } else {
+        console.log("❌ INVITATION ACCEPTANCE FAILED - BRAND NAME MISMATCH");
+      }
       
       if (logAll) {
         console.log("📋 Server response:", fetchResult);
@@ -350,7 +354,7 @@ async function matchAndUpdateSupabaseUsers(clientName, clientId) {
   }
 }
 
-async function saveClientInfo(companyName, companyId) {
+async function saveClientInfo(companyName, companyId, companyInfo) {
   try {
     const clientsFilePath = path.join(process.cwd(), 'clients.json');
     
@@ -375,6 +379,11 @@ async function saveClientInfo(companyName, companyId) {
     const newClient = {
       company_name: companyName,
       company_id: companyId,
+      address: companyInfo.address,
+      from_label: companyInfo.from_label,
+      from_email_address: companyInfo.from_email_address,
+      url: companyInfo.url,
+      connected: false,
       date_added: new Date().toLocaleString('en-US', {
         year: 'numeric',
         month: 'long',
@@ -394,6 +403,10 @@ async function saveClientInfo(companyName, companyId) {
     console.log(`💾 SAVED NEW CLIENT TO clients.json:`);
     console.log(`   📋 Name: ${companyName}`);
     console.log(`   🆔 ID: ${companyId}`);
+    console.log(`   📍 Address: ${companyInfo.address}`);
+    console.log(`   🏷️ From Label: ${companyInfo.from_label}`);
+    console.log(`   📧 From Email: ${companyInfo.from_email_address}`);
+    console.log(`   🌐 URL: ${companyInfo.url}`);
     console.log(`   📅 Added: ${newClient.date_added}`);
     
   } catch (error) {
@@ -431,6 +444,60 @@ export async function getProfile() {
     
   } catch (error) {
     console.error('❌ Error fetching profile:', error.message);
+    if (error.response) {
+      console.error(`   Status: ${error.response.status}`);
+      console.error(`   Data:`, error.response.data);
+    }
+    throw error;
+  }
+}
+
+export async function getCompanyInfo() {
+  try {
+    console.log('🔍 Fetching company info from Klaviyo company-info endpoint...');
+    
+    const response = await axios.post(`${SERVER_BASE}/request`, {
+      method: 'GET',
+      url: `https://www.klaviyo.com/setup/api/v1/company-info`
+    });
+    
+    if (!response.data?.success) {
+      throw new Error('Company info request failed - not authenticated');
+    }
+    
+    const data = response.data.data;
+    
+    // Parse address into a single string
+    const addressParts = [
+      data.address?.street_address,
+      data.address?.street_address2,
+      data.address?.city,
+      data.address?.region,
+      data.address?.zip_code,
+      data.address?.country
+    ].filter(Boolean); // Remove null/undefined values
+    
+    const parsedAddress = addressParts.join(', ');
+    
+    // Extract the requested fields
+    const companyInfo = {
+      address: parsedAddress,
+      from_label: data.from_label,
+      from_email_address: data.from_email_address,
+      url: data.url
+    };
+    
+    // Log the extracted information
+    console.log('✅ Company information extracted:');
+    console.log(`   From Label: ${companyInfo.from_label}`);
+    console.log(`   From Email: ${companyInfo.from_email_address}`);
+    console.log(`   URL: ${companyInfo.url}`);
+    console.log(`   Address: ${companyInfo.address}`);
+    
+    return companyInfo;
+    
+  } catch (error) {
+    console.error('❌ Error fetching company info:', error.message);
     if (error.response) {
       console.error(`   Status: ${error.response.status}`);
       console.error(`   Data:`, error.response.data);

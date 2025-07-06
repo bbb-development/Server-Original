@@ -12,8 +12,6 @@ import { simpleParser } from "mailparser";
 import envConfig from "./envConfig.js";
 import axios from "axios";
 import fs from "fs/promises";
-import { createClient } from "@supabase/supabase-js";
-import Fuse from "fuse.js";
 
 // Klaviyo email constants
 const KLAVIYO_SENDER_EMAIL = "no-reply@klaviyo.com";
@@ -21,9 +19,6 @@ const KLAVIYO_INVITATION_SUBJECT = "New Klaviyo Account Invitation";
 
 // Server configuration
 const SERVER_BASE = 'http://138.68.69.38:3001';
-
-// Supabase configuration
-const supabase = createClient(envConfig.supabaseUrl, envConfig.supabaseServiceRoleKey);
 
 const logAll = false;
 
@@ -224,9 +219,7 @@ class EmailMonitor {
         
         // Save client information to clients.json
         await saveClientInfo(profile.company_name, profile.company_id, companyInfo);
-        
-        // Match with Supabase users and update their Klaviyo connection status
-        await matchAndUpdateSupabaseUsers(profile.company_name, profile.company_id);
+        console.log("✅ CLIENT INFORMATION SAVED TO clients.json");
       } else {
         console.log("❌ INVITATION ACCEPTANCE FAILED - BRAND NAME MISMATCH");
       }
@@ -279,78 +272,6 @@ class EmailMonitor {
   stop() {
     console.log("🛑 Stopping Email Monitor...");
     this.imap.end();
-  }
-}
-
-async function matchAndUpdateSupabaseUsers(clientName, clientId) {
-  try {
-    console.log(`🔍 Checking for Supabase user matches with client: ${clientName}`);
-    
-    // Fetch email sequences from Supabase where is_klaviyo_connected = false
-    const { data: sequences, error } = await supabase
-      .from('email_sequences')
-      .select('id, klaviyo_brand_name')
-      .eq('is_klaviyo_connected', false)
-      .not('klaviyo_brand_name', 'is', null);
-    
-    if (error) {
-      console.error('❌ Error fetching email sequences from Supabase:', error.message);
-      return;
-    }
-    
-    if (!sequences || sequences.length === 0) {
-      console.log('📋 No email sequences with is_klaviyo_connected=false found in Supabase');
-      return;
-    }
-    
-    console.log(`📋 Found ${sequences.length} email sequences to check for matches`);
-    
-    // Create fuzzy search instance with sequence brand names
-    const sequenceBrandNames = sequences.map(sequence => ({
-      name: sequence.klaviyo_brand_name,
-      sequenceId: sequence.id
-    }));
-    
-    const fuse = new Fuse(sequenceBrandNames, {
-      keys: ['name'],
-      threshold: 0.2, // 80% similarity (lower threshold = more strict)
-      includeScore: true
-    });
-    
-    // Search for the best match
-    const searchResults = fuse.search(clientName);
-    
-    if (searchResults.length > 0 && searchResults[0].score <= 0.2) {
-      const bestMatch = searchResults[0].item;
-      const similarity = Math.round((1 - searchResults[0].score) * 100);
-      
-      console.log(`🎯 MATCH FOUND (${similarity}% similarity):`);
-      console.log(`   📧 Sequence: ${bestMatch.name}`);
-      console.log(`   🏢 Client: ${clientName}`);
-      console.log(`   🆔 Client ID: ${clientId}`);
-      
-      // Update the matched email sequence's is_klaviyo_connected to true and set klaviyo_id
-      const { error: updateError } = await supabase
-        .from('email_sequences')
-        .update({ 
-          is_klaviyo_connected: true,
-          klaviyo_id: clientId 
-        })
-        .eq('id', bestMatch.sequenceId);
-      
-      if (updateError) {
-        console.error(`❌ Error updating email sequence ${bestMatch.sequenceId}:`, updateError.message);
-      } else {
-        console.log(`✅ Updated email sequence ${bestMatch.sequenceId}:`);
-        console.log(`   - is_klaviyo_connected set to true`);
-        console.log(`   - klaviyo_id set to ${clientId}`);
-      }
-    } else {
-      console.log(`❌ No matching email sequence found for client: ${clientName}`);
-    }
-    
-  } catch (error) {
-    console.error('❌ Error in matchAndUpdateSupabaseUsers:', error.message);
   }
 }
 

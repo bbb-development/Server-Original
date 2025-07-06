@@ -1,4 +1,4 @@
-import * as flowFunctions from '../Functions/flowFunctions.js';
+import * as flowFunctions from '../../flowFunctions.js';
 
 export async function createBrowseAbandonedFlow(flowName, templateIds) {
   // Unified flow creation and configuration

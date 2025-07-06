@@ -1,0 +1,133 @@
+[2025-07-06T09:38:49.699Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 📥 Received brand fetch request for: https://example.com
+[2025-07-06T09:38:49.700Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 📊 Should get best sellers: false
+[2025-07-06T09:38:49.700Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🆔 Request ID: REQ-1751794729698-nj1h87gi3
+[2025-07-06T09:38:49.700Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 📝 Request log file: example.com_2025-07-06T09-38-49-699Z.log
+[2025-07-06T09:38:49.700Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] ⚙️ Options: {}
+[2025-07-06T09:38:49.700Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Starting parallel execution: Brand analysis + Klaviyo templates
+[2025-07-06T09:38:49.700Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] [33m🔍 Analyzing brand: https://example.com[0m
+[2025-07-06T09:38:49.701Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🚀 Running all analysis steps concurrently...
+[2025-07-06T09:38:49.701Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Getting Brand Fetch Data Using Brandfetch
+[2025-07-06T09:38:49.715Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Getting Brand Links Using Firecrawl and Gemini
+[2025-07-06T09:38:49.719Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Generating Brand Brief Using Gemini
+[2025-07-06T09:38:49.724Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Generating Brand Benefits Using Gemini and ImgBB
+[2025-07-06T09:38:49.725Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Fetching random images for all email templates...
+[2025-07-06T09:38:49.726Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Generating Deliverability Snippet Using Gemini
+[2025-07-06T09:38:49.727Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Processing all templates from klaviyo_templates.json...
+[2025-07-06T09:38:49.727Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Switching to client: "BBB Marketing"...
+[2025-07-06T09:38:49.728Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Checking current client...
+[2025-07-06T09:38:50.115Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 📊 Brand Fetch: API Usage: 48/100 requests this month
+[2025-07-06T09:38:50.398Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 📍 Currently on: "BBB Marketing" (ID: SRsJn8)
+[2025-07-06T09:38:50.399Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] ✅ Already on target client "BBB Marketing" (matched by name). No switch needed.
+[2025-07-06T09:38:50.400Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 
+🚀 Starting concurrent processing of 8 templates...
+[2025-07-06T09:38:50.400Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 [1/8] Processing template: WF EMAIL 1 TEMPLATE (NEVER DELETE) (ID: SpZKLh)
+[2025-07-06T09:38:50.400Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    👤 Using profileId: empty string
+[2025-07-06T09:38:50.401Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Previewing template SpZKLh with flow message YqisUm...
+[2025-07-06T09:38:50.403Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 [2/8] Processing template: WF EMAIL 2 TEMPLATE (NEVER DELETE) (ID: SjnvqT)
+[2025-07-06T09:38:50.403Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    👤 Using profileId: empty string
+[2025-07-06T09:38:50.403Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Previewing template SjnvqT with flow message YjFcyX...
+[2025-07-06T09:38:50.404Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 [3/8] Processing template: WF EMAIL 3 TEMPLATE (NEVER DELETE) (ID: Yf3Wdz)
+[2025-07-06T09:38:50.404Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    👤 Using profileId: empty string
+[2025-07-06T09:38:50.404Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Previewing template Yf3Wdz with flow message WsC4H6...
+[2025-07-06T09:38:50.405Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 [4/8] Processing template: AC EMAIL 1 TEMPLATE (NEVER DELETE) (ID: RLpd9P)
+[2025-07-06T09:38:50.405Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-06T09:38:50.405Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Previewing template RLpd9P with flow message SRR5jE...
+[2025-07-06T09:38:50.406Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 [5/8] Processing template: AC EMAIL 2 TEMPLATE (NEVER DELETE) (ID: X7qBvi)
+[2025-07-06T09:38:50.406Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-06T09:38:50.406Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Previewing template X7qBvi with flow message XfzDGp...
+[2025-07-06T09:38:50.407Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 [6/8] Processing template: AC EMAIL 3 TEMPLATE (NEVER DELETE) (ID: QTQpvV)
+[2025-07-06T09:38:50.408Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-06T09:38:50.408Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Previewing template QTQpvV with flow message XaWpkZ...
+[2025-07-06T09:38:50.408Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 [7/8] Processing template: AC EMAIL 4 TEMPLATE (NEVER DELETE) (ID: XvJpat)
+[2025-07-06T09:38:50.409Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-06T09:38:50.409Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Previewing template XvJpat with flow message RCqe8L...
+[2025-07-06T09:38:50.410Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 [8/8] Processing template: BA EMAIL 1 TEMPLATE (NEVER DELETE) (ID: Rb3aEN)
+[2025-07-06T09:38:50.410Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    📎 Using eventId: 6cex5ERVqid
+[2025-07-06T09:38:50.410Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Previewing template Rb3aEN with flow message UtmrZK...
+[2025-07-06T09:38:52.738Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] ✅ Template preview fetched successfully for Yf3Wdz
+[2025-07-06T09:38:52.738Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    ✅ HTML extracted successfully (67969 characters)
+[2025-07-06T09:38:52.739Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    📧 Subject: "Welcome coupon expires soon"
+[2025-07-06T09:38:52.742Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] ✅ Template preview fetched successfully for Rb3aEN
+[2025-07-06T09:38:52.743Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    ✅ HTML extracted successfully (76728 characters)
+[2025-07-06T09:38:52.743Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    📧 Subject: "Have another look"
+[2025-07-06T09:38:52.782Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] ✅ Template preview fetched successfully for SpZKLh
+[2025-07-06T09:38:52.783Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    ✅ HTML extracted successfully (71894 characters)
+[2025-07-06T09:38:52.783Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    📧 Subject: "Welcome Aboard"
+[2025-07-06T09:38:53.066Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] ✅ Template preview fetched successfully for RLpd9P
+[2025-07-06T09:38:53.066Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    ✅ HTML extracted successfully (76838 characters)
+[2025-07-06T09:38:53.066Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    📧 Subject: "Complete your purchase"
+[2025-07-06T09:38:53.230Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] ✅ Template preview fetched successfully for SjnvqT
+[2025-07-06T09:38:53.231Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    ✅ HTML extracted successfully (74670 characters)
+[2025-07-06T09:38:53.231Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    📧 Subject: "A few customer favorites worth seeing"
+[2025-07-06T09:38:53.379Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] ✅ Template preview fetched successfully for QTQpvV
+[2025-07-06T09:38:53.380Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    ✅ HTML extracted successfully (85983 characters)
+[2025-07-06T09:38:53.380Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    📧 Subject: "Less than 3 hours remain"
+[2025-07-06T09:38:54.961Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] ✅ Template preview fetched successfully for X7qBvi
+[2025-07-06T09:38:54.962Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    ✅ HTML extracted successfully (79728 characters)
+[2025-07-06T09:38:54.962Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    📧 Subject: "It's on the house 🎁"
+[2025-07-06T09:38:56.619Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] ✅ Template preview fetched successfully for XvJpat
+[2025-07-06T09:38:56.620Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    ✅ HTML extracted successfully (13899 characters)
+[2025-07-06T09:38:56.620Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    📧 Subject: "Is everything alright?"
+[2025-07-06T09:38:56.621Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 
+📊 Processing complete:
+[2025-07-06T09:38:56.621Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    ✅ Successfully processed: 8 templates
+[2025-07-06T09:38:56.621Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    🎉 All templates processed successfully!
+[2025-07-06T09:38:56.621Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com]    📁 Total templates: 8
+[2025-07-06T09:38:59.250Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] siteMap {"success":true,"links":["https://example.com"]}
+[2025-07-06T09:38:59.681Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] geminiURLs {
+  "bestSellersUrl": "null",
+  "contactUrl": "null",
+  "faqUrl": "null"
+}
+[2025-07-06T09:38:59.681Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] bestSellers []
+[2025-07-06T09:38:59.681Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] [33m✅ Analysis complete in 9.981 seconds 🎉[0m
+[2025-07-06T09:38:59.682Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔍 Checking API Usage
+[2025-07-06T09:38:59.778Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 📊 Remaining Firecrawl Credits: 353
+[2025-07-06T09:39:00.049Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 📊 Brand Fetch: API Usage: 49/100 requests this month
+[2025-07-06T09:39:00.050Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🎨 Starting preview email generation
+[2025-07-06T09:39:00.050Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🚀 Starting preview email generation process...
+[2025-07-06T09:39:00.051Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] ✅ Successfully fetched 8 templates
+[2025-07-06T09:39:00.051Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 
+🔄 Step 2: Processing templates with brand replacements...
+[2025-07-06T09:39:00.051Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔀 Processing 8 templates concurrently...
+[2025-07-06T09:39:00.051Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template SpZKLh...
+[2025-07-06T09:39:00.052Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template for brand: Example
+[2025-07-06T09:39:00.052Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T09:39:00.054Z] [ERROR] [REQ-1751794729698-nj1h87gi3] [https://example.com] ❌ Error processing template SpZKLh: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T09:39:00.054Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template SjnvqT...
+[2025-07-06T09:39:00.054Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template for brand: Example
+[2025-07-06T09:39:00.055Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T09:39:00.055Z] [ERROR] [REQ-1751794729698-nj1h87gi3] [https://example.com] ❌ Error processing template SjnvqT: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T09:39:00.056Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template Yf3Wdz...
+[2025-07-06T09:39:00.056Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template for brand: Example
+[2025-07-06T09:39:00.056Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T09:39:00.058Z] [ERROR] [REQ-1751794729698-nj1h87gi3] [https://example.com] ❌ Error processing template Yf3Wdz: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T09:39:00.058Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template RLpd9P...
+[2025-07-06T09:39:00.058Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template for brand: Example
+[2025-07-06T09:39:00.058Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T09:39:00.059Z] [ERROR] [REQ-1751794729698-nj1h87gi3] [https://example.com] ❌ Error processing template RLpd9P: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T09:39:00.059Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template X7qBvi...
+[2025-07-06T09:39:00.059Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template for brand: Example
+[2025-07-06T09:39:00.059Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T09:39:00.060Z] [ERROR] [REQ-1751794729698-nj1h87gi3] [https://example.com] ❌ Error processing template X7qBvi: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T09:39:00.060Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template QTQpvV...
+[2025-07-06T09:39:00.061Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template for brand: Example
+[2025-07-06T09:39:00.061Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T09:39:00.062Z] [ERROR] [REQ-1751794729698-nj1h87gi3] [https://example.com] ❌ Error processing template QTQpvV: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T09:39:00.062Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template XvJpat...
+[2025-07-06T09:39:00.062Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template for brand: Example
+[2025-07-06T09:39:00.062Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T09:39:00.066Z] [ERROR] [REQ-1751794729698-nj1h87gi3] [https://example.com] ❌ Error processing template XvJpat: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T09:39:00.066Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template Rb3aEN...
+[2025-07-06T09:39:00.066Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔄 Processing template for brand: Example
+[2025-07-06T09:39:00.067Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T09:39:00.068Z] [ERROR] [REQ-1751794729698-nj1h87gi3] [https://example.com] ❌ Error processing template Rb3aEN: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T09:39:00.069Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 
+📊 Step 3: Collecting results...
+[2025-07-06T09:39:00.070Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 💾 Results saved to /root/server-scraper/Klaviyo Portal/Functions/Generate Preview Emails/Generated Brand Preview Templates/Example/emails.json
+[2025-07-06T09:39:00.070Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] ✅ Successfully processed: 0 templates
+[2025-07-06T09:39:00.070Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] ❌ Failed to process: 8 templates
+[2025-07-06T09:39:00.070Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 📊 Total templates: 8
+[2025-07-06T09:39:00.091Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] ✅ Brand analysis completed in 10.37 seconds at 09:39:00 on 07/06/25
+[2025-07-06T09:39:00.091Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] SUMMARY - Request completed successfully
+[2025-07-06T09:39:00.094Z] [INFO] [REQ-1751794729698-nj1h87gi3] [https://example.com] 📁 Request-specific logs saved to: example.com_2025-07-06T09-38-49-699Z.log

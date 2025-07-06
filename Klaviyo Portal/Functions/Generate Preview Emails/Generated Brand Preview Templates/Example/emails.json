@@ -1,0 +1,58 @@
+{
+  "summary": {
+    "processedAt": "2025-07-06T09:39:00.069Z",
+    "successCount": 0,
+    "errorCount": 8,
+    "totalTemplates": 8
+  },
+  "templates": {
+    "SpZKLh": {
+      "id": "SpZKLh",
+      "name": "FFA | Welcome Flow #1",
+      "subject": "Welcome Aboard",
+      "html": null
+    },
+    "SjnvqT": {
+      "id": "SjnvqT",
+      "name": "FFA | Welcome Flow #2",
+      "subject": "A few customer favorites worth seeing",
+      "html": null
+    },
+    "Yf3Wdz": {
+      "id": "Yf3Wdz",
+      "name": "FFA | Welcome Flow #3",
+      "subject": "Welcome coupon expires soon",
+      "html": null
+    },
+    "RLpd9P": {
+      "id": "RLpd9P",
+      "name": "FFA | Cart Abandoned Flow #1",
+      "subject": "Complete your purchase",
+      "html": null
+    },
+    "X7qBvi": {
+      "id": "X7qBvi",
+      "name": "FFA | Cart Abandoned Flow #2",
+      "subject": "It's on the house 🎁",
+      "html": null
+    },
+    "QTQpvV": {
+      "id": "QTQpvV",
+      "name": "FFA | Cart Abandoned Flow #3",
+      "subject": "Less than 3 hours remain",
+      "html": null
+    },
+    "XvJpat": {
+      "id": "XvJpat",
+      "name": "FFA | Cart Abandoned Flow #4",
+      "subject": "Is everything alright?",
+      "html": null
+    },
+    "Rb3aEN": {
+      "id": "Rb3aEN",
+      "name": "FFA | Browse Abandoned Flow #1",
+      "subject": "Have another look",
+      "html": null
+    }
+  }
+}

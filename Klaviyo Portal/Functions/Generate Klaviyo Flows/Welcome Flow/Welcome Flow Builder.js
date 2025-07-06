@@ -1,4 +1,4 @@
-import * as flowFunctions from '../Functions/flowFunctions.js';
+import * as flowFunctions from '../../flowFunctions.js';
 
 export async function createWelcomeFlow(flowName, templateIds) {
   // Get filter data and trigger info

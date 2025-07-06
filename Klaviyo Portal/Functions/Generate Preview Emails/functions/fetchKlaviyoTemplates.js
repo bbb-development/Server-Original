@@ -13,6 +13,7 @@ const __dirname = dirname(__filename);
 export async function getAllTemplateHTML() {
   try {
     console.log('🔍 Processing all templates from klaviyo_templates.json...');
+    await smallFunctions.changeClient('BBB Marketing');
     
     const templateHtmlMap = {};
     const allTemplates = Object.values(klaviyoTemplates).flat();

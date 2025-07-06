@@ -1,0 +1,135 @@
+[2025-07-06T15:37:21.352Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 📥 Received brand fetch request for: https://pleafs.com
+[2025-07-06T15:37:21.352Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 📊 Should get best sellers: true
+[2025-07-06T15:37:21.352Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🆔 Request ID: REQ-1751816241351-2kg8rc6on
+[2025-07-06T15:37:21.352Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 📝 Request log file: pleafs.com_2025-07-06T15-37-21-352Z.log
+[2025-07-06T15:37:21.352Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ⚙️ Options: {"mapOptions":{"limit":500}}
+[2025-07-06T15:37:21.353Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Starting parallel execution: Brand analysis + Klaviyo templates
+[2025-07-06T15:37:21.353Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] [33m🔍 Analyzing brand: https://pleafs.com[0m
+[2025-07-06T15:37:21.353Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🚀 Running all analysis steps concurrently...
+[2025-07-06T15:37:21.353Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Getting Brand Fetch Data Using Brandfetch
+[2025-07-06T15:37:21.356Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Getting Brand Links Using Firecrawl and Gemini
+[2025-07-06T15:37:21.357Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Generating Brand Brief Using Gemini
+[2025-07-06T15:37:21.358Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Generating Brand Benefits Using Gemini and ImgBB
+[2025-07-06T15:37:21.358Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Fetching random images for all email templates...
+[2025-07-06T15:37:21.358Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Generating Deliverability Snippet Using Gemini
+[2025-07-06T15:37:21.359Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Processing all templates from klaviyo_templates.json...
+[2025-07-06T15:37:21.359Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Switching to client: "BBB Marketing"...
+[2025-07-06T15:37:21.359Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Checking current client...
+[2025-07-06T15:37:21.748Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 📊 Brand Fetch: API Usage: 54/2500 requests this month
+[2025-07-06T15:37:21.921Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 📍 Currently on: "BBB Marketing" (ID: SRsJn8)
+[2025-07-06T15:37:21.922Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ✅ Already on target client "BBB Marketing" (matched by name). No switch needed.
+[2025-07-06T15:37:21.922Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 
+🚀 Starting concurrent processing of 8 templates...
+[2025-07-06T15:37:21.922Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 [1/8] Processing template: WF EMAIL 1 TEMPLATE (NEVER DELETE) (ID: SpZKLh)
+[2025-07-06T15:37:21.922Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    👤 Using profileId: empty string
+[2025-07-06T15:37:21.922Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Previewing template SpZKLh with flow message YqisUm...
+[2025-07-06T15:37:21.923Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 [2/8] Processing template: WF EMAIL 2 TEMPLATE (NEVER DELETE) (ID: SjnvqT)
+[2025-07-06T15:37:21.923Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    👤 Using profileId: empty string
+[2025-07-06T15:37:21.923Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Previewing template SjnvqT with flow message YjFcyX...
+[2025-07-06T15:37:21.924Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 [3/8] Processing template: WF EMAIL 3 TEMPLATE (NEVER DELETE) (ID: Yf3Wdz)
+[2025-07-06T15:37:21.924Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    👤 Using profileId: empty string
+[2025-07-06T15:37:21.924Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Previewing template Yf3Wdz with flow message WsC4H6...
+[2025-07-06T15:37:21.925Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 [4/8] Processing template: AC EMAIL 1 TEMPLATE (NEVER DELETE) (ID: RLpd9P)
+[2025-07-06T15:37:21.925Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-06T15:37:21.925Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Previewing template RLpd9P with flow message SRR5jE...
+[2025-07-06T15:37:21.925Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 [5/8] Processing template: AC EMAIL 2 TEMPLATE (NEVER DELETE) (ID: X7qBvi)
+[2025-07-06T15:37:21.925Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-06T15:37:21.925Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Previewing template X7qBvi with flow message XfzDGp...
+[2025-07-06T15:37:21.926Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 [6/8] Processing template: AC EMAIL 3 TEMPLATE (NEVER DELETE) (ID: QTQpvV)
+[2025-07-06T15:37:21.926Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-06T15:37:21.926Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Previewing template QTQpvV with flow message XaWpkZ...
+[2025-07-06T15:37:21.927Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 [7/8] Processing template: AC EMAIL 4 TEMPLATE (NEVER DELETE) (ID: XvJpat)
+[2025-07-06T15:37:21.927Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-06T15:37:21.927Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Previewing template XvJpat with flow message RCqe8L...
+[2025-07-06T15:37:21.927Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 [8/8] Processing template: BA EMAIL 1 TEMPLATE (NEVER DELETE) (ID: Rb3aEN)
+[2025-07-06T15:37:21.927Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    📎 Using eventId: 6cex5ERVqid
+[2025-07-06T15:37:21.927Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Previewing template Rb3aEN with flow message UtmrZK...
+[2025-07-06T15:37:23.106Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ✅ Template preview fetched successfully for XvJpat
+[2025-07-06T15:37:23.106Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    ✅ HTML extracted successfully (13899 characters)
+[2025-07-06T15:37:23.106Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    📧 Subject: "Is everything alright?"
+[2025-07-06T15:37:23.625Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] siteMap {"success":true,"links":["http://pleafs.com","https://pleafs.com/products/sierkussen_plush_buiten_45x60_wedgewood","https://pleafs.com/products/warmtezitkussen_nomad_draadloos_electrisch_oplaadbaar_buiten_40x40_close-knit","https://pleafs.com/pages/faqs"]}
+[2025-07-06T15:37:24.178Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] geminiURLs {
+  "bestSellersUrl": "null",
+  "contactUrl": "null",
+  "faqUrl": "https://pleafs.com/pages/faqs"
+}
+[2025-07-06T15:37:24.178Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🛍️ BROWSERLESS: Scraping best sellers page: null
+[2025-07-06T15:37:24.232Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ✅ Template preview fetched successfully for Yf3Wdz
+[2025-07-06T15:37:24.232Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    ✅ HTML extracted successfully (67969 characters)
+[2025-07-06T15:37:24.232Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    📧 Subject: "Welcome coupon expires soon"
+[2025-07-06T15:37:24.645Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ✅ Template preview fetched successfully for SjnvqT
+[2025-07-06T15:37:24.646Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    ✅ HTML extracted successfully (74670 characters)
+[2025-07-06T15:37:24.646Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    📧 Subject: "A few customer favorites worth seeing"
+[2025-07-06T15:37:24.674Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ✅ Template preview fetched successfully for Rb3aEN
+[2025-07-06T15:37:24.675Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    ✅ HTML extracted successfully (76728 characters)
+[2025-07-06T15:37:24.676Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    📧 Subject: "Have another look"
+[2025-07-06T15:37:24.684Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ✅ Template preview fetched successfully for QTQpvV
+[2025-07-06T15:37:24.684Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    ✅ HTML extracted successfully (85983 characters)
+[2025-07-06T15:37:24.684Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    📧 Subject: "Less than 3 hours remain"
+[2025-07-06T15:37:24.749Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ✅ Template preview fetched successfully for X7qBvi
+[2025-07-06T15:37:24.750Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    ✅ HTML extracted successfully (79728 characters)
+[2025-07-06T15:37:24.750Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    📧 Subject: "It's on the house 🎁"
+[2025-07-06T15:37:24.827Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ✅ Template preview fetched successfully for RLpd9P
+[2025-07-06T15:37:24.827Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    ✅ HTML extracted successfully (76838 characters)
+[2025-07-06T15:37:24.827Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    📧 Subject: "Complete your purchase"
+[2025-07-06T15:37:25.900Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ✅ Template preview fetched successfully for SpZKLh
+[2025-07-06T15:37:25.901Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    ✅ HTML extracted successfully (71894 characters)
+[2025-07-06T15:37:25.901Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    📧 Subject: "Welcome Aboard"
+[2025-07-06T15:37:25.901Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 
+📊 Processing complete:
+[2025-07-06T15:37:25.901Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    ✅ Successfully processed: 8 templates
+[2025-07-06T15:37:25.901Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    🎉 All templates processed successfully!
+[2025-07-06T15:37:25.901Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com]    📁 Total templates: 8
+[2025-07-06T15:37:44.252Z] [WARN] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ⚠️ No markdown content retrieved from best sellers page
+[2025-07-06T15:37:44.252Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] bestSellers []
+[2025-07-06T15:37:44.252Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] [33m✅ Analysis complete in 22.899 seconds 🎉[0m
+[2025-07-06T15:37:44.253Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔍 Checking API Usage
+[2025-07-06T15:37:44.376Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 📊 Remaining Firecrawl Credits: 2995
+[2025-07-06T15:37:44.621Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 📊 Brand Fetch: API Usage: 55/2500 requests this month
+[2025-07-06T15:37:44.622Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🎨 Starting preview email generation
+[2025-07-06T15:37:44.622Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🚀 Starting preview email generation process...
+[2025-07-06T15:37:44.622Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ✅ Successfully fetched 8 templates
+[2025-07-06T15:37:44.623Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 
+🔄 Step 2: Processing templates with brand replacements...
+[2025-07-06T15:37:44.623Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔀 Processing 8 templates concurrently...
+[2025-07-06T15:37:44.623Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template SpZKLh...
+[2025-07-06T15:37:44.623Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template for brand: Pleafs
+[2025-07-06T15:37:44.623Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T15:37:44.623Z] [ERROR] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ❌ Error processing template SpZKLh: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T15:37:44.624Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template SjnvqT...
+[2025-07-06T15:37:44.624Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template for brand: Pleafs
+[2025-07-06T15:37:44.624Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T15:37:44.624Z] [ERROR] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ❌ Error processing template SjnvqT: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T15:37:44.624Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template Yf3Wdz...
+[2025-07-06T15:37:44.625Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template for brand: Pleafs
+[2025-07-06T15:37:44.625Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T15:37:44.625Z] [ERROR] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ❌ Error processing template Yf3Wdz: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T15:37:44.625Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template RLpd9P...
+[2025-07-06T15:37:44.625Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template for brand: Pleafs
+[2025-07-06T15:37:44.625Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T15:37:44.626Z] [ERROR] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ❌ Error processing template RLpd9P: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T15:37:44.626Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template X7qBvi...
+[2025-07-06T15:37:44.626Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template for brand: Pleafs
+[2025-07-06T15:37:44.626Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T15:37:44.626Z] [ERROR] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ❌ Error processing template X7qBvi: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T15:37:44.627Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template QTQpvV...
+[2025-07-06T15:37:44.627Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template for brand: Pleafs
+[2025-07-06T15:37:44.627Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T15:37:44.627Z] [ERROR] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ❌ Error processing template QTQpvV: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T15:37:44.627Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template XvJpat...
+[2025-07-06T15:37:44.628Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template for brand: Pleafs
+[2025-07-06T15:37:44.628Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T15:37:44.628Z] [ERROR] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ❌ Error processing template XvJpat: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T15:37:44.628Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template Rb3aEN...
+[2025-07-06T15:37:44.628Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔄 Processing template for brand: Pleafs
+[2025-07-06T15:37:44.628Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 🔀 Shuffled best sellers for randomized product display
+[2025-07-06T15:37:44.629Z] [ERROR] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ❌ Error processing template Rb3aEN: Cannot read properties of undefined (reading 'productImgUrl')
+[2025-07-06T15:37:44.629Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 
+📊 Step 3: Collecting results...
+[2025-07-06T15:37:44.629Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 💾 Results saved to /root/server-scraper/Klaviyo Portal/Functions/Generate Preview Emails/Generated Brand Preview Templates/Pleafs/emails.json
+[2025-07-06T15:37:44.629Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ✅ Successfully processed: 0 templates
+[2025-07-06T15:37:44.629Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ❌ Failed to process: 8 templates
+[2025-07-06T15:37:44.629Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 📊 Total templates: 8
+[2025-07-06T15:37:44.630Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] ✅ Brand analysis completed in 23.276 seconds at 15:37:44 on 07/06/25
+[2025-07-06T15:37:44.630Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] SUMMARY - Request completed successfully
+[2025-07-06T15:37:44.631Z] [INFO] [REQ-1751816241351-2kg8rc6on] [https://pleafs.com] 📁 Request-specific logs saved to: pleafs.com_2025-07-06T15-37-21-352Z.log

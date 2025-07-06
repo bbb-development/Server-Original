@@ -1,12 +1,12 @@
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
-import { readFile } from 'fs/promises';
 import fs from 'fs';
 import path from 'path';
 import { analyzeBrand } from './NEW Brand Fetch Method/brand-analyzer.js';
 import { getAllTemplateHTML } from './Klaviyo Portal/Functions/Generate Preview Emails/functions/fetchKlaviyoTemplates.js';
 import { generatePreviewEmails } from './Klaviyo Portal/Functions/Generate Preview Emails/main/generatePreviewEmails.js';
+import { matchClientWithKlaviyo } from './Klaviyo Invitation Listener/connectProfile.js';
 
 // Create logs directory if it doesn't exist
 const logsDir = './logs';
@@ -254,6 +254,27 @@ app.post('/brandFetch', async (req, res) => {
     currentRequestContext.requestId = null;
     currentRequestContext.startTime = null;
     currentRequestContext.requestLogFile = null;
+  }
+});
+
+// Add the connectKlaviyo endpoint
+app.post('/connectKlaviyo', async (req, res) => {
+  try {
+    const supabaseClient = req.body;
+    if (!supabaseClient || typeof supabaseClient !== 'object') {
+      return res.status(400).json({ ok: false, error: 'Missing or invalid Supabase client data' });
+    }
+    const { matchResult, klaviyoClient } = await matchClientWithKlaviyo(supabaseClient);
+    res.status(200).json({ 
+      ok: true, 
+      full_user_data: {
+        matched_data: matchResult,
+        klaviyo_data: klaviyoClient
+      }
+    });
+  } catch (err) {
+    console.error('❌ connectKlaviyo error:', err);
+    res.status(500).json({ ok: false, error: err.message });
   }
 });
 

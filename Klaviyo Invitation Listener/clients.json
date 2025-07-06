@@ -2,26 +2,25 @@
   {
     "company_name": "Crystal Energy",
     "company_id": "ShNPvE",
-    "date_added": "June 11, 2025 at 12:01:46 PM GMT+3"
-  },
-  {
-    "company_name": "Vladi Stefanov",
-    "company_id": "XGjksJ",
-    "date_added": "June 11, 2025 at 09:29:32 AM UTC"
-  },
-  {
-    "company_name": "Neon Icons",
-    "company_id": "VChh5r",
-    "date_added": "June 16, 2025 at 07:07:03 AM UTC"
-  },
-  {
-    "company_name": "Diablo Cosmetics",
-    "company_id": "HUZXFn",
-    "date_added": "June 19, 2025 at 06:51:03 PM UTC"
+    "address": "ул. Рига 8, Ruse, Ruse, 7000, Bulgaria",
+    "from_label": "Жани от Crystal Energy",
+    "from_email_address": "jani@crystalenergy.shop",
+    "url": "https://crystalenergy.shop/",
+    "connected": true,
+    "date_added": "July 5, 2025 at 08:23:58 AM UTC",
+    "supabase_id": "90d167a1-4b93-4bfd-8e1f-6470ab75a8bd",
+    "connected_at": "July 5, 2025 at 08:37:31 AM UTC"
   },
   {
     "company_name": "Siesta G",
     "company_id": "SFaabC",
-    "date_added": "June 19, 2025 at 06:58:44 PM UTC"
+    "address": "108 West Robertson Street, Brandon, Florida, 33511, United States",
+    "from_label": "Siesta G",
+    "from_email_address": "support@siestag.com",
+    "url": "http://siestag.com",
+    "connected": true,
+    "date_added": "July 6, 2025 at 02:17:57 PM UTC",
+    "supabase_id": "d4b74a18-42f9-409b-983d-11ebbb116a68",
+    "connected_at": "July 6, 2025 at 02:18:09 PM UTC"
   }
 ]

@@ -293,4 +293,54 @@ Based on the website content above, generate a single deliverability snippet usi
 Now generate a single deliverability snippet using all rules above. Use generic placeholders for missing info such as customer name or address.`;
 }
 
-export { brandBriefPrompt, brandBenefitsPrompt, fetchURLsPrompt, productListPrompt, createDeliverabilitySnippetPrompt };
+function matchClientPrompt(supabaseClient, klaviyoClients) {
+  return `You are tasked with matching a single Supabase client with the best corresponding Klaviyo client from a list of unconnected Klaviyo accounts.
+
+TASK: Analyze the Supabase client data and find the best match among the available Klaviyo clients (all of which have connected: false).
+
+SUPABASE CLIENT DATA (single client to match):
+${JSON.stringify(supabaseClient, null, 2)}
+
+AVAILABLE KLAVIYO CLIENTS DATA (unconnected accounts from clients.json):
+${JSON.stringify(klaviyoClients, null, 2)}
+
+MATCHING CRITERIA:
+You should match based on the following criteria (in order of priority):
+1. Brand/Company Name similarity (exact match or very close variations)
+2. Website URL similarity (domain matching, with or without www, http/https)
+3. Email address similarity (domain matching or exact email match)
+4. Any other relevant identifying information
+
+INSTRUCTIONS:
+1. Compare the single Supabase client with each Klaviyo client
+2. Look for the best match using the criteria above
+3. If you find a confident match, return the Klaviyo client ID (company_id) and the Supabase ID
+4. If no confident match is found, return found: false
+5. The Supabase ID to return should be from the 'supabase_id' or 'id' field in the Supabase client data
+
+IMPORTANT NOTES:
+- Be strict about matching - only return found: true if you're confident it's the same client
+- Brand names might have slight variations (e.g., "ABC Co." vs "ABC Company" vs "ABC Corp")
+- Website URLs should match the domain (ignore www, http/https differences)
+- Email domains should match between the Supabase data and Klaviyo data
+- The Klaviyo client ID to return should be the 'company_id' field from the matched Klaviyo client
+- Look for any company names, domains, or email addresses that clearly correspond between the datasets
+
+EXPECTED DATA FIELDS:
+- Supabase client may contain: company name, website URL, email, domain, brand name
+- Klaviyo clients contain: company_name, company_id, address, from_label, from_email_address, url, connected, date_added
+
+CONFIDENCE LEVELS:
+- "high": Exact or very close match on company name/domain AND additional matching fields
+- "medium": Good match on company name/domain OR multiple other matching fields  
+- "low": Weak match or no confident match found
+
+EXAMPLES:
+- If Supabase has "diablocosmetics.com" and Klaviyo has "url": "https://www.diablocosmetics.com/" → HIGH confidence match
+- If Supabase has "Diablo Cosmetics" and Klaviyo has "company_name": "Diablo Cosmetics" → HIGH confidence match
+- If email domains match (info@domain.com vs from_email_address containing same domain) → MEDIUM-HIGH confidence
+
+Return your response as a JSON object with the specified schema.`;
+}
+
+export { brandBriefPrompt, brandBenefitsPrompt, fetchURLsPrompt, productListPrompt, createDeliverabilitySnippetPrompt, matchClientPrompt };

@@ -9,7 +9,7 @@ import { generateDeliverabilitySnippet } from './brand-analyzer.js';
 ////// BRANDFETCH TEST ////////
 
 // Check Brandfetch usage and credits
-//await getBrandfetchUsage();
+await getBrandfetchUsage();
 
 // Search for brands (FREE)
 //const brands = await searchBrands('Nike');
@@ -37,10 +37,8 @@ import { generateDeliverabilitySnippet } from './brand-analyzer.js';
 
 ////// GEMINI TEST //////
 
-const deliverabilitySnippet = await generateDeliverabilitySnippet('https://crystalenergy.shop');
-console.log('Deliverability Snippet:', deliverabilitySnippet);
-
-
+//const deliverabilitySnippet = await generateDeliverabilitySnippet('https://crystalenergy.shop');
+//console.log('Deliverability Snippet:', deliverabilitySnippet);
 
 //const result = await askGemini("Hello, how are you?");
 //console.log(result);

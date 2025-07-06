@@ -11,7 +11,7 @@ import * as flowFunctions from './Functions/flowFunctions.js';
 //smallFunctions.getProfile();
 
 // Change client
-//await smallFunctions.changeClient('ShNPvE');
+await smallFunctions.changeClient('BBB Marketing');
 
 // Get company ID
 //smallFunctions.getCompanyID('ALL'); // 'all' or 'company_name'

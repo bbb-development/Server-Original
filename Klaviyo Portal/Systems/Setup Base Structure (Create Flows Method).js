@@ -3,9 +3,9 @@ import * as smallFunctions from '../Functions/smallFunctions.js';
 import * as emailTemplates from '../Functions/templatesExport.js';
 import * as listFunctions from '../Functions/listFunctions.js';
 import * as templateFunctions from '../Functions/templateFunctions.js';
-import {createAbandonedCartFlow} from '../Flows/Abandoned Cart Flow Builder.js';
-import {createBrowseAbandonedFlow} from '../Flows/Browse Abandoned Flow Builder.js';
-import {createWelcomeFlow} from '../Flows/Welcome Flow Builder.js';
+import {createAbandonedCartFlow} from '../Functions/Generate Klaviyo Flows/Abandoned Cart/Abandoned Cart Flow Builder.js';
+import {createBrowseAbandonedFlow} from '../Functions/Generate Klaviyo Flows/Browse Abandoned/Browse Abandoned Flow Builder.js';
+import {createWelcomeFlow} from '../Functions/Generate Klaviyo Flows/Welcome Flow/Welcome Flow Builder.js';
 
 export async function setupBaseStructure(clientID, brandData) {
     const track_time = true;

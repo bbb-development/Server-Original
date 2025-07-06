@@ -155,3 +155,32 @@ export const deliverabilitySnippetSchema = {
       }
     }
   };
+
+// Schema for client matching response
+export const matchClientSchema = {
+  type: Type.OBJECT,
+  required: ["found", "confidence", "matchReason"],
+  properties: {
+    found: {
+      type: Type.BOOLEAN,
+      description: "Whether a matching client was found"
+    },
+    klaviyoClientId: {
+      type: Type.STRING,
+      description: "The Klaviyo client ID of the matched client (company_id field from Klaviyo data). Required when found is true, empty string when found is false."
+    },
+    supabaseId: {
+      type: Type.STRING,
+      description: "The Supabase ID of the matched client. Required when found is true, empty string when found is false."
+    },
+    confidence: {
+      type: Type.STRING,
+      enum: ["high", "medium", "low"],
+      description: "The confidence level of the match"
+    },
+    matchReason: {
+      type: Type.STRING,
+      description: "Brief explanation of why this match was selected or why no match was found"
+    }
+  }
+};

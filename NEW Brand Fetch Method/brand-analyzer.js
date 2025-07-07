@@ -199,6 +199,8 @@ async function generateBrandBrief(brandData) {
       console.warn('⚠️ Failed to parse Gemini response as JSON, using raw response');
       geminiBrandBrief = geminiBrandBriefRaw;
     }
+
+    console.log('geminiBrandBrief', JSON.stringify(geminiBrandBrief, null, 2));
     
     // Reorder the parsed response
     return {
@@ -510,8 +512,8 @@ export {
 };
 export default analyzeBrand;
 
-//const result = await analyzeBrand('https://crystalenergy.shop', true);
-////console.log(JSON.stringify(result, null, 2));
+//const result = await analyzeBrand('https://siestag.com', true);
+//console.log(JSON.stringify(result, null, 2));
 //console.log('result', result);
 
 //const geminiLinks = await getBrandLinks(['https://www.neonicons.com', true, options = {}]);

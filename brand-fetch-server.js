@@ -7,6 +7,8 @@ import { analyzeBrand } from './NEW Brand Fetch Method/brand-analyzer.js';
 import { getAllTemplateHTML } from './Klaviyo Portal/Functions/Generate Preview Emails/functions/fetchKlaviyoTemplates.js';
 import { generatePreviewEmails } from './Klaviyo Portal/Functions/Generate Preview Emails/main/generatePreviewEmails.js';
 import { matchClientWithKlaviyo } from './Klaviyo Invitation Listener/connectProfile.js';
+import { uploadImageToImgbb } from './NEW Brand Fetch Method/tools/imgBB Integration.js';
+import multer from 'multer';
 
 // Create logs directory if it doesn't exist
 const logsDir = './logs';
@@ -139,6 +141,8 @@ app.use((req, res, next) => {
 
 // Middleware to parse JSON bodies
 app.use(express.json({ limit: '10mb' }));
+
+const upload = multer();
 
 // Brand Fetch endpoint
 app.post('/brandFetch', async (req, res) => {
@@ -616,6 +620,26 @@ function getLogStats() {
   }
 }
 
+// Endpoint to upload an image to imgbb and return the display_url
+app.post('/uploadToImgbb', upload.single('image'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ ok: false, error: 'No image file uploaded. Use field name "image".' });
+    }
+    const filename = req.file.originalname || 'uploaded_image.png';
+    const fileBuffer = req.file.buffer;
+    const displayUrl = await uploadImageToImgbb(fileBuffer, filename);
+    if (displayUrl) {
+      return res.status(200).json({ ok: true, display_url: displayUrl });
+    } else {
+      return res.status(500).json({ ok: false, error: 'Failed to upload image to imgbb.' });
+    }
+  } catch (error) {
+    console.error('Error in /uploadToImgbb:', error);
+    return res.status(500).json({ ok: false, error: error.message });
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Brand Fetch server running on http://0.0.0.0:${PORT}`);
@@ -629,6 +653,7 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`   GET    /klaviyo-cookies - Get Klaviyo cookies`);
   console.log(`   GET    /klaviyo-instance - Get Klaviyo instance`);
   console.log(`   GET    /health - Health check with log statistics`);
+  console.log(`   POST   /uploadToImgbb - Upload an image to imgbb and return the display_url`);
   console.log(`📝 All console output is logged to:`);
   console.log(`   - Daily files: ${logsDir}/brand-fetch-YYYY-MM-DD.log`);
   console.log(`   - Request files: ${logsDir}/requests/[url]_[timestamp].log`);

@@ -390,3 +390,106 @@ async function createImgbbRequestOptions(
   
   // Call main function
   //main();
+
+  /**
+   * Uploads an image to imgbb and returns the display_url from the response.
+   * @param {Buffer|Uint8Array} fileBuffer - The image file buffer.
+   * @param {string} filename - The name of the file (e.g., 'image.png').
+   * @param {string} albumId - The album ID to upload to (e.g., '9ZFB3J').
+   * @param {string} authToken - The auth_token for the session.
+   * @param {string} [referrer] - Optional referrer URL (defaults to the album page).
+   * @returns {Promise<string|null>} The display_url if successful, or null if failed.
+   */
+  export async function uploadImageToImgbb(fileBuffer, filename) {
+    try {
+      const boundary = '----WebKitFormBoundary' + Math.random().toString(36).slice(2);
+      const timestamp = Date.now().toString();
+      const referrerUrl = `https://ibb.co/album/9ZFB3J`;
+
+      // Build multipart body manually (Node.js fetch does not support FormData with Buffer natively)
+      const CRLF = '\r\n';
+      let body = '';
+      body += `--${boundary}${CRLF}`;
+      body += `Content-Disposition: form-data; name=\"source\"; filename=\"${filename}\"${CRLF}`;
+      body += `Content-Type: image/${filename.split('.').pop()}${CRLF}${CRLF}`;
+      const preFile = Buffer.from(body, 'utf8');
+      const postFile = Buffer.from(`${CRLF}--${boundary}${CRLF}`);
+      const fields = [
+        { name: 'type', value: 'file' },
+        { name: 'action', value: 'upload' },
+        { name: 'timestamp', value: timestamp }
+      ];
+      let fieldsBody = '';
+      for (const field of fields) {
+        fieldsBody += `Content-Disposition: form-data; name=\"${field.name}\"${CRLF}${CRLF}${field.value}${CRLF}--${boundary}${CRLF}`;
+      }
+      const endBody = Buffer.from(fieldsBody.replace(/--${boundary}${CRLF}$/, `--${boundary}--${CRLF}`), 'utf8');
+      // Concatenate all parts
+      const multipartBody = Buffer.concat([
+        preFile,
+        Buffer.isBuffer(fileBuffer) ? fileBuffer : Buffer.from(fileBuffer),
+        postFile,
+        endBody
+      ]);
+
+      const response = await fetch('https://ibb.co/json', {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          'accept-language': 'en-US,en;q=0.9,bg;q=0.8',
+          'content-type': `multipart/form-data; boundary=${boundary}`,
+          'priority': 'u=1, i',
+          'sec-ch-ua': '"Not)A;Brand";v="8", "Chromium";v="138", "Microsoft Edge";v="138"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-dest': 'empty',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-site': 'same-origin',
+        },
+        referrer: referrerUrl,
+        body: multipartBody,
+        mode: 'cors',
+        credentials: 'include',
+      });
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`Upload failed: ${response.status} ${response.statusText} - ${errorText}`);
+        return null;
+      }
+      const json = await response.json();
+      if (json && json.image && json.image.display_url) {
+        return json.image.display_url;
+      }
+      return null;
+    } catch (error) {
+      console.error('Error uploading image to imgbb:', error);
+      return null;
+    }
+  }
+
+  // Example usage function: Upload a local image file to imgbb and log the display_url
+  // Uncomment and adjust the file path, albumId, and authToken to use
+  
+  import { readFile } from 'fs/promises';
+  import { fileURLToPath } from 'url';
+  import path from 'path';
+
+  async function exampleUploadToImgbb() {
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    const filePath = path.join(__dirname, 'sasas.png'); // Change to your image path
+    const filename = 'sasas.png'; // Change to your image filename
+
+    try {
+      const fileBuffer = await readFile(filePath);
+      const displayUrl = await uploadImageToImgbb(fileBuffer, filename);
+      if (displayUrl) {
+        console.log('Image uploaded! Display URL:', displayUrl);
+      } else {
+        console.log('Image upload failed.');
+      }
+    } catch (error) {
+      console.error('Error in exampleUploadToImgbb:', error);
+    }
+  }
+  

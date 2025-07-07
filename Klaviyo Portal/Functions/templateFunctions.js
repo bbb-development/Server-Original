@@ -200,52 +200,48 @@ export const batchUpdateTextInTemplate = async (templateId, textReplacements, te
 
     // First pass: collect all text matches for each node
     for (let i = 0; i < textReplacements.length; i++) {
-      const { oldText, newText } = textReplacements[i];
-      //console.log(`\n🔍 Searching for: "${oldText}" → "${newText}"`);
-      
-      // Find all blocks containing this specific text
-      const textMatches = findTextInBlocks(templateData, oldText);
-      
-      if (textMatches.length === 0) {
-        console.warn(`⚠️ No matches found for: "${oldText}". Had to be replaced with "${newText}"`);
-        continue;
-      }
-
-      //console.log(`📋 Found ${textMatches.length} match(es) for "${oldText}"`);
-      totalMatches += textMatches.length;
-
-      // Group matches by node ID and field type
-      textMatches.forEach(match => {
-        const isSubBlock = match.field.startsWith('sub_blocks[');
-        let nodeId;
-        
-        if (isSubBlock) {
-          const subBlockIndex = parseInt(match.field.match(/sub_blocks\[(\d+)\]/)[1]);
-          const subBlock = match.block.data.sub_blocks[subBlockIndex];
-          nodeId = subBlock.id;
-        } else {
-          nodeId = match.block.data.id;
+      let { oldText, newText } = textReplacements[i];
+      // If oldText is an array, process each value
+      const oldTexts = Array.isArray(oldText) ? oldText : [oldText];
+      for (const singleOldText of oldTexts) {
+        //console.log(`\n🔍 Searching for: "${singleOldText}" → "${newText}"`);
+        // Find all blocks containing this specific text
+        const textMatches = findTextInBlocks(templateData, singleOldText);
+        if (textMatches.length === 0) {
+          console.warn(`⚠️ No matches found for: "${singleOldText}". Had to be replaced with "${newText}"`);
+          continue;
         }
-
-        if (!nodeOperations[nodeId]) {
-          nodeOperations[nodeId] = {
-            block: match.block,
-            isSubBlock: isSubBlock,
-            subBlockIndex: isSubBlock ? parseInt(match.field.match(/sub_blocks\[(\d+)\]/)[1]) : null,
-            textReplacements: []
-          };
-        }
-
-        // Add this text replacement to the node's list
-        nodeOperations[nodeId].textReplacements.push({
-          oldText,
-          newText,
-          field: match.field,
-          match: match
+        //console.log(`📋 Found ${textMatches.length} match(es) for "${singleOldText}"`);
+        totalMatches += textMatches.length;
+        // Group matches by node ID and field type
+        textMatches.forEach(match => {
+          const isSubBlock = match.field.startsWith('sub_blocks[');
+          let nodeId;
+          if (isSubBlock) {
+            const subBlockIndex = parseInt(match.field.match(/sub_blocks\[(\d+)\]/)[1]);
+            const subBlock = match.block.data.sub_blocks[subBlockIndex];
+            nodeId = subBlock.id;
+          } else {
+            nodeId = match.block.data.id;
+          }
+          if (!nodeOperations[nodeId]) {
+            nodeOperations[nodeId] = {
+              block: match.block,
+              isSubBlock: isSubBlock,
+              subBlockIndex: isSubBlock ? parseInt(match.field.match(/sub_blocks\[(\d+)\]/)[1]) : null,
+              textReplacements: []
+            };
+          }
+          // Add this text replacement to the node's list
+          nodeOperations[nodeId].textReplacements.push({
+            oldText: singleOldText,
+            newText,
+            field: match.field,
+            match: match
+          });
+          //console.log(`📍 Queuing ${isSubBlock ? 'sub_block' : 'block'}: ${nodeId}, field: ${isSubBlock ? match.field.split('.attributes.')[1] : match.field}`);
         });
-
-        //console.log(`📍 Queuing ${isSubBlock ? 'sub_block' : 'block'}: ${nodeId}, field: ${isSubBlock ? match.field.split('.attributes.')[1] : match.field}`);
-      });
+      }
     }
 
     if (Object.keys(nodeOperations).length === 0) {

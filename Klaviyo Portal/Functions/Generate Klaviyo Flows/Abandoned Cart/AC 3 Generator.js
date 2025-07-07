@@ -1,10 +1,11 @@
-import * as templateFunctions from '../../Functions/templateFunctions.js';
+import * as templateFunctions from '../../templateFunctions.js';
+import crystalenergy from '../Misc/crystalenergy_updated_brand_data.json' with { type: 'json' };
 
-async function generateAC3(brand, emailID) {
-    const brandData = brand.brandBrief.data.brand.data;
-    const linksData = brand.bestSellers.data.links;
+async function generateAC3(brandData, emailID) {
+    // Get the template data
     const templateData = await templateFunctions.getTemplateData(emailID);
-    
+    // Determine text color based on background brightness (white for dark backgrounds, black for light)
+    const textColor = brandData.preferred_logo_colors.selectedColor.brightness < 128 ? '#ffffff' : '#000000';
     // Dynamically extract src values by searching for specific placeholder text
     const [logo_img, header_img, brand_benefits_1_img_url, brand_benefits_2_img_url, brand_benefits_3_img_url] = await Promise.all([
         templateFunctions.findSrcByText(templateData, 'logo_img_url'),
@@ -13,7 +14,6 @@ async function generateAC3(brand, emailID) {
         templateFunctions.findSrcByText(templateData, 'brand_benefits_2_img_url'),
         templateFunctions.findSrcByText(templateData, 'brand_benefits_3_img_url')
     ]);
-
     const data = {
         top_email_text: 'top_email_text',
         logo_img: logo_img,
@@ -33,17 +33,16 @@ async function generateAC3(brand, emailID) {
         brand_benefit_2_alt: 'brand_benefits_2_img_url',
         brand_benefit_3_alt: 'brand_benefits_3_img_url',
         brand_background_color: '#3290F5',
-        brand_text_color: '#FFFFF1'
+        brand_text_color: ['#FFFFF1', 'rgb(255, 255, 241)']
     };
-
     const replace_data = [
-        { oldText: data.top_email_text, newText: brandData.topEmailText }, 
-        { oldText: data.logo_img, newText: brand.brandBrief.data.brand.logo.url }, 
-        { oldText: data.header_img, newText: brandData.emailImages['AC Email 3'].directLink }, 
+        { oldText: data.top_email_text, newText: brandData.geminiBrandBrief.topEmailText },
+        { oldText: data.logo_img, newText: brandData.preferred_logo_colors.selectedLogo.formats[0].src },
+        { oldText: data.header_img, newText: brandData.emailImages['AC Email 3'].directLink },
         { oldText: data.logo_img_url, newText: '' },
         { oldText: data.header_image_url, newText: '' },
-        { oldText: data.contact_us_link, newText: linksData.contact.url }, 
-        { oldText: data.faq_link, newText: linksData.faq.url },
+        { oldText: data.contact_us_link, newText: brandData.specialLinks.contactUrl },
+        { oldText: data.faq_link, newText: brandData.specialLinks.faqUrl },
         { oldText: data.deliverability_text, newText: brandData.deliverabilitySnippet },
         { oldText: data.brand_benefit_text_1, newText: brandData.brandBenefits[0].title },
         { oldText: data.brand_benefit_text_2, newText: brandData.brandBenefits[1].title },
@@ -54,21 +53,27 @@ async function generateAC3(brand, emailID) {
         { oldText: data.brand_benefit_1_alt, newText: '' },
         { oldText: data.brand_benefit_2_alt, newText: '' },
         { oldText: data.brand_benefit_3_alt, newText: '' },
-        { oldText: data.brand_background_color, newText: brand.brandBrief.data.brand.colors.background },
-        { oldText: data.brand_text_color, newText: brand.brandBrief.data.brand.colors.text }
+        { oldText: data.brand_background_color, newText: brandData.preferred_logo_colors.selectedColor.hex },
+        { oldText: data.brand_text_color, newText: textColor }
     ];
-
     await templateFunctions.batchUpdateTextInTemplate(emailID, replace_data, templateData);
-    
     // Add product feed to the template
     await templateFunctions.addAttributeToBlocks(emailID, [
         {
-        findAttribute: 'feed_cols',
-        addAttributes: {
-            "feed": "SHOP_POPULAR_ALL_CATEGORIES"
-        }
+            findAttribute: 'feed_cols',
+            addAttributes: {
+                "feed": "SHOP_POPULAR_ALL_CATEGORIES"
+            }
         }
     ]);
 }
 
+async function test() {
+    const newTemplateID = await templateFunctions.cloneTemplate('QTQpvV', 'AC 3');
+    console.log(newTemplateID);
+    generateAC3(crystalenergy, newTemplateID);
+}
+
 export default generateAC3;
+
+await test();

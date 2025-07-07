@@ -1,0 +1,290 @@
+{
+    "url": "https://crystalenergy.shop/",
+    "domain": "crystalenergy.shop",
+    "brandSummary": {
+      "name": "Crystal Energy",
+      "domain": "crystalenergy.shop",
+      "links": [
+        {
+          "name": "facebook",
+          "url": "https://facebook.com/crystaenergy"
+        },
+        {
+          "name": "instagram",
+          "url": "https://instagram.com/crystallenergy"
+        }
+      ],
+      "logos": [
+        {
+          "theme": "dark",
+          "formats": [
+            {
+              "src": "https://cdn.brandfetch.io/idD5Jy1bqF/w/1034/h/1034/theme/dark/icon.jpeg?c=1bxidDUkTxa1Dl3KsNTfn",
+              "background": null,
+              "format": "jpeg",
+              "height": 1034,
+              "width": 1034,
+              "size": 84163
+            }
+          ],
+          "tags": [],
+          "type": "icon"
+        },
+        {
+          "theme": "dark",
+          "formats": [
+            {
+              "src": "https://cdn.brandfetch.io/idD5Jy1bqF/w/500/h/70/theme/dark/logo.png?c=1bxidDUkTxa1Dl3KsNTfn",
+              "background": "transparent",
+              "format": "png",
+              "height": 70,
+              "width": 500,
+              "size": 17857
+            }
+          ],
+          "tags": [],
+          "type": "logo"
+        },
+        {
+          "theme": "custom",
+          "formats": [
+            {
+              "src": "https://i.ibb.co/n8ZrrD2f/18.png",
+              "background": null,
+              "format": "imgbb",
+              "height": 128,
+              "width": 128,
+              "size": 0
+            }
+          ],
+          "tags": [],
+          "type": "custom"
+        }
+      ],
+      "colors": [
+        {
+          "hex": "#d1793e",
+          "type": "dark",
+          "brightness": 135
+        },
+        {
+          "hex": "#f3f3f3",
+          "type": "light",
+          "brightness": 243
+        },
+        {
+          "hex": "#ff4081",
+          "type": "accent",
+          "brightness": 109
+        },
+        {
+          "hex": "#7ed321",
+          "type": "custom",
+          "brightness": 165
+        }
+      ],
+      "fonts": [
+        {
+          "name": "Poppins",
+          "type": "body",
+          "origin": "google",
+          "originId": "Poppins",
+          "weights": []
+        }
+      ]
+    },
+    "specialLinks": {
+      "bestSellersUrl": "https://crystalenergy.shop/collections/best-sellers",
+      "contactUrl": "https://crystalenergy.shop/pages/contact",
+      "faqUrl": "https://crystalenergy.shop/pages/faq"
+    },
+    "bestSellers": [
+      {
+        "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/grivna-ot-cheren-turmalin-za-zashchita-276554.jpg?crop=center&height=1&v=1722197167&width=1",
+        "productName": "Гривна от Черен Турмалин за защита",
+        "productPrice": "38.97 лв",
+        "productURL": "https://crystalenergy.shop/collections/best-sellers/products/turmalin-grivna"
+      },
+      {
+        "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/palo-santo-3-br-za-prekadyavane-na-doma-i-kristalite-696057.jpg?crop=center&height=1&v=1722197162&width=1",
+        "productName": "Пало Санто 3 бр. за прекадяване на дома и кристалите",
+        "productPrice": "13.97 лв",
+        "productURL": "https://crystalenergy.shop/collections/best-sellers/products/palo-santo"
+      },
+      {
+        "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/zelen-avantyurin-ksmet-i-novo-nachalo-916508.jpg?crop=center&height=1&v=1722197167&width=1",
+        "productName": "Зелен авантюрин - Късмет и Ново начало",
+        "productPrice": "9.36 лв",
+        "productURL": "https://crystalenergy.shop/collections/best-sellers/products/avanturin"
+      },
+      {
+        "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/8B32E78E-B176-4702-B060-2A5CB7B61DB4_2000x2000_ef44ae35-a4cc-4257-9606-dffef3aea73c.webp?crop=center&height=1&v=1751384537&width=1",
+        "productName": "Гривна от Цитрин за Привличане на Пари",
+        "productPrice": "35.10 лв",
+        "productURL": "https://crystalenergy.shop/collections/best-sellers/products/citrine"
+      },
+      {
+        "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/IMG-20241111_155951_2.jpg?crop=center&height=1&v=1732215262&width=1",
+        "productName": "Мини Гривна от Черен Турмалин за Лична Защита",
+        "productPrice": "31.20 лв",
+        "productURL": "https://crystalenergy.shop/collections/best-sellers/products/mini-turmalin"
+      },
+      {
+        "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/mini-grivna-za-lyubov-ot-rozov-kvarts-770116.jpg?crop=center&height=1&v=1722197156&width=1",
+        "productName": "Мини гривна за Любов от Розов кварц",
+        "productPrice": "21.06 лв",
+        "productURL": "https://crystalenergy.shop/collections/best-sellers/products/mini-rosequartz"
+      },
+      {
+        "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/kristali-za-pari-511629.jpg?crop=center&height=1&v=1722197152&width=1",
+        "productName": "Кристали за ПАРИ",
+        "productPrice": "21.06 лв",
+        "productURL": "https://crystalenergy.shop/collections/best-sellers/products/crystal-money"
+      },
+      {
+        "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/1464ef83cfa6a39ba2a348b5fdcfef1e.jpg?crop=center&height=1&v=1751384594&width=1",
+        "productName": "Малък Стик от Селенит за Чиста Енергия",
+        "productPrice": "11.70 лв",
+        "productURL": "https://crystalenergy.shop/collections/best-sellers/products/selenit"
+      },
+      {
+        "productImgUrl": "https://crystalenergy.shop/cdn/shop/files/mzhka-grivna-prosperitet-i-zashchita-942394.jpg?crop=center&height=1&v=1722197161&width=1",
+        "productName": "Мъжка гривна - просперитет и защита",
+        "productPrice": "35.81 лв",
+        "productURL": "https://crystalenergy.shop/collections/best-sellers/products/prosperity_and_protection"
+      }
+    ],
+    "geminiBrandBrief": {
+      "brandName": "Crystal Energy",
+      "brandDescription": "Crystal Energy is an online store offering a curated selection of natural crystals, handmade jewelry, and spiritual accessories designed to promote personal growth, well-being, and positive energy.",
+      "brandAudience": "Individuals interested in personal growth, spirituality, mindfulness, and natural wellness, seeking to enhance their lives with the power of crystals and handmade jewelry.",
+      "brandTone": "Empowering, positive, spiritual, supportive, and calming.",
+      "brandMessage": "Discover the power of crystals to transform your life.",
+      "brandIndustry": "Jewelry, Crystals, Spiritual Goods",
+      "topEmailText": "Find Your Inner Balance with Natural Crystals",
+      "aboutUs": {
+        "paragraph1": "At Crystal Energy, we believe in the transformative power of natural crystals and handmade jewelry to enhance personal and spiritual growth.",
+        "paragraph2": "Our best-selling 'Aurelia' Stainless Steel Bracelet embodies this belief, offering not just beauty but also a connection to positive energy, as reflected in the many testimonials highlighting the uplifting effects of our products.",
+        "paragraph3": "That all ties into our mission to empower individuals to discover their inner strength and well-being through the unique energies of crystals and meticulously crafted jewelry."
+      }
+    },
+    "brandBenefits": [
+      {
+        "DirectLink": "https://i.ibb.co/4nzyfpXM/Delivery-Truck.png",
+        "description": "Получаваш поръчката си от 2-5 работни дни",
+        "title": "Бърза Доставка"
+      },
+      {
+        "DirectLink": "https://i.ibb.co/CKDqVRG9/Shield-with-Checkmark.png",
+        "description": "Предлагаме 14-дневна гаранция за връщане на парите",
+        "title": "Сигурна Покупка"
+      },
+      {
+        "DirectLink": "https://i.ibb.co/GfLxVX81/Live-Chat-Customer-Service.png",
+        "description": "Имате въпрос? Просто ни пишете или ни звъннете на 0877255322",
+        "title": "Винаги до Вас"
+      }
+    ],
+    "emailImages": {
+      "WF Email 1": {
+        "name": "Confetti-Burst.jpg",
+        "directLink": "https://i.ibb.co/270vv2j1/Confetti-Burst.jpg",
+        "width": "600",
+        "height": "180",
+        "description": null
+      },
+      "WF Email 2": {
+        "name": "Star-Icon-2.jpg",
+        "directLink": "https://i.ibb.co/gZtHphSy/Star-Icon-2.jpg",
+        "width": "600",
+        "height": "180",
+        "description": null
+      },
+      "WF Email 3": {
+        "name": "Kitchen-Timer.jpg",
+        "directLink": "https://i.ibb.co/F4bkDDkn/Kitchen-Timer.jpg",
+        "width": "600",
+        "height": "180",
+        "description": null
+      },
+      "BA Email 1": {
+        "name": "Magnifying-Glass.jpg",
+        "directLink": "https://i.ibb.co/Q7WKLRp5/Magnifying-Glass.jpg",
+        "width": "600",
+        "height": "180",
+        "description": null
+      },
+      "AC Email 1": {
+        "name": "Open-Bag.jpg",
+        "directLink": "https://i.ibb.co/3tc2s3w/Open-Bag.jpg",
+        "width": "600",
+        "height": "180",
+        "description": null
+      },
+      "AC Email 2": {
+        "name": "Discount-Percent-stylized-15.jpg",
+        "directLink": "https://i.ibb.co/9FDp8K3/Discount-Percent-stylized-15.jpg",
+        "width": "600",
+        "height": "180",
+        "description": null
+      },
+      "AC Email 3": {
+        "name": "Flashing-Bolt-Clock.jpg",
+        "directLink": "https://i.ibb.co/rGtb7JHG/Flashing-Bolt-Clock.jpg",
+        "width": "600",
+        "height": "180",
+        "description": null
+      }
+    },
+    "assistant": {
+      "assistant_img": "https://i.ibb.co/rKM0QM6X/portrait-of-a-confident-young-businesswoman-sittin-2025-04-05-19-53-27-utc.png",
+      "assistant_name": "Claire Y."
+    },
+    "deliverabilitySnippet": "<div><span style=\"color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;\">Order Number: ORD123456789<br>Company Name: Crystal Energy<br><br>We are processing your request for the following items:<br><br>1x Crystal Bracelet - 25.90 BGN<br>1x Crystal Necklace - 29.90 BGN<br>1x Crystal Stone - 17.00 BGN<br><br>Applied: CODE10 - 10% Discount<br><br>Subtotal: 72.80 BGN<br>Shipping: Standard Service<br>Taxes: 0.00 BGN<br>Total: 72.80 BGN BGN<br><br>Shipping Information:<br>Alex Green<br>789 Neutral Road<br>Techville, XX 12345<br>Bulgaria<br><br>Information:<br>Alex Green<br>789 Neutral Road<br>Techville, XX 12345<br>Bulgaria<br><br>Shipping Method: Standard (5–7 business days)<br><br>Delivery Information:<br>Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays.<br><br>Not arrived within timeframe? Support team available. We're ready to help.<br><br>1. Processing: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit.<br>2. Shipping & Arrival: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region.<br>3. Payment & Security: Transactions encrypted. Details protected. Payment methods shown at checkout.<br>4. Returns & Resolution: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred.<br>5. Privacy Statement: Info used to manage account and fulfill inquiry. We don't share data unless required.<br>6. Rights & Content: Materials belong to Crystal Energy or licensed parties. Protected by intellectual property laws.<br><br>Thank you again from Crystal Energy. We appreciate your support.<br><br>Regards,<br>The Crystal Energy Team</span></div>",
+    "analysis": {
+      "totalPages": 251,
+      "hasLogo": true,
+      "hasColors": true,
+      "hasFonts": true,
+      "socialLinks": 2,
+      "benefitsCount": 3,
+      "bestSellersCount": 9
+    },
+    "preferred_logo_colors": {
+      "selectedLogoIndex": 2,
+      "selectedColorIndex": 3,
+      "selectedLogo": {
+        "theme": "custom",
+        "formats": [
+          {
+            "src": "https://i.ibb.co/n8ZrrD2f/18.png",
+            "background": null,
+            "format": "imgbb",
+            "height": 128,
+            "width": 128,
+            "size": 0
+          }
+        ],
+        "tags": [],
+        "type": "custom"
+      },
+      "selectedColor": {
+        "hex": "#7ed321",
+        "type": "custom",
+        "brightness": 165
+      }
+    },
+    "convertedBrandBrief": {
+      "name": "Crystal Energy",
+      "targetAudience": "Individuals interested in personal growth, spirituality, mindfulness, and natural wellness, seeking to enhance their lives with the power of crystals and handmade jewelry.",
+      "brandVoice": "Empowering, positive, spiritual, supportive, and calming.",
+      "keyProducts": [
+        "Гривна от Черен Турмалин за защита",
+        "Пало Санто 3 бр. за прекадяване на дома и кристалите",
+        "Зелен авантюрин - Късмет и Ново начало"
+      ],
+      "valueProposition": "Discover the power of crystals to transform your life."
+    },
+    "lastUpdated": "2025-07-07T13:19:46.073Z",
+    "updatedInStep2": true
+  }

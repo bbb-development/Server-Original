@@ -11,17 +11,9 @@ dotenv.config({ path: path.join(__dirname, '../.env') });
 
 const config = {
   gemini: {
+    // API and Model for Gemini
     apiKey: process.env.GEMINI_API_KEY,
     model: 'gemini-2.5-flash-lite-preview-06-17',
-    defaultConfig: {
-      thinkingConfig: {
-        thinkingBudget: 0,
-      },
-      tools: [
-        { urlContext: {} },
-      ],
-      responseMimeType: 'text/plain',
-    }
   },
   brandfetch: {
     // Brand Search API and Logo Link

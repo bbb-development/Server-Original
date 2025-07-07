@@ -354,4 +354,4 @@ export const getLinks = (url) => firecrawl.getLinks(url);
 export const toMarkdown = (url, options) => firecrawl.toMarkdown(url, options);
 export const getFirecrawlUsage = () => firecrawl.getFirecrawlUsage();
 
-getFirecrawlUsage();
+//getFirecrawlUsage();

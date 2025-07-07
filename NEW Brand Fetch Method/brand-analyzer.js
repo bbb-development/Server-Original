@@ -27,16 +27,20 @@ async function analyzeBrand(url, shouldGetBestSellers = false, options = {}) {
     
     // Clean URL (remove protocol for brand data lookup)
     const cleanDomain = url.replace(/^https?:\/\//, '').replace(/^www\./, '').split('/')[0];
+
+    console.log('Getting Brand Data With Browserless');
+    const brandData = await browserless.toMarkdown(url);
+    //console.log('brandData', JSON.stringify(brandData, null, 2));
     
     console.log('🚀 Running all analysis steps concurrently...');
     // Run all four steps concurrently with retry logic
     const [brandSummary, siteMap, geminiBrandBrief, brandBenefits, emailImagesData, deliverabilitySnippet] = await Promise.all([
       getBrandFetchData(cleanDomain),
       getBrandLinks(cleanDomain, shouldGetBestSellers, options.mapOptions),
-      generateBrandBrief(url),
-      generateBrandBenefits(url, "gvDF2X", "Benefits Banner"),
+      generateBrandBrief(brandData),
+      generateBrandBenefits(brandData, "gvDF2X", "Benefits Banner"),
       getEmailImages(),
-      generateDeliverabilitySnippet(url)
+      generateDeliverabilitySnippet(brandData)
     ]);
     
     const endTime = Date.now();
@@ -140,8 +144,7 @@ async function extractSpecialURLs(links) {
   try {
     const geminiURLsRaw = await retryWithBackoff(
       () => askGemini(
-        geminiPrompts.fetchURLsPrompt(links), 
-        { includeUrlContext: false }, 
+        geminiPrompts.fetchURLsPrompt(links),
         geminiSchemas.fetchURLsSchema
       ),
       6, // 6 retries for Gemini
@@ -170,21 +173,20 @@ async function extractSpecialURLs(links) {
 
 /**
  * Generate brand brief using Gemini AI
- * @param {string} url - The website URL to analyze
+ * @param {string} brandData - The website brand data to analyze
  * @returns {Promise<Object>} Ordered brand brief object
  */
-async function generateBrandBrief(url) {
+async function generateBrandBrief(brandData) {
   try {
     console.log(`🔍 Generating Brand Brief Using Gemini`);
     const geminiBrandBriefRaw = await retryWithBackoff(
       () => askGemini(
-        geminiPrompts.brandBriefPrompt(url), 
-        { includeUrlContext: true }, 
+        geminiPrompts.brandBriefPrompt(brandData),
         geminiSchemas.brandBriefSchema
       ),
       6, // 6 retries for Gemini
       1000, // 1 second base delay
-      `Brand brief generation for ${url}`
+      `Brand brief generation`
     );
     
     // Parse the JSON response
@@ -230,12 +232,12 @@ async function generateBrandBrief(url) {
 
 /**
  * Generate brand benefits using Gemini AI
- * @param {string} url - The website URL to analyze
+ * @param {string} brandData - The website brand data to analyze
  * @param {string} albumId - The ID of the album to use for the icons
  * @param {string} albumName - The name of the album to use for the icons
  * @returns {Promise<Object>} Brand benefits with icons
  */
-async function generateBrandBenefits(url, albumId, albumName) {
+async function generateBrandBenefits(brandData, albumId, albumName) {
   try {
     console.log(`🔍 Generating Brand Benefits Using Gemini and ImgBB`);
     
@@ -256,13 +258,12 @@ async function generateBrandBenefits(url, albumId, albumName) {
 
     const geminiBenefitsRaw = await retryWithBackoff(
       () => askGemini(
-        geminiPrompts.brandBenefitsPrompt(url, imagesData), 
-        { includeUrlContext: true }, 
+        geminiPrompts.brandBenefitsPrompt(brandData, imagesData), 
         geminiSchemas.brandBenefitsSchema
       ),
       6, // 6 retries for Gemini
       1000, // 1 second base delay
-      `Brand benefits generation for ${url}`
+      `Brand benefits generation`
     );
     
     // Parse the JSON response
@@ -307,8 +308,21 @@ async function getBestSellers(bestSellersUrl) {
     );
     
     if (!markdownContent || markdownContent.length === 0) {
-      console.warn('⚠️ No markdown content retrieved from best sellers page');
-      return [];
+      let retryCount = 0;
+      while (retryCount < 3 && (!markdownContent || markdownContent.length === 0)) {
+        retryCount++;
+        console.warn(`⚠️ No markdown content retrieved from best sellers page (attempt ${retryCount}), retrying...`);
+        markdownContent = await retryWithBackoff(
+          () => browserless.toMarkdown(bestSellersUrl, { proxy: { useProxy: false } }),
+          6, // 6 retries
+          1000, // 1 second base delay
+          `Best sellers scraping without proxy (retry ${retryCount})`
+        );
+      }
+      if (!markdownContent || markdownContent.length === 0) {
+        console.warn('⚠️ No markdown content retrieved from best sellers page after 3 retries');
+        return [];
+      }
     }
 
     //console.log(`📄 Retrieved ${markdownContent.length} characters of markdown content`);
@@ -317,8 +331,7 @@ async function getBestSellers(bestSellersUrl) {
     // Use Gemini to extract product data from the markdown
     let productsRaw = await retryWithBackoff(
       () => askGemini(
-        geminiPrompts.productListPrompt(markdownContent), 
-        { includeUrlContext: false }, 
+        geminiPrompts.productListPrompt(markdownContent),
         geminiSchemas.productListSchema
       ),
       6, // 6 retries for Gemini
@@ -358,8 +371,7 @@ async function getBestSellers(bestSellersUrl) {
       // Use Gemini again to extract product data from the new markdown
       productsRaw = await retryWithBackoff(
         () => askGemini(
-          geminiPrompts.productListPrompt(markdownContent), 
-          { includeUrlContext: false }, 
+          geminiPrompts.productListPrompt(markdownContent),
           geminiSchemas.productListSchema
         ),
         6, // 6 retries for Gemini
@@ -442,18 +454,17 @@ async function getBrandFetchData(cleanDomain) {
   });
 }
 
-export async function generateDeliverabilitySnippet(url) {
+export async function generateDeliverabilitySnippet(brandData) {
   try {
     console.log(`🔍 Generating Deliverability Snippet Using Gemini`);
     const geminiDeliverabilitySnippetRaw = await retryWithBackoff(
       () => askGemini(
-        geminiPrompts.createDeliverabilitySnippetPrompt(url), 
-        { includeUrlContext: true }, 
+        geminiPrompts.createDeliverabilitySnippetPrompt(brandData),
         geminiSchemas.deliverabilitySnippetSchema
       ),
       6, // 6 retries for Gemini
       1000, // 1 second base delay
-      `Deliverability snippet generation for ${url}`
+      `Deliverability snippet generation`
     );
 
     // Parse the JSON response
@@ -499,8 +510,12 @@ export {
 };
 export default analyzeBrand;
 
-//const result = await analyzeBrand('https://crystalenergy.shop', false);
-//console.log(JSON.stringify(result, null, 2));
+//const result = await analyzeBrand('https://crystalenergy.shop', true);
+////console.log(JSON.stringify(result, null, 2));
+//console.log('result', result);
 
 //const geminiLinks = await getBrandLinks(['https://www.neonicons.com', true, options = {}]);
 //console.log(JSON.stringify(geminiLinks, null, 2));
+
+//const testBestSellers = await getBestSellers('https://crystalenergy.shop/collections/best-sellers');
+//console.log(JSON.stringify(testBestSellers, null, 2));

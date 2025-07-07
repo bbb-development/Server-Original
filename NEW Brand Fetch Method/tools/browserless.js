@@ -216,4 +216,4 @@ export const toMarkdown = (url, options) => browserless.toMarkdown(url, options)
 export const toHtml = (url, options) => browserless.toHtml(url, options);
 
 // Only run test if this file is executed directly
-testBrowserless();
+//testBrowserless();

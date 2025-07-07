@@ -1,5 +1,5 @@
-function brandBriefPrompt(url) {
-    return `Analyze the website content from ${url} and extract key brand information.
+function brandBriefPrompt(brandData) {
+    return `Analyze the website content below and extract key brand information.
 Return ONLY a JSON object with the following fields:
 brandName: The name of the brand
 brandDescription: A concise description of what the brand does and its unique value proposition
@@ -16,11 +16,15 @@ aboutUs: An object containing three flowing paragraphs that tell the brand's sto
 }
 All paragraphs should be sharp, one-sentence paragraphs that flow well together. Use American English.
 NOTE: The example above is just an example, don't follow it exactly, use the content to create a brand analysis!!.
-    NOTE 2: Always crawl the webpage given to get the most up-to-date data!`;
+NOTE 2: Always respond with the JSON object, no other text or comments!
+
+Here's the website content to analyze:
+${brandData}
+`;
 }
 
-function brandBenefitsPrompt(url, imagesData) {
-    return `Analyze the website content from ${url} and extract the 3 clearest store benefits/guarantees.
+function brandBenefitsPrompt(brandData, imagesData) {
+    return `Analyze the website content below and extract the 3 clearest store benefits/guarantees.
 
 We are an email agency creating a benefits banner for e-commerce clients. Look for benefits like:
 - Money-back guarantees
@@ -32,7 +36,8 @@ We are an email agency creating a benefits banner for e-commerce clients. Look f
 - Security/safety features
 - And other similar store benefits
 
-Here's the website to analyze: ${url}
+Here's the website content to analyze:
+${brandData}
 
 Now that you have the home page content, please take out the 3x clear benefits from this store that match 3 icons from the list below.
 
@@ -121,11 +126,10 @@ function productListPrompt(bestSellerPageHtml) {
     `;
 }
 
-function createDeliverabilitySnippetPrompt(url) {
+function createDeliverabilitySnippetPrompt(brandData) {
   return `You are a deliverability snippet generator for transactional-style email content. 
-  Your job is to generate clean, non-promotional hidden HTML blocks that boost email deliverability and avoid spam filters. 
+  Your job is to generate clean, non-promotional hidden HTML blocks that boost email deliverability and avoid spam filters for a given website based on the content below. 
   Use a neutral, logistical tone focused on shipping, processing, and account handling — never marketing.
-  The website to analyze is ${url}.
 
 ### RULES TO FOLLOW:
 
@@ -285,7 +289,7 @@ The {Company Name} Team
 </span></div>
 
 ### WEBSITE CONTENT TO ANALYZE:
-${url}
+${brandData}
 
 ### INSTRUCTIONS:
 Based on the website content above, generate a single deliverability snippet using all rules above. Extract the company name and product information from the content. Use generic placeholders for missing info such as customer name or address.

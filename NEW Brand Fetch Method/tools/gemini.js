@@ -3,63 +3,42 @@
 // npm install -D @types/node
 
 import {
-    GoogleGenAI
-  } from '@google/genai';
-import config from '../config.js';
+  GoogleGenAI,
+} from '@google/genai';
+import geminiConfig from '../config.js';
 
-/**
- * Generate content using Google's Gemini AI
- * @param {string} inputText - The text prompt to send to Gemini
- * @param {Object} options - Optional configuration overrides
- * @param {Object} schema - Optional JSON schema for structured output
- * @returns {Promise<string>} - The generated response text
- */
-export async function askGemini(inputText, options = {}, schema = null) {
-  try {
-    const ai = new GoogleGenAI({
-      apiKey: config.gemini.apiKey,
-    });
+export async function askGemini(prompt, schema) {
+  const ai = new GoogleGenAI({
+    apiKey: geminiConfig.gemini.apiKey,
+  });
+  const config = {
+    thinkingConfig: {
+      thinkingBudget: 0,
+    },
+    responseMimeType: 'application/json',
+    responseSchema: schema,
+  };
+  const model = geminiConfig.gemini.model;
+  const contents = [
+    {
+      role: 'user',
+      parts: [
+        {
+          text: prompt,
+        },
+      ],
+    },
+  ];
 
-    // Merge default config with any provided options
-    const finalConfig = {
-      ...config.gemini.defaultConfig,
-      responseMimeType: schema ? 'application/json' : config.gemini.defaultConfig.responseMimeType,
-      ...options
-    };
-
-    // Add schema if provided
-    if (schema) {
-      finalConfig.responseSchema = schema;
-    }
-
-    const model = options.model || config.gemini.model;
-    
-    const contents = [
-      {
-        role: 'user',
-        parts: [
-          {
-            text: inputText,
-          },
-        ],
-      },
-    ];
-
-    const response = await ai.models.generateContentStream({
-      model,
-      config: finalConfig,
-      contents,
-    });
-
-    let fullResponse = '';
-    for await (const chunk of response) {
-      fullResponse += chunk.text;
-    }
-
-    //console.log(JSON.stringify(fullResponse, null, 2));
-
-    return fullResponse;
-  } catch (error) {
-    throw new Error(`Gemini API error: ${error.message}`);
-  }
+  const response = await ai.models.generateContent({
+    model,
+    config,
+    contents,
+  });
+  
+  // Log only the text from the response
+  const text = response.candidates?.[0]?.content?.parts?.[0]?.text;
+  return text;
 }
+
+//askGemini();

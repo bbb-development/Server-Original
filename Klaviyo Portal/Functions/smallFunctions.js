@@ -4,47 +4,49 @@ const SERVER_URL = 'http://138.68.69.38:3001';
 const KLAVIYO_URL = 'https://www.klaviyo.com';
 
 export async function getProfile() {
-  try {
-    console.log('🔍 Fetching profile from Klaviyo authorization endpoint...');
-    
-    const response = await axios.post(`${SERVER_URL}/request`, {
-      method: 'GET',
-      url: `${KLAVIYO_URL}/ajax/authorization`
-    });
-    
-    if (!response.data?.success) {
-      throw new Error('Authorization request failed - not authenticated');
+  let retried = false;
+  while (true) {
+    try {
+      console.log('🔍 Fetching profile from Klaviyo authorization endpoint...');
+      const response = await axios.post(`${SERVER_URL}/request`, {
+        method: 'GET',
+        url: `${KLAVIYO_URL}/ajax/authorization`
+      });
+      if (!response.data?.success) {
+        throw new Error('Authorization request failed - not authenticated');
+      }
+      const data = response.data.data;
+      // Extract the requested fields
+      const profileInfo = {
+        company_id: data.company,
+        company_name: data.company_name,
+        company_plan_key: data.company_plan_key,
+        plan_label: data.plan_label,
+        user_profile_id: data.user_profile_id,
+        company_timezone: data.company_timezone
+      };
+      // Log the extracted information
+      console.log('✅ Profile information extracted:');
+      console.log(`   Company ID: ${profileInfo.company_id}`);
+      console.log(`   Company Name: ${profileInfo.company_name}`);
+      console.log(`   Plan: ${profileInfo.plan_label}`);
+      console.log(`   User Profile ID: ${profileInfo.user_profile_id}`);
+      console.log(`   Company Timezone: ${profileInfo.company_timezone}`);
+      return profileInfo;
+    } catch (error) {
+      if (!retried) {
+        console.error('❌ Error fetching profile, will try to re-authorize and retry:', error.message);
+        await authorize(true);
+        retried = true;
+        continue;
+      }
+      console.error('❌ Error fetching profile (after retry):', error.message);
+      if (error.response) {
+        console.error(`   Status: ${error.response.status}`);
+        console.error(`   Data:`, error.response.data);
+      }
+      throw error;
     }
-    
-    const data = response.data.data;
-    
-    // Extract the requested fields
-    const profileInfo = {
-      company_id: data.company,
-      company_name: data.company_name,
-      company_plan_key: data.company_plan_key,
-      plan_label: data.plan_label,
-      user_profile_id: data.user_profile_id,
-      company_timezone: data.company_timezone
-    };
-    
-    // Log the extracted information
-    console.log('✅ Profile information extracted:');
-    console.log(`   Company ID: ${profileInfo.company_id}`);
-    console.log(`   Company Name: ${profileInfo.company_name}`);
-    console.log(`   Plan: ${profileInfo.plan_label}`);
-    console.log(`   User Profile ID: ${profileInfo.user_profile_id}`);
-    console.log(`   Company Timezone: ${profileInfo.company_timezone}`);
-    
-    return profileInfo;
-    
-  } catch (error) {
-    console.error('❌ Error fetching profile:', error.message);
-    if (error.response) {
-      console.error(`   Status: ${error.response.status}`);
-      console.error(`   Data:`, error.response.data);
-    }
-    throw error;
   }
 }
 
@@ -329,6 +331,36 @@ export async function getUserInfo() {
     
   } catch (error) {
     console.error('❌ Error fetching user info:', error.message);
+    if (error.response) {
+      console.error(`   Status: ${error.response.status}`);
+      console.error(`   Data:`, error.response.data);
+    }
+    throw error;
+  }
+}
+
+// GET ALTERNATIVE COMPANIES
+export async function getAlternativeCompanies() {
+  try {
+    console.log('🔍 Fetching alternative companies...');
+    
+    const response = await axios.post(`${SERVER_URL}/request`, {
+      method: 'GET',
+      url: `${KLAVIYO_URL}/ajax/account/user-info`
+    });
+    
+    if (!response.data || !response.data.alternative_companies) {
+      throw new Error('No alternative companies found in response');
+    }
+    
+    const alternativeCompanies = response.data.alternative_companies;
+    
+    //console.log(`✅ Found ${alternativeCompanies.length} client companies`);
+    
+    return alternativeCompanies;
+    
+  } catch (error) {
+    console.error('❌ Error fetching alternative companies:', error.message);
     if (error.response) {
       console.error(`   Status: ${error.response.status}`);
       console.error(`   Data:`, error.response.data);

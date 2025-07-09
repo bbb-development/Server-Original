@@ -8,10 +8,10 @@ import * as flowFunctions from './Functions/flowFunctions.js';
 /////////////////////////
 
 // Get profile
-//smallFunctions.getProfile();
+smallFunctions.getProfile();
 
 // Change client
-await smallFunctions.changeClient('BBB Marketing');
+//await smallFunctions.changeClient('BBB Marketing');
 
 // Get company ID
 //smallFunctions.getCompanyID('ALL'); // 'all' or 'company_name'
@@ -168,8 +168,8 @@ await smallFunctions.changeClient('BBB Marketing');
 // Clone with custom name only (uses default company context - BBB Marketing)
 //templateFunctions.cloneTemplate('SpNxvq', 'Another Template2');
 
-const preview = await smallFunctions.previewTemplate('RLpd9P', 'SRR5jE', '6cevaJXfmf4', false);
-console.log(JSON.stringify(preview, null, 2));
+//const preview = await smallFunctions.previewTemplate('RLpd9P', 'SRR5jE', '6cevaJXfmf4', false);
+//console.log(JSON.stringify(preview, null, 2));
 
 // Get and save template data for inspection
 //const templateData = await templateFunctions.getTemplateData('RQ78g2');

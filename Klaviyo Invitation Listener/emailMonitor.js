@@ -12,6 +12,7 @@ import { simpleParser } from "mailparser";
 import envConfig from "./envConfig.js";
 import axios from "axios";
 import supabase from "./supabaseClient.js";
+import { authorize } from "../Klaviyo Portal/Functions/smallFunctions.js";
 
 // Klaviyo email constants
 const KLAVIYO_SENDER_EMAIL = "no-reply@klaviyo.com";
@@ -191,6 +192,7 @@ class EmailMonitor {
   async acceptInvitation(invitationLink, brandName, targetEmail) {
     try {
       console.log("🚀 ATTEMPTING TO ACCEPT INVITATION...");
+      await authorize();
       
       const response = await fetch(`${SERVER_BASE}/request`, {
         method: 'POST',

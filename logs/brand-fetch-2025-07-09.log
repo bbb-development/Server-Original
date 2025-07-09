@@ -15619,3 +15619,73 @@ The Crystal Energy Team
 [2025-07-09T11:36:47.749Z] [INFO] [SERVER] [N/A] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0
 [2025-07-09T11:36:47.749Z] [INFO] [SERVER] [N/A] ------------------------
 [2025-07-09T11:36:47.750Z] [INFO] [SERVER] [N/A] 📤 Response: GET /geoserver/web/ - 404 (3ms)
+[2025-07-09T11:39:22.770Z] [INFO] [SERVER] [N/A] --- Incoming Request ---
+[2025-07-09T11:39:22.771Z] [INFO] [SERVER] [N/A] Method: GET
+[2025-07-09T11:39:22.771Z] [INFO] [SERVER] [N/A] URL: /.git/config
+[2025-07-09T11:39:22.771Z] [INFO] [SERVER] [N/A] IP: 127.0.0.1
+[2025-07-09T11:39:22.771Z] [INFO] [SERVER] [N/A] User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0
+[2025-07-09T11:39:22.771Z] [INFO] [SERVER] [N/A] ------------------------
+[2025-07-09T11:39:22.772Z] [INFO] [SERVER] [N/A] 📤 Response: GET /.git/config - 404 (2ms)
+[2025-07-09T12:23:17.360Z] [INFO] [SERVER] [N/A] --- Incoming Request ---
+[2025-07-09T12:23:17.360Z] [INFO] [SERVER] [N/A] Method: GET
+[2025-07-09T12:23:17.360Z] [INFO] [SERVER] [N/A] URL: /
+[2025-07-09T12:23:17.361Z] [INFO] [SERVER] [N/A] IP: 127.0.0.1
+[2025-07-09T12:23:17.361Z] [INFO] [SERVER] [N/A] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+[2025-07-09T12:23:17.361Z] [INFO] [SERVER] [N/A] ------------------------
+[2025-07-09T12:23:17.363Z] [INFO] [SERVER] [N/A] 📤 Response: GET / - 404 (3ms)
+[2025-07-09T12:31:09.127Z] [INFO] [SERVER] [N/A] --- Incoming Request ---
+[2025-07-09T12:31:09.128Z] [INFO] [SERVER] [N/A] Method: GET
+[2025-07-09T12:31:09.128Z] [INFO] [SERVER] [N/A] URL: /.git/config
+[2025-07-09T12:31:09.128Z] [INFO] [SERVER] [N/A] IP: 127.0.0.1
+[2025-07-09T12:31:09.128Z] [INFO] [SERVER] [N/A] User-Agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/532.9 (KHTML, like Gecko) Chrome/5.0.309.0 Safari/532.9
+[2025-07-09T12:31:09.128Z] [INFO] [SERVER] [N/A] ------------------------
+[2025-07-09T12:31:09.129Z] [INFO] [SERVER] [N/A] 📤 Response: GET /.git/config - 404 (2ms)
+[2025-07-09T12:41:09.107Z] [INFO] [SERVER] [N/A] --- Incoming Request ---
+[2025-07-09T12:41:09.107Z] [INFO] [SERVER] [N/A] Method: GET
+[2025-07-09T12:41:09.107Z] [INFO] [SERVER] [N/A] URL: /
+[2025-07-09T12:41:09.107Z] [INFO] [SERVER] [N/A] IP: 127.0.0.1
+[2025-07-09T12:41:09.107Z] [INFO] [SERVER] [N/A] User-Agent: Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)
+[2025-07-09T12:41:09.107Z] [INFO] [SERVER] [N/A] ------------------------
+[2025-07-09T12:41:09.108Z] [INFO] [SERVER] [N/A] 📤 Response: GET / - 404 (1ms)
+[2025-07-09T12:41:38.823Z] [INFO] [SERVER] [N/A] --- Incoming Request ---
+[2025-07-09T12:41:38.823Z] [INFO] [SERVER] [N/A] Method: GET
+[2025-07-09T12:41:38.823Z] [INFO] [SERVER] [N/A] URL: /favicon.ico
+[2025-07-09T12:41:38.824Z] [INFO] [SERVER] [N/A] IP: 127.0.0.1
+[2025-07-09T12:41:38.824Z] [INFO] [SERVER] [N/A] User-Agent: Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)
+[2025-07-09T12:41:38.824Z] [INFO] [SERVER] [N/A] ------------------------
+[2025-07-09T12:41:38.825Z] [INFO] [SERVER] [N/A] 📤 Response: GET /favicon.ico - 404 (2ms)
+[2025-07-09T12:41:51.138Z] [INFO] [SERVER] [N/A] --- Incoming Request ---
+[2025-07-09T12:41:51.139Z] [INFO] [SERVER] [N/A] Method: GET
+[2025-07-09T12:41:51.139Z] [INFO] [SERVER] [N/A] URL: /sitemap.xml
+[2025-07-09T12:41:51.139Z] [INFO] [SERVER] [N/A] IP: 127.0.0.1
+[2025-07-09T12:41:51.139Z] [INFO] [SERVER] [N/A] User-Agent: Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)
+[2025-07-09T12:41:51.139Z] [INFO] [SERVER] [N/A] ------------------------
+[2025-07-09T12:41:51.141Z] [INFO] [SERVER] [N/A] 📤 Response: GET /sitemap.xml - 404 (3ms)
+[2025-07-09T13:14:24.651Z] [INFO] [SERVER] [N/A] --- Incoming Request ---
+[2025-07-09T13:14:24.652Z] [INFO] [SERVER] [N/A] Method: GET
+[2025-07-09T13:14:24.652Z] [INFO] [SERVER] [N/A] URL: /pdown
+[2025-07-09T13:14:24.652Z] [INFO] [SERVER] [N/A] IP: 34.65.179.92
+[2025-07-09T13:14:24.652Z] [INFO] [SERVER] [N/A] User-Agent: Unknown
+[2025-07-09T13:14:24.652Z] [INFO] [SERVER] [N/A] ------------------------
+[2025-07-09T13:14:24.653Z] [INFO] [SERVER] [N/A] 📤 Response: GET /pdown - 404 (2ms)
+[2025-07-09T13:15:01.761Z] [INFO] [SERVER] [N/A] --- Incoming Request ---
+[2025-07-09T13:15:01.761Z] [INFO] [SERVER] [N/A] Method: GET
+[2025-07-09T13:15:01.761Z] [INFO] [SERVER] [N/A] URL: /pdown
+[2025-07-09T13:15:01.761Z] [INFO] [SERVER] [N/A] IP: 127.0.0.1
+[2025-07-09T13:15:01.762Z] [INFO] [SERVER] [N/A] User-Agent: Unknown
+[2025-07-09T13:15:01.762Z] [INFO] [SERVER] [N/A] ------------------------
+[2025-07-09T13:15:01.763Z] [INFO] [SERVER] [N/A] 📤 Response: GET /pdown - 404 (2ms)
+[2025-07-09T13:34:04.891Z] [INFO] [SERVER] [N/A] --- Incoming Request ---
+[2025-07-09T13:34:04.891Z] [INFO] [SERVER] [N/A] Method: GET
+[2025-07-09T13:34:04.891Z] [INFO] [SERVER] [N/A] URL: /
+[2025-07-09T13:34:04.891Z] [INFO] [SERVER] [N/A] IP: 3.131.215.38
+[2025-07-09T13:34:04.891Z] [INFO] [SERVER] [N/A] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/126.0.0.0 Safari/537.36
+[2025-07-09T13:34:04.891Z] [INFO] [SERVER] [N/A] ------------------------
+[2025-07-09T13:34:04.892Z] [INFO] [SERVER] [N/A] 📤 Response: GET / - 404 (1ms)
+[2025-07-09T13:34:05.284Z] [INFO] [SERVER] [N/A] --- Incoming Request ---
+[2025-07-09T13:34:05.284Z] [INFO] [SERVER] [N/A] Method: GET
+[2025-07-09T13:34:05.285Z] [INFO] [SERVER] [N/A] URL: /
+[2025-07-09T13:34:05.285Z] [INFO] [SERVER] [N/A] IP: 3.131.215.38
+[2025-07-09T13:34:05.285Z] [INFO] [SERVER] [N/A] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/126.0.0.0 Safari/537.36
+[2025-07-09T13:34:05.285Z] [INFO] [SERVER] [N/A] ------------------------
+[2025-07-09T13:34:05.286Z] [INFO] [SERVER] [N/A] 📤 Response: GET / - 404 (2ms)

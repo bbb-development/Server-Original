@@ -1,0 +1,1301 @@
+[2025-07-09T10:17:36.629Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 📥 Received brand fetch request for: https://www.diablocosmetics.com/
+[2025-07-09T10:17:36.629Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 📊 Should get best sellers: true
+[2025-07-09T10:17:36.630Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🆔 Request ID: REQ-1752056256629-262lyfnv5
+[2025-07-09T10:17:36.630Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 📝 Request log file: diablocosmetics.com_2025-07-09T10-17-36-629Z.log
+[2025-07-09T10:17:36.630Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ⚙️ Options: {"mapOptions":{"limit":500}}
+[2025-07-09T10:17:36.630Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Starting parallel execution: Brand analysis + Klaviyo templates
+[2025-07-09T10:17:36.630Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] [33m🔍 Analyzing brand: https://www.diablocosmetics.com/[0m
+[2025-07-09T10:17:36.630Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] Getting Brand Data With Browserless
+[2025-07-09T10:17:36.631Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Processing all templates from klaviyo_templates.json...
+[2025-07-09T10:17:36.631Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Switching to client: "BBB Marketing"...
+[2025-07-09T10:17:36.631Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Checking current client...
+[2025-07-09T10:17:36.878Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 📍 Currently on: "BBB Marketing" (ID: SRsJn8)
+[2025-07-09T10:17:36.879Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Already on target client "BBB Marketing" (matched by name). No switch needed.
+[2025-07-09T10:17:36.879Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 
+🚀 Starting concurrent processing of 8 templates...
+[2025-07-09T10:17:36.880Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 [1/8] Processing template: WF EMAIL 1 TEMPLATE (NEVER DELETE) (ID: SpZKLh)
+[2025-07-09T10:17:36.880Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    👤 Using profileId: empty string
+[2025-07-09T10:17:36.880Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Previewing template SpZKLh with flow message YqisUm...
+[2025-07-09T10:17:36.881Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 [2/8] Processing template: WF EMAIL 2 TEMPLATE (NEVER DELETE) (ID: SjnvqT)
+[2025-07-09T10:17:36.882Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    👤 Using profileId: empty string
+[2025-07-09T10:17:36.882Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Previewing template SjnvqT with flow message YjFcyX...
+[2025-07-09T10:17:36.883Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 [3/8] Processing template: WF EMAIL 3 TEMPLATE (NEVER DELETE) (ID: Yf3Wdz)
+[2025-07-09T10:17:36.884Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    👤 Using profileId: empty string
+[2025-07-09T10:17:36.885Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Previewing template Yf3Wdz with flow message WsC4H6...
+[2025-07-09T10:17:36.886Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 [4/8] Processing template: AC EMAIL 1 TEMPLATE (NEVER DELETE) (ID: RLpd9P)
+[2025-07-09T10:17:36.886Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-09T10:17:36.886Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Previewing template RLpd9P with flow message SRR5jE...
+[2025-07-09T10:17:36.888Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 [5/8] Processing template: AC EMAIL 2 TEMPLATE (NEVER DELETE) (ID: X7qBvi)
+[2025-07-09T10:17:36.888Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-09T10:17:36.888Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Previewing template X7qBvi with flow message XfzDGp...
+[2025-07-09T10:17:36.890Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 [6/8] Processing template: AC EMAIL 3 TEMPLATE (NEVER DELETE) (ID: QTQpvV)
+[2025-07-09T10:17:36.890Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-09T10:17:36.890Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Previewing template QTQpvV with flow message XaWpkZ...
+[2025-07-09T10:17:36.891Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 [7/8] Processing template: AC EMAIL 4 TEMPLATE (NEVER DELETE) (ID: XvJpat)
+[2025-07-09T10:17:36.891Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-09T10:17:36.891Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Previewing template XvJpat with flow message RCqe8L...
+[2025-07-09T10:17:36.892Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 [8/8] Processing template: BA EMAIL 1 TEMPLATE (NEVER DELETE) (ID: Rb3aEN)
+[2025-07-09T10:17:36.892Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    📎 Using eventId: 6cex5ERVqid
+[2025-07-09T10:17:36.892Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Previewing template Rb3aEN with flow message UtmrZK...
+[2025-07-09T10:17:37.754Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template preview fetched successfully for XvJpat
+[2025-07-09T10:17:37.754Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    ✅ HTML extracted successfully (13899 characters)
+[2025-07-09T10:17:37.755Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    📧 Subject: "Is everything alright?"
+[2025-07-09T10:17:38.769Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template preview fetched successfully for SpZKLh
+[2025-07-09T10:17:38.769Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    ✅ HTML extracted successfully (71894 characters)
+[2025-07-09T10:17:38.769Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    📧 Subject: "Welcome Aboard"
+[2025-07-09T10:17:38.773Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template preview fetched successfully for Yf3Wdz
+[2025-07-09T10:17:38.774Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    ✅ HTML extracted successfully (67969 characters)
+[2025-07-09T10:17:38.774Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    📧 Subject: "Welcome coupon expires soon"
+[2025-07-09T10:17:39.034Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template preview fetched successfully for RLpd9P
+[2025-07-09T10:17:39.035Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    ✅ HTML extracted successfully (76838 characters)
+[2025-07-09T10:17:39.035Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    📧 Subject: "Complete your purchase"
+[2025-07-09T10:17:39.068Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template preview fetched successfully for X7qBvi
+[2025-07-09T10:17:39.069Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    ✅ HTML extracted successfully (79728 characters)
+[2025-07-09T10:17:39.069Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    📧 Subject: "It's on the house 🎁"
+[2025-07-09T10:17:39.205Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template preview fetched successfully for Rb3aEN
+[2025-07-09T10:17:39.205Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    ✅ HTML extracted successfully (76728 characters)
+[2025-07-09T10:17:39.205Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    📧 Subject: "Have another look"
+[2025-07-09T10:17:39.447Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template preview fetched successfully for QTQpvV
+[2025-07-09T10:17:39.447Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    ✅ HTML extracted successfully (85983 characters)
+[2025-07-09T10:17:39.447Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    📧 Subject: "Less than 3 hours remain"
+[2025-07-09T10:17:39.503Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template preview fetched successfully for SjnvqT
+[2025-07-09T10:17:39.504Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    ✅ HTML extracted successfully (74670 characters)
+[2025-07-09T10:17:39.504Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    📧 Subject: "A few customer favorites worth seeing"
+[2025-07-09T10:17:39.504Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 
+📊 Processing complete:
+[2025-07-09T10:17:39.504Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    ✅ Successfully processed: 8 templates
+[2025-07-09T10:17:39.504Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    🎉 All templates processed successfully!
+[2025-07-09T10:17:39.504Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    📁 Total templates: 8
+[2025-07-09T10:17:46.217Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🚀 Running all analysis steps concurrently...
+[2025-07-09T10:17:46.220Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Getting Brand Fetch Data Using Brandfetch
+[2025-07-09T10:17:46.224Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Getting Brand Links Using Firecrawl and Gemini
+[2025-07-09T10:17:46.228Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Generating Brand Brief Using Gemini
+[2025-07-09T10:17:46.234Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Generating Brand Benefits Using Gemini and ImgBB
+[2025-07-09T10:17:46.235Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Fetching random images for all email templates...
+[2025-07-09T10:17:46.236Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Generating Deliverability Snippet Using Gemini
+[2025-07-09T10:17:46.647Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 📊 Brand Fetch: API Usage: 94/2500 requests this month
+[2025-07-09T10:17:47.648Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] geminiBrandBrief {
+  "aboutUs": {
+    "paragraph1": "At Diablo Cosmetics, we believe in achieving your beauty potential without compromising your time or wallet.",
+    "paragraph2": "Our best-selling Lashlift Starter Set offers a simple, at-home solution for achieving salon-quality lashes, aligning perfectly with our philosophy of accessible beauty.",
+    "paragraph3": "That all ties into our mission to empower individuals to feel confident and beautiful in their own skin, offering effective and easy-to-use beauty solutions."
+  },
+  "brandAudience": "Individuals seeking convenient and effective at-home beauty solutions, particularly for eyelashes and eyebrows, who value self-care and achieving professional results without salon appointments.",
+  "brandDescription": "Diablo Cosmetics provides at-home beauty solutions, specializing in lash lift and brow lamination kits, enabling users to achieve professional-looking results conveniently and affordably.",
+  "brandMessage": "Achieve professional, beautiful lashes and brows easily and affordably at home.",
+  "brandName": "Diablo Cosmetics",
+  "brandTone": "Empowering, accessible, and results-oriented.",
+  "topEmailText": "Free shipping on all orders this week!",
+  "brandIndustry": "Cosmetics"
+}
+[2025-07-09T10:17:48.025Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] siteMap {"success":true,"links":["https://www.diablocosmetics.com","https://www.diablocosmetics.com/blogs/news","https://www.diablocosmetics.com/collections/shop-all","https://www.diablocosmetics.com/collections/eyelashes","https://www.diablocosmetics.com/collections/eyebrows","https://www.diablocosmetics.com/collections/best-sellers","https://www.diablocosmetics.com/collections/sale","https://www.diablocosmetics.com/collections/bundles","https://www.diablocosmetics.com/collections/lashlift","https://www.diablocosmetics.com/products/lashlift-refill-pack","https://www.diablocosmetics.com/products/lashlift-adhesive","https://www.diablocosmetics.com/products/applicators","https://www.diablocosmetics.com/products/lashlift-starter-set","https://www.diablocosmetics.com/products/cleanser","https://www.diablocosmetics.com/products/lash-lift-kit","https://www.diablocosmetics.com/products/brow-lamination-kit","https://www.diablocosmetics.com/products/eyelash-serum","https://www.diablocosmetics.com/products/browlift-starter-set","https://www.diablocosmetics.com/products/lashlift-serum-duo","https://www.diablocosmetics.com/products/lashlift-browlift-duo","https://www.diablocosmetics.com/pages/contact-us","https://www.diablocosmetics.com/pages/reviews","https://www.diablocosmetics.com/pages/edit-personal-data","https://www.diablocosmetics.com/pages/request-personal-data","https://www.diablocosmetics.com/pages/my-personal-data","https://www.diablocosmetics.com/pages/privacy-policy","https://www.diablocosmetics.com/pages/terms-of-service","https://www.diablocosmetics.com/pages/cookies","https://www.diablocosmetics.com/pages/shipping","https://www.diablocosmetics.com/pages/5-reasons-why-lashlift-1","https://www.diablocosmetics.com/pages/5-reasons-why-serum","https://www.diablocosmetics.com/pages/5-reasons-why-browlift-2","https://www.diablocosmetics.com/pages/transform-your-brows-instantly-at-home","https://www.diablocosmetics.com/pages/browlift-results","https://www.diablocosmetics.com/pages/5-reasons-why-lashlift-old","https://www.diablocosmetics.com/pages/transform-your-eyelashes-instantly","https://www.diablocosmetics.com/pages/browlift-sp-1","https://www.diablocosmetics.com/pages/our-story","https://www.diablocosmetics.com/pages/5-reasons-why-salon-old","https://www.diablocosmetics.com/pages/5-reasons-why-mascara","https://www.diablocosmetics.com/pages/5-reasons-why-short-lashes","https://www.diablocosmetics.com/pages/5-reasons-why-lashlift-llk","https://www.diablocosmetics.com/pages/lashlift-sp3","https://www.diablocosmetics.com/pages/lashlift-sp4","https://www.diablocosmetics.com/pages/how-to-lashlift","https://www.diablocosmetics.com/pages/5-reasons-why-lashlift-2","https://www.diablocosmetics.com/pages/5-reasons-why-salon-lashlift","https://www.diablocosmetics.com/pages/5-reasons-why-lashlift","https://www.diablocosmetics.com/pages/discount-code","https://www.diablocosmetics.com/pages/black-friday-sale-sign-up-now","https://www.diablocosmetics.com/pages/lashlift-sp3-stc-2","https://www.diablocosmetics.com/pages/serum-sp1","https://www.diablocosmetics.com/pages/serum-5rw","https://www.diablocosmetics.com/pages/llk-sp3-stc","https://www.diablocosmetics.com/pages/5-reasons-why-lashlift-llk-2","https://www.diablocosmetics.com/pages/diablo-lash-lift-tutorial","https://www.diablocosmetics.com/pages/ll-5rw6","https://www.diablocosmetics.com/pages/es-blg","https://www.diablocosmetics.com/pages/es-blg-age","https://www.diablocosmetics.com/pages/ll-5rw7","https://www.diablocosmetics.com/pages/es-blga2","https://www.diablocosmetics.com/pages/returns","https://www.diablocosmetics.com/pages/serum-6rw-stc","https://www.diablocosmetics.com/?srsltid=AfmBOooEKGL1j2NDJdy4CT3xFw_zrACYhZlA3QbG1Jo15E0kl79nW45q","https://www.diablocosmetics.com/collections?srsltid=AfmBOooWO8_QKgoJV6wGRvaU__NdIeSEhXiC9EV5rfB2Vlj770_OwulJ","https://www.diablocosmetics.com/products/applicators?srsltid=AfmBOopj2PcVC7wuuGg5a75Rxznqy-bbLH9y0WvTejLeNdvQCxvf2PHH","https://www.diablocosmetics.com/pages/returns?srsltid=AfmBOopIFOWpeEL3DodgwDaP1D-wpXtmKbLSCFqeqdrPiYWbmkSLd60T","https://www.diablocosmetics.com/products/cleanser?srsltid=AfmBOor6z3p3RKyCf2caKt9EU7mEOYEKXEHDbX_07Aiqme1dePSqf7K4","https://www.diablocosmetics.com/a/track?srsltid=AfmBOoqPza3JDYBuBP1T8XmQeTSGHsj16CBW3MDt0B19vGxKyEnETO68","https://www.diablocosmetics.com/pages/shipping?srsltid=AfmBOoorCNkh7SLDkaW_rZsmbYiibqXGbdHR1JuOixaT6rr1EP5iDAhz","https://www.diablocosmetics.com/pages/discount-code?srsltid=AfmBOopbRqK7WNmTh6I6TfmGYvUqo3lOS4Yh3jgJTwCzRbwtvOdcACMN","https://www.diablocosmetics.com/pages/lashlift-sp4?srsltid=AfmBOorjlPdrCXC5Y6dkESqw4sIvMc6Z-C3SpbHWzPmhwJHh-Sd4OkKV","https://www.diablocosmetics.com/pages/serum-sp1?srsltid=AfmBOopvJtWLPMl_xj7Lw_rTkcvZGnT09hVt_qQtDvbWcgTJAZCn8cEp","https://www.diablocosmetics.com/pages/contact-us?srsltid=AfmBOorQM_CionRmL-Qk-c8It27CfsyYVTcDHfNKncXjJpwEWkOek2-6","https://www.diablocosmetics.com/products/eyelash-serum?srsltid=AfmBOoqppOB1_95jjzUlCjNuEoi_zTefpzIjOMWtJc0x3kDwynBMn_dl","https://www.diablocosmetics.com/pages/our-story?srsltid=AfmBOorY0Zm54_onOF7zWiuPgHjEJKCdcY3tWxh-oXUsHluXpVg46qmq","https://www.diablocosmetics.com/pages/privacy-policy?srsltid=AfmBOor5iS1zjfRzLLP3GY036L2CUoTFxS747Mznsi1g_x3Bvmi8GlSn","https://www.diablocosmetics.com/products/lashlift-adhesive?srsltid=AfmBOoqN0I6lK51cJmHtR7t4R4ods8HnWIe-HNiEIhPIuYu87N_oqmYI","https://www.diablocosmetics.com/products/lash-lift-kit?srsltid=AfmBOoo_2jKH7kYl6jAj564M3dsTuI9ikf8iQXqH4l4wmooZxKU85WzO","https://www.diablocosmetics.com/products/lashlift-browlift-duo?srsltid=AfmBOorVQVeG6ErX3l6ngzp7PkE2Z1JNNvfjtIE9Zb_kPEkChC0IaIqW","https://www.diablocosmetics.com/products/lashlift-starter-set?srsltid=AfmBOorPzApdDtbZtvXIZRGmSilUvw8Gf4vcWICDPgnpzpxaquMn8vGT","https://www.diablocosmetics.com/products/lashlift-refill-pack?srsltid=AfmBOoqB47bOvtVy-vV7kaLEhq78kmKwVSQC31mnXxXMxmk9NhHYFmdM","https://www.diablocosmetics.com/products/lashlift-serum-duo?srsltid=AfmBOorUWVBE2JLp-k09SC9C5ivNr26zAP0lDy7F-qkMtbo7gWYHaN3B","https://www.diablocosmetics.com/products/brow-lamination-kit?srsltid=AfmBOorWhemqJ4sayQCao1r3hDcSuKM13gpytbaUK3ENxbRjoDpRZt_N","https://www.diablocosmetics.com/products/browlift-starter-set?srsltid=AfmBOopAkMBCB6bkorDtM2oiRyhfncVrLXgs1sT7kTvnFU9hnYKoXBlR","https://www.diablocosmetics.com/pages/terms-of-service?srsltid=AfmBOop8kdj7PhfNlQTDhfgRortpwKKgKrv3nvqS3hbHi6ogLrocNr01","https://www.diablocosmetics.com/collections/all?srsltid=AfmBOoov-cWbAE6cXHyUQOHdL8QUqX5twPWl1GZDujBDUpCz4YMNVrdq","https://www.diablocosmetics.com/collections/eyebrows?srsltid=AfmBOooNlgMKPI_U2wVvIm3s_YRIx39OR9klguw617z2a_s_0wSE-wbt","https://www.diablocosmetics.com/collections/bundles?srsltid=AfmBOoqd_dwWADUXdwu7Guo88oAdFWVq1TxLCXOp80xTuaAs7t4EHNwT","https://www.diablocosmetics.com/collections/sale?srsltid=AfmBOooQSweOpSqhT63Z40kZudxhKy-0D1nhfVRDJLynXIBu9s8e5Ek8","https://www.diablocosmetics.com/pages/reviews?srsltid=AfmBOopC-o48SxAA5g0Xnvi7tKP86T7zV8j9cuBED_NJMcrqkqf7JLsj","https://www.diablocosmetics.com/collections/eyelashes?srsltid=AfmBOoqIzeoYua65q5uGiUqDb2Rk_dDwYnSFfbHFRIFr9bZI_nAqTgV7","https://www.diablocosmetics.com/pages/diablo-lash-lift-tutorial?srsltid=AfmBOoq_nIYbfeIONUjHRPFS3jYQXW9AyWCrT99MyKQ-ZgSaWP8jujTT","https://www.diablocosmetics.com/pages/transform-your-eyelashes-instantly?srsltid=AfmBOop6WF093CRAdpx_sne8MfgYWvRD-yxQKCZ-MM171SzGXledmsT8","https://www.diablocosmetics.com/pages/es-blg?srsltid=AfmBOopc2DVfRB_KiwEJ0_-3MgXJd0md4J_ZLpLPZY58M2u-K5Yn3xWk","https://www.diablocosmetics.com/collections/shop-all?srsltid=AfmBOoruddxty4M3BU3LvQalwL2GUGpvIIu86Z9bUQUVGN_jp44LvpEC","https://www.diablocosmetics.com/a/help-center?srsltid=AfmBOopJoKIY7_J6mDhwzcOWv2FQXm8v1S0uGLQRc7HiV9OpggAirKOv","https://www.diablocosmetics.com/pages/serum-5rw?srsltid=AfmBOorIWwIj0bQRO6DJKgYC6-GxC6S1n6LEQ-o9ou5TwEXsz3ixMxnN","https://www.diablocosmetics.com/pages/ll-5rw7?srsltid=AfmBOor-hFXnmPiXzLtg9Eg82nYQNAkQeMmXtfyFYMvgiPI-P7IJJEPf","https://www.diablocosmetics.com/pages/serum-6rw-stc?srsltid=AfmBOorlHDwha10Vo497k7SDk0tMu_ZxBlPO0pKQ-Y4pmbZK7rAdrpvc","https://www.diablocosmetics.com/pages/browlift-sp-1?srsltid=AfmBOoqNDN3XnzmJzP-v8S48--wEGIdTwyoo0bXkIe8protQ-a0WTEwL","https://www.diablocosmetics.com/pages/how-to-lashlift?srsltid=AfmBOopiVJ4JtydXV8kty0b3Sz0312UsCkJCu6WMVPUKCSn5Q_z5l_yY","https://www.diablocosmetics.com/pages/es-blg-age?srsltid=AfmBOopZhEW-xS0NJs20PAq5grMmjjqSRjsmQu0K21s5aP2aQyRtfmt1","https://www.diablocosmetics.com/pages/5-reasons-why-serum?srsltid=AfmBOooRXRi5gals_hb4DinfSnLgPNRVJldyTBfQN_5ZSwsFD2Tk65Cz","https://www.diablocosmetics.com/pages/5-reasons-why-lashlift?srsltid=AfmBOordZGmQiDkL-LK72Qhvgr2Z75Tam9In94PlOB5HnCZ7NA6tvXxS","https://www.diablocosmetics.com/pages/5-reasons-why-lashlift-1?srsltid=AfmBOor1YFSGdiuAsdAz05vB5jwHatwyPcl1MOcfLquorJ91xtf57QmS","https://www.diablocosmetics.com/pages/5-reasons-why-short-lashes?srsltid=AfmBOopgIAAu_BdHz8UTrOSkqe4NtBhEBQg1e6ssOI6HZ4flkwBgxpGO","https://www.diablocosmetics.com/pages/5-reasons-why-salon-lashlift?srsltid=AfmBOop3yC9dWCEiG0RXAynki5_0MgZtE8LFIYkidVbO3PQAu6BuJuqU","https://www.diablocosmetics.com/pages/transform-your-brows-instantly-at-home?srsltid=AfmBOopRmJ96Z2fhk8zTK2I0pMcia7eGLzV9h3kST7siQd1ITiKmLaBW","https://www.diablocosmetics.com/products/lash-lift-kit?variant=31722181132357&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=EAIaIQobChMIraHz3-az8wIVFed3Ch2RZQ5rEAQYByABEgIyPfD_BwE&srsltid=AfmBOoqY0CyY-DwlJw0_QjfyMq6gGq1Fpy6D8MJZbX4_CQfb2w3bSARm"]}
+[2025-07-09T10:17:48.580Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] geminiURLs {
+  "bestSellersUrl": "https://www.diablocosmetics.com/collections/best-sellers",
+  "contactUrl": "https://www.diablocosmetics.com/pages/contact-us",
+  "faqUrl": "https://www.diablocosmetics.com/a/help-center"
+}
+[2025-07-09T10:17:48.580Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🛍️ BROWSERLESS: Scraping best sellers page: https://www.diablocosmetics.com/collections/best-sellers
+[2025-07-09T10:17:53.633Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ GEMINI: Extracted 9 products from best sellers page (productsFound: true)
+[2025-07-09T10:17:53.633Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] bestSellers [
+  {
+    "productImgUrl": "https://www.diablocosmetics.com/cdn/shop/files/Eyelash-serum-2.2-cp.jpg",
+    "productName": "Eyelash Serum",
+    "productPrice": "$28",
+    "productURL": "https://www.diablocosmetics.com/collections/best-sellers/products/eyelash-serum"
+  },
+  {
+    "productImgUrl": "https://www.diablocosmetics.com/cdn/shop/products/diablo-brow-serum-copy_400x.jpg?v=1626954085",
+    "productName": "Brow Lamination Kit",
+    "productPrice": "$35",
+    "productURL": "https://www.diablocosmetics.com/products/brow-lamination-kit"
+  },
+  {
+    "productImgUrl": "https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-refill-pack_400x.jpg?v=1626954078",
+    "productName": "Lashlift Refill Pack",
+    "productPrice": "$20",
+    "productURL": "https://www.diablocosmetics.com/products/lashlift-refill-pack"
+  },
+  {
+    "productImgUrl": "https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-applicators_400x.jpg?v=1626954096",
+    "productName": "Lashlift Applicators",
+    "productPrice": "$15",
+    "productURL": "https://www.diablocosmetics.com/products/applicators"
+  },
+  {
+    "productImgUrl": "https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-cleanser_400x.jpg?v=1626954069",
+    "productName": "Lashlift Cleanser",
+    "productPrice": "$20",
+    "productURL": "https://www.diablocosmetics.com/products/cleanser"
+  },
+  {
+    "productImgUrl": "https://www.diablocosmetics.com/cdn/shop/products/diablo-lash-lift-kit_400x.jpg?v=1626954105",
+    "productName": "Lash Lift Kit",
+    "productPrice": "$75",
+    "productURL": "https://www.diablocosmetics.com/products/lash-lift-kit"
+  },
+  {
+    "productImgUrl": "https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-starter-set_400x.jpg?v=1626954114",
+    "productName": "Lashlift Starter Set",
+    "productPrice": "$110",
+    "productURL": "https://www.diablocosmetics.com/products/lashlift-starter-set"
+  },
+  {
+    "productImgUrl": "https://www.diablocosmetics.com/cdn/shop/products/diablo-browlift-starter-set_400x.jpg?v=1626954090",
+    "productName": "Browlift Starter Set",
+    "productPrice": "$95",
+    "productURL": "https://www.diablocosmetics.com/products/browlift-starter-set"
+  },
+  {
+    "productImgUrl": "https://www.diablocosmetics.com/cdn/shop/files/Diablo-Thumb_b7354212-173f-41dc-ae2d-5c3c320aec8d_400x.png?v=1626961114",
+    "productName": "Diablo Cosmetics",
+    "productPrice": "$56",
+    "productURL": "https://www.diablocosmetics.com/"
+  }
+]
+[2025-07-09T10:17:53.634Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] [33m✅ Analysis complete in 17.004 seconds 🎉[0m
+[2025-07-09T10:17:53.634Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔍 Checking API Usage
+[2025-07-09T10:17:53.745Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 📊 Remaining Firecrawl Credits: 2951
+[2025-07-09T10:17:53.999Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 📊 Brand Fetch: API Usage: 94/2500 requests this month
+[2025-07-09T10:17:53.999Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🎨 Starting preview email generation
+[2025-07-09T10:17:54.000Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🚀 Starting preview email generation process...
+[2025-07-09T10:17:54.000Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Successfully fetched 8 templates
+[2025-07-09T10:17:54.000Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 
+🔄 Step 2: Processing templates with brand replacements...
+[2025-07-09T10:17:54.000Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔀 Processing 8 templates concurrently...
+[2025-07-09T10:17:54.000Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template SpZKLh...
+[2025-07-09T10:17:54.000Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template for brand: Diablo Cosmetics
+[2025-07-09T10:17:54.000Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:17:54.001Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Background color: Replaced 28 occurrence(s)
+[2025-07-09T10:17:54.001Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: #3290F5
+[2025-07-09T10:17:54.001Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   #111111
+[2025-07-09T10:17:54.002Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Text color: Replaced 10 occurrence(s)
+[2025-07-09T10:17:54.002Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: rgb(255, 255, 241), #FFFFF1
+[2025-07-09T10:17:54.002Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   #ffffff
+[2025-07-09T10:17:54.004Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand logo: Replaced 2 occurrence(s) by alt="logo_img_url"
+[2025-07-09T10:17:54.004Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://cdn.brandfetch.io/idtQk51n5q/w/820/h/117/theme/dark/logo.png?c=1bxidDUkTxa1Dl3KsNTfn
+[2025-07-09T10:17:54.004Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand logo alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.004Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: logo_img_url
+[2025-07-09T10:17:54.004Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.005Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Header image: Replaced 1 occurrence(s) by alt="header_image_url"
+[2025-07-09T10:17:54.005Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/bRX0CY1c/Sparkling-Badge-Hi-There-or-Welcome-7.jpg
+[2025-07-09T10:17:54.005Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Header image alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.005Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: header_image_url
+[2025-07-09T10:17:54.006Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.006Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Name: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.006Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: BBB Marketing
+[2025-07-09T10:17:54.006Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Diablo Cosmetics
+[2025-07-09T10:17:54.007Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1: Replaced 1 occurrence(s) by alt="Image of White Chair 1"
+[2025-07-09T10:17:54.007Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Diablo-Thumb_b7354212-173f-41dc-ae2d-5c3c320aec8d_400x.png?v=1626961114
+[2025-07-09T10:17:54.008Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:17:54.008Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-starter-set_400x.jpg?v=1626954114
+[2025-07-09T10:17:54.008Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:17:54.008Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lash-lift-kit_400x.jpg?v=1626954105
+[2025-07-09T10:17:54.009Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:17:54.009Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-applicators_400x.jpg?v=1626954096
+[2025-07-09T10:17:54.010Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:17:54.010Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-cleanser_400x.jpg?v=1626954069
+[2025-07-09T10:17:54.010Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:17:54.010Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-browlift-starter-set_400x.jpg?v=1626954090
+[2025-07-09T10:17:54.011Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1: Replaced 1 occurrence(s) by alt="Image of White Chair 1"
+[2025-07-09T10:17:54.011Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Diablo-Thumb_b7354212-173f-41dc-ae2d-5c3c320aec8d_400x.png?v=1626961114
+[2025-07-09T10:17:54.011Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:17:54.012Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-starter-set_400x.jpg?v=1626954114
+[2025-07-09T10:17:54.012Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:17:54.012Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lash-lift-kit_400x.jpg?v=1626954105
+[2025-07-09T10:17:54.013Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:17:54.013Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-applicators_400x.jpg?v=1626954096
+[2025-07-09T10:17:54.013Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:17:54.013Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-cleanser_400x.jpg?v=1626954069
+[2025-07-09T10:17:54.014Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:17:54.014Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-browlift-starter-set_400x.jpg?v=1626954090
+[2025-07-09T10:17:54.014Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.014Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 1
+[2025-07-09T10:17:54.014Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Diablo Cosmetics
+[2025-07-09T10:17:54.014Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.014Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 2
+[2025-07-09T10:17:54.015Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Starter Set
+[2025-07-09T10:17:54.015Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.015Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 3
+[2025-07-09T10:17:54.015Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lash Lift Kit
+[2025-07-09T10:17:54.015Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.015Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 4
+[2025-07-09T10:17:54.015Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Applicators
+[2025-07-09T10:17:54.016Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.016Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 5
+[2025-07-09T10:17:54.016Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Cleanser
+[2025-07-09T10:17:54.016Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.016Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 6
+[2025-07-09T10:17:54.016Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Browlift Starter Set
+[2025-07-09T10:17:54.017Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.017Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-1
+[2025-07-09T10:17:54.017Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/
+[2025-07-09T10:17:54.017Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.017Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-2
+[2025-07-09T10:17:54.017Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lashlift-starter-set
+[2025-07-09T10:17:54.018Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.018Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-3
+[2025-07-09T10:17:54.018Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lash-lift-kit
+[2025-07-09T10:17:54.018Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.018Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-4
+[2025-07-09T10:17:54.018Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/applicators
+[2025-07-09T10:17:54.019Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.019Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-5
+[2025-07-09T10:17:54.019Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/cleanser
+[2025-07-09T10:17:54.019Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.019Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-6
+[2025-07-09T10:17:54.019Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/browlift-starter-set
+[2025-07-09T10:17:54.020Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Sellers Link: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.020Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://link_to_best_sellers
+[2025-07-09T10:17:54.020Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/collections/best-sellers
+[2025-07-09T10:17:54.020Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Paragraph 1: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.020Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: paragraph_1
+[2025-07-09T10:17:54.020Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   At Diablo Cosmetics, we believe in achieving your beauty potential without compromising your time or wallet.
+[2025-07-09T10:17:54.021Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Paragraph 2: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.021Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: paragraph_2
+[2025-07-09T10:17:54.021Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Our best-selling Lashlift Starter Set offers a simple, at-home solution for achieving salon-quality lashes, aligning perfectly with our philosophy of accessible beauty.
+[2025-07-09T10:17:54.021Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Paragraph 3: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.022Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: paragraph_3
+[2025-07-09T10:17:54.022Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   That all ties into our mission to empower individuals to feel confident and beautiful in their own skin, offering effective and easy-to-use beauty solutions.
+[2025-07-09T10:17:54.022Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Image: Replaced 2 occurrence(s) by alt="brand_benefits_1_img_url"
+[2025-07-09T10:17:54.022Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/4nzyfpXM/Delivery-Truck.png
+[2025-07-09T10:17:54.023Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Image: Replaced 2 occurrence(s) by alt="brand_benefits_2_img_url"
+[2025-07-09T10:17:54.023Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/DDg4tJqw/Returns-Refunds-Exchanges.png
+[2025-07-09T10:17:54.024Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Image: Replaced 2 occurrence(s) by alt="brand_benefits_3_img_url"
+[2025-07-09T10:17:54.024Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/Dft4XgyQ/Star.png
+[2025-07-09T10:17:54.024Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.024Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_1
+[2025-07-09T10:17:54.024Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Free Shipping
+[2025-07-09T10:17:54.024Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.025Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_2
+[2025-07-09T10:17:54.025Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Extended Returns
+[2025-07-09T10:17:54.025Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.025Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_3
+[2025-07-09T10:17:54.025Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Highly Rated
+[2025-07-09T10:17:54.026Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.026Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_1_img_url
+[2025-07-09T10:17:54.026Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.026Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.026Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_2_img_url
+[2025-07-09T10:17:54.026Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.027Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.027Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_3_img_url
+[2025-07-09T10:17:54.027Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.027Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Deliverability Text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.027Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: deliverability_text
+[2025-07-09T10:17:54.027Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   <div><span style="color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;">Order Number – Thank you for choosing Diablo Cosmetics. Your items are being prepared and will be dispatched shortly. Keep this message for reference. Included: 1x Lashlift Starter Set – 49.00 USD 1x Eyelash Serum – 28.00 USD 1x Lash Lift Kit – 39.00 USD Applied: N/A – 0.00 Subtotal: 0.00 Shipping: Standard Service Taxes: 0.00 Total: 0.00 USD Shipping Information: Alex Green 789 Neutral Road Techville, XX 12345 USA Information: Alex Green 789 Neutral Road Techville, XX 12345 USA Shipping Method: Standard (5–7 business days) Delivery Information: Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays. Not arrived within timeframe? Support team available. We're ready to help. 1. Processing: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit. 2. Shipping & Arrival: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region. 3. Payment & Security: Transactions encrypted. Details protected. Payment methods shown at checkout. 4. Returns & Resolution: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred. 5. Privacy Statement: Info used to manage account and fulfill inquiry. We don't share data unless required. 6. Rights & Content: Materials belong to Diablo Cosmetics or licensed parties. Protected by intellectual property laws. Thank you again from Diablo Cosmetics. We appreciate your support. Regards, The Diablo Cosmetics Team</span></div>
+[2025-07-09T10:17:54.028Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Contact Us Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.028Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://contact_us_link
+[2025-07-09T10:17:54.028Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/pages/contact-us
+[2025-07-09T10:17:54.028Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ FAQ Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.028Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://faq_link
+[2025-07-09T10:17:54.028Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/a/help-center
+[2025-07-09T10:17:54.029Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.029Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#FFF; text-decoration:none" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=1OBZdPc_Zf2HnukEdZPtT38jDIm8IcHBtxE0xewHCfs.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:17:54.029Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.029Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template processing complete
+[2025-07-09T10:17:54.029Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Successfully processed template SpZKLh
+[2025-07-09T10:17:54.029Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template SjnvqT...
+[2025-07-09T10:17:54.030Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template for brand: Diablo Cosmetics
+[2025-07-09T10:17:54.030Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:17:54.030Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Background color: Replaced 10 occurrence(s)
+[2025-07-09T10:17:54.030Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: #3290F5
+[2025-07-09T10:17:54.030Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   #111111
+[2025-07-09T10:17:54.031Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Text color: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.031Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: rgb(255, 255, 241), #FFFFF1
+[2025-07-09T10:17:54.031Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   #ffffff
+[2025-07-09T10:17:54.031Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand logo: Replaced 1 occurrence(s) by alt="logo_img_url"
+[2025-07-09T10:17:54.032Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://cdn.brandfetch.io/idtQk51n5q/w/820/h/117/theme/dark/logo.png?c=1bxidDUkTxa1Dl3KsNTfn
+[2025-07-09T10:17:54.032Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand logo alt text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.032Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: logo_img_url
+[2025-07-09T10:17:54.032Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.033Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Header image: Replaced 1 occurrence(s) by alt="header_image_url"
+[2025-07-09T10:17:54.033Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/rRkpPNxY/Crown.jpg
+[2025-07-09T10:17:54.033Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Header image alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.033Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: header_image_url
+[2025-07-09T10:17:54.033Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.034Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1: Replaced 1 occurrence(s) by alt="Image of White Chair 1"
+[2025-07-09T10:17:54.034Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Eyelash-serum-2.2-cp.jpg
+[2025-07-09T10:17:54.034Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:17:54.034Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-refill-pack_400x.jpg?v=1626954078
+[2025-07-09T10:17:54.037Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:17:54.037Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-brow-serum-copy_400x.jpg?v=1626954085
+[2025-07-09T10:17:54.038Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:17:54.038Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-cleanser_400x.jpg?v=1626954069
+[2025-07-09T10:17:54.039Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:17:54.039Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Diablo-Thumb_b7354212-173f-41dc-ae2d-5c3c320aec8d_400x.png?v=1626961114
+[2025-07-09T10:17:54.039Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:17:54.039Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lash-lift-kit_400x.jpg?v=1626954105
+[2025-07-09T10:17:54.040Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 7: Replaced 1 occurrence(s) by alt="Image of White Chair 7"
+[2025-07-09T10:17:54.040Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-applicators_400x.jpg?v=1626954096
+[2025-07-09T10:17:54.041Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 8: Replaced 1 occurrence(s) by alt="Image of White Chair 8"
+[2025-07-09T10:17:54.041Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-browlift-starter-set_400x.jpg?v=1626954090
+[2025-07-09T10:17:54.041Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 9: Replaced 1 occurrence(s) by alt="Image of White Chair 9"
+[2025-07-09T10:17:54.041Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-starter-set_400x.jpg?v=1626954114
+[2025-07-09T10:17:54.041Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.042Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 1
+[2025-07-09T10:17:54.042Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Eyelash Serum
+[2025-07-09T10:17:54.042Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.042Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 2
+[2025-07-09T10:17:54.042Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Refill Pack
+[2025-07-09T10:17:54.042Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.042Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 3
+[2025-07-09T10:17:54.043Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Brow Lamination Kit
+[2025-07-09T10:17:54.043Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.043Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 4
+[2025-07-09T10:17:54.043Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Cleanser
+[2025-07-09T10:17:54.044Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.044Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 5
+[2025-07-09T10:17:54.044Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Diablo Cosmetics
+[2025-07-09T10:17:54.044Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.044Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 6
+[2025-07-09T10:17:54.044Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lash Lift Kit
+[2025-07-09T10:17:54.044Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 7: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.045Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 7
+[2025-07-09T10:17:54.045Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Applicators
+[2025-07-09T10:17:54.045Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 8: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.045Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 8
+[2025-07-09T10:17:54.045Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Browlift Starter Set
+[2025-07-09T10:17:54.045Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 9: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.045Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 9
+[2025-07-09T10:17:54.045Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Starter Set
+[2025-07-09T10:17:54.046Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.046Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-1
+[2025-07-09T10:17:54.046Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/collections/best-sellers/products/eyelash-serum
+[2025-07-09T10:17:54.046Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.047Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-2
+[2025-07-09T10:17:54.047Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lashlift-refill-pack
+[2025-07-09T10:17:54.047Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.047Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-3
+[2025-07-09T10:17:54.047Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/brow-lamination-kit
+[2025-07-09T10:17:54.047Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.047Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-4
+[2025-07-09T10:17:54.047Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/cleanser
+[2025-07-09T10:17:54.048Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.048Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-5
+[2025-07-09T10:17:54.048Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/
+[2025-07-09T10:17:54.048Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.048Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-6
+[2025-07-09T10:17:54.048Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lash-lift-kit
+[2025-07-09T10:17:54.049Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 7 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.049Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-7
+[2025-07-09T10:17:54.049Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/applicators
+[2025-07-09T10:17:54.049Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 8 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.049Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-8
+[2025-07-09T10:17:54.050Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/browlift-starter-set
+[2025-07-09T10:17:54.050Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 9 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.050Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-9
+[2025-07-09T10:17:54.050Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lashlift-starter-set
+[2025-07-09T10:17:54.050Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Sellers Link: Replaced 3 occurrence(s)
+[2025-07-09T10:17:54.050Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://link_to_best_sellers
+[2025-07-09T10:17:54.050Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/collections/best-sellers
+[2025-07-09T10:17:54.051Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Image: Replaced 2 occurrence(s) by alt="brand_benefits_1_img_url"
+[2025-07-09T10:17:54.051Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/4nzyfpXM/Delivery-Truck.png
+[2025-07-09T10:17:54.052Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Image: Replaced 2 occurrence(s) by alt="brand_benefits_2_img_url"
+[2025-07-09T10:17:54.052Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/DDg4tJqw/Returns-Refunds-Exchanges.png
+[2025-07-09T10:17:54.052Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Image: Replaced 2 occurrence(s) by alt="brand_benefits_3_img_url"
+[2025-07-09T10:17:54.052Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/Dft4XgyQ/Star.png
+[2025-07-09T10:17:54.052Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.053Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_1
+[2025-07-09T10:17:54.053Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Free Shipping
+[2025-07-09T10:17:54.053Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.053Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_2
+[2025-07-09T10:17:54.053Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Extended Returns
+[2025-07-09T10:17:54.053Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.053Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_3
+[2025-07-09T10:17:54.054Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Highly Rated
+[2025-07-09T10:17:54.054Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.054Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_1_img_url
+[2025-07-09T10:17:54.054Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.055Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.055Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_2_img_url
+[2025-07-09T10:17:54.055Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.055Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.055Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_3_img_url
+[2025-07-09T10:17:54.055Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.055Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Deliverability Text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.056Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: deliverability_text
+[2025-07-09T10:17:54.056Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   <div><span style="color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;">Order Number – Thank you for choosing Diablo Cosmetics. Your items are being prepared and will be dispatched shortly. Keep this message for reference. Included: 1x Lashlift Starter Set – 49.00 USD 1x Eyelash Serum – 28.00 USD 1x Lash Lift Kit – 39.00 USD Applied: N/A – 0.00 Subtotal: 0.00 Shipping: Standard Service Taxes: 0.00 Total: 0.00 USD Shipping Information: Alex Green 789 Neutral Road Techville, XX 12345 USA Information: Alex Green 789 Neutral Road Techville, XX 12345 USA Shipping Method: Standard (5–7 business days) Delivery Information: Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays. Not arrived within timeframe? Support team available. We're ready to help. 1. Processing: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit. 2. Shipping & Arrival: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region. 3. Payment & Security: Transactions encrypted. Details protected. Payment methods shown at checkout. 4. Returns & Resolution: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred. 5. Privacy Statement: Info used to manage account and fulfill inquiry. We don't share data unless required. 6. Rights & Content: Materials belong to Diablo Cosmetics or licensed parties. Protected by intellectual property laws. Thank you again from Diablo Cosmetics. We appreciate your support. Regards, The Diablo Cosmetics Team</span></div>
+[2025-07-09T10:17:54.056Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Contact Us Link: Replaced 3 occurrence(s)
+[2025-07-09T10:17:54.056Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://contact_us_link
+[2025-07-09T10:17:54.056Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/pages/contact-us
+[2025-07-09T10:17:54.057Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ FAQ Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.057Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://faq_link
+[2025-07-09T10:17:54.057Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/a/help-center
+[2025-07-09T10:17:54.057Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.057Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#FFF; text-decoration:none" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=1OBZdPc_Zf2HnukEdZPtT38jDIm8IcHBtxE0xewHCfs.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:17:54.057Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.058Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template processing complete
+[2025-07-09T10:17:54.058Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Successfully processed template SjnvqT
+[2025-07-09T10:17:54.058Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template Yf3Wdz...
+[2025-07-09T10:17:54.058Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template for brand: Diablo Cosmetics
+[2025-07-09T10:17:54.058Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:17:54.058Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Background color: Replaced 28 occurrence(s)
+[2025-07-09T10:17:54.058Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: #3290F5
+[2025-07-09T10:17:54.058Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   #111111
+[2025-07-09T10:17:54.059Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Text color: Replaced 10 occurrence(s)
+[2025-07-09T10:17:54.059Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: rgb(255, 255, 241), #FFFFF1
+[2025-07-09T10:17:54.059Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   #ffffff
+[2025-07-09T10:17:54.060Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand logo: Replaced 1 occurrence(s) by alt="logo_img_url"
+[2025-07-09T10:17:54.060Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://cdn.brandfetch.io/idtQk51n5q/w/820/h/117/theme/dark/logo.png?c=1bxidDUkTxa1Dl3KsNTfn
+[2025-07-09T10:17:54.060Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand logo alt text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.060Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: logo_img_url
+[2025-07-09T10:17:54.060Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.061Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Header image: Replaced 1 occurrence(s) by alt="header_image_url"
+[2025-07-09T10:17:54.061Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/F4bkDDkn/Kitchen-Timer.jpg
+[2025-07-09T10:17:54.061Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Header image alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.061Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: header_image_url
+[2025-07-09T10:17:54.061Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.063Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Main Product: Replaced 1 occurrence(s) by alt="main_product_img"
+[2025-07-09T10:17:54.063Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-browlift-starter-set_400x.jpg?v=1626954090
+[2025-07-09T10:17:54.064Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Main Product Name: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.064Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: main_product_name
+[2025-07-09T10:17:54.064Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Browlift Starter Set
+[2025-07-09T10:17:54.064Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Main Product Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.064Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://main_product_href
+[2025-07-09T10:17:54.064Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/browlift-starter-set
+[2025-07-09T10:17:54.065Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Main Product Alt Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.065Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: main_product_img
+[2025-07-09T10:17:54.065Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.066Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1: Replaced 1 occurrence(s) by alt="Image of White Chair 1"
+[2025-07-09T10:17:54.066Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-browlift-starter-set_400x.jpg?v=1626954090
+[2025-07-09T10:17:54.067Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:17:54.067Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-starter-set_400x.jpg?v=1626954114
+[2025-07-09T10:17:54.068Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:17:54.068Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lash-lift-kit_400x.jpg?v=1626954105
+[2025-07-09T10:17:54.069Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:17:54.069Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Eyelash-serum-2.2-cp.jpg
+[2025-07-09T10:17:54.070Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:17:54.070Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-applicators_400x.jpg?v=1626954096
+[2025-07-09T10:17:54.070Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:17:54.070Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Diablo-Thumb_b7354212-173f-41dc-ae2d-5c3c320aec8d_400x.png?v=1626961114
+[2025-07-09T10:17:54.071Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1: Replaced 1 occurrence(s) by alt="Image of White Chair 1"
+[2025-07-09T10:17:54.071Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-browlift-starter-set_400x.jpg?v=1626954090
+[2025-07-09T10:17:54.072Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:17:54.072Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-starter-set_400x.jpg?v=1626954114
+[2025-07-09T10:17:54.078Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:17:54.078Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lash-lift-kit_400x.jpg?v=1626954105
+[2025-07-09T10:17:54.079Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:17:54.079Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Eyelash-serum-2.2-cp.jpg
+[2025-07-09T10:17:54.079Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:17:54.079Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-applicators_400x.jpg?v=1626954096
+[2025-07-09T10:17:54.080Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:17:54.080Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Diablo-Thumb_b7354212-173f-41dc-ae2d-5c3c320aec8d_400x.png?v=1626961114
+[2025-07-09T10:17:54.080Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.080Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 1
+[2025-07-09T10:17:54.085Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Browlift Starter Set
+[2025-07-09T10:17:54.086Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.086Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 2
+[2025-07-09T10:17:54.086Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Starter Set
+[2025-07-09T10:17:54.086Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.087Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 3
+[2025-07-09T10:17:54.087Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lash Lift Kit
+[2025-07-09T10:17:54.087Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.087Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 4
+[2025-07-09T10:17:54.087Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Eyelash Serum
+[2025-07-09T10:17:54.090Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.090Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 5
+[2025-07-09T10:17:54.091Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Applicators
+[2025-07-09T10:17:54.092Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.092Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 6
+[2025-07-09T10:17:54.093Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Diablo Cosmetics
+[2025-07-09T10:17:54.093Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.094Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-1
+[2025-07-09T10:17:54.094Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/browlift-starter-set
+[2025-07-09T10:17:54.095Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.095Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-2
+[2025-07-09T10:17:54.095Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lashlift-starter-set
+[2025-07-09T10:17:54.095Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.095Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-3
+[2025-07-09T10:17:54.095Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lash-lift-kit
+[2025-07-09T10:17:54.096Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.096Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-4
+[2025-07-09T10:17:54.096Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/collections/best-sellers/products/eyelash-serum
+[2025-07-09T10:17:54.096Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.096Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-5
+[2025-07-09T10:17:54.096Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/applicators
+[2025-07-09T10:17:54.097Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.098Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-6
+[2025-07-09T10:17:54.098Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/
+[2025-07-09T10:17:54.099Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Sellers Link: Replaced 3 occurrence(s)
+[2025-07-09T10:17:54.100Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://link_to_best_sellers
+[2025-07-09T10:17:54.100Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/collections/best-sellers
+[2025-07-09T10:17:54.101Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Image: Replaced 2 occurrence(s) by alt="brand_benefits_1_img_url"
+[2025-07-09T10:17:54.101Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/4nzyfpXM/Delivery-Truck.png
+[2025-07-09T10:17:54.102Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Image: Replaced 2 occurrence(s) by alt="brand_benefits_2_img_url"
+[2025-07-09T10:17:54.102Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/DDg4tJqw/Returns-Refunds-Exchanges.png
+[2025-07-09T10:17:54.103Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Image: Replaced 2 occurrence(s) by alt="brand_benefits_3_img_url"
+[2025-07-09T10:17:54.104Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/Dft4XgyQ/Star.png
+[2025-07-09T10:17:54.104Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.104Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_1
+[2025-07-09T10:17:54.104Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Free Shipping
+[2025-07-09T10:17:54.104Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.105Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_2
+[2025-07-09T10:17:54.105Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Extended Returns
+[2025-07-09T10:17:54.105Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.105Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_3
+[2025-07-09T10:17:54.105Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Highly Rated
+[2025-07-09T10:17:54.106Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.106Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_1_img_url
+[2025-07-09T10:17:54.107Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.108Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.108Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_2_img_url
+[2025-07-09T10:17:54.109Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.109Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.109Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_3_img_url
+[2025-07-09T10:17:54.109Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.110Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Deliverability Text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.110Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: deliverability_text
+[2025-07-09T10:17:54.110Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   <div><span style="color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;">Order Number – Thank you for choosing Diablo Cosmetics. Your items are being prepared and will be dispatched shortly. Keep this message for reference. Included: 1x Lashlift Starter Set – 49.00 USD 1x Eyelash Serum – 28.00 USD 1x Lash Lift Kit – 39.00 USD Applied: N/A – 0.00 Subtotal: 0.00 Shipping: Standard Service Taxes: 0.00 Total: 0.00 USD Shipping Information: Alex Green 789 Neutral Road Techville, XX 12345 USA Information: Alex Green 789 Neutral Road Techville, XX 12345 USA Shipping Method: Standard (5–7 business days) Delivery Information: Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays. Not arrived within timeframe? Support team available. We're ready to help. 1. Processing: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit. 2. Shipping & Arrival: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region. 3. Payment & Security: Transactions encrypted. Details protected. Payment methods shown at checkout. 4. Returns & Resolution: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred. 5. Privacy Statement: Info used to manage account and fulfill inquiry. We don't share data unless required. 6. Rights & Content: Materials belong to Diablo Cosmetics or licensed parties. Protected by intellectual property laws. Thank you again from Diablo Cosmetics. We appreciate your support. Regards, The Diablo Cosmetics Team</span></div>
+[2025-07-09T10:17:54.110Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Contact Us Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.110Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://contact_us_link
+[2025-07-09T10:17:54.110Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/pages/contact-us
+[2025-07-09T10:17:54.111Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ FAQ Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.111Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://faq_link
+[2025-07-09T10:17:54.111Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/a/help-center
+[2025-07-09T10:17:54.111Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.111Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#FFF; text-decoration:none" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=1OBZdPc_Zf2HnukEdZPtT38jDIm8IcHBtxE0xewHCfs.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:17:54.111Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.112Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template processing complete
+[2025-07-09T10:17:54.112Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Successfully processed template Yf3Wdz
+[2025-07-09T10:17:54.112Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template RLpd9P...
+[2025-07-09T10:17:54.112Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template for brand: Diablo Cosmetics
+[2025-07-09T10:17:54.112Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:17:54.113Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Background color: Replaced 28 occurrence(s)
+[2025-07-09T10:17:54.113Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: #3290F5
+[2025-07-09T10:17:54.113Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   #111111
+[2025-07-09T10:17:54.113Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Text color: Replaced 10 occurrence(s)
+[2025-07-09T10:17:54.114Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: rgb(255, 255, 241), #FFFFF1
+[2025-07-09T10:17:54.114Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   #ffffff
+[2025-07-09T10:17:54.114Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand logo: Replaced 1 occurrence(s) by alt="logo_img_url"
+[2025-07-09T10:17:54.114Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://cdn.brandfetch.io/idtQk51n5q/w/820/h/117/theme/dark/logo.png?c=1bxidDUkTxa1Dl3KsNTfn
+[2025-07-09T10:17:54.115Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand logo alt text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.115Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: logo_img_url
+[2025-07-09T10:17:54.115Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.116Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Header image: Replaced 1 occurrence(s) by alt="header_image_url"
+[2025-07-09T10:17:54.116Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/391WjMHB/Open-Bag-2.jpg
+[2025-07-09T10:17:54.116Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Header image alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.116Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: header_image_url
+[2025-07-09T10:17:54.117Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.117Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Top Email Text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.117Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: top_email_text
+[2025-07-09T10:17:54.117Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Free shipping on all orders this week!
+[2025-07-09T10:17:54.118Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.118Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cdn.shopify.com/s/files/1/0952/3622/7421/files/image.png?v=1747148039, https://cq2sff-ue.myshopify.com/cdn/shop/files/image-6_grande.png?v=1747148157
+[2025-07-09T10:17:54.118Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-refill-pack_400x.jpg?v=1626954078
+[2025-07-09T10:17:54.119Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product Link: Replaced 5 occurrence(s)
+[2025-07-09T10:17:54.119Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/95236227421/checkouts/ac/Z2NwLWV1cm9wZS13ZXN0MzowMUpWVlY1R0I5UENZMDAyWUU0UUNHTlgxVg/recover, https://cq2sff-ue.myshopify.com/products/white-chair-7
+[2025-07-09T10:17:54.119Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lashlift-refill-pack
+[2025-07-09T10:17:54.119Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product Name: Replaced 3 occurrence(s)
+[2025-07-09T10:17:54.119Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 1, White Chair 7
+[2025-07-09T10:17:54.120Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Refill Pack
+[2025-07-09T10:17:54.120Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product Price: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.120Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: $50.00, 50.00 лв
+[2025-07-09T10:17:54.120Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   $20
+[2025-07-09T10:17:54.120Z] [WARN] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:17:54.121Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:17:54.121Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Diablo-Thumb_b7354212-173f-41dc-ae2d-5c3c320aec8d_400x.png?v=1626961114
+[2025-07-09T10:17:54.122Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:17:54.122Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Eyelash-serum-2.2-cp.jpg
+[2025-07-09T10:17:54.122Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:17:54.123Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-brow-serum-copy_400x.jpg?v=1626954085
+[2025-07-09T10:17:54.123Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:17:54.123Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-applicators_400x.jpg?v=1626954096
+[2025-07-09T10:17:54.124Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:17:54.124Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-browlift-starter-set_400x.jpg?v=1626954090
+[2025-07-09T10:17:54.124Z] [WARN] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:17:54.125Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:17:54.125Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Diablo-Thumb_b7354212-173f-41dc-ae2d-5c3c320aec8d_400x.png?v=1626961114
+[2025-07-09T10:17:54.126Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:17:54.126Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Eyelash-serum-2.2-cp.jpg
+[2025-07-09T10:17:54.127Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:17:54.127Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-brow-serum-copy_400x.jpg?v=1626954085
+[2025-07-09T10:17:54.127Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:17:54.127Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-applicators_400x.jpg?v=1626954096
+[2025-07-09T10:17:54.128Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:17:54.128Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-browlift-starter-set_400x.jpg?v=1626954090
+[2025-07-09T10:17:54.128Z] [WARN] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ⚠️ Best Seller 1: Text not found in HTML
+[2025-07-09T10:17:54.129Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.129Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 2
+[2025-07-09T10:17:54.129Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Diablo Cosmetics
+[2025-07-09T10:17:54.129Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.129Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 3
+[2025-07-09T10:17:54.129Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Eyelash Serum
+[2025-07-09T10:17:54.130Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.130Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 4
+[2025-07-09T10:17:54.130Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Brow Lamination Kit
+[2025-07-09T10:17:54.130Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.130Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 5
+[2025-07-09T10:17:54.130Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Applicators
+[2025-07-09T10:17:54.130Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.131Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 6
+[2025-07-09T10:17:54.131Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Browlift Starter Set
+[2025-07-09T10:17:54.131Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.131Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-1
+[2025-07-09T10:17:54.132Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/cleanser
+[2025-07-09T10:17:54.132Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.132Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-2
+[2025-07-09T10:17:54.132Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/
+[2025-07-09T10:17:54.135Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.135Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-3
+[2025-07-09T10:17:54.135Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/collections/best-sellers/products/eyelash-serum
+[2025-07-09T10:17:54.136Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.136Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-4
+[2025-07-09T10:17:54.136Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/brow-lamination-kit
+[2025-07-09T10:17:54.136Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.137Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-5
+[2025-07-09T10:17:54.137Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/applicators
+[2025-07-09T10:17:54.137Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.137Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-6
+[2025-07-09T10:17:54.137Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/browlift-starter-set
+[2025-07-09T10:17:54.138Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Image: Replaced 2 occurrence(s) by alt="brand_benefits_1_img_url"
+[2025-07-09T10:17:54.138Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/4nzyfpXM/Delivery-Truck.png
+[2025-07-09T10:17:54.139Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Image: Replaced 2 occurrence(s) by alt="brand_benefits_2_img_url"
+[2025-07-09T10:17:54.139Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/DDg4tJqw/Returns-Refunds-Exchanges.png
+[2025-07-09T10:17:54.140Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Image: Replaced 2 occurrence(s) by alt="brand_benefits_3_img_url"
+[2025-07-09T10:17:54.140Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/Dft4XgyQ/Star.png
+[2025-07-09T10:17:54.140Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.140Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_1
+[2025-07-09T10:17:54.140Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Free Shipping
+[2025-07-09T10:17:54.140Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.141Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_2
+[2025-07-09T10:17:54.141Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Extended Returns
+[2025-07-09T10:17:54.142Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.142Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_3
+[2025-07-09T10:17:54.142Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Highly Rated
+[2025-07-09T10:17:54.142Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.143Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_1_img_url
+[2025-07-09T10:17:54.143Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.143Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.143Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_2_img_url
+[2025-07-09T10:17:54.143Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.144Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.144Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_3_img_url
+[2025-07-09T10:17:54.144Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.144Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Contact Us Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.144Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://contact_us_link
+[2025-07-09T10:17:54.144Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/pages/contact-us
+[2025-07-09T10:17:54.145Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ FAQ Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.145Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://faq_link
+[2025-07-09T10:17:54.145Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/a/help-center
+[2025-07-09T10:17:54.145Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Deliverability Text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.145Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: deliverability_text
+[2025-07-09T10:17:54.145Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   <div><span style="color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;">Order Number – Thank you for choosing Diablo Cosmetics. Your items are being prepared and will be dispatched shortly. Keep this message for reference. Included: 1x Lashlift Starter Set – 49.00 USD 1x Eyelash Serum – 28.00 USD 1x Lash Lift Kit – 39.00 USD Applied: N/A – 0.00 Subtotal: 0.00 Shipping: Standard Service Taxes: 0.00 Total: 0.00 USD Shipping Information: Alex Green 789 Neutral Road Techville, XX 12345 USA Information: Alex Green 789 Neutral Road Techville, XX 12345 USA Shipping Method: Standard (5–7 business days) Delivery Information: Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays. Not arrived within timeframe? Support team available. We're ready to help. 1. Processing: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit. 2. Shipping & Arrival: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region. 3. Payment & Security: Transactions encrypted. Details protected. Payment methods shown at checkout. 4. Returns & Resolution: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred. 5. Privacy Statement: Info used to manage account and fulfill inquiry. We don't share data unless required. 6. Rights & Content: Materials belong to Diablo Cosmetics or licensed parties. Protected by intellectual property laws. Thank you again from Diablo Cosmetics. We appreciate your support. Regards, The Diablo Cosmetics Team</span></div>
+[2025-07-09T10:17:54.146Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.146Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#FFF; text-decoration:none" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=IuEa-sjfT3mtYNoNk_jybBmtjthy2WcfrT3zVnNmuK7zCWn-lljyH-JFzu4apAis.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:17:54.146Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.147Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template processing complete
+[2025-07-09T10:17:54.147Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Successfully processed template RLpd9P
+[2025-07-09T10:17:54.147Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template X7qBvi...
+[2025-07-09T10:17:54.147Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template for brand: Diablo Cosmetics
+[2025-07-09T10:17:54.147Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:17:54.148Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Background color: Replaced 28 occurrence(s)
+[2025-07-09T10:17:54.148Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: #3290F5
+[2025-07-09T10:17:54.148Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   #111111
+[2025-07-09T10:17:54.149Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Text color: Replaced 10 occurrence(s)
+[2025-07-09T10:17:54.149Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: rgb(255, 255, 241), #FFFFF1
+[2025-07-09T10:17:54.149Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   #ffffff
+[2025-07-09T10:17:54.150Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand logo: Replaced 1 occurrence(s) by alt="logo_img_url"
+[2025-07-09T10:17:54.150Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://cdn.brandfetch.io/idtQk51n5q/w/820/h/117/theme/dark/logo.png?c=1bxidDUkTxa1Dl3KsNTfn
+[2025-07-09T10:17:54.150Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand logo alt text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.150Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: logo_img_url
+[2025-07-09T10:17:54.150Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.151Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Header image: Replaced 1 occurrence(s) by alt="header_image_url"
+[2025-07-09T10:17:54.151Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/Xk29fJ3R/Lightning-Discount.jpg
+[2025-07-09T10:17:54.151Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Header image alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.151Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: header_image_url
+[2025-07-09T10:17:54.151Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.151Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Top Email Text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.151Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: top_email_text
+[2025-07-09T10:17:54.152Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Free shipping on all orders this week!
+[2025-07-09T10:17:54.153Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.153Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cdn.shopify.com/s/files/1/0952/3622/7421/files/image.png?v=1747148039, https://cq2sff-ue.myshopify.com/cdn/shop/files/image-6_grande.png?v=1747148157
+[2025-07-09T10:17:54.153Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/cdn/shop/files/Eyelash-serum-2.2-cp.jpg
+[2025-07-09T10:17:54.153Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product Link: Replaced 5 occurrence(s)
+[2025-07-09T10:17:54.153Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/95236227421/checkouts/ac/Z2NwLWV1cm9wZS13ZXN0MzowMUpWVlY1R0I5UENZMDAyWUU0UUNHTlgxVg/recover, https://cq2sff-ue.myshopify.com/products/white-chair-7
+[2025-07-09T10:17:54.153Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/collections/best-sellers/products/eyelash-serum
+[2025-07-09T10:17:54.154Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product Name: Replaced 3 occurrence(s)
+[2025-07-09T10:17:54.154Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 1, White Chair 7
+[2025-07-09T10:17:54.154Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Eyelash Serum
+[2025-07-09T10:17:54.154Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product Price: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.154Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: $50.00, 50.00 лв
+[2025-07-09T10:17:54.154Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   $28
+[2025-07-09T10:17:54.154Z] [WARN] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:17:54.155Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:17:54.155Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Diablo-Thumb_b7354212-173f-41dc-ae2d-5c3c320aec8d_400x.png?v=1626961114
+[2025-07-09T10:17:54.156Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:17:54.156Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-refill-pack_400x.jpg?v=1626954078
+[2025-07-09T10:17:54.157Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:17:54.157Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-applicators_400x.jpg?v=1626954096
+[2025-07-09T10:17:54.158Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:17:54.158Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-brow-serum-copy_400x.jpg?v=1626954085
+[2025-07-09T10:17:54.159Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:17:54.159Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-cleanser_400x.jpg?v=1626954069
+[2025-07-09T10:17:54.159Z] [WARN] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:17:54.159Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:17:54.159Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Diablo-Thumb_b7354212-173f-41dc-ae2d-5c3c320aec8d_400x.png?v=1626961114
+[2025-07-09T10:17:54.160Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:17:54.160Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-refill-pack_400x.jpg?v=1626954078
+[2025-07-09T10:17:54.160Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:17:54.161Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-applicators_400x.jpg?v=1626954096
+[2025-07-09T10:17:54.161Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:17:54.161Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-brow-serum-copy_400x.jpg?v=1626954085
+[2025-07-09T10:17:54.162Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:17:54.162Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-cleanser_400x.jpg?v=1626954069
+[2025-07-09T10:17:54.163Z] [WARN] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ⚠️ Best Seller 1: Text not found in HTML
+[2025-07-09T10:17:54.163Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.163Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 2
+[2025-07-09T10:17:54.163Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Diablo Cosmetics
+[2025-07-09T10:17:54.163Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.163Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 3
+[2025-07-09T10:17:54.163Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Refill Pack
+[2025-07-09T10:17:54.164Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.164Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 4
+[2025-07-09T10:17:54.164Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Applicators
+[2025-07-09T10:17:54.164Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.164Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 5
+[2025-07-09T10:17:54.164Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Brow Lamination Kit
+[2025-07-09T10:17:54.165Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.165Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 6
+[2025-07-09T10:17:54.165Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Cleanser
+[2025-07-09T10:17:54.166Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.166Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-1
+[2025-07-09T10:17:54.166Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lashlift-starter-set
+[2025-07-09T10:17:54.166Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.166Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-2
+[2025-07-09T10:17:54.166Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/
+[2025-07-09T10:17:54.167Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.167Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-3
+[2025-07-09T10:17:54.167Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lashlift-refill-pack
+[2025-07-09T10:17:54.168Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.168Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-4
+[2025-07-09T10:17:54.168Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/applicators
+[2025-07-09T10:17:54.168Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.168Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-5
+[2025-07-09T10:17:54.168Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/brow-lamination-kit
+[2025-07-09T10:17:54.168Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.169Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-6
+[2025-07-09T10:17:54.169Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/cleanser
+[2025-07-09T10:17:54.169Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Image: Replaced 2 occurrence(s) by alt="brand_benefits_1_img_url"
+[2025-07-09T10:17:54.169Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/4nzyfpXM/Delivery-Truck.png
+[2025-07-09T10:17:54.170Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Image: Replaced 2 occurrence(s) by alt="brand_benefits_2_img_url"
+[2025-07-09T10:17:54.170Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/DDg4tJqw/Returns-Refunds-Exchanges.png
+[2025-07-09T10:17:54.171Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Image: Replaced 2 occurrence(s) by alt="brand_benefits_3_img_url"
+[2025-07-09T10:17:54.171Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/Dft4XgyQ/Star.png
+[2025-07-09T10:17:54.171Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.171Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_1
+[2025-07-09T10:17:54.171Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Free Shipping
+[2025-07-09T10:17:54.174Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.174Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_2
+[2025-07-09T10:17:54.174Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Extended Returns
+[2025-07-09T10:17:54.175Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.175Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_3
+[2025-07-09T10:17:54.175Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Highly Rated
+[2025-07-09T10:17:54.176Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.176Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_1_img_url
+[2025-07-09T10:17:54.176Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.176Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.177Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_2_img_url
+[2025-07-09T10:17:54.177Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.177Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.177Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_3_img_url
+[2025-07-09T10:17:54.177Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.178Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Contact Us Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.178Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://contact_us_link
+[2025-07-09T10:17:54.178Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/pages/contact-us
+[2025-07-09T10:17:54.178Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ FAQ Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.178Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://faq_link
+[2025-07-09T10:17:54.179Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/a/help-center
+[2025-07-09T10:17:54.179Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Deliverability Text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.179Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: deliverability_text
+[2025-07-09T10:17:54.179Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   <div><span style="color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;">Order Number – Thank you for choosing Diablo Cosmetics. Your items are being prepared and will be dispatched shortly. Keep this message for reference. Included: 1x Lashlift Starter Set – 49.00 USD 1x Eyelash Serum – 28.00 USD 1x Lash Lift Kit – 39.00 USD Applied: N/A – 0.00 Subtotal: 0.00 Shipping: Standard Service Taxes: 0.00 Total: 0.00 USD Shipping Information: Alex Green 789 Neutral Road Techville, XX 12345 USA Information: Alex Green 789 Neutral Road Techville, XX 12345 USA Shipping Method: Standard (5–7 business days) Delivery Information: Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays. Not arrived within timeframe? Support team available. We're ready to help. 1. Processing: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit. 2. Shipping & Arrival: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region. 3. Payment & Security: Transactions encrypted. Details protected. Payment methods shown at checkout. 4. Returns & Resolution: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred. 5. Privacy Statement: Info used to manage account and fulfill inquiry. We don't share data unless required. 6. Rights & Content: Materials belong to Diablo Cosmetics or licensed parties. Protected by intellectual property laws. Thank you again from Diablo Cosmetics. We appreciate your support. Regards, The Diablo Cosmetics Team</span></div>
+[2025-07-09T10:17:54.180Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.180Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#FFF; text-decoration:none" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=IuEa-sjfT3mtYNoNk_jybBmtjthy2WcfrT3zVnNmuK7zCWn-lljyH-JFzu4apAis.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:17:54.180Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.181Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template processing complete
+[2025-07-09T10:17:54.181Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Successfully processed template X7qBvi
+[2025-07-09T10:17:54.181Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template QTQpvV...
+[2025-07-09T10:17:54.181Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template for brand: Diablo Cosmetics
+[2025-07-09T10:17:54.181Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:17:54.181Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Background color: Replaced 34 occurrence(s)
+[2025-07-09T10:17:54.181Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: #3290F5
+[2025-07-09T10:17:54.181Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   #111111
+[2025-07-09T10:17:54.182Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Text color: Replaced 12 occurrence(s)
+[2025-07-09T10:17:54.182Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: rgb(255, 255, 241), #FFFFF1
+[2025-07-09T10:17:54.182Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   #ffffff
+[2025-07-09T10:17:54.183Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand logo: Replaced 1 occurrence(s) by alt="logo_img_url"
+[2025-07-09T10:17:54.183Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://cdn.brandfetch.io/idtQk51n5q/w/820/h/117/theme/dark/logo.png?c=1bxidDUkTxa1Dl3KsNTfn
+[2025-07-09T10:17:54.184Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand logo alt text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.184Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: logo_img_url
+[2025-07-09T10:17:54.184Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.184Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Header image: Replaced 1 occurrence(s) by alt="header_image_url"
+[2025-07-09T10:17:54.185Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/Nd9kcWNW/Stopwatch.jpg
+[2025-07-09T10:17:54.185Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Header image alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.185Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: header_image_url
+[2025-07-09T10:17:54.185Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.185Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Top Email Text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.185Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: top_email_text
+[2025-07-09T10:17:54.185Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Free shipping on all orders this week!
+[2025-07-09T10:17:54.186Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.186Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cdn.shopify.com/s/files/1/0952/3622/7421/files/image.png?v=1747148039, https://cq2sff-ue.myshopify.com/cdn/shop/files/image-6_grande.png?v=1747148157
+[2025-07-09T10:17:54.186Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/cdn/shop/products/diablo-browlift-starter-set_400x.jpg?v=1626954090
+[2025-07-09T10:17:54.187Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product Link: Replaced 6 occurrence(s)
+[2025-07-09T10:17:54.187Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/95236227421/checkouts/ac/Z2NwLWV1cm9wZS13ZXN0MzowMUpWVlY1R0I5UENZMDAyWUU0UUNHTlgxVg/recover, https://cq2sff-ue.myshopify.com/products/white-chair-7
+[2025-07-09T10:17:54.187Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/browlift-starter-set
+[2025-07-09T10:17:54.187Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product Name: Replaced 3 occurrence(s)
+[2025-07-09T10:17:54.188Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 1, White Chair 7
+[2025-07-09T10:17:54.188Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Browlift Starter Set
+[2025-07-09T10:17:54.188Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product Price: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.188Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: $50.00, 50.00 лв
+[2025-07-09T10:17:54.188Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   $95
+[2025-07-09T10:17:54.188Z] [WARN] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:17:54.189Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:17:54.189Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-starter-set_400x.jpg?v=1626954114
+[2025-07-09T10:17:54.190Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:17:54.190Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-refill-pack_400x.jpg?v=1626954078
+[2025-07-09T10:17:54.191Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:17:54.191Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-applicators_400x.jpg?v=1626954096
+[2025-07-09T10:17:54.192Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:17:54.192Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Eyelash-serum-2.2-cp.jpg
+[2025-07-09T10:17:54.192Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:17:54.193Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-brow-serum-copy_400x.jpg?v=1626954085
+[2025-07-09T10:17:54.193Z] [WARN] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:17:54.194Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:17:54.194Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-starter-set_400x.jpg?v=1626954114
+[2025-07-09T10:17:54.195Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:17:54.195Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-refill-pack_400x.jpg?v=1626954078
+[2025-07-09T10:17:54.195Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:17:54.195Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-applicators_400x.jpg?v=1626954096
+[2025-07-09T10:17:54.196Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:17:54.196Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Eyelash-serum-2.2-cp.jpg
+[2025-07-09T10:17:54.197Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:17:54.197Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-brow-serum-copy_400x.jpg?v=1626954085
+[2025-07-09T10:17:54.197Z] [WARN] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ⚠️ Best Seller 1: Text not found in HTML
+[2025-07-09T10:17:54.197Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.197Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 2
+[2025-07-09T10:17:54.197Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Starter Set
+[2025-07-09T10:17:54.198Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.198Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 3
+[2025-07-09T10:17:54.198Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Refill Pack
+[2025-07-09T10:17:54.198Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.198Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 4
+[2025-07-09T10:17:54.198Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Applicators
+[2025-07-09T10:17:54.199Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.199Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 5
+[2025-07-09T10:17:54.199Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Eyelash Serum
+[2025-07-09T10:17:54.199Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.199Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 6
+[2025-07-09T10:17:54.199Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Brow Lamination Kit
+[2025-07-09T10:17:54.199Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.199Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-1
+[2025-07-09T10:17:54.200Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lash-lift-kit
+[2025-07-09T10:17:54.200Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.200Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-2
+[2025-07-09T10:17:54.200Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lashlift-starter-set
+[2025-07-09T10:17:54.201Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.201Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-3
+[2025-07-09T10:17:54.201Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lashlift-refill-pack
+[2025-07-09T10:17:54.201Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.201Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-4
+[2025-07-09T10:17:54.201Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/applicators
+[2025-07-09T10:17:54.202Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.202Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-5
+[2025-07-09T10:17:54.202Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/collections/best-sellers/products/eyelash-serum
+[2025-07-09T10:17:54.203Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.203Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-6
+[2025-07-09T10:17:54.203Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/brow-lamination-kit
+[2025-07-09T10:17:54.204Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Image: Replaced 2 occurrence(s) by alt="brand_benefits_1_img_url"
+[2025-07-09T10:17:54.204Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/4nzyfpXM/Delivery-Truck.png
+[2025-07-09T10:17:54.205Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Image: Replaced 2 occurrence(s) by alt="brand_benefits_2_img_url"
+[2025-07-09T10:17:54.205Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/DDg4tJqw/Returns-Refunds-Exchanges.png
+[2025-07-09T10:17:54.205Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Image: Replaced 2 occurrence(s) by alt="brand_benefits_3_img_url"
+[2025-07-09T10:17:54.205Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/Dft4XgyQ/Star.png
+[2025-07-09T10:17:54.206Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.206Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_1
+[2025-07-09T10:17:54.206Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Free Shipping
+[2025-07-09T10:17:54.207Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.207Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_2
+[2025-07-09T10:17:54.207Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Extended Returns
+[2025-07-09T10:17:54.207Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.207Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_3
+[2025-07-09T10:17:54.207Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Highly Rated
+[2025-07-09T10:17:54.208Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.208Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_1_img_url
+[2025-07-09T10:17:54.208Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.208Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.208Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_2_img_url
+[2025-07-09T10:17:54.208Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.211Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.211Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_3_img_url
+[2025-07-09T10:17:54.211Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.212Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Contact Us Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.212Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://contact_us_link
+[2025-07-09T10:17:54.212Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/pages/contact-us
+[2025-07-09T10:17:54.212Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ FAQ Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.213Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://faq_link
+[2025-07-09T10:17:54.213Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/a/help-center
+[2025-07-09T10:17:54.213Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Deliverability Text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.213Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: deliverability_text
+[2025-07-09T10:17:54.213Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   <div><span style="color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;">Order Number – Thank you for choosing Diablo Cosmetics. Your items are being prepared and will be dispatched shortly. Keep this message for reference. Included: 1x Lashlift Starter Set – 49.00 USD 1x Eyelash Serum – 28.00 USD 1x Lash Lift Kit – 39.00 USD Applied: N/A – 0.00 Subtotal: 0.00 Shipping: Standard Service Taxes: 0.00 Total: 0.00 USD Shipping Information: Alex Green 789 Neutral Road Techville, XX 12345 USA Information: Alex Green 789 Neutral Road Techville, XX 12345 USA Shipping Method: Standard (5–7 business days) Delivery Information: Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays. Not arrived within timeframe? Support team available. We're ready to help. 1. Processing: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit. 2. Shipping & Arrival: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region. 3. Payment & Security: Transactions encrypted. Details protected. Payment methods shown at checkout. 4. Returns & Resolution: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred. 5. Privacy Statement: Info used to manage account and fulfill inquiry. We don't share data unless required. 6. Rights & Content: Materials belong to Diablo Cosmetics or licensed parties. Protected by intellectual property laws. Thank you again from Diablo Cosmetics. We appreciate your support. Regards, The Diablo Cosmetics Team</span></div>
+[2025-07-09T10:17:54.214Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.215Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#FFF; text-decoration:none" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=IuEa-sjfT3mtYNoNk_jybBmtjthy2WcfrT3zVnNmuK7zCWn-lljyH-JFzu4apAis.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:17:54.215Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.215Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template processing complete
+[2025-07-09T10:17:54.215Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Successfully processed template QTQpvV
+[2025-07-09T10:17:54.215Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template XvJpat...
+[2025-07-09T10:17:54.215Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template for brand: Diablo Cosmetics
+[2025-07-09T10:17:54.215Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:17:54.215Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Assistant Image: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.215Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://i.ibb.co/Kj5mL4GZ/blow-out-before-you-go-out-2025-04-06-07-16-30-utc.png
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://i.ibb.co/0RDCR33N/attractive-business-woman-working-at-his-laptop-2024-10-19-04-03-56-utc.png
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Assistant Name: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: assistant_name
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Nicole J.
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand URL: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://brand_url
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#0051c3; text-decoration:underline" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=IuEa-sjfT3mtYNoNk_jybBmtjthy2WcfrT3zVnNmuK7zCWn-lljyH-JFzu4apAis.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template processing complete
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Successfully processed template XvJpat
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template Rb3aEN...
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔄 Processing template for brand: Diablo Cosmetics
+[2025-07-09T10:17:54.216Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:17:54.217Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Background color: Replaced 28 occurrence(s)
+[2025-07-09T10:17:54.217Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: #3290F5
+[2025-07-09T10:17:54.217Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   #111111
+[2025-07-09T10:17:54.218Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Text color: Replaced 10 occurrence(s)
+[2025-07-09T10:17:54.218Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: rgb(255, 255, 241), #FFFFF1
+[2025-07-09T10:17:54.218Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   #ffffff
+[2025-07-09T10:17:54.218Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand logo: Replaced 1 occurrence(s) by alt="logo_img_url"
+[2025-07-09T10:17:54.218Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://cdn.brandfetch.io/idtQk51n5q/w/820/h/117/theme/dark/logo.png?c=1bxidDUkTxa1Dl3KsNTfn
+[2025-07-09T10:17:54.218Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand logo alt text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.218Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: logo_img_url
+[2025-07-09T10:17:54.218Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.219Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Header image: Replaced 1 occurrence(s) by alt="header_image_url"
+[2025-07-09T10:17:54.219Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/Q7WKLRp5/Magnifying-Glass.jpg
+[2025-07-09T10:17:54.219Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Header image alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.219Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: header_image_url
+[2025-07-09T10:17:54.219Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.220Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.220Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cdn.shopify.com/s/files/1/0952/3622/7421/files/image.png?v=1747148039, https://cq2sff-ue.myshopify.com/cdn/shop/files/image-6_grande.png?v=1747148157
+[2025-07-09T10:17:54.220Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/cdn/shop/products/diablo-brow-serum-copy_400x.jpg?v=1626954085
+[2025-07-09T10:17:54.221Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product Link: Replaced 5 occurrence(s)
+[2025-07-09T10:17:54.221Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/95236227421/checkouts/ac/Z2NwLWV1cm9wZS13ZXN0MzowMUpWVlY1R0I5UENZMDAyWUU0UUNHTlgxVg/recover, https://cq2sff-ue.myshopify.com/products/white-chair-7
+[2025-07-09T10:17:54.221Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/brow-lamination-kit
+[2025-07-09T10:17:54.222Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product Name: Replaced 5 occurrence(s)
+[2025-07-09T10:17:54.222Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 1, White Chair 7
+[2025-07-09T10:17:54.222Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Brow Lamination Kit
+[2025-07-09T10:17:54.223Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Abandoned Cart Product Price: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.223Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: $50.00, 50.00 лв
+[2025-07-09T10:17:54.223Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   $35
+[2025-07-09T10:17:54.223Z] [WARN] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:17:54.224Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:17:54.224Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-browlift-starter-set_400x.jpg?v=1626954090
+[2025-07-09T10:17:54.224Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:17:54.224Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-starter-set_400x.jpg?v=1626954114
+[2025-07-09T10:17:54.225Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:17:54.225Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-refill-pack_400x.jpg?v=1626954078
+[2025-07-09T10:17:54.225Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:17:54.225Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Eyelash-serum-2.2-cp.jpg
+[2025-07-09T10:17:54.226Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:17:54.226Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lash-lift-kit_400x.jpg?v=1626954105
+[2025-07-09T10:17:54.226Z] [WARN] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:17:54.226Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:17:54.226Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-browlift-starter-set_400x.jpg?v=1626954090
+[2025-07-09T10:17:54.227Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:17:54.227Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-starter-set_400x.jpg?v=1626954114
+[2025-07-09T10:17:54.227Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:17:54.227Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lashlift-refill-pack_400x.jpg?v=1626954078
+[2025-07-09T10:17:54.228Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:17:54.228Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/files/Eyelash-serum-2.2-cp.jpg
+[2025-07-09T10:17:54.228Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:17:54.228Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://www.diablocosmetics.com/cdn/shop/products/diablo-lash-lift-kit_400x.jpg?v=1626954105
+[2025-07-09T10:17:54.229Z] [WARN] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ⚠️ Best Seller 1: Text not found in HTML
+[2025-07-09T10:17:54.229Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.229Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 2
+[2025-07-09T10:17:54.229Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Browlift Starter Set
+[2025-07-09T10:17:54.229Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.229Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 3
+[2025-07-09T10:17:54.229Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Starter Set
+[2025-07-09T10:17:54.229Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.229Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 4
+[2025-07-09T10:17:54.229Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lashlift Refill Pack
+[2025-07-09T10:17:54.230Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.230Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 5
+[2025-07-09T10:17:54.230Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Eyelash Serum
+[2025-07-09T10:17:54.230Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.230Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: White Chair 6
+[2025-07-09T10:17:54.230Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Lash Lift Kit
+[2025-07-09T10:17:54.231Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 1 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.231Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-1
+[2025-07-09T10:17:54.231Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/
+[2025-07-09T10:17:54.231Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 2 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.231Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-2
+[2025-07-09T10:17:54.231Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/browlift-starter-set
+[2025-07-09T10:17:54.231Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 3 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.232Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-3
+[2025-07-09T10:17:54.232Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lashlift-starter-set
+[2025-07-09T10:17:54.232Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 4 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.232Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-4
+[2025-07-09T10:17:54.232Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lashlift-refill-pack
+[2025-07-09T10:17:54.232Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 5 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.232Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-5
+[2025-07-09T10:17:54.233Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/collections/best-sellers/products/eyelash-serum
+[2025-07-09T10:17:54.233Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Best Seller 6 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.233Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-6
+[2025-07-09T10:17:54.233Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/products/lash-lift-kit
+[2025-07-09T10:17:54.234Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Image: Replaced 2 occurrence(s) by alt="brand_benefits_1_img_url"
+[2025-07-09T10:17:54.234Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/4nzyfpXM/Delivery-Truck.png
+[2025-07-09T10:17:54.235Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Image: Replaced 2 occurrence(s) by alt="brand_benefits_2_img_url"
+[2025-07-09T10:17:54.235Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/DDg4tJqw/Returns-Refunds-Exchanges.png
+[2025-07-09T10:17:54.235Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Image: Replaced 2 occurrence(s) by alt="brand_benefits_3_img_url"
+[2025-07-09T10:17:54.235Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To: https://i.ibb.co/Dft4XgyQ/Star.png
+[2025-07-09T10:17:54.235Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.235Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_1
+[2025-07-09T10:17:54.235Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Free Shipping
+[2025-07-09T10:17:54.236Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.236Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_2
+[2025-07-09T10:17:54.236Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Extended Returns
+[2025-07-09T10:17:54.236Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:17:54.237Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefit_text_3
+[2025-07-09T10:17:54.237Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   Highly Rated
+[2025-07-09T10:17:54.237Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 1 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.237Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_1_img_url
+[2025-07-09T10:17:54.237Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.237Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 2 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.237Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_2_img_url
+[2025-07-09T10:17:54.237Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.237Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand Benefit 3 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:17:54.238Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: brand_benefits_3_img_url
+[2025-07-09T10:17:54.238Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.238Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Contact Us Link: Replaced 3 occurrence(s)
+[2025-07-09T10:17:54.238Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://contact_us_link
+[2025-07-09T10:17:54.238Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/pages/contact-us
+[2025-07-09T10:17:54.238Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ FAQ Link: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.238Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: http://faq_link
+[2025-07-09T10:17:54.238Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   https://www.diablocosmetics.com/a/help-center
+[2025-07-09T10:17:54.239Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Deliverability Text: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.239Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: deliverability_text
+[2025-07-09T10:17:54.239Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   <div><span style="color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;">Order Number – Thank you for choosing Diablo Cosmetics. Your items are being prepared and will be dispatched shortly. Keep this message for reference. Included: 1x Lashlift Starter Set – 49.00 USD 1x Eyelash Serum – 28.00 USD 1x Lash Lift Kit – 39.00 USD Applied: N/A – 0.00 Subtotal: 0.00 Shipping: Standard Service Taxes: 0.00 Total: 0.00 USD Shipping Information: Alex Green 789 Neutral Road Techville, XX 12345 USA Information: Alex Green 789 Neutral Road Techville, XX 12345 USA Shipping Method: Standard (5–7 business days) Delivery Information: Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays. Not arrived within timeframe? Support team available. We're ready to help. 1. Processing: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit. 2. Shipping & Arrival: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region. 3. Payment & Security: Transactions encrypted. Details protected. Payment methods shown at checkout. 4. Returns & Resolution: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred. 5. Privacy Statement: Info used to manage account and fulfill inquiry. We don't share data unless required. 6. Rights & Content: Materials belong to Diablo Cosmetics or licensed parties. Protected by intellectual property laws. Thank you again from Diablo Cosmetics. We appreciate your support. Regards, The Diablo Cosmetics Team</span></div>
+[2025-07-09T10:17:54.239Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:17:54.240Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#FFF; text-decoration:none" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=IuEa-sjfT3mtYNoNk_jybBmtjthy2WcfrT3zVnNmuK7zCWn-lljyH-JFzu4apAis.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:17:54.240Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/]    To:   
+[2025-07-09T10:17:54.240Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Template processing complete
+[2025-07-09T10:17:54.240Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Successfully processed template Rb3aEN
+[2025-07-09T10:17:54.240Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 
+📊 Step 3: Collecting results...
+[2025-07-09T10:17:54.248Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 💾 Results saved to /root/server-scraper/Klaviyo Portal/Functions/Generate Preview Emails/Generated Brand Preview Templates/Diablo Cosmetics/emails.json
+[2025-07-09T10:17:54.249Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Successfully processed: 8 templates
+[2025-07-09T10:17:54.249Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 📊 Total templates: 8
+[2025-07-09T10:17:54.250Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] ✅ Brand analysis completed in 17.619 seconds at 10:17:54 on 07/09/25
+[2025-07-09T10:17:54.250Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] SUMMARY - Request completed successfully
+[2025-07-09T10:17:54.257Z] [INFO] [REQ-1752056256629-262lyfnv5] [https://www.diablocosmetics.com/] 📁 Request-specific logs saved to: diablocosmetics.com_2025-07-09T10-17-36-629Z.log

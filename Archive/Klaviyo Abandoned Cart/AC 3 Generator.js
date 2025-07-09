@@ -1,13 +1,11 @@
-import * as templateFunctions from '../../templateFunctions.js';
-import crystalenergy from '../Misc/crystalenergy_updated_brand_data.json' with { type: 'json' };
+import * as templateFunctions from '../../Klaviyo Portal/Functions/templateFunctions.js';
+import crystalenergy from '../../Klaviyo Portal/Functions/Generate Klaviyo Flows/Misc/crystalenergy_updated_brand_data.json' with { type: 'json' };
 
-async function generateWF2(brandData, emailID) {
+async function generateAC3(brandData, emailID) {
     // Get the template data
     const templateData = await templateFunctions.getTemplateData(emailID);
-    
     // Determine text color based on background brightness (white for dark backgrounds, black for light)
     const textColor = brandData.preferred_logo_colors.selectedColor.brightness < 128 ? '#ffffff' : '#000000';
-    
     // Dynamically extract src values by searching for specific placeholder text
     const [logo_img, header_img, brand_benefits_1_img_url, brand_benefits_2_img_url, brand_benefits_3_img_url] = await Promise.all([
         templateFunctions.findSrcByText(templateData, 'logo_img_url'),
@@ -16,15 +14,15 @@ async function generateWF2(brandData, emailID) {
         templateFunctions.findSrcByText(templateData, 'brand_benefits_2_img_url'),
         templateFunctions.findSrcByText(templateData, 'brand_benefits_3_img_url')
     ]);
-
     const data = {
+        top_email_text: 'top_email_text',
         logo_img: logo_img,
         header_img: header_img,
         logo_img_url: 'logo_img_url',
         header_image_url: 'header_image_url',
         contact_us_link: 'http://contact_us_link',
         faq_link: 'http://faq_link',
-        link_to_best_sellers: 'http://link_to_best_sellers',
+        deliverability_text: 'deliverability_text',
         brand_benefit_text_1: 'brand_benefit_text_1',
         brand_benefit_text_2: 'brand_benefit_text_2',
         brand_benefit_text_3: 'brand_benefit_text_3',
@@ -34,19 +32,17 @@ async function generateWF2(brandData, emailID) {
         brand_benefit_1_alt: 'brand_benefits_1_img_url',
         brand_benefit_2_alt: 'brand_benefits_2_img_url',
         brand_benefit_3_alt: 'brand_benefits_3_img_url',
-        deliverability_text: 'deliverability_text',
         brand_background_color: '#3290F5',
         brand_text_color: ['#FFFFF1', 'rgb(255, 255, 241)']
     };
-
     const replace_data = [
-        { oldText: data.logo_img, newText: brandData.preferred_logo_colors.selectedLogo.formats[0].src }, 
-        { oldText: data.header_img, newText: brandData.emailImages['WF Email 2'].directLink }, 
+        { oldText: data.top_email_text, newText: brandData.geminiBrandBrief.topEmailText },
+        { oldText: data.logo_img, newText: brandData.preferred_logo_colors.selectedLogo.formats[0].src },
+        { oldText: data.header_img, newText: brandData.emailImages['AC Email 3'].directLink },
         { oldText: data.logo_img_url, newText: '' },
         { oldText: data.header_image_url, newText: '' },
-        { oldText: data.contact_us_link, newText: brandData.specialLinks.contactUrl }, 
+        { oldText: data.contact_us_link, newText: brandData.specialLinks.contactUrl },
         { oldText: data.faq_link, newText: brandData.specialLinks.faqUrl },
-        { oldText: data.link_to_best_sellers, newText: brandData.specialLinks.bestSellersUrl },
         { oldText: data.deliverability_text, newText: brandData.deliverabilitySnippet },
         { oldText: data.brand_benefit_text_1, newText: brandData.brandBenefits[0].title },
         { oldText: data.brand_benefit_text_2, newText: brandData.brandBenefits[1].title },
@@ -60,27 +56,24 @@ async function generateWF2(brandData, emailID) {
         { oldText: data.brand_background_color, newText: brandData.preferred_logo_colors.selectedColor.hex },
         { oldText: data.brand_text_color, newText: textColor }
     ];
-
     await templateFunctions.batchUpdateTextInTemplate(emailID, replace_data, templateData);
-    
     // Add product feed to the template
     await templateFunctions.addAttributeToBlocks(emailID, [
         {
-        findAttribute: 'feed_cols',
-        addAttributes: {
-            "feed": "SHOP_POPULAR_ALL_CATEGORIES"
-        }
+            findAttribute: 'feed_cols',
+            addAttributes: {
+                "feed": "SHOP_POPULAR_ALL_CATEGORIES"
+            }
         }
     ]);
 }
 
 async function test() {
-    const newTemplateID = await templateFunctions.cloneTemplate('SjnvqT', 'WF 2');
+    const newTemplateID = await templateFunctions.cloneTemplate('QTQpvV', 'AC 3');
     console.log(newTemplateID);
-
-    generateWF2(crystalenergy, newTemplateID);
+    generateAC3(crystalenergy, newTemplateID);
 }
 
-export default generateWF2;
+export default generateAC3;
 
 await test();

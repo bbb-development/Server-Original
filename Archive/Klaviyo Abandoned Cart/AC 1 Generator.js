@@ -1,7 +1,7 @@
-import * as templateFunctions from '../../templateFunctions.js';
-import crystalenergy from '../Misc/crystalenergy_updated_brand_data.json' with { type: 'json' };
+import * as templateFunctions from '../../Klaviyo Portal/Functions/templateFunctions.js';
+import crystalenergy from '../../Klaviyo Portal/Functions/Generate Klaviyo Flows/Misc/crystalenergy_updated_brand_data.json' with { type: 'json' };
 
-async function generateAC3(brandData, emailID) {
+async function generateAC1(brandData, emailID) {
     // Get the template data
     const templateData = await templateFunctions.getTemplateData(emailID);
     // Determine text color based on background brightness (white for dark backgrounds, black for light)
@@ -38,7 +38,7 @@ async function generateAC3(brandData, emailID) {
     const replace_data = [
         { oldText: data.top_email_text, newText: brandData.geminiBrandBrief.topEmailText },
         { oldText: data.logo_img, newText: brandData.preferred_logo_colors.selectedLogo.formats[0].src },
-        { oldText: data.header_img, newText: brandData.emailImages['AC Email 3'].directLink },
+        { oldText: data.header_img, newText: brandData.emailImages['AC Email 1'].directLink },
         { oldText: data.logo_img_url, newText: '' },
         { oldText: data.header_image_url, newText: '' },
         { oldText: data.contact_us_link, newText: brandData.specialLinks.contactUrl },
@@ -69,11 +69,11 @@ async function generateAC3(brandData, emailID) {
 }
 
 async function test() {
-    const newTemplateID = await templateFunctions.cloneTemplate('QTQpvV', 'AC 3');
+    const newTemplateID = await templateFunctions.cloneTemplate('RLpd9P', 'AC 1');
     console.log(newTemplateID);
-    generateAC3(crystalenergy, newTemplateID);
+    generateAC1(crystalenergy, newTemplateID);
 }
 
-export default generateAC3;
+export default generateAC1;
 
 await test();

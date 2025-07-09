@@ -10,7 +10,6 @@ import { fileURLToPath } from 'url';
 import FormData from 'form-data';
 import bodyParser from 'body-parser';
 import { executeKlaviyoLogin } from './Login.js';
-import * as smallFunctions from '../Klaviyo Portal/Functions/smallFunctions.js';
 
 // ────────────────────────────────────────────────────
 // Setup paths / env vars
@@ -677,42 +676,6 @@ app.post('/refresh-csrf', async (_, res) => {
     });
   }
 });
-
-/*
-// ── Setup base flows for a client
-app.post('/setBaseFlows', async (req, res) => {
-  const { clientID, brand } = req.body || {};
-  
-  if (!clientID) {
-    return res.status(400).json({ error: 'clientID is required' });
-  }
-  
-  if (!brand) {
-    return res.status(400).json({ error: 'brand is required' });
-  }
-  
-  if (LOG_REQUESTS) {
-    const rawIp = req.ip || req.connection.remoteAddress;
-    const ip = rawIp?.replace(/^::ffff:/, '') || 'unknown';
-    log(`🏗️ SET BASE FLOWS for client: ${clientID}, brand: ${JSON.stringify(brand)} (IP: ${ip})`, 'INFO');
-  }
-  
-  try {
-    await smallFunctions.authorize();
-    const result = await setupBaseStructure(clientID, brand);
-    log(`✅ Base flows setup completed for client: ${clientID} in ${result.executionTime || 'unknown time'}`, 'SUCCESS');
-    res.json(result);
-  } catch (error) {
-    log(`❌ Failed to setup base flows for client ${clientID}: ${error.message}`, 'ERROR');
-    res.status(500).json({ 
-      success: false,
-      error: error.message,
-      clientID,
-      brand
-    });
-  }
-});
-*/
 
 
 // ────────────────────────────────────────────────────

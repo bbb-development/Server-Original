@@ -1,0 +1,17 @@
+[2025-07-08T09:10:48.551Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] 📥 Received brand fetch request for: https://crystalenergy.shop/
+[2025-07-08T09:10:48.551Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] 📊 Should get best sellers: true
+[2025-07-08T09:10:48.551Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] 🆔 Request ID: REQ-1751965848550-1shv7zqx7
+[2025-07-08T09:10:48.551Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] 📝 Request log file: crystalenergy.shop_2025-07-08T09-10-48-551Z.log
+[2025-07-08T09:10:48.551Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] ⚙️ Options: {"mapOptions":{"limit":500}}
+[2025-07-08T09:10:48.551Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] 🔄 Starting parallel execution: Brand analysis + Klaviyo templates
+[2025-07-08T09:10:48.551Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] [33m🔍 Analyzing brand: https://crystalenergy.shop/[0m
+[2025-07-08T09:10:48.551Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] Getting Brand Data With Browserless
+[2025-07-08T09:10:48.552Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] 🔍 Processing all templates from klaviyo_templates.json...
+[2025-07-08T09:10:48.552Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] 🔄 Switching to client: "BBB Marketing"...
+[2025-07-08T09:10:48.553Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] 🔍 Checking current client...
+[2025-07-08T09:10:48.556Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] --- Incoming Request ---
+[2025-07-08T09:10:48.556Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] Method: POST
+[2025-07-08T09:10:48.556Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] URL: /brandFetch
+[2025-07-08T09:10:48.556Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] IP: 127.0.0.1
+[2025-07-08T09:10:48.556Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+[2025-07-08T09:10:48.557Z] [INFO] [REQ-1751965848550-1shv7zqx7] [https://crystalenergy.shop/] ------------------------

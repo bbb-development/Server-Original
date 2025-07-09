@@ -1,5 +1,5 @@
-import * as templateFunctions from '../../templateFunctions.js';
-import crystalenergy from '../Misc/crystalenergy_updated_brand_data.json' with { type: 'json' };
+import * as templateFunctions from '../../Klaviyo Portal/Functions/templateFunctions.js';
+import crystalenergy from '../../Klaviyo Portal/Functions/Generate Klaviyo Flows/Misc/crystalenergy_updated_brand_data.json' with { type: 'json' };
 
 async function generateAC4(brandData, emailID) {
     const data = {

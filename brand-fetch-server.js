@@ -9,6 +9,8 @@ import { generatePreviewEmails } from './Klaviyo Portal/Functions/Generate Previ
 import { matchClientWithKlaviyo } from './Klaviyo Invitation Listener/connectProfile.js';
 import { uploadImageToImgbb } from './NEW Brand Fetch Method/tools/imgBB Integration.js';
 import multer from 'multer';
+import { setupBaseStructure } from './Klaviyo Portal/Systems/Setup Base Structure (Create Flows Method).js';
+import * as smallFunctions from './Klaviyo Portal/Functions/smallFunctions.js';
 
 // Create logs directory if it doesn't exist
 const logsDir = './logs';
@@ -640,6 +642,34 @@ app.post('/uploadToImgbb', upload.single('image'), async (req, res) => {
   }
 });
 
+// ── Setup base flows for a client
+app.post('/setBaseFlows', async (req, res) => {
+  const { clientID, brand } = req.body || {};
+  
+  if (!clientID) {
+    return res.status(400).json({ error: 'clientID is required' });
+  }
+  
+  if (!brand) {
+    return res.status(400).json({ error: 'brand is required' });
+  }
+  
+  try {
+    await smallFunctions.authorize();
+    const result = await setupBaseStructure(clientID, brand);
+    console.log(`✅ Base flows setup completed for client: ${clientID} in ${result.executionTime || 'unknown time'}`);
+    res.json(result);
+  } catch (error) {
+    console.log(`❌ Failed to setup base flows for client ${clientID}: ${error.message}`);
+    res.status(500).json({ 
+      success: false,
+      error: error.message,
+      clientID,
+      brand
+    });
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Brand Fetch server running on http://0.0.0.0:${PORT}`);
@@ -654,6 +684,7 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`   GET    /klaviyo-instance - Get Klaviyo instance`);
   console.log(`   GET    /health - Health check with log statistics`);
   console.log(`   POST   /uploadToImgbb - Upload an image to imgbb and return the display_url`);
+  console.log(`   POST   /setBaseFlows - Setup base Klaviyo flows for a client`);
   console.log(`📝 All console output is logged to:`);
   console.log(`   - Daily files: ${logsDir}/brand-fetch-YYYY-MM-DD.log`);
   console.log(`   - Request files: ${logsDir}/requests/[url]_[timestamp].log`);

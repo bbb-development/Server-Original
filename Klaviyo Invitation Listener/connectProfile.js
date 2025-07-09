@@ -6,72 +6,67 @@
 import { askGemini } from '../NEW Brand Fetch Method/tools/gemini.js';
 import * as geminiSchemas from '../NEW Brand Fetch Method/tools/geminiSchemas.js';
 import * as geminiPrompts from '../NEW Brand Fetch Method/tools/geminiPrompts.js';
-import clients from './clients.json' with { type: 'json' };
-import fs from 'fs/promises';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const clientsFilePath = path.join(__dirname, 'clients.json');
+import supabase from './supabaseClient.js';
 
 /**
- * Get all unconnected clients from clients.json file
+ * Get all unconnected clients from Supabase klaviyo_accounts table
  * @returns {Promise<Array>} Array of clients where connected is false
  */
 export async function getUnconnectedClients() {
   try {
-    console.log('📋 Reading clients.json file...');
-    // Always read the latest file from disk
-    const fileContent = await fs.readFile(clientsFilePath, 'utf8');
-    const clients = JSON.parse(fileContent);
-    // Filter clients where connected is false
-    const unconnectedClients = clients.filter(client => client.connected === false);
-    console.log(`📊 Found ${unconnectedClients.length} unconnected clients out of ${clients.length} total clients`);
-    return unconnectedClients;
+    console.log('📋 Fetching unconnected clients from Supabase...');
+    
+    const { data: clients, error } = await supabase
+      .from('klaviyo_accounts')
+      .select('*')
+      .eq('connected', false);
+    
+    if (error) {
+      console.error('❌ Error fetching unconnected clients from Supabase:', error);
+      return [];
+    }
+    
+    console.log(`📊 Found ${clients.length} unconnected clients from Supabase`);
+    return clients || [];
   } catch (error) {
-    console.error('❌ Error reading clients.json file:', error.message);
+    console.error('❌ Error fetching unconnected clients:', error.message);
     return [];
   }
 }
 
 /**
- * Update a client's connection status in clients.json
+ * Update a client's connection status in Supabase klaviyo_accounts table
  * @param {string} klaviyoClientId - The Klaviyo client ID (company_id)
- * @param {string} supabaseId - The Supabase ID to add to the client
- * @returns {Promise<boolean>} Success status
+ * @returns {Promise<{success: boolean, updatedClient: object|null}>} Success status and updated client data
  */
-export async function updateClientConnection(klaviyoClientId, supabaseId) {
+export async function updateClientConnection(klaviyoClientId) {
   try {
     console.log(`💾 Updating client connection for Klaviyo ID: ${klaviyoClientId}`);
-    // Always read the latest file from disk
-    const fileContent = await fs.readFile(clientsFilePath, 'utf8');
-    const clients = JSON.parse(fileContent);
-    // Find the client to update
-    const clientIndex = clients.findIndex(client => client.company_id === klaviyoClientId);
-    if (clientIndex === -1) {
-      console.error(`❌ Client with ID ${klaviyoClientId} not found in clients.json`);
-      return false;
+    
+    const { data, error } = await supabase
+      .from('klaviyo_accounts')
+      .update({
+        connected: true
+      })
+      .eq('company_id', klaviyoClientId)
+      .select()
+      .single();
+    
+    if (error) {
+      console.error(`❌ Error updating client connection in Supabase:`, error);
+      return { success: false, updatedClient: null };
     }
-    // Update the client data
-    clients[clientIndex].connected = true;
-    clients[clientIndex].supabase_id = supabaseId;
-    clients[clientIndex].connected_at = new Date().toLocaleString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      timeZoneName: 'short'
-    });
-    // Write the updated data back to the file
-    await fs.writeFile(clientsFilePath, JSON.stringify(clients, null, 2), 'utf8');
-    return true;
+    
+    if (!data) {
+      console.error(`❌ Client with ID ${klaviyoClientId} not found in Supabase`);
+      return { success: false, updatedClient: null };
+    }
+    
+    console.log(`✅ Client connection updated successfully in Supabase`);
+    return { success: true, updatedClient: data };
   } catch (error) {
     console.error('❌ Error updating client connection:', error.message);
-    return false;
+    return { success: false, updatedClient: null };
   }
 }
 
@@ -106,7 +101,7 @@ async function retryWithBackoff(fn, maxRetries = 6, baseDelay = 1000, operationN
 export async function matchClientWithKlaviyo(supabaseClient) {
   // Function matches one Supabase client with multiple Klaviyo clients
   // supabaseClient: Single Supabase client data object
-  // klaviyoClients: Array of Klaviyo client data (from clients.json where connected = false)
+  // klaviyoClients: Array of Klaviyo client data (from Supabase klaviyo_accounts table where connected = false)
 
   // Validate input
   if (!supabaseClient || typeof supabaseClient !== 'object') {
@@ -128,8 +123,7 @@ export async function matchClientWithKlaviyo(supabaseClient) {
     // Call Gemini AI to match the client data
     const matchResultRaw = await retryWithBackoff(
       () => askGemini(
-        geminiPrompts.matchClientPrompt(supabaseClient, klaviyoClients), 
-        { includeUrlContext: false }, 
+        geminiPrompts.matchClientPrompt(supabaseClient, klaviyoClients),
         geminiSchemas.matchClientSchema
       ),
       6, // 6 retries for Gemini
@@ -161,11 +155,13 @@ export async function matchClientWithKlaviyo(supabaseClient) {
       console.log(`   📋 Supabase ID: ${matchResult.supabaseId}`);
       console.log(`   💡 Reason: ${matchResult.matchReason}`);
       
-      // Update the client connection status in clients.json
-      const updateSuccess = await updateClientConnection(matchResult.klaviyoClientId, matchResult.supabaseId);
+      // Update the client connection status in Supabase
+      const { success: updateSuccess, updatedClient } = await updateClientConnection(matchResult.klaviyoClientId);
       
       if (updateSuccess) {
         console.log('🔄 Client connection status updated successfully');
+        matchedKlaviyoClient = updatedClient;
+        console.log('📋 Using updated client data from update operation');
       } else {
         console.log('⚠️ Failed to update client connection status');
       }

@@ -1,0 +1,1693 @@
+[2025-07-09T10:39:48.230Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 📥 Received brand fetch request for: https://thenx.com/
+[2025-07-09T10:39:48.230Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 📊 Should get best sellers: true
+[2025-07-09T10:39:48.230Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🆔 Request ID: REQ-1752057588229-eequ01znq
+[2025-07-09T10:39:48.230Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 📝 Request log file: thenx.com_2025-07-09T10-39-48-230Z.log
+[2025-07-09T10:39:48.230Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ⚙️ Options: {"mapOptions":{"limit":500}}
+[2025-07-09T10:39:48.230Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Starting parallel execution: Brand analysis + Klaviyo templates
+[2025-07-09T10:39:48.230Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] [33m🔍 Analyzing brand: https://thenx.com/[0m
+[2025-07-09T10:39:48.230Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] Getting Brand Data With Browserless
+[2025-07-09T10:39:48.231Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Processing all templates from klaviyo_templates.json...
+[2025-07-09T10:39:48.231Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Switching to client: "BBB Marketing"...
+[2025-07-09T10:39:48.231Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Checking current client...
+[2025-07-09T10:39:48.494Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 📍 Currently on: "BBB Marketing" (ID: SRsJn8)
+[2025-07-09T10:39:48.494Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Already on target client "BBB Marketing" (matched by name). No switch needed.
+[2025-07-09T10:39:48.494Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 
+🚀 Starting concurrent processing of 8 templates...
+[2025-07-09T10:39:48.494Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 [1/8] Processing template: WF EMAIL 1 TEMPLATE (NEVER DELETE) (ID: SpZKLh)
+[2025-07-09T10:39:48.494Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    👤 Using profileId: empty string
+[2025-07-09T10:39:48.494Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Previewing template SpZKLh with flow message YqisUm...
+[2025-07-09T10:39:48.495Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 [2/8] Processing template: WF EMAIL 2 TEMPLATE (NEVER DELETE) (ID: SjnvqT)
+[2025-07-09T10:39:48.495Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    👤 Using profileId: empty string
+[2025-07-09T10:39:48.495Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Previewing template SjnvqT with flow message YjFcyX...
+[2025-07-09T10:39:48.496Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 [3/8] Processing template: WF EMAIL 3 TEMPLATE (NEVER DELETE) (ID: Yf3Wdz)
+[2025-07-09T10:39:48.496Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    👤 Using profileId: empty string
+[2025-07-09T10:39:48.496Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Previewing template Yf3Wdz with flow message WsC4H6...
+[2025-07-09T10:39:48.497Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 [4/8] Processing template: AC EMAIL 1 TEMPLATE (NEVER DELETE) (ID: RLpd9P)
+[2025-07-09T10:39:48.497Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-09T10:39:48.497Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Previewing template RLpd9P with flow message SRR5jE...
+[2025-07-09T10:39:48.498Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 [5/8] Processing template: AC EMAIL 2 TEMPLATE (NEVER DELETE) (ID: X7qBvi)
+[2025-07-09T10:39:48.498Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-09T10:39:48.498Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Previewing template X7qBvi with flow message XfzDGp...
+[2025-07-09T10:39:48.499Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 [6/8] Processing template: AC EMAIL 3 TEMPLATE (NEVER DELETE) (ID: QTQpvV)
+[2025-07-09T10:39:48.499Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-09T10:39:48.499Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Previewing template QTQpvV with flow message XaWpkZ...
+[2025-07-09T10:39:48.500Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 [7/8] Processing template: AC EMAIL 4 TEMPLATE (NEVER DELETE) (ID: XvJpat)
+[2025-07-09T10:39:48.500Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    📎 Using eventId: 6cevaJXfmf4
+[2025-07-09T10:39:48.500Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Previewing template XvJpat with flow message RCqe8L...
+[2025-07-09T10:39:48.501Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 [8/8] Processing template: BA EMAIL 1 TEMPLATE (NEVER DELETE) (ID: Rb3aEN)
+[2025-07-09T10:39:48.501Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    📎 Using eventId: 6cex5ERVqid
+[2025-07-09T10:39:48.501Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Previewing template Rb3aEN with flow message UtmrZK...
+[2025-07-09T10:39:49.612Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template preview fetched successfully for XvJpat
+[2025-07-09T10:39:49.612Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    ✅ HTML extracted successfully (13899 characters)
+[2025-07-09T10:39:49.613Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    📧 Subject: "Is everything alright?"
+[2025-07-09T10:39:50.412Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template preview fetched successfully for Yf3Wdz
+[2025-07-09T10:39:50.413Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    ✅ HTML extracted successfully (67969 characters)
+[2025-07-09T10:39:50.413Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    📧 Subject: "Welcome coupon expires soon"
+[2025-07-09T10:39:50.544Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template preview fetched successfully for X7qBvi
+[2025-07-09T10:39:50.544Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    ✅ HTML extracted successfully (79728 characters)
+[2025-07-09T10:39:50.545Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    📧 Subject: "It's on the house 🎁"
+[2025-07-09T10:39:50.583Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template preview fetched successfully for SpZKLh
+[2025-07-09T10:39:50.585Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    ✅ HTML extracted successfully (71894 characters)
+[2025-07-09T10:39:50.586Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    📧 Subject: "Welcome Aboard"
+[2025-07-09T10:39:50.592Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template preview fetched successfully for RLpd9P
+[2025-07-09T10:39:50.592Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    ✅ HTML extracted successfully (76838 characters)
+[2025-07-09T10:39:50.593Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    📧 Subject: "Complete your purchase"
+[2025-07-09T10:39:50.680Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template preview fetched successfully for QTQpvV
+[2025-07-09T10:39:50.680Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    ✅ HTML extracted successfully (85983 characters)
+[2025-07-09T10:39:50.680Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    📧 Subject: "Less than 3 hours remain"
+[2025-07-09T10:39:50.989Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template preview fetched successfully for Rb3aEN
+[2025-07-09T10:39:50.990Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    ✅ HTML extracted successfully (76728 characters)
+[2025-07-09T10:39:50.990Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    📧 Subject: "Have another look"
+[2025-07-09T10:39:51.134Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template preview fetched successfully for SjnvqT
+[2025-07-09T10:39:51.134Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    ✅ HTML extracted successfully (74670 characters)
+[2025-07-09T10:39:51.134Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    📧 Subject: "A few customer favorites worth seeing"
+[2025-07-09T10:39:51.135Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 
+📊 Processing complete:
+[2025-07-09T10:39:51.135Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    ✅ Successfully processed: 8 templates
+[2025-07-09T10:39:51.135Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    🎉 All templates processed successfully!
+[2025-07-09T10:39:51.135Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    📁 Total templates: 8
+[2025-07-09T10:40:05.259Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🚀 Running all analysis steps concurrently...
+[2025-07-09T10:40:05.260Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Getting Brand Fetch Data Using Brandfetch
+[2025-07-09T10:40:05.263Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Getting Brand Links Using Firecrawl and Gemini
+[2025-07-09T10:40:05.265Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Generating Brand Brief Using Gemini
+[2025-07-09T10:40:05.276Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Generating Brand Benefits Using Gemini and ImgBB
+[2025-07-09T10:40:05.277Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Fetching random images for all email templates...
+[2025-07-09T10:40:05.277Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Generating Deliverability Snippet Using Gemini
+[2025-07-09T10:40:05.679Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 📊 Brand Fetch: API Usage: 97/2500 requests this month
+[2025-07-09T10:40:07.811Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] siteMap {"success":true,"links":["http://thenx.com","https://thenx.com/es/sitemap_pages_1.xml?from=8109129751&to=107376410799","https://thenx.com/de/sitemap_products_1.xml?from=363315888161&to=8208549380271","https://thenx.com/sitemap_products_1.xml?from=363315888161&to=8208549380271","https://thenx.com/products/purple-resistance-band","https://thenx.com/de/sitemap_pages_1.xml?from=8109129751&to=107376410799","https://thenx.com/products/green-resistance-band?pr_prod_strat=jac&pr_rec_id=dddbf4a94&pr_rec_pid=363325620257&pr_ref_pid=363315953697&pr_seq=uniform%3Fvariant%3D4709316165665","https://thenx.com/sitemap.xml","https://thenx.com/es/sitemap_collections_1.xml?from=17661263905&to=351119769775","https://thenx.com/sitemap_pages_1.xml?from=8109129751&to=107376410799","https://thenx.com/es/sitemap_products_1.xml?from=363315888161&to=8208549380271","https://thenx.com/de/sitemap_collections_1.xml?from=17661263905&to=351119769775","https://thenx.com/products/thenx-half-bar","https://thenx.com/de/sitemap_blogs_1.xml","https://thenx.com/sitemap_collections_1.xml?from=17661263905&to=351119769775","https://thenx.com/es/sitemap_blogs_1.xml","https://thenx.com/sitemap_blogs_1.xml","https://thenx.com/pages/contact-us","https://thenx.com/pages/customs-import-fees","https://thenx.com/pages/apply-now","https://thenx.com/pages/app","https://thenx.com/pages/programs","https://thenx.com/pages/exercises","https://thenx.com/pages/techniques","https://thenx.com/pages/appi-compliance","https://thenx.com/pages/pipeda-compliance","https://thenx.com/pages/gdpr-compliance","https://thenx.com/pages/apa-nzpa-compliance","https://thenx.com/pages/us-laws-compliance","https://thenx.com/pages/compliance","https://thenx.com/pages/accessibility","https://thenx.com/pages/pipeda-compliance-1","https://thenx.com/pages/faq","https://thenx.com/pages/data-sharing-opt-out","https://thenx.com/pages/parallettes","https://thenx.com/pages/weight-vests","https://thenx.com/pages/resistance-bands","https://thenx.com/pages/size-chart-sports-bra-ii","https://thenx.com/pages/jumping-ropes","https://thenx.com/pages/short-sleeves","https://thenx.com/pages/men-tank-tops","https://thenx.com/pages/men-long-sleeves","https://thenx.com/pages/men-shorts","https://thenx.com/pages/men-joggers","https://thenx.com/pages/women-sports-bras","https://thenx.com/pages/women-long-sleeves","https://thenx.com/pages/women-leggings","https://thenx.com/pages/women-shorts","https://thenx.com/pages/women-joggers","https://thenx.com/pages/new-arrivals","https://thenx.com/pages/socks","https://thenx.com/pages/hats","https://thenx.com/pages/bundle-packs","https://thenx.com/pages/the-ultimate-guide-to-thenx-weight-vests","https://thenx.com/pages/resistance-bands-info-train-smarter-with-thenx-bands","https://thenx.com/pages/compression-shirts","https://thenx.com/es/pages/contact-us","https://thenx.com/es/pages/customs-import-fees","https://thenx.com/es/pages/apply-now","https://thenx.com/es/pages/app","https://thenx.com/es/pages/programs","https://thenx.com/es/pages/exercises","https://thenx.com/es/pages/techniques","https://thenx.com/es/pages/appi-compliance","https://thenx.com/es/pages/pipeda-compliance","https://thenx.com/es/pages/gdpr-compliance","https://thenx.com/es/pages/apa-nzpa-compliance","https://thenx.com/es/pages/us-laws-compliance","https://thenx.com/es/pages/compliance","https://thenx.com/es/pages/accessibility","https://thenx.com/es/pages/pipeda-compliance-1","https://thenx.com/es/pages/faq","https://thenx.com/es/pages/data-sharing-opt-out","https://thenx.com/es/pages/parallettes","https://thenx.com/es/pages/weight-vests","https://thenx.com/es/pages/resistance-bands","https://thenx.com/es/pages/size-chart-sports-bra-ii","https://thenx.com/es/pages/jumping-ropes","https://thenx.com/es/pages/short-sleeves","https://thenx.com/es/pages/men-tank-tops","https://thenx.com/es/pages/men-long-sleeves","https://thenx.com/es/pages/men-shorts","https://thenx.com/es/pages/men-joggers","https://thenx.com/es/pages/women-sports-bras","https://thenx.com/es/pages/women-long-sleeves","https://thenx.com/es/pages/women-leggings","https://thenx.com/es/pages/women-shorts","https://thenx.com/es/pages/women-joggers","https://thenx.com/es/pages/new-arrivals","https://thenx.com/es/pages/socks","https://thenx.com/es/pages/hats","https://thenx.com/es/pages/bundle-packs","https://thenx.com/es/pages/the-ultimate-guide-to-thenx-weight-vests","https://thenx.com/es/pages/resistance-bands-info-train-smarter-with-thenx-bands","https://thenx.com/es/pages/compression-shirts","https://thenx.com/de/pages/contact-us","https://thenx.com/de/pages/customs-import-fees","https://thenx.com/de/pages/apply-now","https://thenx.com/de/pages/app","https://thenx.com/de/pages/programs","https://thenx.com/de/pages/exercises","https://thenx.com/de/pages/techniques","https://thenx.com/de/pages/appi-compliance","https://thenx.com/de/pages/pipeda-compliance","https://thenx.com/de/pages/gdpr-compliance","https://thenx.com/de/pages/apa-nzpa-compliance","https://thenx.com/de/pages/us-laws-compliance","https://thenx.com/de/pages/compliance","https://thenx.com/de/pages/accessibility","https://thenx.com/de/pages/pipeda-compliance-1","https://thenx.com/de/pages/faq","https://thenx.com/de/pages/data-sharing-opt-out","https://thenx.com/de/pages/parallettes","https://thenx.com/de/pages/weight-vests","https://thenx.com/de/pages/resistance-bands","https://thenx.com/de/pages/size-chart-sports-bra-ii","https://thenx.com/de/pages/jumping-ropes","https://thenx.com/de/pages/short-sleeves","https://thenx.com/de/pages/men-tank-tops","https://thenx.com/de/pages/men-long-sleeves","https://thenx.com/de/pages/men-shorts","https://thenx.com/de/pages/men-joggers","https://thenx.com/de/pages/women-sports-bras","https://thenx.com/de/pages/women-long-sleeves","https://thenx.com/de/pages/women-leggings","https://thenx.com/de/pages/women-shorts","https://thenx.com/de/pages/women-joggers","https://thenx.com/de/pages/new-arrivals","https://thenx.com/de/pages/socks","https://thenx.com/de/pages/hats","https://thenx.com/de/pages/bundle-packs","https://thenx.com/de/pages/the-ultimate-guide-to-thenx-weight-vests","https://thenx.com/de/pages/resistance-bands-info-train-smarter-with-thenx-bands","https://thenx.com/de/pages/compression-shirts","https://thenx.com/es/collections/apparel","https://thenx.com/es/collections/equipment","https://thenx.com/es/collections/supplements","https://thenx.com/es/collections/products","https://thenx.com/es/collections/top-equipment","https://thenx.com/es/collections/top-apparel","https://thenx.com/es/collections/joggers","https://thenx.com/es/collections/tops-t-shirts","https://thenx.com/es/collections/resistance-bands","https://thenx.com/es/collections/long-sleeves","https://thenx.com/es/collections/most-popular-products","https://thenx.com/es/collections/leggings","https://thenx.com/es/collections/sports-bras","https://thenx.com/es/collections/womens-apparel","https://thenx.com/es/collections/bags","https://thenx.com/es/collections/hats","https://thenx.com/es/collections/accessories","https://thenx.com/es/collections/youth","https://thenx.com/es/collections/t-shirts","https://thenx.com/es/collections/best-sellers","https://thenx.com/es/collections/bottoms","https://thenx.com/es/collections/shorts","https://thenx.com/es/collections/hoodies","https://thenx.com/es/collections/trending","https://thenx.com/es/collections/parallettes","https://thenx.com/es/collections/socks","https://thenx.com/es/collections/exercises","https://thenx.com/es/collections/programs","https://thenx.com/es/collections/techniques","https://thenx.com/es/collections/community1","https://thenx.com/es/collections/all","https://thenx.com/es/collections/coming-soon","https://thenx.com/es/collections/women-shorts","https://thenx.com/es/collections/womens-hoodies","https://thenx.com/es/collections/women-coming-soon","https://thenx.com/es/collections/men-new-releases","https://thenx.com/es/collections/men","https://thenx.com/es/collections/women-sport-bras","https://thenx.com/es/collections/women-bottoms","https://thenx.com/es/collections/women-tops","https://thenx.com/es/collections/weright-vests","https://thenx.com/es/collections/on-sale","https://thenx.com/es/collections/available-in-the-netherlands","https://thenx.com/es/collections/home-equipment","https://thenx.com/es/collections/new-releases","https://thenx.com/es/collections/coming-soon-men","https://thenx.com/es/collections/coming-soon-equipment","https://thenx.com/es/collections/men-t-shirts","https://thenx.com/es/collections/men-hoodies-long-sleeves","https://thenx.com/es/collections/equipment-dip-bars","https://thenx.com/es/collections/women-joggers","https://thenx.com/es/collections/equipment-bars-parallettes","https://thenx.com/es/collections/women-outfits","https://thenx.com/es/collections/shop-the-look-featured-collection","https://thenx.com/es/collections/men-tank-tops","https://thenx.com/es/collections/men-t-shirts-1","https://thenx.com/es/collections/men-tank-tops-1","https://thenx.com/es/collections/best-selling-products","https://thenx.com/es/collections/newest-products","https://thenx.com/es/collections/accessories-sleeves","https://thenx.com/es/collections/mega-menu-featured-products","https://thenx.com/es/collections/equipment-wrist-wraps","https://thenx.com/es/collections/clearance-equipment","https://thenx.com/es/collections/equipment-dip-belts","https://thenx.com/es/collections/clearance-men","https://thenx.com/es/collections/clearance-women","https://thenx.com/es/collections/calisthenics-equipment","https://thenx.com/de/collections/apparel","https://thenx.com/de/collections/equipment","https://thenx.com/de/collections/supplements","https://thenx.com/de/collections/products","https://thenx.com/de/collections/top-equipment","https://thenx.com/de/collections/top-apparel","https://thenx.com/de/collections/joggers","https://thenx.com/de/collections/tops-t-shirts","https://thenx.com/de/collections/resistance-bands","https://thenx.com/de/collections/long-sleeves","https://thenx.com/de/collections/most-popular-products","https://thenx.com/de/collections/leggings","https://thenx.com/de/collections/sports-bras","https://thenx.com/de/collections/womens-apparel","https://thenx.com/de/collections/bags","https://thenx.com/de/collections/hats","https://thenx.com/de/collections/accessories","https://thenx.com/de/collections/youth","https://thenx.com/de/collections/t-shirts","https://thenx.com/de/collections/best-sellers","https://thenx.com/de/collections/bottoms","https://thenx.com/de/collections/shorts","https://thenx.com/de/collections/hoodies","https://thenx.com/de/collections/trending","https://thenx.com/de/collections/parallettes","https://thenx.com/de/collections/socks","https://thenx.com/de/collections/exercises","https://thenx.com/de/collections/programs","https://thenx.com/de/collections/techniques","https://thenx.com/de/collections/community1","https://thenx.com/de/collections/all","https://thenx.com/de/collections/coming-soon","https://thenx.com/de/collections/women-shorts","https://thenx.com/de/collections/womens-hoodies","https://thenx.com/de/collections/women-coming-soon","https://thenx.com/de/collections/men-new-releases","https://thenx.com/de/collections/men","https://thenx.com/de/collections/women-sport-bras","https://thenx.com/de/collections/women-bottoms","https://thenx.com/de/collections/women-tops","https://thenx.com/de/collections/weright-vests","https://thenx.com/de/collections/on-sale","https://thenx.com/de/collections/available-in-the-netherlands","https://thenx.com/de/collections/home-equipment","https://thenx.com/de/collections/new-releases","https://thenx.com/de/collections/coming-soon-men","https://thenx.com/de/collections/coming-soon-equipment","https://thenx.com/de/collections/men-t-shirts","https://thenx.com/de/collections/men-hoodies-long-sleeves","https://thenx.com/de/collections/equipment-dip-bars","https://thenx.com/de/collections/women-joggers","https://thenx.com/de/collections/equipment-bars-parallettes","https://thenx.com/de/collections/women-outfits","https://thenx.com/de/collections/shop-the-look-featured-collection","https://thenx.com/de/collections/men-tank-tops","https://thenx.com/de/collections/men-t-shirts-1","https://thenx.com/de/collections/men-tank-tops-1","https://thenx.com/de/collections/best-selling-products","https://thenx.com/de/collections/newest-products","https://thenx.com/de/collections/accessories-sleeves","https://thenx.com/de/collections/mega-menu-featured-products","https://thenx.com/de/collections/equipment-wrist-wraps","https://thenx.com/de/collections/clearance-equipment","https://thenx.com/de/collections/equipment-dip-belts","https://thenx.com/de/collections/clearance-men","https://thenx.com/de/collections/clearance-women","https://thenx.com/de/collections/calisthenics-equipment","https://thenx.com/de/collections/release-all-apparel","https://thenx.com/de/collections/release-all-accessories","https://thenx.com/de/collections/release-men-apparel","https://thenx.com/de/collections/release-women-apparel","https://thenx.com/de/collections/april-25-equipment-best-sellers","https://thenx.com/de/collections/weight-training-gear-all","https://thenx.com/de/collections/april-25-weight-training-best-sellers","https://thenx.com/de/collections/april-25-weight-training-new-arrivals","https://thenx.com/de/collections/april-25-weight-training-clearance","https://thenx.com/de/collections/bodyweight-calisthenics-all","https://thenx.com/de/collections/bodyweight-calisthenics-best-sellers","https://thenx.com/de/collections/bodyweight-calisthenics-new-arrivals","https://thenx.com/de/collections/bodyweight-calisthenics-clearance","https://thenx.com/de/collections/april-25-equipment-accessories-all","https://thenx.com/de/collections/april-25-equipment-accessories-best-sellers","https://thenx.com/de/collections/april-25-equipment-accessories-new-arrivals","https://thenx.com/de/collections/april-25-equipment-accessories-clearance","https://thenx.com/de/collections/april-25-apparel-all","https://thenx.com/de/collections/april-25-apparel-best-sellers","https://thenx.com/de/collections/april-25-apparel-new-arrival","https://thenx.com/de/collections/april-25-apparel-clearance","https://thenx.com/de/collections/mens-apparel-all","https://thenx.com/de/collections/mens-apparel-best-sellers","https://thenx.com/de/collections/mens-apparel-new-arrivals","https://thenx.com/de/collections/mens-apparel-clearance","https://thenx.com/de/collections/mens-tops-all","https://thenx.com/de/collections/mens-tops-best-sellers","https://thenx.com/de/collections/mens-tops-new-arrival","https://thenx.com/de/collections/mens-tops-clearance","https://thenx.com/de/collections/mens-bottoms-all","https://thenx.com/de/collections/mens-bottoms-best-sellers","https://thenx.com/de/collections/mens-bottoms-new-arrivals","https://thenx.com/de/collections/mens-bottoms-clearance","https://thenx.com/de/collections/womens-apparel-all","https://thenx.com/de/collections/womens-apparel-best-seller","https://thenx.com/de/collections/womens-apparel-new-arrivals","https://thenx.com/de/collections/womens-apparel-clearance","https://thenx.com/de/collections/april-25-womens-tops-all","https://thenx.com/de/collections/april-25-womens-tops-best-sellers","https://thenx.com/de/collections/april-25-womens-tops-new-arrivals","https://thenx.com/de/collections/april-25-womens-tops-clearance","https://thenx.com/de/collections/april-25-womens-bottoms-all","https://thenx.com/de/collections/april-25-womens-bottoms-best-sellers","https://thenx.com/de/collections/april-25-womens-bottoms-new-arrivals","https://thenx.com/de/collections/april-25-womens-bottoms-clearance","https://thenx.com/de/collections/april-25-accessories-all","https://thenx.com/de/collections/april-25-accessories-best-sellers","https://thenx.com/de/collections/april-25-accessories-new-releases","https://thenx.com/de/collections/april-25-accessories-clearance","https://thenx.com/de/collections/april-25-womens-sports-bras-all","https://thenx.com/de/collections/april-25-womens-sports-bras-best-sellers","https://thenx.com/de/collections/april-25-womens-sports-bras-new-arrivals","https://thenx.com/de/collections/april-25-womens-sports-bras-clearance","https://thenx.com/de/collections/april-25-womens-hoodies-long-sleeves-all","https://thenx.com/de/collections/april-25-womens-hoodies-long-sleeves-best-sellers","https://thenx.com/de/collections/april-25-womens-hoodies-long-sleeves-new-arrivals","https://thenx.com/de/collections/april-25-womens-hoodies-long-sleeves-clearance","https://thenx.com/de/collections/april-25-womens-leggings-all","https://thenx.com/de/collections/april-25-womens-leggings-best-sellers","https://thenx.com/de/collections/april-25-womens-leggings-new-arrivals","https://thenx.com/de/collections/april-25-womens-leggings-clearance","https://thenx.com/de/collections/april-25-womens-shorts-all","https://thenx.com/de/collections/april-25-womens-shorts-best-sellers","https://thenx.com/de/collections/april-25-womens-shorts-new-arrivals","https://thenx.com/de/collections/april-25-womens-shorts-clearance","https://thenx.com/de/collections/april-25-womens-joggers-all","https://thenx.com/de/collections/april-25-womens-joggers-best-sellers","https://thenx.com/de/collections/april-25-womens-joggers-new-arrivals","https://thenx.com/de/collections/april-25-womens-joggers-clearance","https://thenx.com/de/collections/april-25-mens-short-sleeves-all","https://thenx.com/de/collections/april-25-mens-short-sleeves-best-sellers","https://thenx.com/de/collections/april-25-mens-short-sleeves-new-arrivals","https://thenx.com/de/collections/april-25-mens-short-sleeves-clearance","https://thenx.com/de/collections/april-25-mens-tank-tops-all","https://thenx.com/de/collections/april-25-mens-tank-tops-best-sellers","https://thenx.com/de/collections/april-25-mens-tank-tops-new-arrival","https://thenx.com/de/collections/april-25-mens-tank-tops-clearance","https://thenx.com/de/collections/april-25-hoodies-long-sleeves-all","https://thenx.com/de/collections/april-25-hoodies-long-sleeves-best-sellers","https://thenx.com/de/collections/april-25-hoodies-long-sleeves-new-arrivals","https://thenx.com/de/collections/april-25-hoodies-long-sleeves-clearance","https://thenx.com/de/collections/april-25-mens-joggers-all","https://thenx.com/de/collections/april-25-mens-joggers-best-sellers","https://thenx.com/de/collections/april-25-mens-joggers-new-arrivals","https://thenx.com/de/collections/april-25-mens-joggers-clearance","https://thenx.com/de/collections/april-25-mens-shorts-all","https://thenx.com/de/collections/april-25-mens-shorts-best-sellers","https://thenx.com/de/collections/april-25-mens-shorts-new-arrivals","https://thenx.com/de/collections/april-25-mens-shorts-clearance","https://thenx.com/de/collections/thenx-all-new-arrivals","https://thenx.com/de/collections/thenx-all-clearance","https://thenx.com/collections/apparel","https://thenx.com/collections/equipment","https://thenx.com/collections/supplements","https://thenx.com/collections/products","https://thenx.com/collections/top-equipment","https://thenx.com/collections/top-apparel","https://thenx.com/collections/joggers","https://thenx.com/collections/tops-t-shirts","https://thenx.com/collections/resistance-bands","https://thenx.com/collections/long-sleeves","https://thenx.com/collections/most-popular-products","https://thenx.com/collections/leggings","https://thenx.com/collections/sports-bras","https://thenx.com/collections/womens-apparel","https://thenx.com/collections/bags","https://thenx.com/collections/hats","https://thenx.com/collections/accessories","https://thenx.com/collections/youth","https://thenx.com/collections/t-shirts","https://thenx.com/collections/best-sellers","https://thenx.com/collections/bottoms","https://thenx.com/collections/shorts","https://thenx.com/collections/hoodies","https://thenx.com/collections/trending","https://thenx.com/collections/parallettes","https://thenx.com/collections/socks","https://thenx.com/collections/exercises","https://thenx.com/collections/programs","https://thenx.com/collections/techniques","https://thenx.com/collections/community1","https://thenx.com/collections/all","https://thenx.com/collections/coming-soon","https://thenx.com/collections/women-shorts","https://thenx.com/collections/womens-hoodies","https://thenx.com/collections/women-coming-soon","https://thenx.com/collections/men-new-releases","https://thenx.com/collections/men","https://thenx.com/collections/women-sport-bras","https://thenx.com/collections/women-bottoms","https://thenx.com/collections/women-tops","https://thenx.com/collections/weright-vests","https://thenx.com/collections/on-sale","https://thenx.com/collections/available-in-the-netherlands","https://thenx.com/collections/home-equipment","https://thenx.com/collections/new-releases","https://thenx.com/collections/coming-soon-men","https://thenx.com/collections/coming-soon-equipment","https://thenx.com/collections/men-t-shirts","https://thenx.com/collections/men-hoodies-long-sleeves","https://thenx.com/collections/equipment-dip-bars","https://thenx.com/collections/women-joggers","https://thenx.com/collections/equipment-bars-parallettes","https://thenx.com/collections/women-outfits","https://thenx.com/collections/shop-the-look-featured-collection","https://thenx.com/collections/men-tank-tops","https://thenx.com/collections/men-t-shirts-1","https://thenx.com/collections/men-tank-tops-1","https://thenx.com/collections/best-selling-products","https://thenx.com/collections/newest-products","https://thenx.com/collections/accessories-sleeves","https://thenx.com/collections/mega-menu-featured-products","https://thenx.com/collections/equipment-wrist-wraps","https://thenx.com/collections/clearance-equipment","https://thenx.com/collections/equipment-dip-belts","https://thenx.com/collections/clearance-men","https://thenx.com/collections/clearance-women","https://thenx.com/collections/calisthenics-equipment","https://thenx.com/collections/release-all-apparel","https://thenx.com/collections/release-all-accessories","https://thenx.com/collections/release-men-apparel","https://thenx.com/collections/release-women-apparel","https://thenx.com/collections/april-25-equipment-best-sellers","https://thenx.com/collections/weight-training-gear-all","https://thenx.com/collections/april-25-weight-training-best-sellers","https://thenx.com/collections/april-25-weight-training-new-arrivals","https://thenx.com/collections/april-25-weight-training-clearance","https://thenx.com/collections/bodyweight-calisthenics-all","https://thenx.com/collections/bodyweight-calisthenics-best-sellers","https://thenx.com/collections/bodyweight-calisthenics-new-arrivals","https://thenx.com/collections/bodyweight-calisthenics-clearance","https://thenx.com/collections/april-25-equipment-accessories-all","https://thenx.com/collections/april-25-equipment-accessories-best-sellers","https://thenx.com/collections/april-25-equipment-accessories-new-arrivals","https://thenx.com/collections/april-25-equipment-accessories-clearance","https://thenx.com/collections/april-25-apparel-all","https://thenx.com/collections/april-25-apparel-best-sellers","https://thenx.com/collections/april-25-apparel-new-arrival","https://thenx.com/collections/april-25-apparel-clearance","https://thenx.com/collections/mens-apparel-all","https://thenx.com/collections/mens-apparel-best-sellers","https://thenx.com/collections/mens-apparel-new-arrivals","https://thenx.com/collections/mens-apparel-clearance","https://thenx.com/collections/mens-tops-all","https://thenx.com/collections/mens-tops-best-sellers","https://thenx.com/collections/mens-tops-new-arrival","https://thenx.com/collections/mens-tops-clearance","https://thenx.com/collections/mens-bottoms-all","https://thenx.com/collections/mens-bottoms-best-sellers","https://thenx.com/collections/mens-bottoms-new-arrivals","https://thenx.com/collections/mens-bottoms-clearance","https://thenx.com/collections/womens-apparel-all","https://thenx.com/collections/womens-apparel-best-seller","https://thenx.com/collections/womens-apparel-new-arrivals","https://thenx.com/collections/womens-apparel-clearance","https://thenx.com/collections/april-25-womens-tops-all","https://thenx.com/collections/april-25-womens-tops-best-sellers","https://thenx.com/collections/april-25-womens-tops-new-arrivals","https://thenx.com/collections/april-25-womens-tops-clearance","https://thenx.com/collections/april-25-womens-bottoms-all","https://thenx.com/collections/april-25-womens-bottoms-best-sellers","https://thenx.com/collections/april-25-womens-bottoms-new-arrivals","https://thenx.com/collections/april-25-womens-bottoms-clearance","https://thenx.com/collections/april-25-accessories-all","https://thenx.com/collections/april-25-accessories-best-sellers","https://thenx.com/collections/april-25-accessories-new-releases","https://thenx.com/collections/april-25-accessories-clearance","https://thenx.com/collections/april-25-womens-sports-bras-all","https://thenx.com/collections/april-25-womens-sports-bras-best-sellers","https://thenx.com/collections/april-25-womens-sports-bras-new-arrivals","https://thenx.com/collections/april-25-womens-sports-bras-clearance","https://thenx.com/collections/april-25-womens-hoodies-long-sleeves-all","https://thenx.com/collections/april-25-womens-hoodies-long-sleeves-best-sellers","https://thenx.com/collections/april-25-womens-hoodies-long-sleeves-new-arrivals","https://thenx.com/collections/april-25-womens-hoodies-long-sleeves-clearance","https://thenx.com/collections/april-25-womens-leggings-all","https://thenx.com/collections/april-25-womens-leggings-best-sellers","https://thenx.com/collections/april-25-womens-leggings-new-arrivals","https://thenx.com/collections/april-25-womens-leggings-clearance","https://thenx.com/collections/april-25-womens-shorts-all","https://thenx.com/collections/april-25-womens-shorts-best-sellers","https://thenx.com/collections/april-25-womens-shorts-new-arrivals","https://thenx.com/collections/april-25-womens-shorts-clearance","https://thenx.com/collections/april-25-womens-joggers-all","https://thenx.com/collections/april-25-womens-joggers-best-sellers","https://thenx.com/collections/april-25-womens-joggers-new-arrivals","https://thenx.com/collections/april-25-womens-joggers-clearance","https://thenx.com/collections/april-25-mens-short-sleeves-all","https://thenx.com/collections/april-25-mens-short-sleeves-best-sellers","https://thenx.com/collections/april-25-mens-short-sleeves-new-arrivals","https://thenx.com/collections/april-25-mens-short-sleeves-clearance","https://thenx.com/collections/april-25-mens-tank-tops-all"]}
+[2025-07-09T10:40:08.450Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] geminiURLs {
+  "bestSellersUrl": "https://thenx.com/es/collections/best-sellers",
+  "contactUrl": "https://thenx.com/pages/contact-us",
+  "faqUrl": "https://thenx.com/pages/faq"
+}
+[2025-07-09T10:40:08.450Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🛍️ BROWSERLESS: Scraping best sellers page: https://thenx.com/es/collections/best-sellers
+[2025-07-09T10:40:10.622Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] geminiBrandBrief {
+  "aboutUs": {
+    "paragraph1": "At THENX, we are dedicated to empowering individuals to achieve their peak physical potential through innovative calisthenics equipment and performance-driven apparel.",
+    "paragraph2": "Our meticulously designed gear, like the highly acclaimed weight vests and resistance bands, provides the durability and flexibility needed to push boundaries and excel in every movement.",
+    "paragraph3": "That all ties into our mission to build a global community of athletes who support each other in mastering their strength, control, and overall well-being."
+  },
+  "brandAudience": "Fitness enthusiasts, athletes, and individuals committed to calisthenics and strength training.",
+  "brandDescription": "THENX provides high-performance calisthenics equipment and athletic apparel designed for durability, flexibility, and optimal movement, fostering a global community of empowered athletes.",
+  "brandMessage": "Unlock your potential and master your strength with THENX.",
+  "brandName": "THENX",
+  "brandTone": "Motivational, empowering, performance-focused, direct.",
+  "topEmailText": "Elevate Your Athletic Performance",
+  "brandIndustry": "Fitness Apparel and Equipment"
+}
+[2025-07-09T10:40:16.344Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ GEMINI: Extracted 9 products from best sellers page (productsFound: true)
+[2025-07-09T10:40:16.345Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] bestSellers [
+  {
+    "productImgUrl": "//thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_30lb.webp?v=1741490537",
+    "productName": "Chaleco lastrado Thenx - 13,61 kg (30 lb)",
+    "productPrice": "$160.00",
+    "productURL": "https://thenx.com/es/products/thenx-weight-vest-30lb?variant=44247840030895"
+  },
+  {
+    "productImgUrl": "//thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_1.webp?v=1741491209",
+    "productName": "Chaleco lastrado Thenx - 40 lb | 18,14 kg",
+    "productPrice": "$205.00",
+    "productURL": "https://thenx.com/es/products/thenx-weight-vest?variant=43907179544751"
+  },
+  {
+    "productImgUrl": "//thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_20lb.webp?v=1741491146",
+    "productName": "Chaleco lastrado Thenx - 9 kg",
+    "productPrice": "$125.00",
+    "productURL": "https://thenx.com/es/products/thenx-weight-vest-20lb?variant=44247844389039"
+  },
+  {
+    "productImgUrl": "//thenx.com/cdn/shop/files/thenx_resistance_band_black_1035_new_d5280e05-1991-4ce3-8a76-6a7d4e3cdc29.png?v=1727196488",
+    "productName": "Banda de resistencia V2 | 10-35 lb",
+    "productPrice": "$17.00",
+    "productURL": "https://thenx.com/es/products/resistance-band-v2-10-35lb?variant=43906852815023"
+  },
+  {
+    "productImgUrl": "//thenx.com/cdn/shop/files/thenx_resistance_band_black2_bd0968e3-a212-4a5e-a91c-862fb9ac3867.png?v=1727196289",
+    "productName": "Banda de resistencia negra | 30-60 lb",
+    "productPrice": "$13.29",
+    "productURL": "https://thenx.com/es/products/black-resistance-band?variant=4709284937761"
+  },
+  {
+    "productImgUrl": "//thenx.com/cdn/shop/files/thenx_wrist_wraps_black_2.png?v=1727197193",
+    "productName": "Vendajes de muñeca de fuerza",
+    "productPrice": "$10.49",
+    "productURL": "https://thenx.com/es/products/thenx-wrist-wraps?variant=4709314986017"
+  },
+  {
+    "productImgUrl": "//thenx.com/cdn/shop/files/thenx_travel_parallettes_large1.png?v=1736984781",
+    "productName": "Parallettes de viaje Thenx V2",
+    "productPrice": "$45.00",
+    "productURL": "https://thenx.com/es/products/thenx-small-parallettes-v2?variant=44247908810927"
+  },
+  {
+    "productImgUrl": "//thenx.com/cdn/shop/files/thenx_rings_NEW2.png?v=1717462702",
+    "productName": "Anillas de gimnasia V2",
+    "productPrice": "$49.99",
+    "productURL": "https://thenx.com/es/products/gymnastics-rings-v2?variant=43906738094255"
+  },
+  {
+    "productImgUrl": "//thenx.com/cdn/shop/files/thenx_original_dipbelt_1.png?v=1737149531",
+    "productName": "Cinturón de pesas Thenx",
+    "productPrice": "$31.50",
+    "productURL": "https://thenx.com/es/products/thenx-weight-belt?variant=4709285527585"
+  }
+]
+[2025-07-09T10:40:16.345Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] [33m✅ Analysis complete in 28.115 seconds 🎉[0m
+[2025-07-09T10:40:16.345Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔍 Checking API Usage
+[2025-07-09T10:40:16.460Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 📊 Remaining Firecrawl Credits: 2949
+[2025-07-09T10:40:16.701Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 📊 Brand Fetch: API Usage: 98/2500 requests this month
+[2025-07-09T10:40:16.701Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🎨 Starting preview email generation
+[2025-07-09T10:40:16.702Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🚀 Starting preview email generation process...
+[2025-07-09T10:40:16.702Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Successfully fetched 8 templates
+[2025-07-09T10:40:16.702Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 
+🔄 Step 2: Processing templates with brand replacements...
+[2025-07-09T10:40:16.702Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔀 Processing 8 templates concurrently...
+[2025-07-09T10:40:16.702Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template SpZKLh...
+[2025-07-09T10:40:16.702Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template for brand: Thenx
+[2025-07-09T10:40:16.702Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:40:16.703Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Background color: Replaced 28 occurrence(s)
+[2025-07-09T10:40:16.703Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: #3290F5
+[2025-07-09T10:40:16.703Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   #9c9c9c
+[2025-07-09T10:40:16.703Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Text color: Replaced 10 occurrence(s)
+[2025-07-09T10:40:16.704Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: rgb(255, 255, 241), #FFFFF1
+[2025-07-09T10:40:16.704Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   #000000
+[2025-07-09T10:40:16.704Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand logo: Replaced 2 occurrence(s) by alt="logo_img_url"
+[2025-07-09T10:40:16.705Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://cdn.brandfetch.io/idjU8ldZ6F/w/50/h/50/theme/light/logo.png?c=1bxidDUkTxa1Dl3KsNTfn
+[2025-07-09T10:40:16.705Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand logo alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.705Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: logo_img_url
+[2025-07-09T10:40:16.705Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.706Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Header image: Replaced 1 occurrence(s) by alt="header_image_url"
+[2025-07-09T10:40:16.706Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/4wY0w4Mh/Sparkling-Badge-Hi-There-or-Welcome-1.jpg
+[2025-07-09T10:40:16.706Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Header image alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.706Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: header_image_url
+[2025-07-09T10:40:16.706Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.706Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Name: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.707Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: BBB Marketing
+[2025-07-09T10:40:16.707Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Thenx
+[2025-07-09T10:40:16.707Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1: Replaced 1 occurrence(s) by alt="Image of White Chair 1"
+[2025-07-09T10:40:16.708Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_resistance_band_black_1035_new_d5280e05-1991-4ce3-8a76-6a7d4e3cdc29.png?v=1727196488
+[2025-07-09T10:40:16.708Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:40:16.709Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_1.webp?v=1741491209
+[2025-07-09T10:40:16.709Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:40:16.709Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_resistance_band_black2_bd0968e3-a212-4a5e-a91c-862fb9ac3867.png?v=1727196289
+[2025-07-09T10:40:16.710Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:40:16.711Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_rings_NEW2.png?v=1717462702
+[2025-07-09T10:40:16.711Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:40:16.712Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_20lb.webp?v=1741491146
+[2025-07-09T10:40:16.717Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:40:16.718Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_wrist_wraps_black_2.png?v=1727197193
+[2025-07-09T10:40:16.719Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1: Replaced 1 occurrence(s) by alt="Image of White Chair 1"
+[2025-07-09T10:40:16.719Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_resistance_band_black_1035_new_d5280e05-1991-4ce3-8a76-6a7d4e3cdc29.png?v=1727196488
+[2025-07-09T10:40:16.719Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:40:16.719Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_1.webp?v=1741491209
+[2025-07-09T10:40:16.720Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:40:16.720Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_resistance_band_black2_bd0968e3-a212-4a5e-a91c-862fb9ac3867.png?v=1727196289
+[2025-07-09T10:40:16.721Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:40:16.721Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_rings_NEW2.png?v=1717462702
+[2025-07-09T10:40:16.721Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:40:16.722Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_20lb.webp?v=1741491146
+[2025-07-09T10:40:16.722Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:40:16.722Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_wrist_wraps_black_2.png?v=1727197193
+[2025-07-09T10:40:16.722Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.723Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 1
+[2025-07-09T10:40:16.723Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Banda de resistencia V2 | 10-35 lb
+[2025-07-09T10:40:16.724Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.724Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 2
+[2025-07-09T10:40:16.725Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 40 lb | 18,14 kg
+[2025-07-09T10:40:16.725Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.725Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 3
+[2025-07-09T10:40:16.725Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Banda de resistencia negra | 30-60 lb
+[2025-07-09T10:40:16.725Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.726Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 4
+[2025-07-09T10:40:16.726Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Anillas de gimnasia V2
+[2025-07-09T10:40:16.726Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.726Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 5
+[2025-07-09T10:40:16.726Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 9 kg
+[2025-07-09T10:40:16.726Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.727Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 6
+[2025-07-09T10:40:16.728Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Vendajes de muñeca de fuerza
+[2025-07-09T10:40:16.729Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.729Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-1
+[2025-07-09T10:40:16.730Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/resistance-band-v2-10-35lb?variant=43906852815023
+[2025-07-09T10:40:16.730Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.730Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-2
+[2025-07-09T10:40:16.730Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest?variant=43907179544751
+[2025-07-09T10:40:16.731Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.731Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-3
+[2025-07-09T10:40:16.731Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/black-resistance-band?variant=4709284937761
+[2025-07-09T10:40:16.731Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.731Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-4
+[2025-07-09T10:40:16.731Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/gymnastics-rings-v2?variant=43906738094255
+[2025-07-09T10:40:16.732Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.733Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-5
+[2025-07-09T10:40:16.733Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest-20lb?variant=44247844389039
+[2025-07-09T10:40:16.734Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.734Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-6
+[2025-07-09T10:40:16.734Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-wrist-wraps?variant=4709314986017
+[2025-07-09T10:40:16.734Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Sellers Link: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.734Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://link_to_best_sellers
+[2025-07-09T10:40:16.734Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/collections/best-sellers
+[2025-07-09T10:40:16.734Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Paragraph 1: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.735Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: paragraph_1
+[2025-07-09T10:40:16.735Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   At THENX, we are dedicated to empowering individuals to achieve their peak physical potential through innovative calisthenics equipment and performance-driven apparel.
+[2025-07-09T10:40:16.735Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Paragraph 2: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.735Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: paragraph_2
+[2025-07-09T10:40:16.735Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Our meticulously designed gear, like the highly acclaimed weight vests and resistance bands, provides the durability and flexibility needed to push boundaries and excel in every movement.
+[2025-07-09T10:40:16.736Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Paragraph 3: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.736Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: paragraph_3
+[2025-07-09T10:40:16.737Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   That all ties into our mission to build a global community of athletes who support each other in mastering their strength, control, and overall well-being.
+[2025-07-09T10:40:16.737Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Image: Replaced 2 occurrence(s) by alt="brand_benefits_1_img_url"
+[2025-07-09T10:40:16.738Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/C3QDYx40/Guarantee-Badge.png
+[2025-07-09T10:40:16.739Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Image: Replaced 2 occurrence(s) by alt="brand_benefits_2_img_url"
+[2025-07-09T10:40:16.740Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/msMtdF5/Abstract-USA-flag.png
+[2025-07-09T10:40:16.740Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Image: Replaced 2 occurrence(s) by alt="brand_benefits_3_img_url"
+[2025-07-09T10:40:16.740Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/DDg4tJqw/Returns-Refunds-Exchanges.png
+[2025-07-09T10:40:16.740Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.741Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_1
+[2025-07-09T10:40:16.741Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Quality Assurance
+[2025-07-09T10:40:16.741Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.741Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_2
+[2025-07-09T10:40:16.741Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Ships from USA
+[2025-07-09T10:40:16.741Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.742Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_3
+[2025-07-09T10:40:16.742Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Hassle-Free Returns
+[2025-07-09T10:40:16.743Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.743Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_1_img_url
+[2025-07-09T10:40:16.744Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.744Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.745Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_2_img_url
+[2025-07-09T10:40:16.745Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.746Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.746Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_3_img_url
+[2025-07-09T10:40:16.746Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.746Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Deliverability Text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.746Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: deliverability_text
+[2025-07-09T10:40:16.746Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   <div><span style="color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;">
+
+Order Number: ORD-123456789 – Thank you for choosing THENX. Your items are being prepared and will be dispatched shortly. Keep this message for reference.
+
+Included:
+
+1x THENX Weight Vest - 40LB | 18.14KG – 205.00  
+1x THENX Half Bar – 165.00  
+1x THENX Dip Bars [Wooden Bars] – 164.00  
+
+Applied: Discount Code XYZ – 0.00  
+
+Subtotal: 534.00  
+Shipping: Standard Service  
+Taxes: 0.00  
+Total: 534.00 USD
+
+Shipping Information:
+
+Alex Green  
+789 Neutral Road  
+Techville, XX 12345  
+United States
+
+Information:
+
+Alex Green  
+789 Neutral Road  
+Techville, XX 12345  
+United States
+
+Shipping Method: Standard (5–7 business days)  
+
+Delivery Information:
+
+Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays.
+
+Not arrived within timeframe? Support team available. We're ready to help.
+
+1. **Processing**: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit.
+
+2. **Shipping & Arrival**: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region.
+
+3. **Payment & Security**: Transactions encrypted. Details protected. Payment methods shown at checkout.
+
+4. **Returns & Resolution**: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred.
+
+5. **Privacy Statement**: Info used to manage account and fulfill inquiry. We don't share data unless required.
+
+6. **Rights & Content**: Materials belong to THENX or licensed parties. Protected by intellectual property laws.
+
+Thank you again from THENX. We appreciate your support.
+
+Regards,  
+The THENX Team
+
+</span></div>
+[2025-07-09T10:40:16.747Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Contact Us Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.747Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://contact_us_link
+[2025-07-09T10:40:16.747Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/pages/contact-us
+[2025-07-09T10:40:16.747Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ FAQ Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.747Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://faq_link
+[2025-07-09T10:40:16.747Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/pages/faq
+[2025-07-09T10:40:16.748Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.748Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#FFF; text-decoration:none" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=1OBZdPc_Zf2HnukEdZPtT38jDIm8IcHBtxE0xewHCfs.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:40:16.749Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.749Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template processing complete
+[2025-07-09T10:40:16.750Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Successfully processed template SpZKLh
+[2025-07-09T10:40:16.750Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template SjnvqT...
+[2025-07-09T10:40:16.751Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template for brand: Thenx
+[2025-07-09T10:40:16.751Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:40:16.752Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Background color: Replaced 10 occurrence(s)
+[2025-07-09T10:40:16.752Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: #3290F5
+[2025-07-09T10:40:16.752Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   #9c9c9c
+[2025-07-09T10:40:16.752Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Text color: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.752Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: rgb(255, 255, 241), #FFFFF1
+[2025-07-09T10:40:16.752Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   #000000
+[2025-07-09T10:40:16.753Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand logo: Replaced 1 occurrence(s) by alt="logo_img_url"
+[2025-07-09T10:40:16.754Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://cdn.brandfetch.io/idjU8ldZ6F/w/50/h/50/theme/light/logo.png?c=1bxidDUkTxa1Dl3KsNTfn
+[2025-07-09T10:40:16.754Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand logo alt text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.754Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: logo_img_url
+[2025-07-09T10:40:16.754Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.755Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Header image: Replaced 1 occurrence(s) by alt="header_image_url"
+[2025-07-09T10:40:16.755Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/kby4G5Q/Thumbs-Up.jpg
+[2025-07-09T10:40:16.756Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Header image alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.756Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: header_image_url
+[2025-07-09T10:40:16.756Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.756Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1: Replaced 1 occurrence(s) by alt="Image of White Chair 1"
+[2025-07-09T10:40:16.756Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_wrist_wraps_black_2.png?v=1727197193
+[2025-07-09T10:40:16.756Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:40:16.756Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_resistance_band_black2_bd0968e3-a212-4a5e-a91c-862fb9ac3867.png?v=1727196289
+[2025-07-09T10:40:16.757Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:40:16.757Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_rings_NEW2.png?v=1717462702
+[2025-07-09T10:40:16.757Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:40:16.758Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_30lb.webp?v=1741490537
+[2025-07-09T10:40:16.758Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:40:16.758Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_travel_parallettes_large1.png?v=1736984781
+[2025-07-09T10:40:16.759Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:40:16.759Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_original_dipbelt_1.png?v=1737149531
+[2025-07-09T10:40:16.760Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 7: Replaced 1 occurrence(s) by alt="Image of White Chair 7"
+[2025-07-09T10:40:16.760Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_resistance_band_black_1035_new_d5280e05-1991-4ce3-8a76-6a7d4e3cdc29.png?v=1727196488
+[2025-07-09T10:40:16.761Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 8: Replaced 1 occurrence(s) by alt="Image of White Chair 8"
+[2025-07-09T10:40:16.761Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_20lb.webp?v=1741491146
+[2025-07-09T10:40:16.762Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 9: Replaced 1 occurrence(s) by alt="Image of White Chair 9"
+[2025-07-09T10:40:16.762Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_1.webp?v=1741491209
+[2025-07-09T10:40:16.762Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.762Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 1
+[2025-07-09T10:40:16.762Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Vendajes de muñeca de fuerza
+[2025-07-09T10:40:16.763Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.763Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 2
+[2025-07-09T10:40:16.763Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Banda de resistencia negra | 30-60 lb
+[2025-07-09T10:40:16.763Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.763Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 3
+[2025-07-09T10:40:16.763Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Anillas de gimnasia V2
+[2025-07-09T10:40:16.764Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.764Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 4
+[2025-07-09T10:40:16.764Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 13,61 kg (30 lb)
+[2025-07-09T10:40:16.764Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.765Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 5
+[2025-07-09T10:40:16.765Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Parallettes de viaje Thenx V2
+[2025-07-09T10:40:16.765Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.765Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 6
+[2025-07-09T10:40:16.766Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Cinturón de pesas Thenx
+[2025-07-09T10:40:16.766Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 7: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.766Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 7
+[2025-07-09T10:40:16.766Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Banda de resistencia V2 | 10-35 lb
+[2025-07-09T10:40:16.766Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 8: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.766Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 8
+[2025-07-09T10:40:16.766Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 9 kg
+[2025-07-09T10:40:16.767Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 9: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.768Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 9
+[2025-07-09T10:40:16.768Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 40 lb | 18,14 kg
+[2025-07-09T10:40:16.769Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.769Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-1
+[2025-07-09T10:40:16.769Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-wrist-wraps?variant=4709314986017
+[2025-07-09T10:40:16.770Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.770Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-2
+[2025-07-09T10:40:16.770Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/black-resistance-band?variant=4709284937761
+[2025-07-09T10:40:16.770Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.771Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-3
+[2025-07-09T10:40:16.772Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/gymnastics-rings-v2?variant=43906738094255
+[2025-07-09T10:40:16.773Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.773Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-4
+[2025-07-09T10:40:16.773Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest-30lb?variant=44247840030895
+[2025-07-09T10:40:16.774Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.774Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-5
+[2025-07-09T10:40:16.774Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-small-parallettes-v2?variant=44247908810927
+[2025-07-09T10:40:16.774Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.774Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-6
+[2025-07-09T10:40:16.774Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-belt?variant=4709285527585
+[2025-07-09T10:40:16.774Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 7 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.775Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-7
+[2025-07-09T10:40:16.775Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/resistance-band-v2-10-35lb?variant=43906852815023
+[2025-07-09T10:40:16.776Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 8 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.777Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-8
+[2025-07-09T10:40:16.777Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest-20lb?variant=44247844389039
+[2025-07-09T10:40:16.777Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 9 Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.778Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-9
+[2025-07-09T10:40:16.778Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest?variant=43907179544751
+[2025-07-09T10:40:16.778Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Sellers Link: Replaced 3 occurrence(s)
+[2025-07-09T10:40:16.778Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://link_to_best_sellers
+[2025-07-09T10:40:16.778Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/collections/best-sellers
+[2025-07-09T10:40:16.779Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Image: Replaced 2 occurrence(s) by alt="brand_benefits_1_img_url"
+[2025-07-09T10:40:16.779Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/C3QDYx40/Guarantee-Badge.png
+[2025-07-09T10:40:16.780Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Image: Replaced 2 occurrence(s) by alt="brand_benefits_2_img_url"
+[2025-07-09T10:40:16.780Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/msMtdF5/Abstract-USA-flag.png
+[2025-07-09T10:40:16.780Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Image: Replaced 2 occurrence(s) by alt="brand_benefits_3_img_url"
+[2025-07-09T10:40:16.781Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/DDg4tJqw/Returns-Refunds-Exchanges.png
+[2025-07-09T10:40:16.781Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.781Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_1
+[2025-07-09T10:40:16.781Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Quality Assurance
+[2025-07-09T10:40:16.781Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.781Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_2
+[2025-07-09T10:40:16.781Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Ships from USA
+[2025-07-09T10:40:16.781Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.781Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_3
+[2025-07-09T10:40:16.782Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Hassle-Free Returns
+[2025-07-09T10:40:16.782Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.782Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_1_img_url
+[2025-07-09T10:40:16.782Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.782Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.782Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_2_img_url
+[2025-07-09T10:40:16.782Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.782Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.782Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_3_img_url
+[2025-07-09T10:40:16.783Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.783Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Deliverability Text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.783Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: deliverability_text
+[2025-07-09T10:40:16.783Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   <div><span style="color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;">
+
+Order Number: ORD-123456789 – Thank you for choosing THENX. Your items are being prepared and will be dispatched shortly. Keep this message for reference.
+
+Included:
+
+1x THENX Weight Vest - 40LB | 18.14KG – 205.00  
+1x THENX Half Bar – 165.00  
+1x THENX Dip Bars [Wooden Bars] – 164.00  
+
+Applied: Discount Code XYZ – 0.00  
+
+Subtotal: 534.00  
+Shipping: Standard Service  
+Taxes: 0.00  
+Total: 534.00 USD
+
+Shipping Information:
+
+Alex Green  
+789 Neutral Road  
+Techville, XX 12345  
+United States
+
+Information:
+
+Alex Green  
+789 Neutral Road  
+Techville, XX 12345  
+United States
+
+Shipping Method: Standard (5–7 business days)  
+
+Delivery Information:
+
+Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays.
+
+Not arrived within timeframe? Support team available. We're ready to help.
+
+1. **Processing**: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit.
+
+2. **Shipping & Arrival**: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region.
+
+3. **Payment & Security**: Transactions encrypted. Details protected. Payment methods shown at checkout.
+
+4. **Returns & Resolution**: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred.
+
+5. **Privacy Statement**: Info used to manage account and fulfill inquiry. We don't share data unless required.
+
+6. **Rights & Content**: Materials belong to THENX or licensed parties. Protected by intellectual property laws.
+
+Thank you again from THENX. We appreciate your support.
+
+Regards,  
+The THENX Team
+
+</span></div>
+[2025-07-09T10:40:16.783Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Contact Us Link: Replaced 3 occurrence(s)
+[2025-07-09T10:40:16.783Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://contact_us_link
+[2025-07-09T10:40:16.784Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/pages/contact-us
+[2025-07-09T10:40:16.785Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ FAQ Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.785Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://faq_link
+[2025-07-09T10:40:16.785Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/pages/faq
+[2025-07-09T10:40:16.785Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.785Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#FFF; text-decoration:none" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=1OBZdPc_Zf2HnukEdZPtT38jDIm8IcHBtxE0xewHCfs.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:40:16.785Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.785Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template processing complete
+[2025-07-09T10:40:16.785Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Successfully processed template SjnvqT
+[2025-07-09T10:40:16.785Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template Yf3Wdz...
+[2025-07-09T10:40:16.785Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template for brand: Thenx
+[2025-07-09T10:40:16.786Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:40:16.786Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Background color: Replaced 28 occurrence(s)
+[2025-07-09T10:40:16.786Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: #3290F5
+[2025-07-09T10:40:16.786Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   #9c9c9c
+[2025-07-09T10:40:16.787Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Text color: Replaced 10 occurrence(s)
+[2025-07-09T10:40:16.787Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: rgb(255, 255, 241), #FFFFF1
+[2025-07-09T10:40:16.787Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   #000000
+[2025-07-09T10:40:16.788Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand logo: Replaced 1 occurrence(s) by alt="logo_img_url"
+[2025-07-09T10:40:16.788Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://cdn.brandfetch.io/idjU8ldZ6F/w/50/h/50/theme/light/logo.png?c=1bxidDUkTxa1Dl3KsNTfn
+[2025-07-09T10:40:16.788Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand logo alt text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.788Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: logo_img_url
+[2025-07-09T10:40:16.788Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.788Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Header image: Replaced 1 occurrence(s) by alt="header_image_url"
+[2025-07-09T10:40:16.788Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/F4bkDDkn/Kitchen-Timer.jpg
+[2025-07-09T10:40:16.789Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Header image alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.789Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: header_image_url
+[2025-07-09T10:40:16.789Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.789Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Main Product: Replaced 1 occurrence(s) by alt="main_product_img"
+[2025-07-09T10:40:16.789Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_rings_NEW2.png?v=1717462702
+[2025-07-09T10:40:16.789Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Main Product Name: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.790Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: main_product_name
+[2025-07-09T10:40:16.790Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Anillas de gimnasia V2
+[2025-07-09T10:40:16.790Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Main Product Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.790Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://main_product_href
+[2025-07-09T10:40:16.790Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/gymnastics-rings-v2?variant=43906738094255
+[2025-07-09T10:40:16.790Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Main Product Alt Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.790Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: main_product_img
+[2025-07-09T10:40:16.791Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.792Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1: Replaced 1 occurrence(s) by alt="Image of White Chair 1"
+[2025-07-09T10:40:16.792Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_rings_NEW2.png?v=1717462702
+[2025-07-09T10:40:16.792Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:40:16.792Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_20lb.webp?v=1741491146
+[2025-07-09T10:40:16.792Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:40:16.792Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_wrist_wraps_black_2.png?v=1727197193
+[2025-07-09T10:40:16.793Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:40:16.793Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_original_dipbelt_1.png?v=1737149531
+[2025-07-09T10:40:16.793Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:40:16.793Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_1.webp?v=1741491209
+[2025-07-09T10:40:16.793Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:40:16.793Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_30lb.webp?v=1741490537
+[2025-07-09T10:40:16.794Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1: Replaced 1 occurrence(s) by alt="Image of White Chair 1"
+[2025-07-09T10:40:16.794Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_rings_NEW2.png?v=1717462702
+[2025-07-09T10:40:16.794Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:40:16.794Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_20lb.webp?v=1741491146
+[2025-07-09T10:40:16.795Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:40:16.795Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_wrist_wraps_black_2.png?v=1727197193
+[2025-07-09T10:40:16.796Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:40:16.796Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_original_dipbelt_1.png?v=1737149531
+[2025-07-09T10:40:16.796Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:40:16.796Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_1.webp?v=1741491209
+[2025-07-09T10:40:16.797Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:40:16.797Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_30lb.webp?v=1741490537
+[2025-07-09T10:40:16.797Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.797Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 1
+[2025-07-09T10:40:16.797Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Anillas de gimnasia V2
+[2025-07-09T10:40:16.797Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.797Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 2
+[2025-07-09T10:40:16.797Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 9 kg
+[2025-07-09T10:40:16.797Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.797Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 3
+[2025-07-09T10:40:16.798Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Vendajes de muñeca de fuerza
+[2025-07-09T10:40:16.798Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.798Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 4
+[2025-07-09T10:40:16.798Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Cinturón de pesas Thenx
+[2025-07-09T10:40:16.799Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.799Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 5
+[2025-07-09T10:40:16.799Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 40 lb | 18,14 kg
+[2025-07-09T10:40:16.799Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.799Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 6
+[2025-07-09T10:40:16.799Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 13,61 kg (30 lb)
+[2025-07-09T10:40:16.800Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.800Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-1
+[2025-07-09T10:40:16.800Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/gymnastics-rings-v2?variant=43906738094255
+[2025-07-09T10:40:16.800Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.800Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-2
+[2025-07-09T10:40:16.800Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest-20lb?variant=44247844389039
+[2025-07-09T10:40:16.801Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.801Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-3
+[2025-07-09T10:40:16.801Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-wrist-wraps?variant=4709314986017
+[2025-07-09T10:40:16.801Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.801Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-4
+[2025-07-09T10:40:16.801Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-belt?variant=4709285527585
+[2025-07-09T10:40:16.801Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.801Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-5
+[2025-07-09T10:40:16.801Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest?variant=43907179544751
+[2025-07-09T10:40:16.802Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.802Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-6
+[2025-07-09T10:40:16.802Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest-30lb?variant=44247840030895
+[2025-07-09T10:40:16.807Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Sellers Link: Replaced 3 occurrence(s)
+[2025-07-09T10:40:16.808Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://link_to_best_sellers
+[2025-07-09T10:40:16.808Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/collections/best-sellers
+[2025-07-09T10:40:16.809Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Image: Replaced 2 occurrence(s) by alt="brand_benefits_1_img_url"
+[2025-07-09T10:40:16.810Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/C3QDYx40/Guarantee-Badge.png
+[2025-07-09T10:40:16.811Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Image: Replaced 2 occurrence(s) by alt="brand_benefits_2_img_url"
+[2025-07-09T10:40:16.811Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/msMtdF5/Abstract-USA-flag.png
+[2025-07-09T10:40:16.812Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Image: Replaced 2 occurrence(s) by alt="brand_benefits_3_img_url"
+[2025-07-09T10:40:16.813Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/DDg4tJqw/Returns-Refunds-Exchanges.png
+[2025-07-09T10:40:16.813Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.813Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_1
+[2025-07-09T10:40:16.813Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Quality Assurance
+[2025-07-09T10:40:16.814Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.814Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_2
+[2025-07-09T10:40:16.814Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Ships from USA
+[2025-07-09T10:40:16.814Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.814Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_3
+[2025-07-09T10:40:16.814Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Hassle-Free Returns
+[2025-07-09T10:40:16.814Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.814Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_1_img_url
+[2025-07-09T10:40:16.815Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.815Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.815Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_2_img_url
+[2025-07-09T10:40:16.815Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.815Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.815Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_3_img_url
+[2025-07-09T10:40:16.815Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.816Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Deliverability Text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.817Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: deliverability_text
+[2025-07-09T10:40:16.817Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   <div><span style="color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;">
+
+Order Number: ORD-123456789 – Thank you for choosing THENX. Your items are being prepared and will be dispatched shortly. Keep this message for reference.
+
+Included:
+
+1x THENX Weight Vest - 40LB | 18.14KG – 205.00  
+1x THENX Half Bar – 165.00  
+1x THENX Dip Bars [Wooden Bars] – 164.00  
+
+Applied: Discount Code XYZ – 0.00  
+
+Subtotal: 534.00  
+Shipping: Standard Service  
+Taxes: 0.00  
+Total: 534.00 USD
+
+Shipping Information:
+
+Alex Green  
+789 Neutral Road  
+Techville, XX 12345  
+United States
+
+Information:
+
+Alex Green  
+789 Neutral Road  
+Techville, XX 12345  
+United States
+
+Shipping Method: Standard (5–7 business days)  
+
+Delivery Information:
+
+Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays.
+
+Not arrived within timeframe? Support team available. We're ready to help.
+
+1. **Processing**: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit.
+
+2. **Shipping & Arrival**: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region.
+
+3. **Payment & Security**: Transactions encrypted. Details protected. Payment methods shown at checkout.
+
+4. **Returns & Resolution**: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred.
+
+5. **Privacy Statement**: Info used to manage account and fulfill inquiry. We don't share data unless required.
+
+6. **Rights & Content**: Materials belong to THENX or licensed parties. Protected by intellectual property laws.
+
+Thank you again from THENX. We appreciate your support.
+
+Regards,  
+The THENX Team
+
+</span></div>
+[2025-07-09T10:40:16.818Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Contact Us Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.818Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://contact_us_link
+[2025-07-09T10:40:16.819Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/pages/contact-us
+[2025-07-09T10:40:16.819Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ FAQ Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.820Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://faq_link
+[2025-07-09T10:40:16.820Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/pages/faq
+[2025-07-09T10:40:16.821Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.821Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#FFF; text-decoration:none" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=1OBZdPc_Zf2HnukEdZPtT38jDIm8IcHBtxE0xewHCfs.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:40:16.821Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.821Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template processing complete
+[2025-07-09T10:40:16.821Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Successfully processed template Yf3Wdz
+[2025-07-09T10:40:16.821Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template RLpd9P...
+[2025-07-09T10:40:16.821Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template for brand: Thenx
+[2025-07-09T10:40:16.822Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:40:16.822Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Background color: Replaced 28 occurrence(s)
+[2025-07-09T10:40:16.822Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: #3290F5
+[2025-07-09T10:40:16.822Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   #9c9c9c
+[2025-07-09T10:40:16.823Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Text color: Replaced 10 occurrence(s)
+[2025-07-09T10:40:16.823Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: rgb(255, 255, 241), #FFFFF1
+[2025-07-09T10:40:16.824Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   #000000
+[2025-07-09T10:40:16.825Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand logo: Replaced 1 occurrence(s) by alt="logo_img_url"
+[2025-07-09T10:40:16.825Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://cdn.brandfetch.io/idjU8ldZ6F/w/50/h/50/theme/light/logo.png?c=1bxidDUkTxa1Dl3KsNTfn
+[2025-07-09T10:40:16.825Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand logo alt text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.826Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: logo_img_url
+[2025-07-09T10:40:16.826Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.827Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Header image: Replaced 1 occurrence(s) by alt="header_image_url"
+[2025-07-09T10:40:16.827Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/3tc2s3w/Open-Bag.jpg
+[2025-07-09T10:40:16.827Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Header image alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.827Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: header_image_url
+[2025-07-09T10:40:16.827Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.828Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Top Email Text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.828Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: top_email_text
+[2025-07-09T10:40:16.829Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Elevate Your Athletic Performance
+[2025-07-09T10:40:16.830Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.830Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cdn.shopify.com/s/files/1/0952/3622/7421/files/image.png?v=1747148039, https://cq2sff-ue.myshopify.com/cdn/shop/files/image-6_grande.png?v=1747148157
+[2025-07-09T10:40:16.830Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   //thenx.com/cdn/shop/files/thenx_rings_NEW2.png?v=1717462702
+[2025-07-09T10:40:16.831Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product Link: Replaced 5 occurrence(s)
+[2025-07-09T10:40:16.831Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/95236227421/checkouts/ac/Z2NwLWV1cm9wZS13ZXN0MzowMUpWVlY1R0I5UENZMDAyWUU0UUNHTlgxVg/recover, https://cq2sff-ue.myshopify.com/products/white-chair-7
+[2025-07-09T10:40:16.831Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/gymnastics-rings-v2?variant=43906738094255
+[2025-07-09T10:40:16.831Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product Name: Replaced 3 occurrence(s)
+[2025-07-09T10:40:16.831Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 1, White Chair 7
+[2025-07-09T10:40:16.831Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Anillas de gimnasia V2
+[2025-07-09T10:40:16.832Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product Price: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.833Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: $50.00, 50.00 лв
+[2025-07-09T10:40:16.833Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   $49.99
+[2025-07-09T10:40:16.834Z] [WARN] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:40:16.834Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:40:16.835Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_travel_parallettes_large1.png?v=1736984781
+[2025-07-09T10:40:16.835Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:40:16.835Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_30lb.webp?v=1741490537
+[2025-07-09T10:40:16.835Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:40:16.835Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_resistance_band_black_1035_new_d5280e05-1991-4ce3-8a76-6a7d4e3cdc29.png?v=1727196488
+[2025-07-09T10:40:16.836Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:40:16.836Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_1.webp?v=1741491209
+[2025-07-09T10:40:16.836Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:40:16.837Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_wrist_wraps_black_2.png?v=1727197193
+[2025-07-09T10:40:16.837Z] [WARN] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:40:16.838Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:40:16.838Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_travel_parallettes_large1.png?v=1736984781
+[2025-07-09T10:40:16.838Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:40:16.838Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_30lb.webp?v=1741490537
+[2025-07-09T10:40:16.838Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:40:16.838Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_resistance_band_black_1035_new_d5280e05-1991-4ce3-8a76-6a7d4e3cdc29.png?v=1727196488
+[2025-07-09T10:40:16.839Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:40:16.839Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_1.webp?v=1741491209
+[2025-07-09T10:40:16.840Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:40:16.840Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_wrist_wraps_black_2.png?v=1727197193
+[2025-07-09T10:40:16.840Z] [WARN] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ⚠️ Best Seller 1: Text not found in HTML
+[2025-07-09T10:40:16.840Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.840Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 2
+[2025-07-09T10:40:16.840Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Parallettes de viaje Thenx V2
+[2025-07-09T10:40:16.840Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.840Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 3
+[2025-07-09T10:40:16.840Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 13,61 kg (30 lb)
+[2025-07-09T10:40:16.840Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.840Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 4
+[2025-07-09T10:40:16.841Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Banda de resistencia V2 | 10-35 lb
+[2025-07-09T10:40:16.841Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.841Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 5
+[2025-07-09T10:40:16.841Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 40 lb | 18,14 kg
+[2025-07-09T10:40:16.841Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.841Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 6
+[2025-07-09T10:40:16.841Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Vendajes de muñeca de fuerza
+[2025-07-09T10:40:16.841Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.842Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-1
+[2025-07-09T10:40:16.842Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/black-resistance-band?variant=4709284937761
+[2025-07-09T10:40:16.842Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.842Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-2
+[2025-07-09T10:40:16.842Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-small-parallettes-v2?variant=44247908810927
+[2025-07-09T10:40:16.842Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.842Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-3
+[2025-07-09T10:40:16.842Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest-30lb?variant=44247840030895
+[2025-07-09T10:40:16.843Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.843Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-4
+[2025-07-09T10:40:16.843Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/resistance-band-v2-10-35lb?variant=43906852815023
+[2025-07-09T10:40:16.844Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.844Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-5
+[2025-07-09T10:40:16.844Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest?variant=43907179544751
+[2025-07-09T10:40:16.844Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.845Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-6
+[2025-07-09T10:40:16.845Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-wrist-wraps?variant=4709314986017
+[2025-07-09T10:40:16.845Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Image: Replaced 2 occurrence(s) by alt="brand_benefits_1_img_url"
+[2025-07-09T10:40:16.845Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/C3QDYx40/Guarantee-Badge.png
+[2025-07-09T10:40:16.846Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Image: Replaced 2 occurrence(s) by alt="brand_benefits_2_img_url"
+[2025-07-09T10:40:16.846Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/msMtdF5/Abstract-USA-flag.png
+[2025-07-09T10:40:16.846Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Image: Replaced 2 occurrence(s) by alt="brand_benefits_3_img_url"
+[2025-07-09T10:40:16.846Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/DDg4tJqw/Returns-Refunds-Exchanges.png
+[2025-07-09T10:40:16.846Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.846Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_1
+[2025-07-09T10:40:16.846Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Quality Assurance
+[2025-07-09T10:40:16.847Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.847Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_2
+[2025-07-09T10:40:16.847Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Ships from USA
+[2025-07-09T10:40:16.847Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.847Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_3
+[2025-07-09T10:40:16.847Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Hassle-Free Returns
+[2025-07-09T10:40:16.847Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.847Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_1_img_url
+[2025-07-09T10:40:16.847Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.848Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.848Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_2_img_url
+[2025-07-09T10:40:16.848Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.848Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.848Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_3_img_url
+[2025-07-09T10:40:16.848Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.848Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Contact Us Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.848Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://contact_us_link
+[2025-07-09T10:40:16.848Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/pages/contact-us
+[2025-07-09T10:40:16.849Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ FAQ Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.849Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://faq_link
+[2025-07-09T10:40:16.849Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/pages/faq
+[2025-07-09T10:40:16.849Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Deliverability Text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.849Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: deliverability_text
+[2025-07-09T10:40:16.849Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   <div><span style="color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;">
+
+Order Number: ORD-123456789 – Thank you for choosing THENX. Your items are being prepared and will be dispatched shortly. Keep this message for reference.
+
+Included:
+
+1x THENX Weight Vest - 40LB | 18.14KG – 205.00  
+1x THENX Half Bar – 165.00  
+1x THENX Dip Bars [Wooden Bars] – 164.00  
+
+Applied: Discount Code XYZ – 0.00  
+
+Subtotal: 534.00  
+Shipping: Standard Service  
+Taxes: 0.00  
+Total: 534.00 USD
+
+Shipping Information:
+
+Alex Green  
+789 Neutral Road  
+Techville, XX 12345  
+United States
+
+Information:
+
+Alex Green  
+789 Neutral Road  
+Techville, XX 12345  
+United States
+
+Shipping Method: Standard (5–7 business days)  
+
+Delivery Information:
+
+Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays.
+
+Not arrived within timeframe? Support team available. We're ready to help.
+
+1. **Processing**: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit.
+
+2. **Shipping & Arrival**: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region.
+
+3. **Payment & Security**: Transactions encrypted. Details protected. Payment methods shown at checkout.
+
+4. **Returns & Resolution**: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred.
+
+5. **Privacy Statement**: Info used to manage account and fulfill inquiry. We don't share data unless required.
+
+6. **Rights & Content**: Materials belong to THENX or licensed parties. Protected by intellectual property laws.
+
+Thank you again from THENX. We appreciate your support.
+
+Regards,  
+The THENX Team
+
+</span></div>
+[2025-07-09T10:40:16.850Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.850Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#FFF; text-decoration:none" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=IuEa-sjfT3mtYNoNk_jybBmtjthy2WcfrT3zVnNmuK7zCWn-lljyH-JFzu4apAis.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:40:16.851Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.851Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template processing complete
+[2025-07-09T10:40:16.851Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Successfully processed template RLpd9P
+[2025-07-09T10:40:16.851Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template X7qBvi...
+[2025-07-09T10:40:16.851Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template for brand: Thenx
+[2025-07-09T10:40:16.851Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:40:16.851Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Background color: Replaced 28 occurrence(s)
+[2025-07-09T10:40:16.852Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: #3290F5
+[2025-07-09T10:40:16.852Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   #9c9c9c
+[2025-07-09T10:40:16.853Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Text color: Replaced 10 occurrence(s)
+[2025-07-09T10:40:16.853Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: rgb(255, 255, 241), #FFFFF1
+[2025-07-09T10:40:16.853Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   #000000
+[2025-07-09T10:40:16.853Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand logo: Replaced 1 occurrence(s) by alt="logo_img_url"
+[2025-07-09T10:40:16.854Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://cdn.brandfetch.io/idjU8ldZ6F/w/50/h/50/theme/light/logo.png?c=1bxidDUkTxa1Dl3KsNTfn
+[2025-07-09T10:40:16.855Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand logo alt text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.855Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: logo_img_url
+[2025-07-09T10:40:16.855Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.855Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Header image: Replaced 1 occurrence(s) by alt="header_image_url"
+[2025-07-09T10:40:16.855Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/7J6PWFVD/Price-Tag.jpg
+[2025-07-09T10:40:16.855Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Header image alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.856Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: header_image_url
+[2025-07-09T10:40:16.856Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.856Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Top Email Text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.856Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: top_email_text
+[2025-07-09T10:40:16.856Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Elevate Your Athletic Performance
+[2025-07-09T10:40:16.857Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.857Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cdn.shopify.com/s/files/1/0952/3622/7421/files/image.png?v=1747148039, https://cq2sff-ue.myshopify.com/cdn/shop/files/image-6_grande.png?v=1747148157
+[2025-07-09T10:40:16.857Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_30lb.webp?v=1741490537
+[2025-07-09T10:40:16.857Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product Link: Replaced 5 occurrence(s)
+[2025-07-09T10:40:16.858Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/95236227421/checkouts/ac/Z2NwLWV1cm9wZS13ZXN0MzowMUpWVlY1R0I5UENZMDAyWUU0UUNHTlgxVg/recover, https://cq2sff-ue.myshopify.com/products/white-chair-7
+[2025-07-09T10:40:16.858Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest-30lb?variant=44247840030895
+[2025-07-09T10:40:16.858Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product Name: Replaced 3 occurrence(s)
+[2025-07-09T10:40:16.858Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 1, White Chair 7
+[2025-07-09T10:40:16.858Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 13,61 kg (30 lb)
+[2025-07-09T10:40:16.858Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product Price: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.858Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: $50.00, 50.00 лв
+[2025-07-09T10:40:16.858Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   $160.00
+[2025-07-09T10:40:16.859Z] [WARN] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:40:16.859Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:40:16.860Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_1.webp?v=1741491209
+[2025-07-09T10:40:16.860Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:40:16.860Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_travel_parallettes_large1.png?v=1736984781
+[2025-07-09T10:40:16.860Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:40:16.860Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_resistance_band_black2_bd0968e3-a212-4a5e-a91c-862fb9ac3867.png?v=1727196289
+[2025-07-09T10:40:16.861Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:40:16.861Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_resistance_band_black_1035_new_d5280e05-1991-4ce3-8a76-6a7d4e3cdc29.png?v=1727196488
+[2025-07-09T10:40:16.861Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:40:16.861Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_original_dipbelt_1.png?v=1737149531
+[2025-07-09T10:40:16.862Z] [WARN] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:40:16.862Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:40:16.863Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_1.webp?v=1741491209
+[2025-07-09T10:40:16.863Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:40:16.863Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_travel_parallettes_large1.png?v=1736984781
+[2025-07-09T10:40:16.863Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:40:16.864Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_resistance_band_black2_bd0968e3-a212-4a5e-a91c-862fb9ac3867.png?v=1727196289
+[2025-07-09T10:40:16.864Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:40:16.865Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_resistance_band_black_1035_new_d5280e05-1991-4ce3-8a76-6a7d4e3cdc29.png?v=1727196488
+[2025-07-09T10:40:16.865Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:40:16.865Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_original_dipbelt_1.png?v=1737149531
+[2025-07-09T10:40:16.865Z] [WARN] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ⚠️ Best Seller 1: Text not found in HTML
+[2025-07-09T10:40:16.866Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.866Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 2
+[2025-07-09T10:40:16.866Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 40 lb | 18,14 kg
+[2025-07-09T10:40:16.866Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.866Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 3
+[2025-07-09T10:40:16.866Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Parallettes de viaje Thenx V2
+[2025-07-09T10:40:16.866Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.866Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 4
+[2025-07-09T10:40:16.866Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Banda de resistencia negra | 30-60 lb
+[2025-07-09T10:40:16.867Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.867Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 5
+[2025-07-09T10:40:16.867Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Banda de resistencia V2 | 10-35 lb
+[2025-07-09T10:40:16.867Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.867Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 6
+[2025-07-09T10:40:16.867Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Cinturón de pesas Thenx
+[2025-07-09T10:40:16.867Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.867Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-1
+[2025-07-09T10:40:16.867Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/gymnastics-rings-v2?variant=43906738094255
+[2025-07-09T10:40:16.867Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.868Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-2
+[2025-07-09T10:40:16.868Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest?variant=43907179544751
+[2025-07-09T10:40:16.868Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.868Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-3
+[2025-07-09T10:40:16.868Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-small-parallettes-v2?variant=44247908810927
+[2025-07-09T10:40:16.869Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.869Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-4
+[2025-07-09T10:40:16.869Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/black-resistance-band?variant=4709284937761
+[2025-07-09T10:40:16.869Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.873Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-5
+[2025-07-09T10:40:16.873Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/resistance-band-v2-10-35lb?variant=43906852815023
+[2025-07-09T10:40:16.874Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.874Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-6
+[2025-07-09T10:40:16.874Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-belt?variant=4709285527585
+[2025-07-09T10:40:16.874Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Image: Replaced 2 occurrence(s) by alt="brand_benefits_1_img_url"
+[2025-07-09T10:40:16.874Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/C3QDYx40/Guarantee-Badge.png
+[2025-07-09T10:40:16.874Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Image: Replaced 2 occurrence(s) by alt="brand_benefits_2_img_url"
+[2025-07-09T10:40:16.875Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/msMtdF5/Abstract-USA-flag.png
+[2025-07-09T10:40:16.875Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Image: Replaced 2 occurrence(s) by alt="brand_benefits_3_img_url"
+[2025-07-09T10:40:16.875Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/DDg4tJqw/Returns-Refunds-Exchanges.png
+[2025-07-09T10:40:16.875Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.875Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_1
+[2025-07-09T10:40:16.883Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Quality Assurance
+[2025-07-09T10:40:16.886Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.886Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_2
+[2025-07-09T10:40:16.886Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Ships from USA
+[2025-07-09T10:40:16.887Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.887Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_3
+[2025-07-09T10:40:16.887Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Hassle-Free Returns
+[2025-07-09T10:40:16.887Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.887Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_1_img_url
+[2025-07-09T10:40:16.887Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.887Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.893Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_2_img_url
+[2025-07-09T10:40:16.894Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.894Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.894Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_3_img_url
+[2025-07-09T10:40:16.894Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.894Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Contact Us Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.895Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://contact_us_link
+[2025-07-09T10:40:16.895Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/pages/contact-us
+[2025-07-09T10:40:16.895Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ FAQ Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.895Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://faq_link
+[2025-07-09T10:40:16.895Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/pages/faq
+[2025-07-09T10:40:16.895Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Deliverability Text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.895Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: deliverability_text
+[2025-07-09T10:40:16.895Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   <div><span style="color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;">
+
+Order Number: ORD-123456789 – Thank you for choosing THENX. Your items are being prepared and will be dispatched shortly. Keep this message for reference.
+
+Included:
+
+1x THENX Weight Vest - 40LB | 18.14KG – 205.00  
+1x THENX Half Bar – 165.00  
+1x THENX Dip Bars [Wooden Bars] – 164.00  
+
+Applied: Discount Code XYZ – 0.00  
+
+Subtotal: 534.00  
+Shipping: Standard Service  
+Taxes: 0.00  
+Total: 534.00 USD
+
+Shipping Information:
+
+Alex Green  
+789 Neutral Road  
+Techville, XX 12345  
+United States
+
+Information:
+
+Alex Green  
+789 Neutral Road  
+Techville, XX 12345  
+United States
+
+Shipping Method: Standard (5–7 business days)  
+
+Delivery Information:
+
+Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays.
+
+Not arrived within timeframe? Support team available. We're ready to help.
+
+1. **Processing**: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit.
+
+2. **Shipping & Arrival**: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region.
+
+3. **Payment & Security**: Transactions encrypted. Details protected. Payment methods shown at checkout.
+
+4. **Returns & Resolution**: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred.
+
+5. **Privacy Statement**: Info used to manage account and fulfill inquiry. We don't share data unless required.
+
+6. **Rights & Content**: Materials belong to THENX or licensed parties. Protected by intellectual property laws.
+
+Thank you again from THENX. We appreciate your support.
+
+Regards,  
+The THENX Team
+
+</span></div>
+[2025-07-09T10:40:16.898Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.899Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#FFF; text-decoration:none" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=IuEa-sjfT3mtYNoNk_jybBmtjthy2WcfrT3zVnNmuK7zCWn-lljyH-JFzu4apAis.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:40:16.900Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.900Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template processing complete
+[2025-07-09T10:40:16.901Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Successfully processed template X7qBvi
+[2025-07-09T10:40:16.901Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template QTQpvV...
+[2025-07-09T10:40:16.902Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template for brand: Thenx
+[2025-07-09T10:40:16.902Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:40:16.903Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Background color: Replaced 34 occurrence(s)
+[2025-07-09T10:40:16.903Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: #3290F5
+[2025-07-09T10:40:16.904Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   #9c9c9c
+[2025-07-09T10:40:16.905Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Text color: Replaced 12 occurrence(s)
+[2025-07-09T10:40:16.905Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: rgb(255, 255, 241), #FFFFF1
+[2025-07-09T10:40:16.905Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   #000000
+[2025-07-09T10:40:16.906Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand logo: Replaced 1 occurrence(s) by alt="logo_img_url"
+[2025-07-09T10:40:16.906Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://cdn.brandfetch.io/idjU8ldZ6F/w/50/h/50/theme/light/logo.png?c=1bxidDUkTxa1Dl3KsNTfn
+[2025-07-09T10:40:16.906Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand logo alt text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.906Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: logo_img_url
+[2025-07-09T10:40:16.906Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.911Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Header image: Replaced 1 occurrence(s) by alt="header_image_url"
+[2025-07-09T10:40:16.911Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/rGtb7JHG/Flashing-Bolt-Clock.jpg
+[2025-07-09T10:40:16.912Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Header image alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.912Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: header_image_url
+[2025-07-09T10:40:16.913Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.914Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Top Email Text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.914Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: top_email_text
+[2025-07-09T10:40:16.914Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Elevate Your Athletic Performance
+[2025-07-09T10:40:16.915Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.915Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cdn.shopify.com/s/files/1/0952/3622/7421/files/image.png?v=1747148039, https://cq2sff-ue.myshopify.com/cdn/shop/files/image-6_grande.png?v=1747148157
+[2025-07-09T10:40:16.915Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_20lb.webp?v=1741491146
+[2025-07-09T10:40:16.915Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product Link: Replaced 6 occurrence(s)
+[2025-07-09T10:40:16.915Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/95236227421/checkouts/ac/Z2NwLWV1cm9wZS13ZXN0MzowMUpWVlY1R0I5UENZMDAyWUU0UUNHTlgxVg/recover, https://cq2sff-ue.myshopify.com/products/white-chair-7
+[2025-07-09T10:40:16.915Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest-20lb?variant=44247844389039
+[2025-07-09T10:40:16.916Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product Name: Replaced 3 occurrence(s)
+[2025-07-09T10:40:16.916Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 1, White Chair 7
+[2025-07-09T10:40:16.916Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 9 kg
+[2025-07-09T10:40:16.916Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product Price: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.916Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: $50.00, 50.00 лв
+[2025-07-09T10:40:16.916Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   $125.00
+[2025-07-09T10:40:16.916Z] [WARN] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:40:16.917Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:40:16.918Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_original_dipbelt_1.png?v=1737149531
+[2025-07-09T10:40:16.918Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:40:16.919Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_1.webp?v=1741491209
+[2025-07-09T10:40:16.920Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:40:16.920Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_resistance_band_black_1035_new_d5280e05-1991-4ce3-8a76-6a7d4e3cdc29.png?v=1727196488
+[2025-07-09T10:40:16.921Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:40:16.921Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_30lb.webp?v=1741490537
+[2025-07-09T10:40:16.922Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:40:16.922Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_travel_parallettes_large1.png?v=1736984781
+[2025-07-09T10:40:16.922Z] [WARN] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:40:16.923Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:40:16.923Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_original_dipbelt_1.png?v=1737149531
+[2025-07-09T10:40:16.924Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:40:16.924Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_1.webp?v=1741491209
+[2025-07-09T10:40:16.925Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:40:16.925Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_resistance_band_black_1035_new_d5280e05-1991-4ce3-8a76-6a7d4e3cdc29.png?v=1727196488
+[2025-07-09T10:40:16.926Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:40:16.926Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_30lb.webp?v=1741490537
+[2025-07-09T10:40:16.927Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:40:16.928Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_travel_parallettes_large1.png?v=1736984781
+[2025-07-09T10:40:16.928Z] [WARN] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ⚠️ Best Seller 1: Text not found in HTML
+[2025-07-09T10:40:16.928Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.928Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 2
+[2025-07-09T10:40:16.928Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Cinturón de pesas Thenx
+[2025-07-09T10:40:16.929Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.929Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 3
+[2025-07-09T10:40:16.929Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 40 lb | 18,14 kg
+[2025-07-09T10:40:16.929Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.929Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 4
+[2025-07-09T10:40:16.929Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Banda de resistencia V2 | 10-35 lb
+[2025-07-09T10:40:16.930Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.930Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 5
+[2025-07-09T10:40:16.930Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 13,61 kg (30 lb)
+[2025-07-09T10:40:16.931Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.931Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 6
+[2025-07-09T10:40:16.931Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Parallettes de viaje Thenx V2
+[2025-07-09T10:40:16.932Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.932Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-1
+[2025-07-09T10:40:16.933Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/gymnastics-rings-v2?variant=43906738094255
+[2025-07-09T10:40:16.934Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.934Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-2
+[2025-07-09T10:40:16.934Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-belt?variant=4709285527585
+[2025-07-09T10:40:16.934Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.934Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-3
+[2025-07-09T10:40:16.934Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest?variant=43907179544751
+[2025-07-09T10:40:16.935Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.935Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-4
+[2025-07-09T10:40:16.935Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/resistance-band-v2-10-35lb?variant=43906852815023
+[2025-07-09T10:40:16.935Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.935Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-5
+[2025-07-09T10:40:16.935Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest-30lb?variant=44247840030895
+[2025-07-09T10:40:16.936Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.937Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-6
+[2025-07-09T10:40:16.937Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-small-parallettes-v2?variant=44247908810927
+[2025-07-09T10:40:16.938Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Image: Replaced 2 occurrence(s) by alt="brand_benefits_1_img_url"
+[2025-07-09T10:40:16.939Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/C3QDYx40/Guarantee-Badge.png
+[2025-07-09T10:40:16.940Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Image: Replaced 2 occurrence(s) by alt="brand_benefits_2_img_url"
+[2025-07-09T10:40:16.940Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/msMtdF5/Abstract-USA-flag.png
+[2025-07-09T10:40:16.940Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Image: Replaced 2 occurrence(s) by alt="brand_benefits_3_img_url"
+[2025-07-09T10:40:16.941Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/DDg4tJqw/Returns-Refunds-Exchanges.png
+[2025-07-09T10:40:16.941Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.941Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_1
+[2025-07-09T10:40:16.941Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Quality Assurance
+[2025-07-09T10:40:16.941Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.942Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_2
+[2025-07-09T10:40:16.942Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Ships from USA
+[2025-07-09T10:40:16.943Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.944Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_3
+[2025-07-09T10:40:16.945Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Hassle-Free Returns
+[2025-07-09T10:40:16.946Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.946Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_1_img_url
+[2025-07-09T10:40:16.946Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.946Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.946Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_2_img_url
+[2025-07-09T10:40:16.946Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.946Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.946Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_3_img_url
+[2025-07-09T10:40:16.946Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.947Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Contact Us Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.947Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://contact_us_link
+[2025-07-09T10:40:16.947Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/pages/contact-us
+[2025-07-09T10:40:16.947Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ FAQ Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.948Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://faq_link
+[2025-07-09T10:40:16.948Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/pages/faq
+[2025-07-09T10:40:16.949Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Deliverability Text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.950Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: deliverability_text
+[2025-07-09T10:40:16.950Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   <div><span style="color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;">
+
+Order Number: ORD-123456789 – Thank you for choosing THENX. Your items are being prepared and will be dispatched shortly. Keep this message for reference.
+
+Included:
+
+1x THENX Weight Vest - 40LB | 18.14KG – 205.00  
+1x THENX Half Bar – 165.00  
+1x THENX Dip Bars [Wooden Bars] – 164.00  
+
+Applied: Discount Code XYZ – 0.00  
+
+Subtotal: 534.00  
+Shipping: Standard Service  
+Taxes: 0.00  
+Total: 534.00 USD
+
+Shipping Information:
+
+Alex Green  
+789 Neutral Road  
+Techville, XX 12345  
+United States
+
+Information:
+
+Alex Green  
+789 Neutral Road  
+Techville, XX 12345  
+United States
+
+Shipping Method: Standard (5–7 business days)  
+
+Delivery Information:
+
+Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays.
+
+Not arrived within timeframe? Support team available. We're ready to help.
+
+1. **Processing**: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit.
+
+2. **Shipping & Arrival**: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region.
+
+3. **Payment & Security**: Transactions encrypted. Details protected. Payment methods shown at checkout.
+
+4. **Returns & Resolution**: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred.
+
+5. **Privacy Statement**: Info used to manage account and fulfill inquiry. We don't share data unless required.
+
+6. **Rights & Content**: Materials belong to THENX or licensed parties. Protected by intellectual property laws.
+
+Thank you again from THENX. We appreciate your support.
+
+Regards,  
+The THENX Team
+
+</span></div>
+[2025-07-09T10:40:16.952Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.952Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#FFF; text-decoration:none" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=IuEa-sjfT3mtYNoNk_jybBmtjthy2WcfrT3zVnNmuK7zCWn-lljyH-JFzu4apAis.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:40:16.953Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.953Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template processing complete
+[2025-07-09T10:40:16.953Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Successfully processed template QTQpvV
+[2025-07-09T10:40:16.953Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template XvJpat...
+[2025-07-09T10:40:16.953Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template for brand: Thenx
+[2025-07-09T10:40:16.953Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:40:16.954Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Assistant Image: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.954Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://i.ibb.co/Kj5mL4GZ/blow-out-before-you-go-out-2025-04-06-07-16-30-utc.png
+[2025-07-09T10:40:16.955Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://i.ibb.co/b53sVw18/beautiful-woman-girl-natural-casual-portrait-2025-02-10-04-51-48-utc.png
+[2025-07-09T10:40:16.956Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Assistant Name: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.956Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: assistant_name
+[2025-07-09T10:40:16.956Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Samantha D.
+[2025-07-09T10:40:16.956Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand URL: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.956Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://brand_url
+[2025-07-09T10:40:16.956Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/
+[2025-07-09T10:40:16.956Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.956Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#0051c3; text-decoration:underline" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=IuEa-sjfT3mtYNoNk_jybBmtjthy2WcfrT3zVnNmuK7zCWn-lljyH-JFzu4apAis.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:40:16.956Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.956Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template processing complete
+[2025-07-09T10:40:16.956Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Successfully processed template XvJpat
+[2025-07-09T10:40:16.956Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template Rb3aEN...
+[2025-07-09T10:40:16.956Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔄 Processing template for brand: Thenx
+[2025-07-09T10:40:16.956Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 🔀 Shuffled best sellers for randomized product display
+[2025-07-09T10:40:16.957Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Background color: Replaced 28 occurrence(s)
+[2025-07-09T10:40:16.957Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: #3290F5
+[2025-07-09T10:40:16.957Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   #9c9c9c
+[2025-07-09T10:40:16.958Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Text color: Replaced 10 occurrence(s)
+[2025-07-09T10:40:16.959Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: rgb(255, 255, 241), #FFFFF1
+[2025-07-09T10:40:16.959Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   #000000
+[2025-07-09T10:40:16.960Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand logo: Replaced 1 occurrence(s) by alt="logo_img_url"
+[2025-07-09T10:40:16.960Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://cdn.brandfetch.io/idjU8ldZ6F/w/50/h/50/theme/light/logo.png?c=1bxidDUkTxa1Dl3KsNTfn
+[2025-07-09T10:40:16.961Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand logo alt text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.961Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: logo_img_url
+[2025-07-09T10:40:16.961Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.962Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Header image: Replaced 1 occurrence(s) by alt="header_image_url"
+[2025-07-09T10:40:16.963Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/VYmJ6zsm/Spotlight-Beam.jpg
+[2025-07-09T10:40:16.963Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Header image alt text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.963Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: header_image_url
+[2025-07-09T10:40:16.963Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.963Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.963Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cdn.shopify.com/s/files/1/0952/3622/7421/files/image.png?v=1747148039, https://cq2sff-ue.myshopify.com/cdn/shop/files/image-6_grande.png?v=1747148157
+[2025-07-09T10:40:16.963Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_1.webp?v=1741491209
+[2025-07-09T10:40:16.964Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product Link: Replaced 5 occurrence(s)
+[2025-07-09T10:40:16.964Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/95236227421/checkouts/ac/Z2NwLWV1cm9wZS13ZXN0MzowMUpWVlY1R0I5UENZMDAyWUU0UUNHTlgxVg/recover, https://cq2sff-ue.myshopify.com/products/white-chair-7
+[2025-07-09T10:40:16.964Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest?variant=43907179544751
+[2025-07-09T10:40:16.964Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product Name: Replaced 5 occurrence(s)
+[2025-07-09T10:40:16.965Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 1, White Chair 7
+[2025-07-09T10:40:16.966Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 40 lb | 18,14 kg
+[2025-07-09T10:40:16.966Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Abandoned Cart Product Price: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.968Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: $50.00, 50.00 лв
+[2025-07-09T10:40:16.968Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   $205.00
+[2025-07-09T10:40:16.969Z] [WARN] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:40:16.970Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:40:16.970Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_original_dipbelt_1.png?v=1737149531
+[2025-07-09T10:40:16.971Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:40:16.971Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_rings_NEW2.png?v=1717462702
+[2025-07-09T10:40:16.971Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:40:16.971Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_travel_parallettes_large1.png?v=1736984781
+[2025-07-09T10:40:16.972Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:40:16.972Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_30lb.webp?v=1741490537
+[2025-07-09T10:40:16.972Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:40:16.972Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_20lb.webp?v=1741491146
+[2025-07-09T10:40:16.973Z] [WARN] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ⚠️ Best Seller 1: Image with alt="Image of White Chair 1" not found in HTML
+[2025-07-09T10:40:16.973Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 1 occurrence(s) by alt="Image of White Chair 2"
+[2025-07-09T10:40:16.974Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_original_dipbelt_1.png?v=1737149531
+[2025-07-09T10:40:16.975Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 1 occurrence(s) by alt="Image of White Chair 3"
+[2025-07-09T10:40:16.975Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_rings_NEW2.png?v=1717462702
+[2025-07-09T10:40:16.976Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 1 occurrence(s) by alt="Image of White Chair 4"
+[2025-07-09T10:40:16.977Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_travel_parallettes_large1.png?v=1736984781
+[2025-07-09T10:40:16.978Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 1 occurrence(s) by alt="Image of White Chair 5"
+[2025-07-09T10:40:16.978Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_30lb.webp?v=1741490537
+[2025-07-09T10:40:16.979Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 1 occurrence(s) by alt="Image of White Chair 6"
+[2025-07-09T10:40:16.979Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: //thenx.com/cdn/shop/files/thenx_WEIGHT_VEST_V2_20lb.webp?v=1741491146
+[2025-07-09T10:40:16.979Z] [WARN] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ⚠️ Best Seller 1: Text not found in HTML
+[2025-07-09T10:40:16.979Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.979Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 2
+[2025-07-09T10:40:16.979Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Cinturón de pesas Thenx
+[2025-07-09T10:40:16.980Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.981Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 3
+[2025-07-09T10:40:16.981Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Anillas de gimnasia V2
+[2025-07-09T10:40:16.981Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.981Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 4
+[2025-07-09T10:40:16.981Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Parallettes de viaje Thenx V2
+[2025-07-09T10:40:16.982Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.982Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 5
+[2025-07-09T10:40:16.983Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 13,61 kg (30 lb)
+[2025-07-09T10:40:16.983Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.983Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: White Chair 6
+[2025-07-09T10:40:16.983Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Chaleco lastrado Thenx - 9 kg
+[2025-07-09T10:40:16.983Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 1 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.984Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-1
+[2025-07-09T10:40:16.984Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/black-resistance-band?variant=4709284937761
+[2025-07-09T10:40:16.984Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 2 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.984Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-2
+[2025-07-09T10:40:16.984Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-belt?variant=4709285527585
+[2025-07-09T10:40:16.984Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 3 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.984Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-3
+[2025-07-09T10:40:16.985Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/gymnastics-rings-v2?variant=43906738094255
+[2025-07-09T10:40:16.986Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 4 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.986Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-4
+[2025-07-09T10:40:16.987Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-small-parallettes-v2?variant=44247908810927
+[2025-07-09T10:40:16.987Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 5 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.988Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-5
+[2025-07-09T10:40:16.988Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest-30lb?variant=44247840030895
+[2025-07-09T10:40:16.988Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Best Seller 6 Link: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.988Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: https://cq2sff-ue.myshopify.com/products/white-chair-6
+[2025-07-09T10:40:16.988Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/es/products/thenx-weight-vest-20lb?variant=44247844389039
+[2025-07-09T10:40:16.989Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Image: Replaced 2 occurrence(s) by alt="brand_benefits_1_img_url"
+[2025-07-09T10:40:16.989Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/C3QDYx40/Guarantee-Badge.png
+[2025-07-09T10:40:16.989Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Image: Replaced 2 occurrence(s) by alt="brand_benefits_2_img_url"
+[2025-07-09T10:40:16.989Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/msMtdF5/Abstract-USA-flag.png
+[2025-07-09T10:40:16.990Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Image: Replaced 2 occurrence(s) by alt="brand_benefits_3_img_url"
+[2025-07-09T10:40:16.990Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To: https://i.ibb.co/DDg4tJqw/Returns-Refunds-Exchanges.png
+[2025-07-09T10:40:16.991Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.991Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_1
+[2025-07-09T10:40:16.992Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Quality Assurance
+[2025-07-09T10:40:16.992Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.993Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_2
+[2025-07-09T10:40:16.993Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Ships from USA
+[2025-07-09T10:40:16.994Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Text: Replaced 2 occurrence(s)
+[2025-07-09T10:40:16.994Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefit_text_3
+[2025-07-09T10:40:16.994Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   Hassle-Free Returns
+[2025-07-09T10:40:16.995Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 1 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.995Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_1_img_url
+[2025-07-09T10:40:16.995Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.995Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 2 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.995Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_2_img_url
+[2025-07-09T10:40:16.995Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.995Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand Benefit 3 Alt Text: Replaced 4 occurrence(s)
+[2025-07-09T10:40:16.995Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: brand_benefits_3_img_url
+[2025-07-09T10:40:16.995Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.995Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Contact Us Link: Replaced 3 occurrence(s)
+[2025-07-09T10:40:16.996Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://contact_us_link
+[2025-07-09T10:40:16.996Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/pages/contact-us
+[2025-07-09T10:40:16.996Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ FAQ Link: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.996Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: http://faq_link
+[2025-07-09T10:40:16.996Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   https://thenx.com/pages/faq
+[2025-07-09T10:40:16.996Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Deliverability Text: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.996Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: deliverability_text
+[2025-07-09T10:40:16.996Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   <div><span style="color: transparent; display: none; height: 0; max-height: 0; font-size: 1px; max-width: 0; opacity: 0; mso-hide: all; width: 0;">
+
+Order Number: ORD-123456789 – Thank you for choosing THENX. Your items are being prepared and will be dispatched shortly. Keep this message for reference.
+
+Included:
+
+1x THENX Weight Vest - 40LB | 18.14KG – 205.00  
+1x THENX Half Bar – 165.00  
+1x THENX Dip Bars [Wooden Bars] – 164.00  
+
+Applied: Discount Code XYZ – 0.00  
+
+Subtotal: 534.00  
+Shipping: Standard Service  
+Taxes: 0.00  
+Total: 534.00 USD
+
+Shipping Information:
+
+Alex Green  
+789 Neutral Road  
+Techville, XX 12345  
+United States
+
+Information:
+
+Alex Green  
+789 Neutral Road  
+Techville, XX 12345  
+United States
+
+Shipping Method: Standard (5–7 business days)  
+
+Delivery Information:
+
+Package expected 7–10 business days from send-out. Tracking will be sent. Processing happens Monday to Friday, not holidays.
+
+Not arrived within timeframe? Support team available. We're ready to help.
+
+1. **Processing**: Typical timing is 1–2 business days. At high volume, allow 3–5. This is before transit.
+
+2. **Shipping & Arrival**: Standard delivery may apply to qualifying baskets. Expedited options may show at checkout. Timing depends on method and region.
+
+3. **Payment & Security**: Transactions encrypted. Details protected. Payment methods shown at checkout.
+
+4. **Returns & Resolution**: Contact us within 7 days if item is damaged or incorrect. Instructions will follow. Shipping-related amounts may not be refundable if no mistake occurred.
+
+5. **Privacy Statement**: Info used to manage account and fulfill inquiry. We don't share data unless required.
+
+6. **Rights & Content**: Materials belong to THENX or licensed parties. Protected by intellectual property laws.
+
+Thank you again from THENX. We appreciate your support.
+
+Regards,  
+The THENX Team
+
+</span></div>
+[2025-07-09T10:40:16.997Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Klaviyo Label: Replaced 1 occurrence(s)
+[2025-07-09T10:40:16.998Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    From: <div style="margin:0px auto;max-width:600px;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+<tbody>
+<tr>
+<td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:100%;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;width:100%;" width="100%">
+<tbody>
+<tr>
+<td align="center" class="klBranding" style="font-size:0px;padding:25px 0;word-break:break-word;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td style="width:122px;">
+<a style="color:#FFF; text-decoration:none" target="_blank" href="https://www.klaviyo.com/?utm_medium=freebie&amp;utm_source=brand&amp;utm_term=SRsJn8&amp;_kx=IuEa-sjfT3mtYNoNk_jybBmtjthy2WcfrT3zVnNmuK7zCWn-lljyH-JFzu4apAis.SRsJn8">
+<img alt="Powered by Klaviyo" height="50" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/branding/klaviyo-branding-option-0.png" style="border:0;display:block;outline:none;text-decoration:none;height:50px;width:100%;font-size:13px;" width="122">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+[2025-07-09T10:40:16.998Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/]    To:   
+[2025-07-09T10:40:16.999Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Template processing complete
+[2025-07-09T10:40:16.999Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Successfully processed template Rb3aEN
+[2025-07-09T10:40:16.999Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 
+📊 Step 3: Collecting results...
+[2025-07-09T10:40:17.006Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 💾 Results saved to /root/server-scraper/Klaviyo Portal/Functions/Generate Preview Emails/Generated Brand Preview Templates/Thenx/emails.json
+[2025-07-09T10:40:17.007Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Successfully processed: 8 templates
+[2025-07-09T10:40:17.007Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 📊 Total templates: 8
+[2025-07-09T10:40:17.008Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] ✅ Brand analysis completed in 28.778 seconds at 10:40:17 on 07/09/25
+[2025-07-09T10:40:17.008Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] SUMMARY - Request completed successfully
+[2025-07-09T10:40:17.020Z] [INFO] [REQ-1752057588229-eequ01znq] [https://thenx.com/] 📁 Request-specific logs saved to: thenx.com_2025-07-09T10-39-48-230Z.log

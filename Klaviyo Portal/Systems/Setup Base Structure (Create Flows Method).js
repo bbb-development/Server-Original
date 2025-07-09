@@ -1,11 +1,12 @@
 // The Base Setup Function
 import * as smallFunctions from '../Functions/smallFunctions.js';
-import * as emailTemplates from '../Functions/templatesExport.js';
 import * as listFunctions from '../Functions/listFunctions.js';
 import * as templateFunctions from '../Functions/templateFunctions.js';
-import {createAbandonedCartFlow} from '../Functions/Generate Klaviyo Flows/Abandoned Cart/Abandoned Cart Flow Builder.js';
-import {createBrowseAbandonedFlow} from '../Functions/Generate Klaviyo Flows/Browse Abandoned/Browse Abandoned Flow Builder.js';
-import {createWelcomeFlow} from '../Functions/Generate Klaviyo Flows/Welcome Flow/Welcome Flow Builder.js';
+import {createAbandonedCartFlow} from '../Functions/Generate Klaviyo Flows/Main/Abandoned Cart Flow Builder.js';
+import {createBrowseAbandonedFlow} from '../Functions/Generate Klaviyo Flows/Main/Browse Abandoned Flow Builder.js';
+import {createWelcomeFlow} from '../Functions/Generate Klaviyo Flows/Main/Welcome Flow Builder.js';
+import { generateEmailByType } from '../Functions/Generate Klaviyo Flows/Main/klaviyoTemplatesBuilder.js';
+import crystalenergy from '../Functions/Generate Klaviyo Flows/Misc/crystalenergy_updated_brand_data.json' with { type: 'json' };
 
 export async function setupBaseStructure(clientID, brandData) {
     const track_time = true;
@@ -15,22 +16,24 @@ export async function setupBaseStructure(clientID, brandData) {
     // Step 1: Switch into the new client account
     await smallFunctions.changeClient(clientID);
 
-    // Map template names to original IDs
-    const templateNamesToIds = {
-        'FFA | WF Email #1': 'SpZKLh',
-        'FFA | WF Email #2': 'SjnvqT',
-        'FFA | WF Email #3': 'Yf3Wdz',
-        'FFA | AC Email #1': 'RLpd9P',
-        'FFA | AC Email #2': 'X7qBvi',
-        'FFA | AC Email #3': 'QTQpvV',
-        'FFA | AC Email #4': 'XvJpat',
-        'FFA | BA Email #1': 'Rb3aEN',
-    };
-    let templateIds = { ...templateNamesToIds };
+    // Map template names, original IDs, and types together
+    const templateConfigs = [
+        { name: 'FFA | WF Email #1', id: 'SpZKLh', type: 'WF1' },
+        { name: 'FFA | WF Email #2', id: 'SjnvqT', type: 'WF2' },
+        { name: 'FFA | WF Email #3', id: 'Yf3Wdz', type: 'WF3' },
+        { name: 'FFA | AC Email #1', id: 'RLpd9P', type: 'AC1' },
+        { name: 'FFA | AC Email #2', id: 'X7qBvi', type: 'AC2' },
+        { name: 'FFA | AC Email #3', id: 'QTQpvV', type: 'AC3' },
+        { name: 'FFA | AC Email #4', id: 'XvJpat', type: 'AC4' },
+        { name: 'FFA | BA Email #1', id: 'Rb3aEN', type: 'BA1' }
+    ];
 
     // Prepare template cloning promises
-    const templateClonePromises = Object.entries(templateNamesToIds).map(([name, originalId]) =>
-        templateFunctions.cloneTemplate(originalId, name, clientID).then(newId => [name, newId])
+    const templateClonePromises = templateConfigs.map(cfg =>
+        templateFunctions.cloneTemplate(cfg.id, cfg.name, clientID).then(newId => ({
+            ...cfg,
+            newId
+        }))
     );
 
     // Run all setup steps concurrently
@@ -57,21 +60,17 @@ export async function setupBaseStructure(clientID, brandData) {
 
     // Remap templateIds to new IDs from the results
     const cloneResults = results.slice(3); // first 3 are list/coupons
-    templateIds = Object.fromEntries(cloneResults);    
+    // Now you have an array of { name, id, type, newId }
 
     // Step 3: For each email, change the dynamic content concurrently using the new template IDs
-    await Promise.all([
-        emailTemplates.generateBA1(brandData, templateIds['FFA | BA Email #1']),
-        emailTemplates.generateAC1(brandData, templateIds['FFA | AC Email #1']),
-        emailTemplates.generateAC2(brandData, templateIds['FFA | AC Email #2']),
-        emailTemplates.generateAC3(brandData, templateIds['FFA | AC Email #3']),
-        emailTemplates.generateAC4(brandData, templateIds['FFA | AC Email #4']),
-        emailTemplates.generateWF1(brandData, templateIds['FFA | WF Email #1']),
-        emailTemplates.generateWF2(brandData, templateIds['FFA | WF Email #2']),
-        emailTemplates.generateWF3(brandData, templateIds['FFA | WF Email #3'])
-    ]);
+    await Promise.all(
+        cloneResults.map(cfg =>
+            generateEmailByType(cfg.type, brandData, cfg.newId)
+        )
+    );
 
     // Step 4: Create the flows
+    const templateIds = Object.fromEntries(cloneResults.map(cfg => [cfg.name, cfg.newId]));
     const flowResults = await Promise.all([
         createWelcomeFlow("FlowFastAI | Welcome Flow", templateIds),
         createAbandonedCartFlow("FlowFastAI | Abandoned Cart Flow", templateIds),
@@ -120,3 +119,10 @@ export async function setupBaseStructure(clientID, brandData) {
         }
     };
 }
+
+async function test() {
+    const result = await setupBaseStructure('ShNPvE', crystalenergy);
+    console.log(result);
+}
+
+//await test();

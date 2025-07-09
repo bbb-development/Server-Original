@@ -105,7 +105,7 @@ function productListPrompt(bestSellerPageHtml) {
         1. Product name
         2. Price (if available)
         3. Product URL - IMPORTANT: Make it a full URL including the protocol, www and domain name.
-        4. Product Image URL - IMPORTANT: Copy the EXACT image URL including all parameters (like ?v=, &width=, etc.)
+        4. Product Image URL - IMPORTANT: Copy the EXACT image URL EXCLUDING all parameters (like ?v=, &width=, etc.)
 
         Sort the products from best-selling to least-selling based on any available indicators (position, sales numbers, etc.).
 
@@ -120,6 +120,7 @@ function productListPrompt(bestSellerPageHtml) {
         
         NOTE: Don't make up any products. In order for the productsFound to be true, you must find 9 products with different names and urls.
         if they have the same name or url, they are most likely not real products.
+        NOTE 2: Remove everything after the first ? in the image url. We don't need the parameters.
 
         Content to analyze:
         ${bestSellerPageHtml}

@@ -15612,3 +15612,10 @@ The Crystal Energy Team
 [2025-07-09T11:13:30.029Z] [INFO] [SERVER] [N/A] 🔍 Checking current client...
 [2025-07-09T11:13:30.271Z] [INFO] [SERVER] [N/A] 📍 Currently on: "Crystal Energy" (ID: ShNPvE)
 [2025-07-09T11:13:30.272Z] [INFO] [SERVER] [N/A] 🔄 Need to switch from "Crystal Energy" to "BBB Marketing"
+[2025-07-09T11:36:47.747Z] [INFO] [SERVER] [N/A] --- Incoming Request ---
+[2025-07-09T11:36:47.748Z] [INFO] [SERVER] [N/A] Method: GET
+[2025-07-09T11:36:47.748Z] [INFO] [SERVER] [N/A] URL: /geoserver/web/
+[2025-07-09T11:36:47.748Z] [INFO] [SERVER] [N/A] IP: 127.0.0.1
+[2025-07-09T11:36:47.749Z] [INFO] [SERVER] [N/A] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0
+[2025-07-09T11:36:47.749Z] [INFO] [SERVER] [N/A] ------------------------
+[2025-07-09T11:36:47.750Z] [INFO] [SERVER] [N/A] 📤 Response: GET /geoserver/web/ - 404 (3ms)

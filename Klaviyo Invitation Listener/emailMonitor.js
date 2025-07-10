@@ -308,7 +308,8 @@ async function saveClientInfo(companyName, companyId, companyInfo) {
       from_label: companyInfo.from_label || '',
       from_email_address: companyInfo.from_email_address || '',
       url: companyInfo.url || '',
-      connected: false
+      connected: false,
+      notes: 'Invitation accepted. App still needs to be connected to Klaviyo.'
     };
     
     //console.log('🔍 Debug - Insert data:', insertData);

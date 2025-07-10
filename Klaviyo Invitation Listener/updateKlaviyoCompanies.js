@@ -102,7 +102,12 @@ export async function updateCurrentCompanies() {
         try {
           const { data, error } = await supabase
             .from('profiles')
-            .update({ klaviyo_connected: false })
+            .update({ 
+              'klaviyo_status.connected': false,
+              'klaviyo_status.removedFromKlaviyo': true,
+              'klaviyo_status.removedDate': new Date().toISOString(),
+              'klaviyo_brand_data.connected': false,
+            })
             .eq('klaviyo_brand_data->>company_id', company.company_id);
           if (error) {
             console.error(`❌ Error updating klaviyo_connected for company_id ${company.company_id}:`, error);

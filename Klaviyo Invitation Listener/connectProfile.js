@@ -46,7 +46,8 @@ export async function updateClientConnection(klaviyoClientId) {
     const { data, error } = await supabase
       .from('klaviyo_accounts')
       .update({
-        connected: true
+        connected: true,
+        notes: 'App connected to Klaviyo.'
       })
       .eq('company_id', klaviyoClientId)
       .select()

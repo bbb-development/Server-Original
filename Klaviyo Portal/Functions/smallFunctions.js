@@ -59,7 +59,7 @@ export async function authorize(needRelog = false) {
     } else {
       console.log('\x1b[31mRelogin failed:\x1b[0m', relogResponse.data);
     }
-    return;
+    return relogResponse.data;
   }
   try {
     console.log('🔍 Checking Klaviyo authorization...');
@@ -75,8 +75,10 @@ export async function authorize(needRelog = false) {
       } else {
         console.log('\x1b[31mRelogin failed:\x1b[0m', relogResponse.data);
       }
+      return relogResponse.data;
     } else {
       console.log('✅ Already authorized.');
+      return response.data;
     }
   } catch (error) {
     console.error('❌ Error checking authorization:', error.message);

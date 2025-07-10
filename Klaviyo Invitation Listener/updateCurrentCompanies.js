@@ -1,4 +1,4 @@
-import { getAlternativeCompanies, authorize, changeClient } from '../Klaviyo Portal/Functions/smallFunctions.js';
+import { getAlternativeCompanies, authorize } from '../Klaviyo Portal/Functions/smallFunctions.js';
 import supabase from './supabaseClient.js';
 
 /**
@@ -8,12 +8,14 @@ import supabase from './supabaseClient.js';
  */
 export async function updateCurrentCompanies() {
   try {
-    console.log('🔄 Starting company access sync...');
-    await authorize();
-    await changeClient('BBB Marketing');
+    const authResponse = await authorize();
+    const currentCompany = {
+      id: authResponse.data.company,
+      name: authResponse.data.company_name
+    };
+    //console.log(`✅ Current company: ${currentCompany.id}`);
     
     // Step 1: Get current alternative companies from Klaviyo
-    console.log('📋 Fetching current alternative companies from Klaviyo...');
     const alternativeCompanies = await getAlternativeCompanies();
     
     if (!alternativeCompanies || alternativeCompanies.length === 0) {
@@ -21,8 +23,20 @@ export async function updateCurrentCompanies() {
       return { success: false, message: 'No alternative companies found' };
     }
 
-    console.log(`✅ Found ${alternativeCompanies.length} companies with current access`);
-    //console.log(JSON.stringify(alternativeCompanies, null, 2));
+    // Simplify alternative companies to only include id and name
+    const simplifiedAlternativeCompanies = alternativeCompanies.map(company => ({
+      id: company.id,
+      name: company.name
+    }));
+
+    // Add current company to the alternative companies list
+    const allCompanies = [...simplifiedAlternativeCompanies];
+    if (currentCompany.id && !allCompanies.find(company => company.id === currentCompany.id)) {
+      allCompanies.push(currentCompany);
+    }
+
+    console.log(`✅ Found ${allCompanies.length} companies with current access`);
+    //console.log(JSON.stringify(allCompanies, null, 2));
     
     // Step 2: Get all companies from Supabase
     console.log('📋 Fetching all companies from Supabase...');
@@ -43,7 +57,7 @@ export async function updateCurrentCompanies() {
     console.log(`✅ Found ${supabaseCompanies.length} companies in Supabase`);
     
     // Step 3: Create sets for efficient comparison
-    const klaviyoCompanyIds = new Set(alternativeCompanies.map(company => company.id));
+    const klaviyoCompanyIds = new Set(allCompanies.map(company => company.id));
     const supabaseCompanyIds = new Set(supabaseCompanies.map(company => company.company_id));
     
     // Step 4: Find companies in Supabase that are not in Klaviyo (lost access)
@@ -107,7 +121,7 @@ export async function updateCurrentCompanies() {
     console.log(`   📋 Total companies in Supabase: ${supabaseCompanies.length}`);
     console.log(`   🗑️ Companies removed (lost access): ${companiesToRemove.length}`);
     console.log(`   ✅ Companies remaining: ${remainingCount}`);
-    console.log(`   🔗 Current Klaviyo access: ${alternativeCompanies.length}`);
+    console.log(`   🔗 Current Klaviyo access: ${allCompanies.length}`);
     
     return {
       success: true,
@@ -115,7 +129,7 @@ export async function updateCurrentCompanies() {
       removedCount: companiesToRemove.length,
       totalCompanies: supabaseCompanies.length,
       remainingCount: remainingCount,
-      currentAccessCount: alternativeCompanies.length,
+      currentAccessCount: allCompanies.length,
       removedCompanies: companiesToRemove.map(company => ({
         company_name: company.company_name,
         company_id: company.company_id
@@ -136,13 +150,12 @@ export async function updateCurrentCompanies() {
  * Main function to run the company sync
  * This can be called directly or imported and used elsewhere
  */
-async function main() {
+async function runCheck() {
   console.log('🚀 Starting company access synchronization...');
   
   const result = await updateCurrentCompanies();
   
   if (result.success) {
-    console.log('✅ Company sync completed successfully');
     if (result.removedCount > 0) {
       console.log(`🗑️ Removed ${result.removedCount} companies that lost access`);
     }
@@ -153,4 +166,10 @@ async function main() {
   return result;
 }
 
-main();
+// Run the check immediately
+runCheck();
+
+// Then run it every 30 minutes (30 * 60 * 1000 = 1,800,000 milliseconds)
+setInterval(runCheck, 30 * 60 * 1000);
+
+console.log('⏰ Company access sync scheduled to run every 30 minutes');

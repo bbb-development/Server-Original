@@ -100,15 +100,42 @@ export async function updateCurrentCompanies() {
       console.log('🔄 Updating klaviyo_connected to false in profiles table for removed companies...');
       for (const company of companiesToRemove) {
         try {
+          // First, get the current profile data for this company
+          const { data: currentProfile, error: fetchError } = await supabase
+            .from('profiles')
+            .select('klaviyo_status, klaviyo_brand_data')
+            .eq('klaviyo_brand_data->>company_id', company.company_id)
+            .single();
+
+          if (fetchError) {
+            console.error(`❌ Error fetching profile for company_id ${company.company_id}:`, fetchError);
+            continue;
+          }
+
+          // Update the klaviyo_status object
+          const updatedKlaviyoStatus = {
+            ...currentProfile.klaviyo_status,
+            connected: false,
+            removedFromKlaviyo: true,
+            removedDate: new Date().toISOString()
+          };
+
+          // Update the klaviyo_brand_data object
+          const updatedKlaviyoBrandData = {
+            ...currentProfile.klaviyo_brand_data,
+            connected: false
+          };
+
+          // Update the profile with the modified objects
           const { data, error } = await supabase
             .from('profiles')
             .update({ 
-              'klaviyo_status.connected': false,
-              'klaviyo_status.removedFromKlaviyo': true,
-              'klaviyo_status.removedDate': new Date().toISOString(),
-              'klaviyo_brand_data.connected': false,
+              klaviyo_status: updatedKlaviyoStatus,
+              klaviyo_brand_data: updatedKlaviyoBrandData,
+              updated_at: new Date().toISOString()
             })
             .eq('klaviyo_brand_data->>company_id', company.company_id);
+
           if (error) {
             console.error(`❌ Error updating klaviyo_connected for company_id ${company.company_id}:`, error);
           } else {

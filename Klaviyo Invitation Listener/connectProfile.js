@@ -181,3 +181,10 @@ export async function matchClientWithKlaviyo(supabaseClient) {
     };
   }
 }
+
+async function runCheck() {
+  const clients = await getUnconnectedClients();
+  console.log(clients);
+}
+
+//runCheck();

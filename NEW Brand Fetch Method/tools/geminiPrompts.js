@@ -113,7 +113,7 @@ function productListPrompt(bestSellerPageHtml) {
 
         Return ONLY a JSON object with the following structure:
         {
-            "productsFound": true/false,
+            "productsFound": true/false, // only return true if you find exactly 9 unique products, else return false
             "products": [array of products] // only include this if productsFound is true
         }
 
@@ -125,6 +125,9 @@ function productListPrompt(bestSellerPageHtml) {
         5. If the page only has 1 product, return productsFound: false
         6. If the page has 2-8 products, return productsFound: false
         7. Only return productsFound: true if you find exactly 9 unique products
+        8. NEVER consider products you can't find the image URL for. We need the image URL to display the product in the email.
+        9. Never make up image URLs. If you can't find the image URL for a product, set productsFound to false.
+        10. Never consider products from menus (like the main menu, footer menu, mobile menu, etc.). Only from the current page.
 
         VALIDATION CHECK:
         Before returning productsFound: true, verify that:

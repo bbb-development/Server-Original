@@ -292,6 +292,74 @@ async function generateBrandBenefits(brandData, albumId, albumName) {
  * @param {string} bestSellersUrl - The URL of the best sellers page
  * @returns {Promise<Array>} Array of best selling products
  */
+/**
+ * Attempt to extract products from a URL with specified parameters
+ * @param {string} url - The URL to scrape
+ * @param {boolean} useProxy - Whether to use proxy
+ * @param {string} stepName - Name of the step for logging
+ * @returns {Promise<Array>} Array of products or empty array if failed
+ */
+async function productExtraction(url, useProxy, stepName) {
+  console.log(`🛍️ ${stepName}: Scraping ${useProxy ? 'with' : 'without'} proxy: ${url}`);
+  
+  // Scrape markdown content with retry logic
+  let markdownContent = await retryWithBackoff(
+    () => browserless.toMarkdown(url, { proxy: { useProxy } }),
+    6, // 6 retries
+    1000, // 1 second base delay
+    `${stepName} scraping ${useProxy ? 'with' : 'without'} proxy (${url})`
+  );
+  
+  if (!markdownContent || markdownContent.length === 0) {
+    let retryCount = 0;
+    while (retryCount < 3 && (!markdownContent || markdownContent.length === 0)) {
+      retryCount++;
+      console.warn(`⚠️ No markdown content retrieved from ${stepName} (attempt ${retryCount}), retrying...`);
+      markdownContent = await retryWithBackoff(
+        () => browserless.toMarkdown(url, { proxy: { useProxy } }),
+        6, // 6 retries
+        1000, // 1 second base delay
+        `${stepName} scraping ${useProxy ? 'with' : 'without'} proxy (retry ${retryCount})`
+      );
+    }
+    if (!markdownContent || markdownContent.length === 0) {
+      console.warn(`⚠️ No markdown content retrieved from ${stepName} after 3 retries`);
+      return [];
+    }
+  }
+
+  // Use Gemini to extract product data from the markdown
+  let productsRaw = await retryWithBackoff(
+    () => askGemini(
+      geminiPrompts.productListPrompt(markdownContent),
+      geminiSchemas.productListSchema
+    ),
+    6, // 6 retries for Gemini
+    1000, // 1 second base delay
+    `Product extraction with Gemini (${stepName})`
+  );
+  
+  // Parse the JSON response
+  let productsResponse;
+  try {
+    const cleanedResponse = String(productsRaw).replace(/undefined$/, '').trim();
+    productsResponse = JSON.parse(cleanedResponse);
+  } catch (error) {
+    console.warn(`⚠️ Failed to parse Gemini products response as JSON for ${stepName}, using fallback`);
+    console.warn('Raw response that failed to parse:', productsRaw);
+    productsResponse = { productsFound: false, products: [] };
+  }
+  
+  // Check if products were found
+  if (productsResponse.productsFound && productsResponse.products && productsResponse.products.length > 0) {
+    console.log(`✅ ${stepName} SUCCESS: Extracted ${productsResponse.products.length} products`);
+    return productsResponse.products;
+  }
+  
+  console.log(`❌ ${stepName} FAILED: No products found`);
+  return [];
+}
+
 async function getBestSellers(bestSellersUrl, allProductsUrl) {
   if (!bestSellersUrl) {
     console.log('⚠️ No best sellers URL found, skipping product extraction');
@@ -299,104 +367,42 @@ async function getBestSellers(bestSellersUrl, allProductsUrl) {
   }
 
   try {
-    console.log(`🛍️ BROWSERLESS: Scraping best sellers page: ${bestSellersUrl}`);
-    
-    // First attempt: Get markdown content without proxy
-    let markdownContent = await retryWithBackoff(
-      () => browserless.toMarkdown(bestSellersUrl, { proxy: { useProxy: false } }),
-      6, // 6 retries
-      1000, // 1 second base delay
-      `Best sellers scraping without proxy (${bestSellersUrl})`
+    // Step 1: Try best sellers page without proxy
+    const step1Products = await productExtraction(
+      bestSellersUrl, 
+      false, 
+      'Step 1: Best sellers page without proxy'
     );
-    
-    if (!markdownContent || markdownContent.length === 0) {
-      let retryCount = 0;
-      while (retryCount < 3 && (!markdownContent || markdownContent.length === 0)) {
-        retryCount++;
-        console.warn(`⚠️ No markdown content retrieved from best sellers page (attempt ${retryCount}), retrying...`);
-        markdownContent = await retryWithBackoff(
-          () => browserless.toMarkdown(bestSellersUrl, { proxy: { useProxy: false } }),
-          6, // 6 retries
-          1000, // 1 second base delay
-          `Best sellers scraping without proxy (retry ${retryCount})`
-        );
-      }
-      if (!markdownContent || markdownContent.length === 0) {
-        console.warn('⚠️ No markdown content retrieved from best sellers page after 3 retries');
-        return [];
-      }
-    }
-
-    //console.log(`📄 Retrieved ${markdownContent.length} characters of markdown content`);
-    //console.log('BEST SELLERS MARKDOWN CONTENT', JSON.stringify(markdownContent, null, 2));
-
-    // Use Gemini to extract product data from the markdown
-    let productsRaw = await retryWithBackoff(
-      () => askGemini(
-        geminiPrompts.productListPrompt(markdownContent),
-        geminiSchemas.productListSchema
-      ),
-      6, // 6 retries for Gemini
-      1000, // 1 second base delay
-      'Product extraction with Gemini (first attempt)'
-    );
-    
-    // Parse the JSON response
-    let productsResponse;
-    try {
-      // Clean the response by removing any trailing 'undefined' or other unwanted text
-      const cleanedResponse = String(productsRaw).replace(/undefined$/, '').trim();
-      productsResponse = JSON.parse(cleanedResponse);
-      console.log('productsResponse', JSON.stringify(productsResponse, null, 2));
-    } catch (error) {
-      console.warn('⚠️ Failed to parse Gemini products response as JSON, using fallback');
-      console.warn('Raw response that failed to parse:', productsRaw);
-      productsResponse = { productsFound: false, products: [] };
+    if (step1Products.length > 0) {
+      return step1Products;
     }
     
-    // Check if products were found
-    if (!productsResponse.productsFound) {
-      console.log('🔄 No products found in the best sellers page, retrying with proxy on the all products page...');
-      
-      // Second attempt: Get markdown content with proxy
-      markdownContent = await retryWithBackoff(
-        () => browserless.toMarkdown(allProductsUrl, { proxy: { useProxy: true } }),
-        6, // 6 retries
-        1000, // 1 second base delay
-        `Best sellers scraping with proxy (${allProductsUrl})`
+    // Step 2: Try all products page without proxy
+    if (allProductsUrl) {
+      const step2Products = await productExtraction(
+        allProductsUrl, 
+        false, 
+        'Step 2: All products page without proxy'
       );
-      
-      if (!markdownContent || markdownContent.length === 0) {
-        console.warn('⚠️ No markdown content retrieved from best sellers page on second attempt');
-        return [];
-      }
-
-      // Use Gemini again to extract product data from the new markdown
-      productsRaw = await retryWithBackoff(
-        () => askGemini(
-          geminiPrompts.productListPrompt(markdownContent),
-          geminiSchemas.productListSchema
-        ),
-        6, // 6 retries for Gemini
-        1000, // 1 second base delay
-        'Product extraction with Gemini (second attempt with proxy)'
-      );
-      
-      // Parse the JSON response from second attempt
-      try {
-        // Clean the response by removing any trailing 'undefined' or other unwanted text
-        const cleanedResponse = String(productsRaw).replace(/undefined$/, '').trim();
-        productsResponse = JSON.parse(cleanedResponse);
-      } catch (error) {
-        console.warn('⚠️ Failed to parse Gemini products response as JSON on second attempt, using fallback');
-        console.warn('Raw response that failed to parse:', productsRaw);
-        productsResponse = { productsFound: false, products: [] };
+      if (step2Products.length > 0) {
+        return step2Products;
       }
     }
     
-    const products = productsResponse.products || [];
-    console.log(`✅ GEMINI: Extracted ${products.length} products from best sellers page (productsFound: ${productsResponse.productsFound})`);
-    return products;
+    // Step 3: Try all products page with proxy
+    if (allProductsUrl) {
+      const step3Products = await productExtraction(
+        allProductsUrl, 
+        true, 
+        'Step 3: All products page with proxy'
+      );
+      if (step3Products.length > 0) {
+        return step3Products;
+      }
+    }
+    
+    console.log('❌ All three steps failed to extract products');
+    return [];
     
   } catch (error) {
     console.error('❌ Error getting best sellers:', error.message);
@@ -520,5 +526,5 @@ export default analyzeBrand;
 //const geminiLinks = await getBrandLinks(['https://www.neonicons.com', true, options = {}]);
 //console.log(JSON.stringify(geminiLinks, null, 2));
 
-const testBestSellers = await getBestSellers('https://eu.diablocosmetics.com/pages/reviews', 'https://eu.diablocosmetics.com/collections/shop-all');
+const testBestSellers = await getBestSellers('https://eu.diablocosmetics.com/collections/best-sellers', 'https://eu.diablocosmetics.com/collections/shop-all');
 console.log(JSON.stringify(testBestSellers, null, 2));

@@ -3,11 +3,15 @@ import { Type } from '@google/genai';
 // Schema for best sellers URL
 export const fetchURLsSchema = {
   type: Type.OBJECT,
-  required: ["bestSellersUrl", "contactUrl", "faqUrl"],
+  required: ["bestSellersUrl", "allProductsUrl", "contactUrl", "faqUrl"],
   properties: {
     bestSellersUrl: {
       type: Type.STRING,
       description: "The URL to the best sellers collection"
+    },
+    allProductsUrl: {
+      type: Type.STRING,
+      description: "The URL to the all products page"
     },
     contactUrl: {
       type: Type.STRING,

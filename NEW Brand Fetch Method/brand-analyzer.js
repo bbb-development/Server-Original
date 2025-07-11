@@ -94,7 +94,7 @@ async function getBrandLinks(domain, shouldGetBestSellers, mapOptions = {}) {
   console.log('geminiURLs', JSON.stringify(geminiURLs, null, 2));
   
   // Get best sellers products if URL is available
-  const bestSellers = shouldGetBestSellers ? await getBestSellers(geminiURLs.bestSellersUrl) : [];
+  const bestSellers = shouldGetBestSellers ? await getBestSellers(geminiURLs.bestSellersUrl, geminiURLs.allProductsUrl) : [];
   console.log('bestSellers', JSON.stringify(bestSellers, null, 2));
   
   return {
@@ -292,7 +292,7 @@ async function generateBrandBenefits(brandData, albumId, albumName) {
  * @param {string} bestSellersUrl - The URL of the best sellers page
  * @returns {Promise<Array>} Array of best selling products
  */
-async function getBestSellers(bestSellersUrl) {
+async function getBestSellers(bestSellersUrl, allProductsUrl) {
   if (!bestSellersUrl) {
     console.log('⚠️ No best sellers URL found, skipping product extraction');
     return [];
@@ -347,6 +347,7 @@ async function getBestSellers(bestSellersUrl) {
       // Clean the response by removing any trailing 'undefined' or other unwanted text
       const cleanedResponse = String(productsRaw).replace(/undefined$/, '').trim();
       productsResponse = JSON.parse(cleanedResponse);
+      console.log('productsResponse', JSON.stringify(productsResponse, null, 2));
     } catch (error) {
       console.warn('⚠️ Failed to parse Gemini products response as JSON, using fallback');
       console.warn('Raw response that failed to parse:', productsRaw);
@@ -355,14 +356,14 @@ async function getBestSellers(bestSellersUrl) {
     
     // Check if products were found
     if (!productsResponse.productsFound) {
-      console.log('🔄 No products found in first attempt, retrying with proxy...');
+      console.log('🔄 No products found in the best sellers page, retrying with proxy on the all products page...');
       
       // Second attempt: Get markdown content with proxy
       markdownContent = await retryWithBackoff(
-        () => browserless.toMarkdown(bestSellersUrl, { proxy: { useProxy: true } }),
+        () => browserless.toMarkdown(allProductsUrl, { proxy: { useProxy: true } }),
         6, // 6 retries
         1000, // 1 second base delay
-        `Best sellers scraping with proxy (${bestSellersUrl})`
+        `Best sellers scraping with proxy (${allProductsUrl})`
       );
       
       if (!markdownContent || markdownContent.length === 0) {
@@ -519,5 +520,5 @@ export default analyzeBrand;
 //const geminiLinks = await getBrandLinks(['https://www.neonicons.com', true, options = {}]);
 //console.log(JSON.stringify(geminiLinks, null, 2));
 
-//const testBestSellers = await getBestSellers('https://crystalenergy.shop/collections/best-sellers');
-//console.log(JSON.stringify(testBestSellers, null, 2));
+const testBestSellers = await getBestSellers('https://eu.diablocosmetics.com/pages/reviews', 'https://eu.diablocosmetics.com/collections/shop-all');
+console.log(JSON.stringify(testBestSellers, null, 2));

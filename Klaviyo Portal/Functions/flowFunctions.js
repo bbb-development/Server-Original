@@ -386,7 +386,7 @@ export async function getBaseFlowsIDs(flowNames) {
     console.log(`🔍 Searching for flow IDs for: ${flowNamesArray.join(', ')}`);
     
     // Get all flows data
-    const flowsData = await getFlows();
+    const flowsData = await getAllFlows();
     const flows = flowsData.flows || [];
     
     console.log(`📋 Found ${flows.length} total flows to search through`);
@@ -608,7 +608,7 @@ export async function deleteFlow(flowIds) {
 export async function deleteAllExceptSomeFlows(excludeIds) {
 
   // Get all flows
-  const flowsData = await flowFunctions.getAllFlows();
+  const flowsData = await getAllFlows();
   const flows = flowsData.flows || [];
 
   // Filter out the flows to keep
@@ -624,6 +624,75 @@ export async function deleteAllExceptSomeFlows(excludeIds) {
   // Delete the flows
   const results = await deleteFlow(toDelete);
   return results;
+}
+
+// DELETE FLOWS BY NAME PATTERN
+export async function deleteFlowsByName(namePattern) {
+  try {
+    console.log(`🔍 Searching for flows containing name pattern: "${namePattern}"`);
+    
+    // Get all flows
+    const flowsData = await getAllFlows();
+    const flows = flowsData.flows || [];
+    
+    console.log(`📋 Found ${flows.length} total flows to search through`);
+    
+    // Filter flows that contain the name pattern
+    const matchingFlows = flows.filter(flow => 
+      flow.name && flow.name.toLowerCase().includes(namePattern.toLowerCase())
+    );
+    
+    if (matchingFlows.length === 0) {
+      console.log(`❌ No flows found containing "${namePattern}"`);
+      return {
+        success: true,
+        deletedCount: 0,
+        matchingFlows: [],
+        message: `No flows found containing "${namePattern}"`
+      };
+    }
+    
+    console.log(`🎯 Found ${matchingFlows.length} flow(s) matching pattern "${namePattern}":`);
+    matchingFlows.forEach(flow => {
+      console.log(`   - "${flow.name}" (ID: ${flow.id})`);
+    });
+    
+    // Extract flow IDs
+    const flowIds = matchingFlows.map(flow => flow.id);
+    
+    // Delete the matching flows
+    const deleteResults = await deleteFlow(flowIds);
+    
+    // Count successful deletions
+    const successCount = Array.isArray(deleteResults) 
+      ? deleteResults.filter(result => result.success).length
+      : (deleteResults ? 1 : 0);
+    
+    const failedCount = matchingFlows.length - successCount;
+    
+    console.log(`✅ Successfully deleted ${successCount}/${matchingFlows.length} flow(s)`);
+    
+    if (failedCount > 0) {
+      console.error(`❌ Failed to delete ${failedCount} flow(s)`);
+    }
+    
+    return {
+      success: true,
+      deletedCount: successCount,
+      totalMatching: matchingFlows.length,
+      matchingFlows: matchingFlows.map(flow => ({ id: flow.id, name: flow.name })),
+      deleteResults: Array.isArray(deleteResults) ? deleteResults : [deleteResults],
+      message: `Deleted ${successCount}/${matchingFlows.length} flows containing "${namePattern}"`
+    };
+    
+  } catch (error) {
+    console.error(`❌ Error deleting flows by name pattern "${namePattern}":`, error.message);
+    if (error.response) {
+      console.error(`   Status: ${error.response.status}`);
+      console.error(`   Data:`, error.response.data);
+    }
+    throw error;
+  }
 }
 
 // CLONE FLOW

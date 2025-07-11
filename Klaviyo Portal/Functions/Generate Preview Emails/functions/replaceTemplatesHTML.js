@@ -57,7 +57,7 @@ export function replaceHTML(brand, html, email) {
         {
             // Replace brand name
             find: ['BBB Marketing'],
-            replace: brand.brandSummary?.name || null,
+            replace: brand.geminiBrandBrief?.brandName || null,
             description: 'Brand Name',
             type: 'text'
         }
@@ -257,9 +257,9 @@ export function replaceHTML(brand, html, email) {
             type: 'image'
         },
         {
-            // Replace Main Product Name
+            // Replace Main Product Name (truncated to ~50 characters for 2-line display)
             find: ['main_product_name'],
-            replace: shuffledBestSellers[0]?.productName || null,
+            replace: truncateProductName(shuffledBestSellers[0]?.productName) || null,
             description: 'Main Product Name',
             type: 'text'
         },
@@ -295,9 +295,9 @@ export function replaceHTML(brand, html, email) {
             type: 'text'
         },
         {
-            // Replace Abandoned Cart Product Image
+            // Replace Abandoned Cart Product Name (truncated for better display)
             find: ['White Chair 1', 'White Chair 7'],
-            replace: shuffledBestSellers[6]?.productName || null,
+            replace: truncateProductName(shuffledBestSellers[6]?.productName) || null,
             description: 'Abandoned Cart Product Name',
             type: 'text'
         },
@@ -396,44 +396,44 @@ export function replaceHTML(brand, html, email) {
             type: 'image'
         },
         {
-            // Replace Product 1 Name
+            // Replace Product 1 Name (truncated for better display)
             find: ['White Chair 1'],
-            replace: shuffledBestSellers[0].productName || null,
+            replace: truncateProductName(shuffledBestSellers[0].productName) || null,
             description: 'Best Seller 1',
             type: 'text'
         },
         {
-            // Replace Product 2 Name
+            // Replace Product 2 Name (truncated for better display)
             find: ['White Chair 2'],
-            replace: shuffledBestSellers[1].productName || null,
+            replace: truncateProductName(shuffledBestSellers[1].productName) || null,
             description: 'Best Seller 2',
             type: 'text'
         },
         {
-            // Replace Product 3 Name
+            // Replace Product 3 Name (truncated for better display)
             find: ['White Chair 3'],
-            replace: shuffledBestSellers[2].productName || null,
+            replace: truncateProductName(shuffledBestSellers[2].productName) || null,
             description: 'Best Seller 3',
             type: 'text'
         },
         {
-            // Replace Product 4 Name
+            // Replace Product 4 Name (truncated for better display)
             find: ['White Chair 4'],
-            replace: shuffledBestSellers[3].productName || null,
+            replace: truncateProductName(shuffledBestSellers[3].productName) || null,
             description: 'Best Seller 4',
             type: 'text'
         },
         {
-            // Replace Product 5 Name
+            // Replace Product 5 Name (truncated for better display)
             find: ['White Chair 5'],
-            replace: shuffledBestSellers[4].productName || null,
+            replace: truncateProductName(shuffledBestSellers[4].productName) || null,
             description: 'Best Seller 5',
             type: 'text'
         },
         {
-        // Replace Product 6 Name
+        // Replace Product 6 Name (truncated for better display)
             find: ['White Chair 6'],
-            replace: shuffledBestSellers[5].productName || null,
+            replace: truncateProductName(shuffledBestSellers[5].productName) || null,
             description: 'Best Seller 6',
             type: 'text'
         },
@@ -546,65 +546,65 @@ export function replaceHTML(brand, html, email) {
             type: 'image'
         },
         {
-            // Replace Product 1 Name
+            // Replace Product 1 Name (truncated for better display)
             find: ['White Chair 1'],
-            replace: shuffledBestSellers[0].productName || null,
+            replace: truncateProductName(shuffledBestSellers[0].productName) || null,
             description: 'Best Seller 1',
             type: 'text'
         },
         {
-            // Replace Product 2 Name
+            // Replace Product 2 Name (truncated for better display)
             find: ['White Chair 2'],
-            replace: shuffledBestSellers[1].productName || null,
+            replace: truncateProductName(shuffledBestSellers[1].productName) || null,
             description: 'Best Seller 2',
             type: 'text'
         },
         {
-            // Replace Product 3 Name
+            // Replace Product 3 Name (truncated for better display)
             find: ['White Chair 3'],
-            replace: shuffledBestSellers[2].productName || null,
+            replace: truncateProductName(shuffledBestSellers[2].productName) || null,
             description: 'Best Seller 3',
             type: 'text'
         },
         {
-            // Replace Product 4 Name
+            // Replace Product 4 Name (truncated for better display)
             find: ['White Chair 4'],
-            replace: shuffledBestSellers[3].productName || null,
+            replace: truncateProductName(shuffledBestSellers[3].productName) || null,
             description: 'Best Seller 4',
             type: 'text'
         },
         {
-            // Replace Product 5 Name
+            // Replace Product 5 Name (truncated for better display)
             find: ['White Chair 5'],
-            replace: shuffledBestSellers[4].productName || null,
+            replace: truncateProductName(shuffledBestSellers[4].productName) || null,
             description: 'Best Seller 5',
             type: 'text'
         },
         {
-            // Replace Product 6 Name
+            // Replace Product 6 Name (truncated for better display)
             find: ['White Chair 6'],
-            replace: shuffledBestSellers[5].productName || null,
+            replace: truncateProductName(shuffledBestSellers[5].productName) || null,
             description: 'Best Seller 6',
             type: 'text'
         },
         {
-            // Replace Product 7 Name
+            // Replace Product 7 Name (truncated for better display)
             find: ['White Chair 7'],
-            replace: shuffledBestSellers[6].productName || null,
+            replace: truncateProductName(shuffledBestSellers[6].productName) || null,
             description: 'Best Seller 7',
             type: 'text'
         },
         {   
-            // Replace Product 8 Name
+            // Replace Product 8 Name (truncated for better display)
             find: ['White Chair 8'],
-            replace: shuffledBestSellers[7].productName || null,
+            replace: truncateProductName(shuffledBestSellers[7].productName) || null,
             description: 'Best Seller 8',
             type: 'text'
         },
         {   
-            // Replace Product 9 Name
+            // Replace Product 9 Name (truncated for better display)
             find: ['White Chair 9'],
-            replace: shuffledBestSellers[8].productName || null,
+            replace: truncateProductName(shuffledBestSellers[8].productName) || null,
             description: 'Best Seller 9',
             type: 'text'
         },
@@ -796,4 +796,22 @@ export function shuffleProducts(products, minCount = 9) {
   }
 
   return workingProducts;
+}
+
+// Helper function to truncate product names for better display in email templates
+function truncateProductName(productName, maxLength = 50) {
+  if (!productName) return null;
+  
+  // If the name is already short enough, return as is
+  if (productName.length <= maxLength) return productName;
+  
+  // Find the last space before the max length to avoid cutting words
+  const truncated = productName.substring(0, maxLength);
+  const lastSpaceIndex = truncated.lastIndexOf(' ');
+  
+  if (lastSpaceIndex > maxLength * 0.7) { // If we have a space in the last 30% of the string
+    return truncated.substring(0, lastSpaceIndex) + '...';
+  } else {
+    return truncated + '...';
+  }
 }

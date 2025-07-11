@@ -8,7 +8,7 @@ import * as flowFunctions from './Functions/flowFunctions.js';
 /////////////////////////
 
 // Get profile
-smallFunctions.getProfile();
+//smallFunctions.getProfile();
 
 // Change client
 //await smallFunctions.changeClient('BBB Marketing');
@@ -85,6 +85,12 @@ smallFunctions.getProfile();
 //  "Browse Abandonment"
 //]);
 
+//console.log(JSON.stringify(result, null, 2));
+
+
+// Delete flows by name pattern
+//await smallFunctions.changeClient('BBB Marketing');
+//const result = await flowFunctions.deleteFlowsByName("FFA");
 //console.log(JSON.stringify(result, null, 2));
 
 /////////////////////////

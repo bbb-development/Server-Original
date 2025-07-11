@@ -1,7 +1,7 @@
 function brandBriefPrompt(brandData) {
     return `Analyze the website content below and extract key brand information.
 Return ONLY a JSON object with the following fields:
-brandName: The name of the brand
+brandName: The name of the brand in Title Case. Example: "Crystal Energy", not "crystal energy" or "CRYSTAL ENERGY"
 brandDescription: A concise description of what the brand does and its unique value proposition
 brandAudience: The primary target audience for the brand
 brandTone: The tone of voice used in the content (e.g., professional, friendly, authoritative)
@@ -84,12 +84,14 @@ function fetchURLsPrompt(links) {
         Return ONLY a valid JSON object in exactly this format:
         {
             "bestSellersUrl": "FULL URL or null",
+            "allProductsUrl": "FULL URL or null",
             "contactUrl": "FULL URL or null",
-            "faqUrl": "FULL URL or null"
+            "faqUrl": "FULL URL or null",
         }
 
         Look for keywords like:
         - Best sellers: "best", "popular", "top", "featured", "bestseller", "trending"
+        - All products: "all", "products", "shop", "store", "catalog", "collection"
         - Contact: "contact", "about", "support", "help", "customer-service"
         - FAQ: "faq", "help", "support", "questions", "customer-support"
 
@@ -115,12 +117,23 @@ function productListPrompt(bestSellerPageHtml) {
             "products": [array of products] // only include this if productsFound is true
         }
 
-        If you find products, set productsFound to true and include up to 9 products in the products array.
-        If no clear products are found, set productsFound to false and omit the products array.
-        
-        NOTE: Don't make up any products. In order for the productsFound to be true, you must find 9 products with different names and urls.
-        if they have the same name or url, they are most likely not real products.
-        NOTE 2: Remove everything after the first ? in the image url. We don't need the parameters.
+        CRITICAL RULES:
+        1. You MUST find EXACTLY 9 DIFFERENT products with UNIQUE names and URLs
+        2. If you find fewer than 9 unique products, set productsFound to false
+        3. If you find duplicate products (same name or same URL), set productsFound to false
+        4. NEVER duplicate the same product multiple times to reach 9 products
+        5. If the page only has 1 product, return productsFound: false
+        6. If the page has 2-8 products, return productsFound: false
+        7. Only return productsFound: true if you find exactly 9 unique products
+
+        VALIDATION CHECK:
+        Before returning productsFound: true, verify that:
+        - You have exactly 9 products
+        - All product names are different
+        - All product URLs are different
+        - No product appears more than once
+
+        NOTE: Remove everything after the first ? in the image url. We don't need the parameters.
 
         Content to analyze:
         ${bestSellerPageHtml}

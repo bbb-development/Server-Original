@@ -125,7 +125,7 @@ export async function generatePreviewEmails(brand, templateHtmlMap) {
           },
           templates: enhancedTemplatesMap
         };
-          const outputPath = join(__dirname, `../Generated Brand Preview Templates/${brand.brandSummary.name}/emails.json`);
+          const outputPath = join(__dirname, `../Generated Brand Preview Templates/${brand.geminiBrandBrief.brandName}/emails.json`);
           const outputDir = dirname(outputPath);
           
           // Create directory if it doesn't exist

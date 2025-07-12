@@ -526,5 +526,5 @@ export default analyzeBrand;
 //const geminiLinks = await getBrandLinks(['https://www.neonicons.com', true, options = {}]);
 //console.log(JSON.stringify(geminiLinks, null, 2));
 
-const testBestSellers = await getBestSellers('https://eu.diablocosmetics.com/collections/best-sellers', 'https://eu.diablocosmetics.com/collections/shop-all');
-console.log(JSON.stringify(testBestSellers, null, 2));
+//const testBestSellers = await getBestSellers('https://eu.diablocosmetics.com/collections/best-sellers', 'https://eu.diablocosmetics.com/collections/shop-all');
+//console.log(JSON.stringify(testBestSellers, null, 2));

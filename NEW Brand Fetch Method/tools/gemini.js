@@ -41,4 +41,16 @@ export async function askGemini(prompt, schema) {
   return text;
 }
 
+export function showApiKey() {
+  const apiKey = geminiConfig.gemini.apiKey;
+  if (apiKey) {
+    console.log(`API Key: ${apiKey}`);
+    return apiKey;
+  } else {
+    console.log('API Key not found!');
+    return null;
+  }
+}
+
 //askGemini();
+//showApiKey();

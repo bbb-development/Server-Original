@@ -19,16 +19,16 @@
   "cookies": [
     {
       "key": "kl_csrftoken",
-      "value": "pwacB5a7MbLQtBdGuod8ov75pPKrK7fD",
+      "value": "WL0PqHd1Jz6ukT3vIyEOyVrvIF31jz7Y",
       "domain": "klaviyo.com",
       "path": "/",
-      "expires": "2026-07-10T11:15:47.000Z",
+      "expires": "2026-07-11T10:14:48.000Z",
       "httpOnly": false,
       "secure": true,
       "sameSite": "none",
       "hostOnly": false,
       "creation": "2025-06-09T13:42:08.110Z",
-      "lastAccessed": "2025-07-11T11:15:49.327Z"
+      "lastAccessed": "2025-07-12T10:14:49.841Z"
     },
     {
       "key": "kl_test_cookie",
@@ -41,7 +41,7 @@
       "sameSite": "none",
       "hostOnly": false,
       "creation": "2025-06-09T13:42:08.117Z",
-      "lastAccessed": "2025-07-11T11:15:49.327Z"
+      "lastAccessed": "2025-07-12T10:14:49.841Z"
     },
     {
       "key": "klaviyo_user_device_trusted_cookie",
@@ -53,22 +53,22 @@
       "secure": true,
       "hostOnly": true,
       "creation": "2025-06-09T13:43:10.686Z",
-      "lastAccessed": "2025-07-11T11:15:49.327Z"
+      "lastAccessed": "2025-07-12T10:14:49.841Z"
     },
     {
       "key": "kl_sessionid",
-      "value": "jiw4caj750og9ci9su4wbu49dmgybz2g",
+      "value": "gamm693obk5we0mff8cgjcyloghyjt1r",
       "domain": "klaviyo.com",
       "path": "/",
-      "expires": "2025-07-18T11:15:47.000Z",
+      "expires": "2025-07-19T10:14:47.000Z",
       "httpOnly": true,
       "secure": true,
       "sameSite": "none",
       "hostOnly": false,
       "creation": "2025-07-10T12:14:50.022Z",
-      "lastAccessed": "2025-07-11T11:15:49.327Z"
+      "lastAccessed": "2025-07-12T10:14:49.841Z"
     }
   ],
-  "savedAt": "2025-07-11T11:15:49.327Z",
+  "savedAt": "2025-07-12T10:14:49.841Z",
   "version": "1.0.0"
 }

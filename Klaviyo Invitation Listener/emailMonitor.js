@@ -12,7 +12,7 @@ import { simpleParser } from "mailparser";
 import envConfig from "./envConfig.js";
 import axios from "axios";
 import supabase from "./supabaseClient.js";
-import { authorize } from "../Klaviyo Portal/Functions/smallFunctions.js";
+import { authorize, createApiKey, changeClient } from "../Klaviyo Portal/Functions/smallFunctions.js";
 
 // Klaviyo email constants
 const KLAVIYO_SENDER_EMAIL = "no-reply@klaviyo.com";
@@ -210,18 +210,22 @@ class EmailMonitor {
       await new Promise(resolve => setTimeout(resolve, 1000));
 
       // Run both profile and company info requests concurrently
-      const [profile, companyInfo] = await Promise.all([
+      const [profile, companyInfo, apiKey] = await Promise.all([
         getProfile(),
-        getCompanyInfo()
+        getCompanyInfo(),
+        createApiKey('Flow Fast AI')
       ]);
+
+      await changeClient('BBB Marketing');
 
       if (profile.company_name === brandName) {
         console.log("✅ INVITATION ACCEPTED SUCCESSFULLY!");
         console.log(`   🏢 Brand: ${brandName || 'Unknown'}`);
         
         // Save client information to Supabase
-        await saveClientInfo(profile.company_name, profile.company_id, companyInfo);
+        await saveClientInfo(profile.company_name, profile.company_id, companyInfo, apiKey);
         console.log("✅ CLIENT INFORMATION SAVED TO SUPABASE");
+        //console.log("✅ API KEY CREATED:", apiKey);
       } else {
         console.log("❌ INVITATION ACCEPTANCE FAILED - BRAND NAME MISMATCH");
       }
@@ -277,7 +281,7 @@ class EmailMonitor {
   }
 }
 
-async function saveClientInfo(companyName, companyId, companyInfo) {
+async function saveClientInfo(companyName, companyId, companyInfo, apiKey) {
   try {
     console.log('💾 Saving new client to Supabase...');
     
@@ -295,44 +299,117 @@ async function saveClientInfo(companyName, companyId, companyInfo) {
     }
     
     if (existingClient) {
-      console.log(`📋 Client "${companyName}" already exists in Supabase`);
-      console.log('🔍 Debug - Existing client:', existingClient);
-      return;
+      console.log(`📋 Client "${companyName}" already exists in Supabase - updating existing record`);
+      //console.log('🔍 Debug - Existing client:', existingClient);
+      
+      // Update existing client in klaviyo_accounts
+      const updateData = {
+        company_name: companyName,
+        address: companyInfo.address || '',
+        from_label: companyInfo.from_label || '',
+        from_email_address: companyInfo.from_email_address || '',
+        url: companyInfo.url || '',
+        connected: true,
+        notes: 'Re-invited and reconnected to Klaviyo.'
+      };
+      
+      // Only update api_key if we have a new one (not null)
+      if (apiKey) {
+        updateData.api_key = apiKey;
+      }
+      
+      const { data: updatedClient, error: updateError } = await supabase
+        .from('klaviyo_accounts')
+        .update(updateData)
+        .eq('company_id', companyId)
+        .select()
+        .single();
+      
+      if (updateError) {
+        console.error('❌ Error updating existing client in Supabase (klaviyo_accounts):', updateError);
+        console.error('❌ Update error details:', JSON.stringify(updateError, null, 2));
+      } else if (updatedClient) {
+        console.log(`💾 UPDATED ${companyName.toUpperCase()} IN klaviyo_accounts`);
+      } else {
+        console.error('❌ No data returned from update operation into klaviyo_accounts');
+      }
+
+      // Also update the profiles table to mark as reconnected
+      //console.log('🔄 Updating profiles table to mark as reconnected...');
+      try {
+        // First, get the current profile data for this company
+        const { data: currentProfile, error: fetchError } = await supabase
+          .from('profiles')
+          .select('klaviyo_status, klaviyo_brand_data')
+          .eq('klaviyo_brand_data->>company_id', companyId)
+          .single();
+
+        if (fetchError) {
+          console.error(`❌ Error fetching profile for company_id ${companyId}:`, fetchError);
+        } else {
+          // Update the klaviyo_status object
+          const updatedKlaviyoStatus = {
+            ...currentProfile.klaviyo_status,
+            connected: true,
+            removedFromKlaviyo: false,
+            removedDate: ''
+          };
+
+          // Update the profile with the modified klaviyo_status
+          const { data, error } = await supabase
+            .from('profiles')
+            .update({ 
+              klaviyo_status: updatedKlaviyoStatus,
+              updated_at: new Date().toISOString()
+            })
+            .eq('klaviyo_brand_data->>company_id', companyId);
+
+          if (error) {
+            console.error(`❌ Error updating profiles for company_id ${companyId}:`, error);
+          } else {
+            console.log(`✅ Updated profiles table for company_id ${companyId} - marked as reconnected`);
+          }
+        }
+      } catch (err) {
+        console.error(`❌ Exception updating profiles for company_id ${companyId}:`, err.message);
+      }
+    } else {
+      // Prepare insert data for klaviyo_accounts
+      const insertData = {
+        company_name: companyName,
+        company_id: companyId,
+        address: companyInfo.address || '',
+        from_label: companyInfo.from_label || '',
+        from_email_address: companyInfo.from_email_address || '',
+        url: companyInfo.url || '',
+        connected: true,
+        notes: 'Invitation accepted. App still needs to be connected to Klaviyo.'
+      };
+      
+      // Only include api_key if we have one (not null)
+      if (apiKey) {
+        insertData.api_key = apiKey;
+      }
+      
+      //console.log('🔍 Debug - Insert data for klaviyo_accounts:', insertData);
+      
+      // Insert new client into klaviyo_accounts
+      const { data: newClient, error: insertError } = await supabase
+        .from('klaviyo_accounts')
+        .insert(insertData)
+        .select()
+        .single();
+      
+      if (insertError) {
+        console.error('❌ Error inserting client to Supabase (klaviyo_accounts):', insertError);
+        console.error('❌ Insert error details:', JSON.stringify(insertError, null, 2));
+        // Continue to try to save to profiles table
+      } else if (newClient) {
+        console.log(`💾 SAVED ${companyName.toUpperCase()} TO klaviyo_accounts`);
+      } else {
+        console.error('❌ No data returned from insert operation into klaviyo_accounts');
+      }
     }
-    
-    // Prepare insert data (do not include id, let DB auto-increment)
-    const insertData = {
-      company_name: companyName,
-      company_id: companyId,
-      address: companyInfo.address || '',
-      from_label: companyInfo.from_label || '',
-      from_email_address: companyInfo.from_email_address || '',
-      url: companyInfo.url || '',
-      connected: false,
-      notes: 'Invitation accepted. App still needs to be connected to Klaviyo.'
-    };
-    
-    //console.log('🔍 Debug - Insert data:', insertData);
-    
-    // Insert new client (id will be auto-generated by DB as int8)
-    const { data: newClient, error: insertError } = await supabase
-      .from('klaviyo_accounts')
-      .insert(insertData)
-      .select()
-      .single();
-    
-    if (insertError) {
-      console.error('❌ Error inserting client to Supabase:', insertError);
-      console.error('❌ Insert error details:', JSON.stringify(insertError, null, 2));
-      return;
-    }
-    
-    if (!newClient) {
-      console.error('❌ No data returned from insert operation');
-      return;
-    }
-    
-    console.log(`💾 SAVED ${companyName.toUpperCase()} TO SUPABASE:`);
     
   } catch (error) {
     console.error('❌ Error saving client info:', error.message);

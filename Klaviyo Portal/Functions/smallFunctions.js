@@ -619,3 +619,98 @@ export async function fetchKlaviyoMetrics() {
     throw error;
   }
 }
+
+export async function createApiKey(label) {
+
+  // CREATE API KEY
+  const scopes = [
+    "campaigns:read", "campaigns:write", "catalogs:read", "catalogs:write",
+    "conversations:read", "conversations:write", "coupon-codes:read", "coupon-codes:write",
+    "coupons:read", "coupons:write", "custom-objects:read", "custom-objects:write",
+    "data-privacy:read", "accounts:read", "accounts:write", "events:read", "events:write",
+    "flows:read", "flows:write", "forms:read", "forms:write", "images:read", "images:write",
+    "lists:read", "lists:write", "metrics:read", "metrics:write", "profiles:read", "profiles:write",
+    "reviews:read", "segments:read", "segments:write", "tags:read", "tags:write",
+    "subscriptions:read", "subscriptions:write", "templates:read", "templates:write",
+    "tracking-settings:read", "tracking-settings:write", "web-feeds:read", "web-feeds:write",
+    "webhooks:read", "webhooks:write"
+  ];
+
+  if (!label) {
+    const error = new Error('API key label is required.');
+    console.error(`❌ ${error.message}`);
+    throw error;
+  }
+
+  try {
+    // First, check if a key with this label already exists
+    const existingKeys = await getApiKeys();
+    
+    if (existingKeys.includes(label)) {
+      console.log(`🔑 API key with label "${label}" already exists - skipping creation`);
+      return null;
+    }
+
+    console.log(`🔑 Creating API key with label: "${label}"...`);
+
+    const payload = {
+      label: label,
+      scopes: scopes
+    };
+
+    //console.log('📋 API Key payload:', JSON.stringify(payload, null, 2));
+
+    const response = await axios.post(`${SERVER_URL}/request`, {
+      method: 'POST',
+      url: `${KLAVIYO_URL}/ajax/account/private-api-key/create`,
+      data: payload
+    });
+
+    if (response.data && response.data.success) {
+      const apiKey = response.data.data.id;
+      const apiKeyLabel = response.data.data.label;
+      console.log(`✅ API Key "${apiKeyLabel}" created successfully: ${apiKey}`);
+      return apiKey;
+    } else {
+      console.error('❌ Failed to create API key');
+      console.error('Response:', JSON.stringify(response.data, null, 2));
+      return null;
+    }
+  } catch (error) {
+    console.error(`❌ Error creating API key with label "${label}":`, error.message);
+    if (error.response) {
+      console.error(`   Status: ${error.response.status}`);
+      console.error(`   Data:`, JSON.stringify(error.response.data, null, 2));
+    }
+    throw error;
+  }
+}
+
+// GET API KEYS
+export async function getApiKeys() {
+  try {
+    //console.log('🔑 Fetching API keys from Klaviyo...');
+    
+    const response = await axios.post(`${SERVER_URL}/request`, {
+      method: 'GET',
+      url: `${KLAVIYO_URL}/ajax/account/api-keys`
+    });
+    
+    if (response.data && response.data.private_api_keys) {
+      const labels = response.data.private_api_keys.map(key => key.label);
+      //console.log(`✅ Found ${labels.length} API keys:`, labels);
+      return labels;
+    } else {
+      console.log('✅ No private API keys found');
+      return [];
+    }
+    
+  } catch (error) {
+    console.error('❌ Error fetching API keys:', error.message);
+    if (error.response) {
+      console.error(`   Status: ${error.response.status}`);
+      console.error(`   Data:`, error.response.data);
+    }
+    throw error;
+  }
+}

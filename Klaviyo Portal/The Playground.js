@@ -11,7 +11,14 @@ import * as flowFunctions from './Functions/flowFunctions.js';
 //smallFunctions.getProfile();
 
 // Change client
-//await smallFunctions.changeClient('BBB Marketing');
+await smallFunctions.changeClient('Crystal Energy');
+
+// Create API key
+//await smallFunctions.createApiKey('Test API Key');
+
+// Get API keys
+const apiKeys = await smallFunctions.getApiKeys();
+console.log(JSON.stringify(apiKeys, null, 2));
 
 // Get company ID
 //smallFunctions.getCompanyID('ALL'); // 'all' or 'company_name'

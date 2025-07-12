@@ -38,11 +38,12 @@ export async function updateCurrentCompanies() {
     console.log(`✅ Found ${allCompanies.length} companies with current access`);
     //console.log(JSON.stringify(allCompanies, null, 2));
     
-    // Step 2: Get all companies from Supabase
-    console.log('📋 Fetching all companies from Supabase...');
+    // Step 2: Get all connected companies from Supabase
+    console.log('📋 Fetching all connected companies from Supabase...');
     const { data: supabaseCompanies, error: fetchError } = await supabase
       .from('klaviyo_accounts')
-      .select('*');
+      .select('*')
+      .eq('connected', true);
     
     if (fetchError) {
       console.error('❌ Error fetching companies from Supabase:', fetchError);
@@ -61,44 +62,47 @@ export async function updateCurrentCompanies() {
     const supabaseCompanyIds = new Set(supabaseCompanies.map(company => company.company_id));
     
     // Step 4: Find companies in Supabase that are not in Klaviyo (lost access)
-    const companiesToRemove = supabaseCompanies.filter(company => 
+    const companiesToUpdate = supabaseCompanies.filter(company => 
       !klaviyoCompanyIds.has(company.company_id)
     );
     
-    if (companiesToRemove.length === 0) {
-      console.log('✅ All Supabase companies still have Klaviyo access - no cleanup needed');
+    if (companiesToUpdate.length === 0) {
+      console.log('✅ All Supabase companies still have Klaviyo access - no changes needed');
       return { 
         success: true, 
         message: 'All companies still have access',
-        removedCount: 0,
+        updatedCount: 0,
         totalCompanies: supabaseCompanies.length
       };
     }
     
-    console.log(`🗑️ Found ${companiesToRemove.length} companies to remove (lost access):`);
-    companiesToRemove.forEach(company => {
+    console.log(`🔄 Found ${companiesToUpdate.length} companies with revoked access to update:`);
+    companiesToUpdate.forEach(company => {
       console.log(`   - ${company.company_name} (ID: ${company.company_id})`);
     });
     
-    // Step 5: Remove companies that lost access
-    const companyIdsToRemove = companiesToRemove.map(company => company.company_id);
+    // Step 5: Update companies that lost access in klaviyo_accounts
+    const companyIdsToUpdate = companiesToUpdate.map(company => company.company_id);
     
-    const { error: deleteError } = await supabase
+    const { error: updateError } = await supabase
       .from('klaviyo_accounts')
-      .delete()
-      .in('company_id', companyIdsToRemove);
+      .update({
+        connected: false,
+        notes: `Removed From Company on ${new Date().toISOString()}`
+      })
+      .in('company_id', companyIdsToUpdate);
     
-    if (deleteError) {
-      console.error('❌ Error removing companies from Supabase:', deleteError);
-      return { success: false, message: 'Failed to remove companies from Supabase' };
+    if (updateError) {
+      console.error('❌ Error updating companies in Supabase:', updateError);
+      return { success: false, message: 'Failed to update companies from Supabase' };
     }
     
-    console.log(`✅ Successfully removed ${companiesToRemove.length} companies from Supabase`);
+    console.log(`✅ Successfully updated ${companiesToUpdate.length} companies in Supabase (klaviyo_accounts)`);
     
-    // Step 5.5: For each company removed, set klaviyo_connected to false in profiles table
-    if (companiesToRemove.length > 0) {
-      console.log('🔄 Updating klaviyo_connected to false in profiles table for removed companies...');
-      for (const company of companiesToRemove) {
+    // Step 5.5: For each company updated, set klaviyo_connected to false in profiles table
+    if (companiesToUpdate.length > 0) {
+      console.log('🔄 Updating klaviyo_connected to false in profiles table for updated companies...');
+      for (const company of companiesToUpdate) {
         try {
           // First, get the current profile data for this company
           const { data: currentProfile, error: fetchError } = await supabase
@@ -148,21 +152,18 @@ export async function updateCurrentCompanies() {
     }
     
     // Step 6: Log summary
-    const remainingCount = supabaseCompanies.length - companiesToRemove.length;
     console.log('📊 Sync Summary:');
     console.log(`   📋 Total companies in Supabase: ${supabaseCompanies.length}`);
-    console.log(`   🗑️ Companies removed (lost access): ${companiesToRemove.length}`);
-    console.log(`   ✅ Companies remaining: ${remainingCount}`);
+    console.log(`   🔄 Companies updated (lost access): ${companiesToUpdate.length}`);
     console.log(`   🔗 Current Klaviyo access: ${allCompanies.length}`);
     
     return {
       success: true,
       message: 'Company sync completed successfully',
-      removedCount: companiesToRemove.length,
+      updatedCount: companiesToUpdate.length,
       totalCompanies: supabaseCompanies.length,
-      remainingCount: remainingCount,
       currentAccessCount: allCompanies.length,
-      removedCompanies: companiesToRemove.map(company => ({
+      updatedCompanies: companiesToUpdate.map(company => ({
         company_name: company.company_name,
         company_id: company.company_id
       }))
@@ -188,8 +189,8 @@ async function runCheck() {
   const result = await updateCurrentCompanies();
   
   if (result.success) {
-    if (result.removedCount > 0) {
-      console.log(`🗑️ Removed ${result.removedCount} companies that lost access`);
+    if (result.updatedCount > 0) {
+      console.log(`🔄 Updated ${result.updatedCount} companies that lost access`);
     }
   } else {
     console.error('❌ Company sync failed:', result.message);

@@ -8,17 +8,18 @@ import * as flowFunctions from './Functions/flowFunctions.js';
 /////////////////////////
 
 // Get profile
-//smallFunctions.getProfile();
+//const profile = await smallFunctions.getProfile();
+//console.log(JSON.stringify(profile, null, 2));
 
 // Change client
-await smallFunctions.changeClient('Crystal Energy');
+//await smallFunctions.changeClient('BBB Marketing');
 
 // Create API key
 //await smallFunctions.createApiKey('Test API Key');
 
 // Get API keys
-const apiKeys = await smallFunctions.getApiKeys();
-console.log(JSON.stringify(apiKeys, null, 2));
+//const apiKeys = await smallFunctions.getApiKeys();
+//console.log(JSON.stringify(apiKeys, null, 2));
 
 // Get company ID
 //smallFunctions.getCompanyID('ALL'); // 'all' or 'company_name'
@@ -96,9 +97,9 @@ console.log(JSON.stringify(apiKeys, null, 2));
 
 
 // Delete flows by name pattern
-//await smallFunctions.changeClient('BBB Marketing');
-//const result = await flowFunctions.deleteFlowsByName("FFA");
-//console.log(JSON.stringify(result, null, 2));
+await smallFunctions.changeClient('Crystal Energy');
+const result = await flowFunctions.deleteFlowsByName("FlowFastAI");
+console.log(JSON.stringify(result, null, 2));
 
 /////////////////////////
 // CAMPAIGN FUNCTIONS //

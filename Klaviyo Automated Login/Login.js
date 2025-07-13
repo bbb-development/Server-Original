@@ -418,3 +418,5 @@ export async function executeKlaviyoLogin(retryCount = 0) {
     }
   }
 }
+
+executeKlaviyoLogin();
